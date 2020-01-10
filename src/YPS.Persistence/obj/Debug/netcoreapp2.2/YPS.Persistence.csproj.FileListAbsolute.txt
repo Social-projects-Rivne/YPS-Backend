@@ -1,8 +1,0 @@
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\bin\Debug\netcoreapp2.2\YPS.Persistence.deps.json
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\bin\Debug\netcoreapp2.2\YPS.Persistence.dll
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\bin\Debug\netcoreapp2.2\YPS.Persistence.pdb
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\obj\Debug\netcoreapp2.2\YPS.Persistence.csprojAssemblyReference.cache
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\obj\Debug\netcoreapp2.2\YPS.Persistence.AssemblyInfoInputs.cache
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\obj\Debug\netcoreapp2.2\YPS.Persistence.AssemblyInfo.cs
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\obj\Debug\netcoreapp2.2\YPS.Persistence.dll
-D:\Project\SoftServe\YPS-Backend\YPS\YPS.Persistence\obj\Debug\netcoreapp2.2\YPS.Persistence.pdb
