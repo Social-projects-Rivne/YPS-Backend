@@ -648,27 +648,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bohdan\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\bohda\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
+      "projectUniqueName": "C:\\Users\\bohda\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
       "projectName": "YPS.Application",
-      "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
-      "packagesPath": "C:\\Users\\Bohdan\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\obj\\",
+      "projectPath": "C:\\Users\\bohda\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
+      "packagesPath": "C:\\Users\\bohda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bohda\\source\\repos\\YPS-Backend\\src\\YPS.Application\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bohdan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\bohda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -680,8 +673,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj": {
-              "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj"
+            "C:\\Users\\bohda\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj": {
+              "projectPath": "C:\\Users\\bohda\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj"
             }
           }
         }

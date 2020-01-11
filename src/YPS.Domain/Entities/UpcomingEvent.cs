@@ -11,9 +11,9 @@ namespace YPS.Domain.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         [ForeignKey("Class")]
-        public long ClassId { get; set; }
+        public long? ClassId { get; set; }
         [ForeignKey("School")]
-        public long? SchoolId { get; set; }
+        public long SchoolId { get; set; }
         public Class Class { get; set; }
         public School School { get; set; }
     }

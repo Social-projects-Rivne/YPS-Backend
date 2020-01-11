@@ -15,5 +15,7 @@ namespace YPS.Domain.Entities
         public long ClassId { get; set; }
         public Class Class { get; set; }
         public virtual User User { get; set; }
+
+       
     }
 }

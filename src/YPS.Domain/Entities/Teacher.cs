@@ -16,10 +16,7 @@ namespace YPS.Domain.Entities
         public long Id { get; set; }
         [ForeignKey("School")]
         public long SchoolId { get; set; }
-
-
         public string  Degree { get; set; }
-        
         public School School { get; set; }
         public  User User { get; set; }
         public ICollection<Material> Materials { get; set; }

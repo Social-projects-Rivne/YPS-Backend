@@ -11,7 +11,7 @@ namespace YPS.Domain.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)  , ForeignKey("User")]
         public long Id { get; set; }
         public string WorkInfo { get; set; }
-        public  virtual User User { get; set; }
+        public virtual User User { get; set; }
 
     }
 }
