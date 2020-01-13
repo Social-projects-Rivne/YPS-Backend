@@ -11,10 +11,10 @@ namespace YPS.Domain.Entities
         [Key]
         public long Id { get; set; }
 
-        [ForeignKey("PupilOf")]
+        [ForeignKey("PupilOf"),Column(Order = 0)]
         public long PupilId { get; set; }
 
-        [ForeignKey("ParentOf")]
+        [ForeignKey("ParentOf"),Column(Order = 1)]
         public long ParentId { get; set; }
 
         public virtual Pupil PupilOf { get; set; }

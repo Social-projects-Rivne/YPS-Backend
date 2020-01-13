@@ -8,8 +8,10 @@ namespace YPS.Domain.Entities
 {
     public class Day 
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public string Name { get; set; }
+
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

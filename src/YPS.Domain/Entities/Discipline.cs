@@ -8,9 +8,12 @@ namespace YPS.Domain.Entities
 {
     public class Discipline
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
 
         public  string Name { get; set; }
+
+        public virtual ICollection<UpcomingTest> UpcomingTests { get; set; }
+        public virtual ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
     }
 }

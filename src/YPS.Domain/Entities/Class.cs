@@ -18,5 +18,8 @@ namespace YPS.Domain.Entities
 
         public virtual Teacher TeacherOf { get; set; }
         public virtual ICollection<Pupil> Pupils { get; set; }
+        public virtual ICollection<Journal> Journals { get; set; }
+        public virtual ICollection<UpcomingEvent> UpcomingEvents { get; set; }
+        public virtual ICollection<UpcomingTest> UpcomingTests { get; set; }
     }
 }

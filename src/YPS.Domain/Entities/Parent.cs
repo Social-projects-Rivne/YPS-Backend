@@ -8,14 +8,14 @@ namespace YPS.Domain.Entities
 {    
     public class Parent 
     {
-        [Key]
+        [Key, ForeignKey("User")]
         public long Id { get; set; }
         public string WorkInfo { get; set; }
 
-        [ForeignKey("UserOf")]
-        public long UserId { get; set; }
+        //[ForeignKey("UserOf")]
+        //public long UserId { get; set; }
 
-        public virtual User UserOf { get; set; }
+        public virtual User User { get; set; }
         public virtual ICollection<ParentToPupil> ParentToPupils { get; set; }
     }
 }

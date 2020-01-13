@@ -14,11 +14,13 @@ namespace YPS.Domain.Entities
 
         [ForeignKey("Discipline")]
         public long DisciplineId { get; set; }
+
         [ForeignKey("Teacher")]
         public long TeacherId { get; set; }
 
-        public Discipline Discipline { get; set; }
-        public Teacher Teacher { get; set; }
-            
+        public virtual Discipline Discipline { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        public virtual ICollection<Lesson> Lessons { get; set; }
+
     }
 }

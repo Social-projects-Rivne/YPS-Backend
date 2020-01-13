@@ -8,7 +8,7 @@ namespace YPS.Domain.Entities
 {
     public class Pupil
     {
-        [Key]
+        [Key, ForeignKey("User")]
         public long Id { get; set; }
 
         [ForeignKey("ClassOf")]
@@ -18,8 +18,9 @@ namespace YPS.Domain.Entities
         //public long UserId { get; set; }
 
         public virtual Class ClassOf { get; set; }
-        //public virtual User UserOf { get; set; }
+        public virtual User /*UserOf*/User { get; set; }
 
         public virtual ICollection<ParentToPupil> ParentToPupils { get; set; }
+        public virtual ICollection<Mark> Marks { get; set; }
     }
 }

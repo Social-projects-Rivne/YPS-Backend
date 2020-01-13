@@ -8,7 +8,7 @@ namespace YPS.Domain.Entities
 {
     public class Material 
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
@@ -16,7 +16,7 @@ namespace YPS.Domain.Entities
 
         [ForeignKey("Teacher")]
         public long TeacherId { get; set; }
-        public Teacher Teacher { get; set; }
-        
+
+        public virtual Teacher Teacher { get; set; }
     }
 }

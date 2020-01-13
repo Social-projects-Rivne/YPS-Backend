@@ -8,15 +8,20 @@ namespace YPS.Domain.Entities
 {
     public class Schedule
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
-        [ForeignKey("Lesson")]
-        public long LessonId { get; set; }
-        [ForeignKey("Day")]
-        public long DayId { get; set; }
+
         public ushort LessonNumber { get; set; }
-        public Lesson Lesson { get; set; }
-        public Day Day { get; set; }
+
+        [ForeignKey("Lesson"), Column(Order = 0)]
+        public long LessonId { get; set; }
+
+        [ForeignKey("Day"), Column(Order = 1)]
+        public long DayId { get; set; }
+
+
+        public virtual Lesson Lesson { get; set; }
+        public virtual Day Day { get; set; }
 
     }
 }

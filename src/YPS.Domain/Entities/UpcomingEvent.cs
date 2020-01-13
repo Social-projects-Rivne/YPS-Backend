@@ -8,13 +8,16 @@ namespace YPS.Domain.Entities
 {
     public class UpcomingEvent
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
+
         [ForeignKey("Class")]
         public long ClassId { get; set; }
+
         [ForeignKey("School")]
-        public long? SchoolId { get; set; }
-        public Class Class { get; set; }
-        public School School { get; set; }
+        public long SchoolId { get; set; }
+
+        public virtual Class Class { get; set; }
+        public virtual School School { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace YPS.Domain.Entities
         {
             Materials = new HashSet<Material>();
         }
-        [Key]
+        [Key, ForeignKey("User")]
         public long Id { get; set; }
         
         public string  Degree { get; set; }
@@ -20,12 +20,13 @@ namespace YPS.Domain.Entities
         [ForeignKey("SchoolOf")]
         public long SchoolId { get; set; }
         
-        [ForeignKey("UserOf")]
-        public long UserId { get; set; }
+        //[ForeignKey("UserOf")]
+        //public long UserId { get; set; }
 
-        public virtual User UserOf { get; set; }
+        public virtual User /*UserOf*/User { get; set; }
         public virtual School SchoolOf { get; set; }
         public virtual ICollection<Class> Classes { get; set; }
         public virtual ICollection<Material> Materials { get; set; }
+        public virtual ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
     }
 }

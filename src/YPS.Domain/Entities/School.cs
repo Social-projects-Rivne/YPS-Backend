@@ -15,5 +15,6 @@ namespace YPS.Domain.Entities
         public string ShortName { get; set; }
 
         public virtual ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<UpcomingEvent> UpcomingEvents { get; set; }
     }
 }
