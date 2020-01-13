@@ -9,15 +9,11 @@ namespace YPS.Domain.Entities
 {
     public class School 
     {
-        public School()
-        {
-            Teachers = new HashSet<Teacher>();
-        }
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public string Name { get; set; }
-
         public string ShortName { get; set; }
-        public ICollection<Teacher> Teachers { get; set; }
+
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

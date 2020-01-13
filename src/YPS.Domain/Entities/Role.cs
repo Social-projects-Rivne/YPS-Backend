@@ -7,12 +7,11 @@ namespace YPS.Domain.Entities
 {
     public class Role
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public string Name { get; set; }
         public  string Description { get; set; }
-        [ForeignKey("User")]
-        public long UserId { get; set; }
-        public User User { get; set; }
+        
+        public virtual ICollection<User> Users { get; set; }
     }
 }

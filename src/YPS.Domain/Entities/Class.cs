@@ -8,14 +8,15 @@ namespace YPS.Domain.Entities
 {
     public class Class 
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public long Number { get; set; }
-
         public string Character { get; set; }
-        [ForeignKey("Teacher")]
-        public long ClassTeacherId { get; set; }
-        public Teacher Teacher { get; set; }
 
+        [ForeignKey("TeacherOf")]
+        public long ClassTeacherId { get; set; }
+
+        public virtual Teacher TeacherOf { get; set; }
+        public virtual ICollection<Pupil> Pupils { get; set; }
     }
 }

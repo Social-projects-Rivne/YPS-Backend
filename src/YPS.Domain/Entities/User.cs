@@ -8,28 +8,23 @@ namespace YPS.Domain.Entities
 {
     public class User 
     {
-        public User()
-        {
-            Roles = new HashSet<Role>();
-        }
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
         public string FirstName { get; set; }
-        
         public string Surname { get; set; }
         public string MiddleName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-
         public string ImageUrl { get; set; }
-       
-        public Role Role { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public Pupil Pupil { get; set; }
-        public Teacher Teacher { get; set; }
-        public Parent Parent { get; set; }
-        public  ICollection<Role> Roles { get; set; }
 
+        [ForeignKey("RoleOf")]
+        public long RoleId { get; set; }
+
+        public virtual Role RoleOf { get; set; }
+        public virtual ICollection<Pupil> Pupil { get; set; }
+        public virtual ICollection<Teacher> Teacher { get; set; }
+        public virtual ICollection<Parent> Parent { get; set; }
     }
 }

@@ -14,10 +14,6 @@ namespace YPS.Persistence
         {
             
         }
-
-
-
-
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Class> Class { get; set; }
         public virtual DbSet<Day> Days { get; set; }
@@ -38,24 +34,7 @@ namespace YPS.Persistence
         public virtual DbSet<TeacherToDiscipline> TeacherToDisciplines { get; set; }
         public virtual DbSet<UpcomingTest> UpcomingTests { get; set; }
         public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Role>()
-                .HasOne(x => x.User).WithMany(x => x.Roles);
-            modelBuilder.Entity<Material>()
-                .HasOne(x => x.Teacher).WithMany(x => x.Materials);
-            modelBuilder.Entity<User>()
-                .HasOne(x => x.Teacher).WithOne(x => x.User);
-            modelBuilder.Entity<User>()
-                .HasOne(x => x.Pupil).WithOne(x => x.User);
-            modelBuilder.Entity<User>()
-                .HasOne(x => x.Parent).WithOne(x => x.User);
-
-        }
-
-
+        public virtual DbSet<Role> Roles { get; set; }
     }
+
 }

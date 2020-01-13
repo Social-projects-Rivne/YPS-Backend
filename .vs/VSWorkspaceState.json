@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\YPS.Application",
+    "\\src\\YPS.Domain",
+    "\\src\\YPS.Infrastracture",
+    "\\src\\YPS.Persistence",
+    "\\src\\YPS.WebUI"
   ],
+  "SelectedNode": "\\src\\YPS.WebUI",
   "PreviewInSolutionExplorer": false
 }

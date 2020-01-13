@@ -28,5 +28,6 @@ namespace YPS.Application.Interfaces
         DbSet<TeacherToDiscipline> TeacherToDisciplines { get; set; }
         DbSet<UpcomingTest> UpcomingTests { get; set; }
         DbSet<UpcomingEvent> UpcomingEvents { get; set; }
+        DbSet<Role> Roles { get; set; }
     }
 }

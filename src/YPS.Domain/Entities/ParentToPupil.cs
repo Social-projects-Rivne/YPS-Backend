@@ -8,15 +8,16 @@ namespace YPS.Domain.Entities
 {
     public class ParentToPupil
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long Id { get; set; }
-        [ForeignKey("Pupil")]
+
+        [ForeignKey("PupilOf")]
         public long PupilId { get; set; }
-        [ForeignKey("Parent")]
+
+        [ForeignKey("ParentOf")]
         public long ParentId { get; set; }
 
-        public Pupil Pupil { get; set; }
-        public Parent Parent { get; set; }
-
+        public virtual Pupil PupilOf { get; set; }
+        public virtual Parent ParentOf { get; set; }
     }
 }
