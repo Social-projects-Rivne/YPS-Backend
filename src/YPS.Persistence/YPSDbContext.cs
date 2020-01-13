@@ -35,6 +35,14 @@ namespace YPS.Persistence
         public virtual DbSet<UpcomingTest> UpcomingTests { get; set; }
         public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UpcomingEvent>()
+                .HasKey(c => new { c.ClassId, c.SchoolId});
+            modelBuilder.Entity<ParentToPupil>()
+                .HasKey(c => new { c.ParentId, c.PupilId});
+        }
     }
 
 }

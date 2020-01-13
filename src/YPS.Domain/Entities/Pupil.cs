@@ -14,9 +14,6 @@ namespace YPS.Domain.Entities
         [ForeignKey("ClassOf")]
         public long ClassId { get; set; }
 
-        //[ForeignKey("UserOf")]
-        //public long UserId { get; set; }
-
         public virtual Class ClassOf { get; set; }
         public virtual User /*UserOf*/User { get; set; }
 

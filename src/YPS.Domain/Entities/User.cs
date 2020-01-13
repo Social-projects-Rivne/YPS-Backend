@@ -23,7 +23,7 @@ namespace YPS.Domain.Entities
         public long RoleId { get; set; }
 
         public virtual Role RoleOf { get; set; }
-        //public virtual ICollection<Pupil> Pupil { get; set; }
+        public virtual ICollection<Pupil> Pupil { get; set; }
         //public virtual ICollection<Teacher> Teacher { get; set; }
         //public virtual ICollection<Parent> Parent { get; set; }
     }
