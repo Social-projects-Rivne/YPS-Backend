@@ -4,23 +4,26 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
 using System.Text;
+using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class TeacherToDiscipline
+    public class TeacherToDiscipline : EntityBase
     {
-        [Key]
-        public long Id { get; set; }
+        public TeacherToDiscipline()
+        {
+            Lessons = new HashSet<Lesson>();
+        }
 
-        [ForeignKey("Discipline")]
+        
         public long DisciplineId { get; set; }
 
-        [ForeignKey("Teacher")]
+        
         public long TeacherId { get; set; }
 
         public virtual Discipline Discipline { get; set; }
         public virtual Teacher Teacher { get; set; }
-        public virtual ICollection<Lesson> Lessons { get; set; }
+        public  ICollection<Lesson> Lessons { get; set; }
 
     }
 }

@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj": {}
+    "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj": {
+    "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
+        "projectUniqueName": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
         "projectName": "YPS.Application",
-        "projectPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
-        "packagesPath": "C:\\Users\\Виталий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Application\\obj\\",
+        "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj",
+        "packagesPath": "C:\\Users\\Bohdan\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Виталий\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bohdan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -27,8 +32,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj": {
-                "projectPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj"
+              "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj": {
+                "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj"
               }
             }
           }
@@ -66,18 +71,23 @@
         }
       }
     },
-    "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj": {
+    "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj",
+        "projectUniqueName": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj",
         "projectName": "YPS.Domain",
-        "projectPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj",
-        "packagesPath": "C:\\Users\\Виталий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Domain\\obj\\",
+        "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\YPS.Domain.csproj",
+        "packagesPath": "C:\\Users\\Bohdan\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Виталий\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bohdan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -118,18 +128,23 @@
         }
       }
     },
-    "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj": {
+    "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj",
+        "projectUniqueName": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj",
         "projectName": "YPS.Persistence",
-        "projectPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj",
-        "packagesPath": "C:\\Users\\Виталий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Persistence\\obj\\",
+        "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Persistence\\YPS.Persistence.csproj",
+        "packagesPath": "C:\\Users\\Bohdan\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Persistence\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Виталий\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Bohdan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -141,8 +156,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj": {
-                "projectPath": "C:\\Users\\Виталий\\source\\repos\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj"
+              "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj": {
+                "projectPath": "D:\\Project\\SoftServe\\YPS-Backend\\src\\YPS.Application\\YPS.Application.csproj"
               }
             }
           }

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class UpcomingEvent
+    public class UpcomingEvent : EntityBase
     {        
-        [Key, Column(Order =0), ForeignKey("Class")]
-        public long ClassId { get; set; }
+        
+        public long? ClassId { get; set; }
 
-        [Key, Column(Order = 1), ForeignKey("School")]
+        
         public long SchoolId { get; set; }
 
         public virtual Class Class { get; set; }

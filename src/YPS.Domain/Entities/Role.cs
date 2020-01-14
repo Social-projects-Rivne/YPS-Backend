@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using YPS.Domain.Entities.Base;
+
 namespace YPS.Domain.Entities
 {
-    public class Role
+    public class Role : EntityBase
     {
-        [Key]
-        public long Id { get; set; }
+        public Role()
+        {
+            Users = new HashSet<User>();
+        }
+        
         public string Name { get; set; }
         public  string Description { get; set; }
         
-        public virtual ICollection<User> Users { get; set; }
+        public  ICollection<User> Users { get; set; }
     }
 }

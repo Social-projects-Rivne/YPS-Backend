@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class ParentToPupil
+    public class ParentToPupil : EntityBase
     {
-        [Key, Column(Order = 0), ForeignKey("PupilOf")]
+       
         public long PupilId { get; set; }
 
-        [Key, Column(Order = 1), ForeignKey("ParentOf")]
+        
         public long ParentId { get; set; }
 
         public virtual Pupil PupilOf { get; set; }

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class Schedule
+    public class Schedule : EntityBase
     {
-        [Key]
-        public long Id { get; set; }
+      
 
         public ushort LessonNumber { get; set; }
 
-        [ForeignKey("Lesson"), Column(Order = 0)]
+        
         public long LessonId { get; set; }
 
-        [ForeignKey("Day"), Column(Order = 1)]
+       
         public long DayId { get; set; }
 
 

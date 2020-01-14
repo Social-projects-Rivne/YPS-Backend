@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class JournalColumn 
+    public class JournalColumn  :EntityBase
     {
-        [Key]
-        public long Id { get; set; }
+        public JournalColumn()
+        {
+            Marks = new HashSet<Mark>();
+        }
         public  DateTime LessonDate { get; set; }
         public string Theme { get; set; }
         
-        [ForeignKey("Homework")]
+      
         public long HomeworkId { get; set; }
         
-        [ForeignKey("Lesson")]
+        
         public  long LessonId { get; set; }
 
-        [ForeignKey("Journal")]
+       
         public long JournalId { get; set; }
 
         public virtual Homework Homework { get; set; }
         public virtual Lesson Lesson { get; set; }
         public virtual Journal Journal { get; set; }
-        public virtual ICollection<Mark> Marks { get; set; }
+        public  ICollection<Mark> Marks { get; set; }
     }
 }
