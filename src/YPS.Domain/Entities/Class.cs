@@ -8,12 +8,12 @@ namespace YPS.Domain.Entities
 {
     public class Class 
     {
-        [Key]
+        [Key,Column(Order = 0)]
         public long Id { get; set; }
         public long Number { get; set; }
         public string Character { get; set; }
 
-        [ForeignKey("TeacherOf")]
+        [Key, Column(Order = 1), ForeignKey("TeacherOf")]
         public long ClassTeacherId { get; set; }
 
         public virtual Teacher TeacherOf { get; set; }

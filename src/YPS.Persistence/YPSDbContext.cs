@@ -41,7 +41,16 @@ namespace YPS.Persistence
             modelBuilder.Entity<UpcomingEvent>()
                 .HasKey(c => new { c.ClassId, c.SchoolId});
             modelBuilder.Entity<ParentToPupil>()
-                .HasKey(c => new { c.ParentId, c.PupilId});
+                .HasKey(c => new {c.ParentId, c.PupilId});
+            modelBuilder.Entity<Pupil>()
+                .HasKey(c => new { c.ClassId, c.UserId});
+            modelBuilder.Entity<Class>()
+                .HasKey(c => new { c.Id, c.ClassTeacherId});
+            modelBuilder.Entity<Journal>()
+                .HasKey(c => new { c.Id, c.ClassId});
+            modelBuilder.Entity<Teacher>()
+                .HasKey(c => new { c.Id, c.SchoolId });
+
         }
     }
 

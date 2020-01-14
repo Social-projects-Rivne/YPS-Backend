@@ -8,7 +8,7 @@ namespace YPS.Domain.Entities
 {    
     public class Parent 
     {
-        [Key, ForeignKey("User")]
+        [Key, ForeignKey("User"),Column(Order = 0)]
         public long Id { get; set; }
         public string WorkInfo { get; set; }
 

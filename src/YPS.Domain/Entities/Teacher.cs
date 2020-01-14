@@ -12,12 +12,12 @@ namespace YPS.Domain.Entities
         {
             Materials = new HashSet<Material>();
         }
-        [Key, ForeignKey("User")]
+        [Key, Column(Order = 0), ForeignKey("User")]
         public long Id { get; set; }
         
         public string  Degree { get; set; }
         
-        [ForeignKey("SchoolOf")]
+        [Key,Column(Order = 1), ForeignKey("SchoolOf")]
         public long SchoolId { get; set; }
         
         //[ForeignKey("UserOf")]
