@@ -45,12 +45,23 @@ namespace YPS.Persistence
             modelBuilder.Entity<Pupil>()
                 .HasKey(c => new { c.ClassId, c.UserId});
             modelBuilder.Entity<Class>()
-                .HasKey(c => new { c.Id, c.ClassTeacherId});
+                .HasKey(c => new { c.Id});
             modelBuilder.Entity<Journal>()
-                .HasKey(c => new { c.Id, c.ClassId});
+                .HasKey(c => new { c.Id/*, c.ClassId */});
             modelBuilder.Entity<Teacher>()
                 .HasKey(c => new { c.Id, c.SchoolId });
-
+            //modelBuilder.Entity<ParentToPupil>()
+            //    .HasKey(c => new { c.Id});
+            modelBuilder.Entity<Pupil>()
+                .HasMany(x => x.Marks)
+                .WithOne(x => x.Pupil);
+            modelBuilder.Entity<Mark>()
+                .HasOne(x => x.Pupil)
+                .WithMany(x => x.Marks);
+            modelBuilder.Entity<Pupil>()
+                .HasMany(x => x.ParentToPupils)
+                .WithOne(x => x.PupilOf);
+                
         }
     }
 

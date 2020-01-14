@@ -8,6 +8,12 @@ namespace YPS.Domain.Entities
 {
     public class Pupil
     {
+        public Pupil()
+        {
+            ParentToPupils = new HashSet<ParentToPupil>();
+            Marks = new HashSet<Mark>();
+        }
+
         [Key,ForeignKey("User"),Column(Order = 0)]
         public long UserId { get; set; }
 

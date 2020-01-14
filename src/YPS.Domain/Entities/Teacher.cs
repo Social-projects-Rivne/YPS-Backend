@@ -12,6 +12,7 @@ namespace YPS.Domain.Entities
         {
             Materials = new HashSet<Material>();
         }
+
         [Key, Column(Order = 0), ForeignKey("User")]
         public long Id { get; set; }
         

@@ -8,6 +8,14 @@ namespace YPS.Domain.Entities
 {
     public class Class 
     {
+        public Class()
+        {
+            Pupils = new HashSet<Pupil>();
+            Journals = new HashSet<Journal>();
+            UpcomingEvents = new HashSet<UpcomingEvent>();
+            UpcomingTests = new HashSet<UpcomingTest>();
+        }
+
         [Key,Column(Order = 0)]
         public long Id { get; set; }
         public long Number { get; set; }

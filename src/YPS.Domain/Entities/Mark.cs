@@ -8,6 +8,11 @@ namespace YPS.Domain.Entities
 {
     public class Mark
     {
+        public Mark()
+        {
+            Homeworks = new HashSet<Homework>();
+        }
+
         [Key]
         public long Id { get; set; }
         public string Value { get; set; }
