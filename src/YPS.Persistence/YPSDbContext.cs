@@ -40,10 +40,8 @@ namespace YPS.Persistence
         {
             modelBuilder.Entity<UpcomingEvent>()
                 .HasKey(c => new { c.ClassId, c.SchoolId});
-            modelBuilder.Entity<ParentToPupil>()
-                .HasKey(c => new {c.ParentId, c.PupilId});
             modelBuilder.Entity<Pupil>()
-                .HasKey(c => new { c.ClassId, c.UserId});
+                .HasKey(c => new { c.ClassId, c.UserId });
             modelBuilder.Entity<Class>()
                 .HasKey(c => new { c.Id});
             modelBuilder.Entity<Journal>()
@@ -60,8 +58,11 @@ namespace YPS.Persistence
                 .WithMany(x => x.Marks);
             modelBuilder.Entity<Pupil>()
                 .HasMany(x => x.ParentToPupils)
-                .WithOne(x => x.PupilOf);
-                
+                .WithOne(x => x.PupilOf)
+                .HasForeignKey(x => x.PupilId);
+            modelBuilder.Entity<Parent>()
+                .HasMany(x => x.ParentToPupils)
+                .WithOne(x => x.ParentOf);
         }
     }
 

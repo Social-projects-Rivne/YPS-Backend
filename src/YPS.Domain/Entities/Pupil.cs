@@ -13,11 +13,13 @@ namespace YPS.Domain.Entities
             ParentToPupils = new HashSet<ParentToPupil>();
             Marks = new HashSet<Mark>();
         }
+        [Key]
+        public long Id { get; set; }
 
-        [Key,ForeignKey("User"),Column(Order = 0)]
+        [ForeignKey("User")]
         public long UserId { get; set; }
 
-        [Key,ForeignKey("ClassOf"),Column(Order = 1)]
+        [ForeignKey("ClassOf")]
         public long ClassId { get; set; }
 
         public virtual Class ClassOf { get; set; }

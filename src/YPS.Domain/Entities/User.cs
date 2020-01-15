@@ -16,14 +16,18 @@ namespace YPS.Domain.Entities
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        /// <summary>
+        /// Includes img in base64 type
+        /// </summary>
         public string ImageUrl { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public bool IsDeleted { get; set; }
 
         [ForeignKey("RoleOf")]
         public long RoleId { get; set; }
 
         public virtual Role RoleOf { get; set; }
-        //public virtual ICollection<Pupil> Pupil { get; set; }
+        public virtual ICollection<Pupil> Pupil { get; set; }
         //public virtual ICollection<Teacher> Teacher { get; set; }
         //public virtual ICollection<Parent> Parent { get; set; }
     }
