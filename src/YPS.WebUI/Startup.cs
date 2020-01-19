@@ -1,19 +1,25 @@
 ﻿using System;
+using System.Web;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using YPS.Application.Interfaces;
 using YPS.Persistence;
+using MediatR;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using YPS.Application.Auth.Command.Login;
+using YPS.Application.Infrastructure;
+using YPS.Application.Infrastructure.AutoMapper;
 
 namespace YPS.WebUI
 {
@@ -29,6 +35,12 @@ namespace YPS.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //add AutoMapper
+            services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
+            // add mediatr
+            services.AddMediatR(typeof(LoginCommandHandler).GetTypeInfo().Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -50,14 +62,19 @@ namespace YPS.WebUI
                 });
               
             });
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
             services.AddDbContext<IYPSDbContext, YPSDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(connectionStringName),
                     x => x.MigrationsAssembly("YPS.Persistence")
                 ));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            
         }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -80,7 +97,13 @@ namespace YPS.WebUI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+            app.UseHttpsRedirection();
+            app.UseAuthentication();
         }
     }
 }
