@@ -32,7 +32,7 @@ namespace YPS.Application.Infrastructure
 
                 // TODO: Add User Details
 
-                _logger.LogWarning("Sierra Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
+                _logger.LogWarning("YPS Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
             }
 
             return response;
