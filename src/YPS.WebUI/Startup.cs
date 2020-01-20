@@ -70,9 +70,18 @@ namespace YPS.WebUI
                 options.UseSqlServer(Configuration.GetConnectionString(connectionStringName),
                     x => x.MigrationsAssembly("YPS.Persistence")
                 ));
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .Build());
+            });
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            
+
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,7 +96,7 @@ namespace YPS.WebUI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
+            app.UseCors("CorsPolicy");
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
