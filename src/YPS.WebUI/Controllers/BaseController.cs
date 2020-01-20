@@ -4,6 +4,7 @@ using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authorization;
 
 namespace YPS.WebUI.Controllers
 {
@@ -16,7 +17,7 @@ namespace YPS.WebUI.Controllers
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
 
         public long UserId => long.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-        
+        public long SchoolId => long.Parse(User.FindFirst(ClaimTypes.GivenName).Value);
         
     }
 }

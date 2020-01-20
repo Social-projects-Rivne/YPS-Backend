@@ -27,6 +27,8 @@ namespace YPS.Domain.Entities
 
         public virtual User /*UserOf*/User { get; set; }
         public virtual School SchoolOf { get; set; }
+
+        public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public  ICollection<Class> Classes { get; set; }
         public  ICollection<Material> Materials { get; set; }
         public  ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }

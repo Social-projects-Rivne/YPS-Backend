@@ -20,6 +20,7 @@ using Microsoft.Extensions.DependencyInjection;
 using YPS.Application.Auth.Command.Login;
 using YPS.Application.Infrastructure;
 using YPS.Application.Infrastructure.AutoMapper;
+using YPS.Application.Event.Query.GetAllEvents;
 
 namespace YPS.WebUI
 {
@@ -39,6 +40,7 @@ namespace YPS.WebUI
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
             // add mediatr
             services.AddMediatR(typeof(LoginCommandHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(EventQueryHandler).GetTypeInfo().Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddControllers();

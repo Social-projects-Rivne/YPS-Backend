@@ -17,4 +17,8 @@
     <ProjectReference Include="..\YPS.Domain\YPS.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Event\Query\GetEvent\" />
+  </ItemGroup>
+
 </Project>
