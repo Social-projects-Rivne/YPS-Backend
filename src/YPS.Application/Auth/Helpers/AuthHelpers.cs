@@ -12,7 +12,6 @@ namespace YPS.Application.Auth.Helpers
         public static string GenerateToken(string apiKey, IEnumerable<Claim> claims)
         {
             var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(apiKey));
-
             var jwt = new JwtSecurityToken(issuer: "YPS",
                 audience: "Everyone",
                 claims: claims,
