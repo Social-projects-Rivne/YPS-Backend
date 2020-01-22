@@ -14,24 +14,18 @@ namespace YPS.Application.Infrastructure
         public RequestPerformanceBehaviour(ILogger<TRequest> logger)
         {
             _timer = new Stopwatch();
-
             _logger = logger;
         }
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            _timer.Start();
-
+            _timer.Start(); // keeps track of how long the request is running
             var response = await next();
-
             _timer.Stop();
-
             if (_timer.ElapsedMilliseconds > 500)
             {
                 var name = typeof(TRequest).Name;
-
                 // TODO: Add User Details
-
                 _logger.LogWarning("YPS Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
             }
 

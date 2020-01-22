@@ -20,6 +20,9 @@ using Microsoft.Extensions.DependencyInjection;
 using YPS.Application.Auth.Command.Login;
 using YPS.Application.Infrastructure;
 using YPS.Application.Infrastructure.AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using MediatR.Extensions.FluentValidation.AspNetCore;
 
 namespace YPS.WebUI
 {
@@ -37,10 +40,11 @@ namespace YPS.WebUI
         {
             //add AutoMapper
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
+            services.AddFluentValidation(new[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
             // add mediatr
             services.AddMediatR(typeof(LoginCommandHandler).GetTypeInfo().Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+           
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -60,7 +64,14 @@ namespace YPS.WebUI
                     },
 
                 });
-              
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; // add 
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                if (File.Exists(xmlPath))
+                {
+                    c.IncludeXmlComments(xmlPath);
+                }
+
             });
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -79,9 +90,6 @@ namespace YPS.WebUI
                         .AllowAnyHeader()
                         .Build());
             });
-
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

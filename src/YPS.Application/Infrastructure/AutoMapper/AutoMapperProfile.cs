@@ -12,12 +12,6 @@ namespace YPS.Application.Infrastructure.AutoMapper
         {
             LoadStandardMappings();
             LoadCustomMappings();
-            LoadConverters();
-        }
-
-        private void LoadConverters()
-        {
-
         }
 
         private void LoadStandardMappings()

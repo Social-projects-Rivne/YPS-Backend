@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using YPS.Application.Auth.Command.Login;
@@ -16,12 +17,34 @@ namespace YPS.WebUI.Controllers
         {
             _apiKey = config.GetValue<string>("ApiKey");
         }
+
+        /// <summary>       
+        /// Login
+        /// </summary>
+        /// <param name="command"></param>                   // XML documentation
+        /// <response code="200">Returns user token</response>
+        /// <response code="401">Invalid username or password</response>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> SignIn([FromBody] LoginCommand command)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult> Login([FromBody] LoginCommand command)
         {
-            command.ApiKey = _apiKey;
-            var viewModel = await Mediator.Send(command).ConfigureAwait(false);
-            return Ok(viewModel);
+            try
+            {   
+                command.ApiKey = _apiKey;
+                var viewModel = await Mediator.Send(command).ConfigureAwait(false);
+                return Ok(viewModel);
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Invalid password ");
+            }
         }
     }
 }
