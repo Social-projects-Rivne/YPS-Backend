@@ -7,7 +7,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class Class  : EntityBase
+    public class Class : EntityBase
     {
         public Class()
         {
@@ -21,8 +21,8 @@ namespace YPS.Domain.Entities
         public string Character { get; set; }
 
         public long ClassTeacherId { get; set; }
-
         public  Teacher TeacherOf { get; set; }
+
         public  ICollection<Pupil> Pupils { get; set; }
         public  ICollection<Journal> Journals { get; set; }
         public  ICollection<UpcomingEvent> UpcomingEvents { get; set; }

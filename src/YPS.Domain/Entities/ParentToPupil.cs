@@ -9,13 +9,10 @@ namespace YPS.Domain.Entities
 {
     public class ParentToPupil : EntityBase
     {
-       
         public long PupilId { get; set; }
-
-        
-        public long ParentId { get; set; }
-
         public virtual Pupil PupilOf { get; set; }
+
+        public long ParentId { get; set; }
         public virtual Parent ParentOf { get; set; }
     }
 }

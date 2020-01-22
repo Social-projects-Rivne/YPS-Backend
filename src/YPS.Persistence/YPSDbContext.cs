@@ -35,6 +35,7 @@ namespace YPS.Persistence
         public virtual DbSet<UpcomingTest> UpcomingTests { get; set; }
         public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<SchoolRequest> SchoolRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -209,7 +210,6 @@ namespace YPS.Persistence
             modelBuilder.Entity<User>()
                 .HasOne(x => x.Pupil)
                 .WithOne(x => x.User);
-
         }
     }
 

@@ -15,15 +15,12 @@ namespace YPS.Domain.Entities
             Lessons = new HashSet<Lesson>();
         }
 
-        
         public long DisciplineId { get; set; }
-
-        
-        public long TeacherId { get; set; }
-
         public virtual Discipline Discipline { get; set; }
-        public virtual Teacher Teacher { get; set; }
-        public  ICollection<Lesson> Lessons { get; set; }
 
+        public long TeacherId { get; set; }
+        public virtual Teacher Teacher { get; set; }
+
+        public  ICollection<Lesson> Lessons { get; set; }
     }
 }

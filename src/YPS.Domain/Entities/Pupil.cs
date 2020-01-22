@@ -15,14 +15,12 @@ namespace YPS.Domain.Entities
             Marks = new HashSet<Mark>();
         }
 
-        
         public long UserId { get; set; }
+        public virtual User User { get; set; }
 
-        
         public long ClassId { get; set; }
-
         public virtual Class ClassOf { get; set; }
-        public virtual User /*UserOf*/User { get; set; }
+        
         public  ICollection<ParentToPupil> ParentToPupils { get; set; }
         public  ICollection<Mark> Marks { get; set; }
     }

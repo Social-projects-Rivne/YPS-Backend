@@ -20,7 +20,7 @@ namespace YPS.Application.Interfaces
         DbSet<MarkType> MarkTypes { get; set; }
         DbSet<Material> Materials { get; set; }
         DbSet<Parent> Parents { get; set; }
-       // DbSet<ParentToPupil> ParentToPupils { get; set; }
+        DbSet<ParentToPupil> ParentToPupils { get; set; }
         DbSet<Pupil> Pupils { get; set; }
         DbSet<Schedule> Schedules { get; set; }
         DbSet<School> Schools { get; set; }
@@ -29,5 +29,6 @@ namespace YPS.Application.Interfaces
         DbSet<UpcomingTest> UpcomingTests { get; set; }
         DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         DbSet<Role> Roles { get; set; }
+        DbSet<SchoolRequest> SchoolRequests { get; set; }
     }
 }
