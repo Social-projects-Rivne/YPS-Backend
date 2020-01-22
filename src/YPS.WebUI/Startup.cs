@@ -64,8 +64,8 @@ namespace YPS.WebUI
                     },
 
                 });
-
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; // add 
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 if (File.Exists(xmlPath))
                 {
@@ -90,11 +90,6 @@ namespace YPS.WebUI
                         .AllowAnyHeader()
                         .Build());
             });
-
-
-
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -18,10 +18,10 @@ namespace YPS.WebUI.Controllers
             _apiKey = config.GetValue<string>("ApiKey");
         }
 
-        /// <summary>
+        /// <summary>       
         /// Login
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="command"></param>                   // XML documentation
         /// <response code="200">Returns user token</response>
         /// <response code="401">Invalid username or password</response>
         /// <returns></returns>

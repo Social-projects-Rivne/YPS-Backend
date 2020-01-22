@@ -15,13 +15,11 @@ namespace YPS.Application.Auth.Command.Login
         [IgnoreDataMember]
         public string ApiKey { get; set; }
     }
-
     public class LoginCommandValidator : AbstractValidator<LoginCommand>
     {
         public LoginCommandValidator()
         {
-            base.RuleFor(customer => customer.Email).NotNull().EmailAddress();  // If you want write your message add .WithMessage("");
-            
+            base.RuleFor(customer => customer.Email).NotNull().EmailAddress();  // If you want write your message add .WithMessage("")
         }
     }
 }
