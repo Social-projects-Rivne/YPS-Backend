@@ -29,5 +29,6 @@ namespace YPS.Application.Interfaces
         DbSet<UpcomingTest> UpcomingTests { get; set; }
         DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         DbSet<Role> Roles { get; set; }
+        DbSet<SchoolRequest> SchoolRequests { get; set; }
     }
 }

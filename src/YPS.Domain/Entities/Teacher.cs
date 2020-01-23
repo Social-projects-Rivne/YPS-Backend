@@ -15,18 +15,15 @@ namespace YPS.Domain.Entities
             Classes = new HashSet<Class>();
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
         }
-        
-        
+
         public string  Degree { get; set; }
         
-       
         public long SchoolId { get; set; }
-        
-       
-        public long UserId { get; set; }
-
-        public virtual User /*UserOf*/User { get; set; }
         public virtual School SchoolOf { get; set; }
+
+        public long UserId { get; set; }
+        public virtual User User { get; set; }
+
         public  ICollection<Class> Classes { get; set; }
         public  ICollection<Material> Materials { get; set; }
         public  ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }

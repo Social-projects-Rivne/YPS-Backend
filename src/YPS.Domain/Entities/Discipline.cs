@@ -7,7 +7,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class Discipline :EntityBase
+    public class Discipline : EntityBase
     {
         public Discipline()
         {
