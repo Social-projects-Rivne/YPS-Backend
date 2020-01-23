@@ -3,3 +3,4 @@ obj/
 bin/
 *.user
 YPS.WebUI.xml
+Migrations/

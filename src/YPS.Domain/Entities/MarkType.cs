@@ -13,6 +13,7 @@ namespace YPS.Domain.Entities
         {
             Marks = new HashSet<Mark>();
         }
+
         public string Type { get; set; }
         public string Description { get; set; }
 

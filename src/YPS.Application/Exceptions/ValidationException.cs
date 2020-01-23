@@ -13,14 +13,12 @@ namespace YPS.Application.Exceptions
         {
             Failures = new Dictionary<string, string[]>();
         }
-
         public ValidationException(List<ValidationFailure> failures)
             : this()
         {
             var propertyNames = failures
                 .Select(e => e.PropertyName)
                 .Distinct();
-
             foreach (var propertyName in propertyNames)
             {
                 var propertyFailures = failures
@@ -31,7 +29,6 @@ namespace YPS.Application.Exceptions
                 Failures.Add(propertyName, propertyFailures);
             }
         }
-
         public IDictionary<string, string[]> Failures { get; }
     }
 }

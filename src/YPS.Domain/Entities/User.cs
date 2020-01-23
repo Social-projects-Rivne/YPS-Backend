@@ -27,6 +27,5 @@ namespace YPS.Domain.Entities
         public Pupil Pupil { get; set; }
         public Teacher Teacher { get; set; }
         public Parent Parent { get; set; }
-        
     }
 }

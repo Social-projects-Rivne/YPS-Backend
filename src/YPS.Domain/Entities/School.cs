@@ -15,6 +15,7 @@ namespace YPS.Domain.Entities
             Teachers = new HashSet<Teacher>();
             UpcomingEvents = new HashSet<UpcomingEvent>();
         }
+
         public string Name { get; set; }
         public string ShortName { get; set; }
 

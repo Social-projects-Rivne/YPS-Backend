@@ -8,8 +8,7 @@ using YPS.Domain.Entities.Base;
 namespace YPS.Domain.Entities
 {
     public class UpcomingEvent : EntityBase
-    {        
-        
+    {
         public long? ClassId { get; set; }
 
         public long SchoolId { get; set; }
