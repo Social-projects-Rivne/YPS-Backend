@@ -17,4 +17,8 @@
     <ProjectReference Include="..\YPS.Domain\YPS.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SchoolRequests\Helpers\" />
+  </ItemGroup>
+
 </Project>
