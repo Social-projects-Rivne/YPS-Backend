@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using YPS.Domain.Entities;
@@ -10,7 +11,7 @@ namespace YPS.Application.Interfaces
     public interface IYPSDbContext
     {
         DbSet<User> Users { get; set; }
-        DbSet<Class> Class { get; set; }
+        DbSet<Class> Classes { get; set; }
         DbSet<Day> Days { get; set; }
         DbSet<Discipline> Disciplines { get; set; }
         DbSet<Homework> Homeworks { get; set; }
@@ -31,5 +32,6 @@ namespace YPS.Application.Interfaces
         DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<SchoolRequest> SchoolRequests { get; set; }
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

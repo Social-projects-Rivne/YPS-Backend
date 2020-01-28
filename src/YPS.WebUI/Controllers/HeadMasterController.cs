@@ -7,23 +7,14 @@ using System.Threading.Tasks;
 using YPS.Application.Auth.Command.CreateHeadMaster;
 
 
-
 namespace YPS.WebUI.Controllers
 {
-    
 
-    public class ExampleController: BaseController
+
+    public class CreateHeadMasterController : BaseController
     {
-        /// <summary>
-        /// Create new HeadMaster
-        /// </summary>
-        /// <param name="request">Info of HeadMaster</param>
-        /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         public async Task<ActionResult> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
-        
         {
             try { 
             var user = await Mediator.Send(request).ConfigureAwait(false);
@@ -33,19 +24,10 @@ namespace YPS.WebUI.Controllers
             {
                 return BadRequest(e.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return BadRequest("Invalid something ");
+                return BadRequest(e.Message);
             }
-
-
-
         }
-
-
-
-
-
-
     }
 }

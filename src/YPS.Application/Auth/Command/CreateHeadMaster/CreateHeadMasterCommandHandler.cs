@@ -10,11 +10,11 @@ using MediatR;
 using YPS.Application.Auth.Helpers;
 using YPS.Application.Exceptions;
 using YPS.Application.Interfaces;
-
+using YPS.Domain.Entities;
 
 namespace YPS.Application.Auth.Command.CreateHeadMaster
 {
-    public sealed class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, User>
+    public sealed class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreateHeadMasterViewModel>
     {
         private readonly IYPSDbContext _dbContext;
         private readonly IMapper _mapper;
@@ -25,28 +25,40 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
         {
             _dbContext = dbContext;
             _mapper = mapper;
-
         }
 
-        public async Task<User> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
+        public async Task<CreateHeadMasterViewModel> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
         {
+            var user = new User
+            {
+                Email = request.Email,
+                FirstName = request.FirstName,
+                MiddleName = request.MiddleName,
+                Password = request.Password,
+                PhoneNumber = request.PhoneNumber,
+                DateOfBirth = request.DateOfBirth,
+                RoleId = 2
 
-
-           var user = new User
-           {
-            Email = request.Email,
             };
-            _dbContext.Add(user);
+
+            _dbContext.Users.Add(user);
 
             await _dbContext.SaveChangesAsync();
 
-            return user;
+            //return _mapper.Map<CreateUserViewModel>(user);
+            return new CreateHeadMasterViewModel
+            {
+                Email = request.Email,
+                FisrtName = request.FirstName,
+                MiddleName = request.MiddleName,
+                Password = request.Password,
+                PhoneNumber = request.PhoneNumber,
+                DateOfBirth = request.DateOfBirth,
+                RoleId = 2
+            };
+
 
         }
-     }
 
     }
-
-   
-    
-
+}

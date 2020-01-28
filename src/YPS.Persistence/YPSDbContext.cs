@@ -15,7 +15,7 @@ namespace YPS.Persistence
 
         }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Class> Class { get; set; }
+        public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Day> Days { get; set; }
         public virtual DbSet<Discipline> Disciplines { get; set; }
         public virtual DbSet<Homework> Homeworks { get; set; }
@@ -210,6 +210,8 @@ namespace YPS.Persistence
             modelBuilder.Entity<User>()
                 .HasOne(x => x.Pupil)
                 .WithOne(x => x.User);
+
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = "Headmaster", Description = "HeadMaster" });
         }
     }
 

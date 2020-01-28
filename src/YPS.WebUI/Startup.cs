@@ -24,6 +24,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR.Extensions.FluentValidation.AspNetCore;
 
+
 namespace YPS.WebUI
 {
     public class Startup
