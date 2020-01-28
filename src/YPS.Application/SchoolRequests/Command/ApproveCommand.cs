@@ -11,14 +11,11 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.SchoolRequests.Command
 {
-    public class ApproveCommand : IRequest<SchoolRequetsViewModel>
+    public class ApproveCommand : IRequest<SchoolViewModel>
     {
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public string Locality { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public class ApproveCommandHandler : IRequestHandler<ApproveCommand, SchoolRequetsViewModel>
+        public class ApproveCommandHandler : IRequestHandler<ApproveCommand, SchoolViewModel>
         {
             private IYPSDbContext _dbContext;
             private IMapper _mapper;
@@ -28,23 +25,21 @@ namespace YPS.Application.SchoolRequests.Command
                 _dbContext = dbContext;
                 _mapper = mapper;
             }
-            public async Task<SchoolRequetsViewModel> Handle(ApproveCommand request, CancellationToken cancellationToken)
+
+            public async Task<SchoolViewModel> Handle(ApproveCommand request, CancellationToken cancellationToken)
             {
                 var school = new School
                 {
                     Name = request.Name,
-                    ShortName = request.ShortName                    
+                    ShortName = request.ShortName
                 };
                 _dbContext.Schools.Add(school);
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
-                return new SchoolRequetsViewModel
+                return new SchoolViewModel
                 {
                     Name = request.Name,
-                    ShortName = request.ShortName,
-                    Locality=request.Locality,
-                    Address=request.Address,
-                    Email=request.Email
+                    ShortName = request.ShortName
                 };
             }
         }
