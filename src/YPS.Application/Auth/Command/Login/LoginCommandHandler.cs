@@ -14,7 +14,7 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.Auth.Command.Login
 {
-    public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, LoginViewModel>
+    public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, string>
     {
         //login command
         private readonly IYPSDbContext _dbContext;
@@ -26,7 +26,7 @@ namespace YPS.Application.Auth.Command.Login
             _mapper = mapper;
         }
 
-        public async Task<LoginViewModel> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = await _dbContext.Users
                 .SingleOrDefaultAsync(x => 
@@ -44,12 +44,7 @@ namespace YPS.Application.Auth.Command.Login
                 new Claim(ClaimTypes.Name, user.FirstName)
             };
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);
-            return new LoginViewModel
-            {
-                FirstName = user.FirstName,
-                Email = user.Email,
-                Token = token,
-            };
+            return token;
         }
     }
 }

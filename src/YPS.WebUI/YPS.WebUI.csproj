@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\YPS.Infrastructure\YPS.Infrastructure.csproj" />
     <ProjectReference Include="..\YPS.Persistence\YPS.Persistence.csproj" />
   </ItemGroup>
 

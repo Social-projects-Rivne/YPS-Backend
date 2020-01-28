@@ -23,6 +23,7 @@ using YPS.Application.Infrastructure.AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR.Extensions.FluentValidation.AspNetCore;
+using YPS.Infrastructure.Services;
 
 namespace YPS.WebUI
 {
@@ -44,7 +45,7 @@ namespace YPS.WebUI
             // add mediatr
             services.AddMediatR(typeof(LoginCommandHandler).GetTypeInfo().Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
-           
+            services.AddTransient<IUserService, UserService>();
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
             // Register the Swagger generator, defining 1 or more Swagger documents
