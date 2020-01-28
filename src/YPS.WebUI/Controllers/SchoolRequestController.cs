@@ -9,7 +9,7 @@ using YPS.Application.SchoolRequests.Command;
 using YPS.Application.SchoolRequests.ViewModel;
 
 namespace YPS.WebUI.Controllers
-{    
+{
     public class SchoolRequestController : BaseController
     {
         [HttpPost]
@@ -17,14 +17,18 @@ namespace YPS.WebUI.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult<SchoolViewModel>> Approve([FromBody] ApproveCommand command)
         {
-            return await this.Mediator.Send(command);
+            var response = await this.Mediator.Send(command);
+            return Ok(response);
         }
         [HttpDelete]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public async Task<ActionResult<RemoveRequestViewModel>> Disapprove([FromBody] DisapproveCommand command)
         {
-            return await this.Mediator.Send(command);
+
+            var response = await this.Mediator.Send(command);
+            return Ok(response);
+
         }
     }
 }

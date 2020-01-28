@@ -6,7 +6,7 @@ namespace YPS.Application.SchoolRequests.ViewModel
 {
     public class SchoolRequestViewModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Locality { get; set; }

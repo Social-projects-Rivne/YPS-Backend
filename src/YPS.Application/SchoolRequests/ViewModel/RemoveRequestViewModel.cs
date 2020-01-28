@@ -6,6 +6,6 @@ namespace YPS.Application.SchoolRequests.ViewModel
 {
     public class RemoveRequestViewModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
     }
 }
