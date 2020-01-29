@@ -29,8 +29,8 @@ namespace YPS.Application.SchoolRequests.Command
             public async Task<RemoveRequestViewModel> Handle(DisapproveCommand request, CancellationToken cancellationToken)
             {
                
-                var schoolsRequests=_dbContext.SchoolRequests.AsNoTracking();
-                _dbContext.SchoolRequests.Remove(schoolsRequests.FirstOrDefault(x=>x.Id==request.Id));
+                var schoolsRequests=_dbContext.SchoolRequests;
+                schoolsRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = false;
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
                 return new RemoveRequestViewModel

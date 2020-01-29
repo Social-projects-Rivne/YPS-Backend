@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,8 +15,7 @@ namespace YPS.Application.SchoolRequests.Command
 {
     public class ApproveCommand : IRequest<SchoolViewModel>
     {
-        public string Name { get; set; }
-        public string ShortName { get; set; }
+        public long Id { get; set; }
         public class ApproveCommandHandler : IRequestHandler<ApproveCommand, SchoolViewModel>
         {
             private IYPSDbContext _dbContext;
@@ -28,19 +29,18 @@ namespace YPS.Application.SchoolRequests.Command
 
             public async Task<SchoolViewModel> Handle(ApproveCommand request, CancellationToken cancellationToken)
             {
+                var requests = _dbContext.SchoolRequests.AsNoTracking();                
                 var school = new School
                 {
-                    Name = request.Name,
-                    ShortName = request.ShortName
+                    Name = requests.FirstOrDefault(x => x.Id == request.Id).Name,
+                    ShortName = requests.FirstOrDefault(x => x.Id == request.Id).ShortName
                 };
                 _dbContext.Schools.Add(school);
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
-                return new SchoolViewModel
-                {
-                    Name = request.Name,
-                    ShortName = request.ShortName
-                };
+                _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
+                await _dbContext.SaveChangesAsync(cancellationToken);
+                return new SchoolViewModel { Id = request.Id };   
             }
         }
     }
