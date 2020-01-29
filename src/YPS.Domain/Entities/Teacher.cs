@@ -17,19 +17,14 @@ namespace YPS.Domain.Entities
         }
 
         public string  Degree { get; set; }
-        
         public long SchoolId { get; set; }
         public virtual School SchoolOf { get; set; }
-
         public long UserId { get; set; }
-        public virtual User User { get; set; }
-
-        public virtual User /*UserOf*/User { get; set; }
-        public virtual School SchoolOf { get; set; }
-
+        
+        public User User { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
-        public  ICollection<Class> Classes { get; set; }
-        public  ICollection<Material> Materials { get; set; }
-        public  ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
+        public ICollection<Class> Classes { get; set; }
+        public ICollection<Material> Materials { get; set; }
+        public ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
     }
 }

@@ -7,20 +7,26 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Event.Query.GetAllEvents;
+//using YPS.Application.Event.Query.GetAllEvents;
 
 namespace YPS.WebUI.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EventController : BaseController
+{    
+    public class EventController : ApiController
     {
-        [Authorize]
-        [HttpGet("GetAll")]
-        public async Task<ActionResult<EventListViewModel>> GetAllEvents()
+        [HttpGet]
+        public async Task<ActionResult<List<UpcomingEventVm>>> GetAllUpcomingEvents()
         {
-
-            return Ok(await Mediator.Send(new GetAllEventsQuery(long.Parse(User.FindFirst(ClaimTypes.GivenName).Value))).ConfigureAwait(false));
-        }    
+            //var query = new GetAllUpcomingEventsQuery();
+            //var result = ;
+            try
+            {
+                return Ok(await Mediator.Send(new GetAllUpcomingEventsQuery()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 
 }

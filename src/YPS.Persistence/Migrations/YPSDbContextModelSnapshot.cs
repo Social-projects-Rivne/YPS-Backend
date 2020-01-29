@@ -360,6 +360,33 @@ namespace YPS.Persistence.Migrations
                     b.ToTable("Schools");
                 });
 
+            modelBuilder.Entity("YPS.Domain.Entities.SchoolRequest", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Locality")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SchoolRequests");
+                });
+
             modelBuilder.Entity("YPS.Domain.Entities.Teacher", b =>
                 {
                     b.Property<long>("Id")
@@ -430,7 +457,7 @@ namespace YPS.Persistence.Migrations
                     b.Property<DateTime>("TimeOfCerate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Tytle")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

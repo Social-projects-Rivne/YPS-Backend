@@ -1,10 +1,13 @@
-﻿using System.Diagnostics;
+﻿using MediatR;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
-using Microsoft.Extensions.Logging;
 
-namespace YPS.Application.Infrastructure
+namespace YPS.Application.Behaviors
 {
     public sealed class RequestPerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
