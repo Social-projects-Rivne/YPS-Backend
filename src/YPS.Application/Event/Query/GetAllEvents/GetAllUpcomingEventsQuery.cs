@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
+using System.Linq;
 
 namespace YPS.Application.Event.Query.GetAllEvents
 {
@@ -28,10 +29,12 @@ namespace YPS.Application.Event.Query.GetAllEvents
 
             public async Task<List<UpcomingEventVm>> Handle(GetAllUpcomingEventsQuery request, CancellationToken cancellationToken)
             {
-                var upcomingEvets = await _context.UpcomingEvents                    
+                //var schoolId = _userInfoService.SchoolId;
+                var upcomingEvets = await _context.UpcomingEvents     
+                    //.Where(x => x.SchoolId == schoolId)
+                    //.ProjectTo<UpcomingEventsDto>(_mapper.ConfigurationProvider)
                     .ProjectTo<UpcomingEventVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
-
                 return upcomingEvets;
             }
         }

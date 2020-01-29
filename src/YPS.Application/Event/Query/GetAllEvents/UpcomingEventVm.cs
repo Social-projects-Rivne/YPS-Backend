@@ -7,7 +7,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Event.Query.GetAllEvents
 {
-    public class UpcomingEventVm : IMapFrom<UpcomingEvent>
+    public class UpcomingEventVm : IMapFrom<UpcomingEventsDto>
     {
         public string SchoolName { get; set; }
         public DateTime TimeOfCreating { get; set; }

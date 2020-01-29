@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace YPS.WebUI.Controllers
 {
-    [ApiController]
+    //[ApiController]
     [Route("api/[controller]")]
     public abstract class ApiController : ControllerBase
     {

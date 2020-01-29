@@ -21,6 +21,9 @@ using YPS.Application.Auth.Command.Login;
 using FluentValidation.AspNetCore;
 using YPS.WebUI.Services;
 using YPS.Application;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace YPS.WebUI
 {
@@ -49,10 +52,31 @@ namespace YPS.WebUI
                     {
                         Name = "Team YPS",
                         Email = string.Empty,
-                       
+
                     },
 
                 });
+                // Swagger 2.+ support
+                //First we define the security scheme
+                c.AddSecurityDefinition("Bearer", //Name the security scheme
+                    new OpenApiSecurityScheme
+                    {
+                        Description = "JWT Authorization header using the Bearer scheme.",
+                        Type = SecuritySchemeType.Http, //We set the scheme type to http since we're using bearer authentication
+                        Scheme = "bearer" //The name of the HTTP Authorization scheme to be used in the Authorization header. In this case "bearer".
+                    });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+                    {
+                        new OpenApiSecurityScheme{
+                            Reference = new OpenApiReference{
+                                Id = "Bearer", //The name of the previously defined security scheme.
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        },new List<string>()
+                    }
+                });
+                // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; // add 
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 if (File.Exists(xmlPath))
@@ -61,6 +85,50 @@ namespace YPS.WebUI
                 }
 
             });
+
+            var key = Encoding.ASCII.GetBytes(Configuration["ApiKey"]);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(x =>
+                {
+                    x.Events = new JwtBearerEvents
+                    {
+                        OnTokenValidated = context =>
+                        {
+                            //                          var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                            var userName = context.Principal.Identity.Name;
+                            //                          var user = userService.GetUser(userId);
+                            //                            if (user == null)
+                            //                            {
+                            //                                // return unauthorized if user no longer exists
+                            //                                context.Fail("Unauthorized");
+                            //                            }
+                            return Task.CompletedTask;
+                        },
+                        OnAuthenticationFailed = context =>
+                        {
+                            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                            {
+                                context.Response.Headers.Add("Token-Expired", "true");
+                            }
+                            return Task.CompletedTask;
+                        }
+                    };
+                    x.IncludeErrorDetails = true;
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
@@ -84,7 +152,6 @@ namespace YPS.WebUI
             services.AddScoped<ICurrentUserInformationService, CurrentUserInformationService>();
 
             services.AddApplication();
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -97,6 +164,7 @@ namespace YPS.WebUI
             });
             app.UseCors("CorsPolicy");
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
