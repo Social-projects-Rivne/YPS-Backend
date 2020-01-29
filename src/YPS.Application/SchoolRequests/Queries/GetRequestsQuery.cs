@@ -26,7 +26,16 @@ namespace YPS.Application.SchoolRequests.Queries
             public async Task<ICollection<SchoolRequestViewModel>> Handle(GetRequestsQuery request, CancellationToken cancellationToken)
             {
                 var requests = _dbContext.SchoolRequests.Where(x => x.IsApproved == null);
-                return null;
+                var requiredRequests = requests.Select(x => new SchoolRequestViewModel
+                {
+                    Name = x.Name,
+                    ShortName=x.ShortName,
+                    Address=x.Address,
+                    Email=x.Email,
+                    Id=x.Id,
+                    Locality=x.Locality
+                }).ToList();
+                return requiredRequests;
             }
         }
     }
