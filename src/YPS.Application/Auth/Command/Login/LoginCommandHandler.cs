@@ -16,7 +16,6 @@ namespace YPS.Application.Auth.Command.Login
 {
     public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, LoginViewModel>
     {
-        //login command
         private readonly IYPSDbContext _dbContext;
         private readonly IMapper _mapper;
 
@@ -38,12 +37,15 @@ namespace YPS.Application.Auth.Command.Login
             {
                 throw new ValidationException();
             }
-            var claims = new List<Claim> {
 
+            var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.FirstName)
+                new Claim(ClaimTypes.Name, user.FirstName),
+                new Claim(ClaimTypes.GivenName, user.SchoolId.ToString())
             };
+
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);
+
             return new LoginViewModel
             {
                 FirstName = user.FirstName,
