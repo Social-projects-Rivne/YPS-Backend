@@ -40,7 +40,8 @@ namespace YPS.Application.Pupils.Commands.AddPupil
                     Pupil pupil = new Pupil
                     {
                         UserId = createUserResult.Id,
-                        ClassId = 3
+                        SchoolId = 1,
+                        ClassId = 2
                     };
 
                     _context.Pupils.Add(pupil);

@@ -13,13 +13,13 @@ namespace YPS.Domain.Entities
         public School()
         {
             Teachers = new HashSet<Teacher>();
-             UpcomingEvents = new HashSet<UpcomingEvent>();
+            UpcomingEvents = new HashSet<UpcomingEvent>();
         }
 
         public string Name { get; set; }
         public string ShortName { get; set; }
 
-        public  ICollection<Teacher> Teachers { get; set; }
-        public  ICollection<UpcomingEvent> UpcomingEvents { get; set; }
+        public ICollection<Teacher> Teachers { get; set; }
+        public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
     }
 }

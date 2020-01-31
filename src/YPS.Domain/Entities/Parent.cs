@@ -14,6 +14,7 @@ namespace YPS.Domain.Entities
             ParentToPupils = new HashSet<ParentToPupil>();
         }
 
+        public long SchoolId { get; set; }
         public string WorkInfo { get; set; }
 
         public long UserId { get; set; }

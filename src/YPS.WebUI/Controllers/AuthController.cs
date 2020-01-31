@@ -9,7 +9,7 @@ using YPS.Application.Auth.Command.Login;
 
 namespace YPS.WebUI.Controllers
 {
-    public class AuthController : BaseController
+    public class AuthController : ApiController
     {
         private readonly string _apiKey;
 

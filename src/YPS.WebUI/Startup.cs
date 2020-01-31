@@ -18,12 +18,14 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YPS.Application.Auth.Command.Login;
-using YPS.Application.Infrastructure;
-using YPS.Application.Infrastructure.AutoMapper;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR.Extensions.FluentValidation.AspNetCore;
 using YPS.Infrastructure.Services;
+using YPS.WebUI.Services;
+using YPS.Application;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace YPS.WebUI
 {
@@ -35,20 +37,12 @@ namespace YPS.WebUI
         }
 
         public IConfiguration Configuration { get; }
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            //add AutoMapper
-            services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            services.AddFluentValidation(new[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            // add mediatr
-            services.AddMediatR(typeof(LoginCommandHandler).GetTypeInfo().Assembly);
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient<IUserService, UserService>();
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
-            // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -61,9 +55,29 @@ namespace YPS.WebUI
                     {
                         Name = "Team YPS",
                         Email = string.Empty,
-                       
+
                     },
 
+                });
+                // Swagger 2.+ support
+                //First we define the security scheme
+                c.AddSecurityDefinition("Bearer", //Name the security scheme
+                    new OpenApiSecurityScheme
+                    {
+                        Description = "JWT Authorization header using the Bearer scheme.",
+                        Type = SecuritySchemeType.Http, //We set the scheme type to http since we're using bearer authentication
+                        Scheme = "bearer" //The name of the HTTP Authorization scheme to be used in the Authorization header. In this case "bearer".
+                    });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+                    {
+                        new OpenApiSecurityScheme{
+                            Reference = new OpenApiReference{
+                                Id = "Bearer", //The name of the previously defined security scheme.
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        },new List<string>()
+                    }
                 });
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; // add 
@@ -74,14 +88,60 @@ namespace YPS.WebUI
                 }
 
             });
+
+            var key = Encoding.ASCII.GetBytes(Configuration["ApiKey"]);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(x =>
+                {
+                    x.Events = new JwtBearerEvents
+                    {
+                        OnTokenValidated = context =>
+                        {
+                            //                          var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                            var userName = context.Principal.Identity.Name;
+                            //                          var user = userService.GetUser(userId);
+                            //                            if (user == null)
+                            //                            {
+                            //                                // return unauthorized if user no longer exists
+                            //                                context.Fail("Unauthorized");
+                            //                            }
+                            return Task.CompletedTask;
+                        },
+                        OnAuthenticationFailed = context =>
+                        {
+                            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                            {
+                                context.Response.Headers.Add("Token-Expired", "true");
+                            }
+                            return Task.CompletedTask;
+                        }
+                    };
+                    x.IncludeErrorDetails = true;
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
             services.AddDbContext<IYPSDbContext, YPSDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(connectionStringName),
                     x => x.MigrationsAssembly("YPS.Persistence")
                 ));
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -91,22 +151,23 @@ namespace YPS.WebUI
                         .AllowAnyHeader()
                         .Build());
             });
+
+            services.AddScoped<ICurrentUserInformationService, CurrentUserInformationService>();
+
+            services.AddApplication();
         }
-        
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
+            
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseCors("CorsPolicy");
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -117,7 +178,6 @@ namespace YPS.WebUI
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();

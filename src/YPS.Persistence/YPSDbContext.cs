@@ -190,7 +190,8 @@ namespace YPS.Persistence
             modelBuilder.Entity<Teacher>()
                 .HasOne(x => x.User)
                 .WithOne(x => x.Teacher)
-                .HasForeignKey<Teacher>(x => x.UserId);
+                .HasForeignKey<Teacher>(x => x.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<TeacherToDiscipline>()
                 .HasOne(x => x.Teacher)
                 .WithMany(x => x.TeacherToDisciplines)
@@ -212,6 +213,14 @@ namespace YPS.Persistence
             modelBuilder.Entity<User>()
                 .HasOne(x => x.Pupil)
                 .WithOne(x => x.User);
+
+            modelBuilder.Entity<UpcomingEvent>()
+                .HasOne(x => x.Teacher)
+                .WithMany(x => x.UpcomingEvents)
+                .HasForeignKey(x => x.TeacherId);
+            modelBuilder.Entity<Teacher>()
+                .HasMany(x => x.UpcomingEvents)
+                .WithOne(x => x.Teacher);
         }
     }
 
