@@ -22,6 +22,6 @@ namespace YPS.Application.Event.Query.GetAllEvents
 
         public Teacher Teacher { get; set; }
         public Class Class { get; set; }
-        public School School { get; set; }
+        public Domain.Entities.School School { get; set; }
     }
 }

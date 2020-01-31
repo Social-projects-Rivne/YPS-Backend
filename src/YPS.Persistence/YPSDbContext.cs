@@ -223,10 +223,11 @@ namespace YPS.Persistence
             modelBuilder.Entity<User>()
                 .HasOne(x => x.School)
                 .WithMany(x => x.Users)
-                .HasForeignKey(x => x.SchoolId);
+                .HasForeignKey(x => x.SchoolId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<School>()
                 .HasMany(x => x.Users)
-                .WithOne(x => x.School);
+                .WithOne(x => x.School)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 
