@@ -21,25 +21,23 @@ namespace YPS.Application.Pupils.Commands.AddPupil
         public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, long>
         {
             private readonly IYPSDbContext _context;
-            private readonly IMapper _mapper;
             private readonly IUserService _userService;
 
-            public CreatePupilCommandHandler(IYPSDbContext context, IMapper mapper, IUserService userService)
+            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService)
             {
                 _context = context;
-                _mapper = mapper;
                 _userService = userService;
             }
 
             public async Task<long> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
             {
-                User createUserResult = await _userService.CreateUser(request.User);
+                User createdUser = await _userService.CreateUser(request.User);
 
-                if (createUserResult != null)
+                if (createdUser != null)
                 {
                     Pupil pupil = new Pupil
                     {
-                        UserId = createUserResult.Id,
+                        UserId = createdUser.Id,
                         SchoolId = 1,
                         ClassId = 2
                     };
@@ -48,7 +46,7 @@ namespace YPS.Application.Pupils.Commands.AddPupil
                     await _context.SaveChangesAsync(cancellationToken);
                 }
 
-                return createUserResult.Id;
+                return createdUser.Id;
             }
         }
     }
