@@ -15,9 +15,9 @@ namespace YPS.Domain.Entities
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
         }
 
-        public  string Name { get; set; }
+        public string Name { get; set; }
 
-        public  ICollection<UpcomingTest> UpcomingTests { get; set; }
-        public  ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
+        public ICollection<UpcomingTest> UpcomingTests { get; set; }
+        public ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace YPS.Domain.Entities
         public long ClassId { get; set; }
         public virtual Class ClassOf { get; set; }
         
-        public  ICollection<ParentToPupil> ParentToPupils { get; set; }
-        public  ICollection<Mark> Marks { get; set; }
+        public ICollection<ParentToPupil> ParentToPupils { get; set; }
+        public ICollection<Mark> Marks { get; set; }
     }
 }

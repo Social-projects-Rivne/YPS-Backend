@@ -4,7 +4,5 @@ using System.Text;
 
 namespace YPS.Application.Pupils.Commands.AddPupil
 {
-    class CreatePupilCommandValidator
-    {
-    }
+    class CreatePupilCommandValidator {}
 }

@@ -29,7 +29,6 @@ namespace YPS.Application.SchoolRequests.Commands.CreateSchoolRequest
 
         public async Task<long> Handle(CreateSchoolRequestCommand request, CancellationToken cancellationToken)
         {
-
             if (await _dbContext.SchoolRequests
                 .AnyAsync(x => x.Email.ToUpper() == request.Email.ToUpper() || x.Address.ToUpper() == request.Address.ToUpper(), cancellationToken)
                 .ConfigureAwait(false))
