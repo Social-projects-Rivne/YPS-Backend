@@ -5,7 +5,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-     public class SchoolRequest : EntityBase
+    public class SchoolRequest : EntityBase
     {
         public string Name { get; set; }
         public string ShortName { get; set; }

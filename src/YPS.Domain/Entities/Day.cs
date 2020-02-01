@@ -16,6 +16,6 @@ namespace YPS.Domain.Entities
 
         public string Name { get; set; }
 
-        public  ICollection<Schedule> Schedules { get; set; }
+        public ICollection<Schedule> Schedules { get; set; }
     }
 }

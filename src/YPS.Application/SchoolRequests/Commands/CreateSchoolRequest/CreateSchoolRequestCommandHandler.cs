@@ -13,25 +13,22 @@ using YPS.Application.Auth.Command.Login;
 using YPS.Application.Auth.Helpers;
 using YPS.Application.Exceptions;
 using YPS.Application.Interfaces;
-using YPS.Application.SchoolRequest.Command.Register;
 
-
-namespace YPS.Application.School.Request.Command
+namespace YPS.Application.SchoolRequests.Commands.CreateSchoolRequest
 {
-    public sealed class RegisterSchoolCommandHandler:IRequestHandler<RegisterSchoolCommand,long>
+    public sealed class CreateSchoolRequestCommandHandler : IRequestHandler<CreateSchoolRequestCommand, long>
     {
         private readonly IYPSDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public RegisterSchoolCommandHandler(IYPSDbContext dbContext, IMapper mapper)
+        public CreateSchoolRequestCommandHandler(IYPSDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;
         }
 
-        public async Task<long> Handle(RegisterSchoolCommand request, CancellationToken cancellationToken)
+        public async Task<long> Handle(CreateSchoolRequestCommand request, CancellationToken cancellationToken)
         {
-
             if (await _dbContext.SchoolRequests
                 .AnyAsync(x => x.Email.ToUpper() == request.Email.ToUpper() || x.Address.ToUpper() == request.Address.ToUpper(), cancellationToken)
                 .ConfigureAwait(false))

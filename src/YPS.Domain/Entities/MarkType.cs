@@ -17,6 +17,6 @@ namespace YPS.Domain.Entities
         public string Type { get; set; }
         public string Description { get; set; }
 
-        public  ICollection<Mark> Marks { get; set; }
+        public ICollection<Mark> Marks { get; set; }
     }
 }

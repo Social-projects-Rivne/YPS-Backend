@@ -21,11 +21,11 @@ namespace YPS.Domain.Entities
         public string Character { get; set; }
 
         public long ClassTeacherId { get; set; }
-        public  Teacher TeacherOf { get; set; }
+        public Teacher TeacherOf { get; set; }
 
-        public  ICollection<Pupil> Pupils { get; set; }
-        public  ICollection<Journal> Journals { get; set; }
-        public  ICollection<UpcomingEvent> UpcomingEvents { get; set; }
-        public  ICollection<UpcomingTest> UpcomingTests { get; set; }
+        public ICollection<Pupil> Pupils { get; set; }
+        public ICollection<Journal> Journals { get; set; }
+        public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
+        public ICollection<UpcomingTest> UpcomingTests { get; set; }
     }
 }

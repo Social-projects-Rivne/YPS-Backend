@@ -5,19 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using YPS.Application.SchoolRequest.Command.Register;
+using YPS.Application.SchoolRequests.Commands.CreateSchoolRequest;
 
 namespace YPS.WebUI.Controllers
 {
-
-    public class SchoolRequestController : ApiController
+    public class SchoolRequestsController : ApiController
     {
-        
-
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<long>> Create([FromBody] RegisterSchoolCommand command)
+        public async Task<ActionResult<long>> Create([FromBody] CreateSchoolRequestCommand command)
         {
             if (!ModelState.IsValid)
             {
@@ -31,12 +28,8 @@ namespace YPS.WebUI.Controllers
             }
             catch (Exception e)
             {
-
                 return BadRequest(e.Message);
             }
-
-
-
         }
     }
 }

@@ -20,7 +20,7 @@ namespace YPS.Application.Auth.Helpers
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(jwt); //the method is called WriteToken but returns a string
+            return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
        
     }
