@@ -11,7 +11,7 @@ namespace YPS.WebUI.Controllers
 {
 
 
-    public class CreateHeadMasterController : BaseController
+    public class HeadMasterController : BaseController
     {
         [HttpPost]
         public async Task<ActionResult> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
