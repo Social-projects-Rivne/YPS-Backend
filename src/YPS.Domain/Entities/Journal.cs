@@ -17,7 +17,6 @@ namespace YPS.Domain.Entities
         public long ClassId { get; set; }
         public virtual Class Class { get; set; }
 
-        public  ICollection<JournalColumn> JournalColumns { get; set; }
+        public ICollection<JournalColumn> JournalColumns { get; set; }
     }
-
 }

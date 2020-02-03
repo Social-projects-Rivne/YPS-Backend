@@ -14,6 +14,6 @@ namespace YPS.Domain.Entities
         public string FileUrl { get; set; }
 
         public long TeacherId { get; set; }
-        public  Teacher Teacher { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }

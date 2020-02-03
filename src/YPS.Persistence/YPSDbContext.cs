@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using YPS.Application.Interfaces;
 using YPS.Domain.Entities;
@@ -15,7 +17,7 @@ namespace YPS.Persistence
 
         }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Class> Class { get; set; }
+        public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Day> Days { get; set; }
         public virtual DbSet<Discipline> Disciplines { get; set; }
         public virtual DbSet<Homework> Homeworks { get; set; }
@@ -219,14 +221,6 @@ namespace YPS.Persistence
             modelBuilder.Entity<Teacher>()
                 .HasMany(x => x.UpcomingEvents)
                 .WithOne(x => x.Teacher);
-
-            modelBuilder.Entity<User>()
-                .HasOne(x => x.School)
-                .WithMany(x => x.Users)
-                .HasForeignKey(x => x.SchoolId);
-            modelBuilder.Entity<School>()
-                .HasMany(x => x.Users)
-                .WithOne(x => x.School);
         }
     }
 
