@@ -11,7 +11,6 @@ namespace YPS.WebUI.Controllers
 {
     public class SchoolRequestsController : ApiController
     {
-        [Authorize]
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -21,7 +20,6 @@ namespace YPS.WebUI.Controllers
             {
                 return BadRequest();
             }
-
             try
             {
                 var account = await Mediator.Send(command).ConfigureAwait(false);
