@@ -25,4 +25,8 @@
     <Folder Include="Event\Query\GetEvent\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Auth\Command\CreateHeadMaster\" />
+  </ItemGroup>
+
 </Project>
