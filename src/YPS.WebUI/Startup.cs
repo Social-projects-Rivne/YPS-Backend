@@ -37,16 +37,11 @@ namespace YPS.WebUI
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
-            //add AutoMapper
-            services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            services.AddFluentValidation(new[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            // add mediatr
-            services.AddMediatR(typeof(LoginCommandHandler).GetTypeInfo().Assembly);
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
-           
+            
+            services.AddTransient<IRandomGeneratorService, RandomGeneratorService>();
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
             services.AddSwaggerGen(c =>
@@ -166,7 +161,7 @@ namespace YPS.WebUI
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseSwagger();
-            
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");

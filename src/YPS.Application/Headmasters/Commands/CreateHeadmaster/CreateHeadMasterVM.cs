@@ -1,11 +1,17 @@
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using YPS.Application.Mapping;
+using YPS.Application.Models;
+using YPS.Domain.Entities;
 
-namespace YPS.Application.Models
+namespace YPS.Application.Auth.Command.CreateHeadMaster
 {
-    public class UserPartial
+    [JsonObject(Title = "CreateHeadMaster")]
+    public sealed class CreateHeadMasterVM : IMapFrom<User>
     {
+        public long Id { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
