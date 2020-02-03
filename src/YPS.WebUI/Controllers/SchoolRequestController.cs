@@ -11,7 +11,7 @@ using YPS.Application.SchoolRequests.ViewModel;
 
 namespace YPS.WebUI.Controllers
 {
-    public class SchoolRequestController : BaseController
+    public class SchoolRequestController : ApiController
     {
         [HttpPost]
         [ProducesResponseType(200)]
@@ -24,12 +24,10 @@ namespace YPS.WebUI.Controllers
         [HttpDelete]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<RemoveRequestViewModel>> Disapprove([FromBody] DisapproveCommand command)
+        public async Task<ActionResult<RemoveRequestViewModel>> Disapprove([FromQuery] DisapproveCommand command)
         {
-
             var response = await this.Mediator.Send(command);
             return Ok(response);
-
         }
 
         [HttpGet]
