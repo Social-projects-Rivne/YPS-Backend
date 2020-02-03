@@ -25,6 +25,6 @@ namespace YPS.Domain.Entities
         public long PupilId { get; set; }
         public Pupil Pupil { get; set; }
 
-        public  ICollection<Homework> Homeworks { get; set; }
+        public ICollection<Homework> Homeworks { get; set; }
     }
 }

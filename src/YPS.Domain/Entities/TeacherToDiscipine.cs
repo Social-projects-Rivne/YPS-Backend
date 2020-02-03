@@ -21,6 +21,6 @@ namespace YPS.Domain.Entities
         public long TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }
 
-        public  ICollection<Lesson> Lessons { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
     }
 }

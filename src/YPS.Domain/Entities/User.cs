@@ -7,7 +7,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class User: EntityBase
+    public class User : EntityBase
     {
         public string FirstName { get; set; }
         public string Surname { get; set; }
