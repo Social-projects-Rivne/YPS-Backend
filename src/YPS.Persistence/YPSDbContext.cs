@@ -221,14 +221,6 @@ namespace YPS.Persistence
             modelBuilder.Entity<Teacher>()
                 .HasMany(x => x.UpcomingEvents)
                 .WithOne(x => x.Teacher);
-
-            modelBuilder.Entity<User>()
-                .HasOne(x => x.School)
-                .WithMany(x => x.Users)
-                .HasForeignKey(x => x.SchoolId);
-            modelBuilder.Entity<School>()
-                .HasMany(x => x.Users)
-                .WithOne(x => x.School);
         }
     }
 

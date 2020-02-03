@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using YPS.Domain.Entities.Base;
+using MediatR;
 
-namespace YPS.Domain.Entities
+namespace YPS.Application.SchoolRequests.Commands.CreateSchoolRequest
 {
-    public class SchoolRequest : EntityBase
+    public sealed class CreateSchoolRequestCommand : IRequest<long>
     {
         public string Name { get; set; }
         public string ShortName { get; set; }

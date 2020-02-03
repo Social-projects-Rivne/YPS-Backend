@@ -7,7 +7,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class UpcomingTest:EntityBase
+    public class UpcomingTest : EntityBase
     {
         public DateTime Date { get; set; }
         public string Topic { get; set; }

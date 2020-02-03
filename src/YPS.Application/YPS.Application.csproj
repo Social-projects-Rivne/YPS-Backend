@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pupils\Queries\" />
     <Folder Include="Event\Models\" />
     <Folder Include="Event\Query\GetEvent\" />
   </ItemGroup>

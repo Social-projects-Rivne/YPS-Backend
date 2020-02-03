@@ -25,17 +25,17 @@ namespace YPS.WebUI.Controllers
         /// <response code="200">Returns user token</response>
         /// <response code="401">Invalid username or password</response>
         /// <returns></returns>
-        [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(401)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult> Login([FromBody] LoginCommand command)
+        [HttpPost]
+        public async Task<ActionResult<string>> Login([FromBody] LoginCommand command)
         {
             try
             {   
                 command.ApiKey = _apiKey;
-                var viewModel = await Mediator.Send(command).ConfigureAwait(false);
-                return Ok(viewModel);
+                string token = await Mediator.Send(command);
+                return Ok(new { token });
             }
             catch (ValidationException e)
             {

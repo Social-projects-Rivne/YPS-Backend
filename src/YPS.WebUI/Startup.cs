@@ -19,6 +19,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YPS.Application.Auth.Command.Login;
 using FluentValidation.AspNetCore;
+using MediatR.Extensions.FluentValidation.AspNetCore;
+using YPS.Infrastructure.Services;
 using YPS.WebUI.Services;
 using YPS.Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,6 +40,8 @@ namespace YPS.WebUI
         
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRandomGeneratorService, RandomGeneratorService>();
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
             services.AddSwaggerGen(c =>
