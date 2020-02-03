@@ -128,7 +128,6 @@ namespace YPS.WebUI
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
             services.AddDbContext<IYPSDbContext, YPSDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(connectionStringName),
                     x => x.MigrationsAssembly("YPS.Persistence")
@@ -158,7 +157,6 @@ namespace YPS.WebUI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
