@@ -11,7 +11,7 @@ using YPS.Application.SchoolRequests.ViewModel;
 
 namespace YPS.WebUI.Controllers
 {
-    public class SchoolRequestController : ApiController
+    public class SchoolRequestProccesingController : ApiController
     {
         [HttpPost]
         [ProducesResponseType(200)]

@@ -33,7 +33,8 @@ namespace YPS.Application.SchoolRequests.Queries
                     Address=x.Address,
                     Email=x.Email,
                     Id=x.Id,
-                    Locality=x.Locality
+                    Locality=x.Locality,
+                    PhoneNumb=x.PhoneNumb
                 }).ToList();
                 return requiredRequests;
             }
