@@ -11,6 +11,7 @@ namespace YPS.WebUI.Controllers
 {
     public class SchoolRequestsController : ApiController
     {
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]

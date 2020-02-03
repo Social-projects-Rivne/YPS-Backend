@@ -25,6 +25,7 @@ using YPS.WebUI.Services;
 using YPS.Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 
 namespace YPS.WebUI
@@ -102,14 +103,7 @@ namespace YPS.WebUI
                     {
                         OnTokenValidated = context =>
                         {
-                            //                          var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
                             var userName = context.Principal.Identity.Name;
-                            //                          var user = userService.GetUser(userId);
-                            //                            if (user == null)
-                            //                            {
-                            //                                // return unauthorized if user no longer exists
-                            //                                context.Fail("Unauthorized");
-                            //                            }
                             return Task.CompletedTask;
                         },
                         OnAuthenticationFailed = context =>
@@ -167,22 +161,16 @@ namespace YPS.WebUI
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseCors("CorsPolicy");
+            app.UseHttpsRedirection();
+
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseAuthentication();
         }
     }
 }
