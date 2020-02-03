@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using YPS.Domain.Entities.Base;
+using YPS.Application.Mapping;
+using YPS.Domain.Entities;
 
-namespace YPS.Domain.Entities
+namespace YPS.Application.Event.Query.GetAllEvents
 {
-    public class UpcomingEvent : EntityBase
+    public class UpcomingEventsDto : IMapFrom<UpcomingEvent>
     {
         public long? ClassId { get; set; }
 
@@ -15,7 +14,7 @@ namespace YPS.Domain.Entities
 
         public DateTime TimeOfCerate { get; set; }
 
-        public long TeacherId{ get; set; }
+        public long TeacherId { get; set; }
 
         public string Title { get; set; }
 

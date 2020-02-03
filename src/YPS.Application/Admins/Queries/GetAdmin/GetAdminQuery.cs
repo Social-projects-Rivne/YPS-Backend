@@ -36,6 +36,7 @@ namespace YPS.Application.Admins.Queries.GetAdmin
                     MiddleName = admin.MiddleName,
                     Email = admin.Email,
                     PhoneNumber = admin.PhoneNumber,
+                    ImageUrl = admin.ImageUrl,
                     DateOfBirth = admin.DateOfBirth
 
                 };

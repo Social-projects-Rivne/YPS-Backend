@@ -12,8 +12,8 @@ namespace YPS.WebUI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize("admin")]
-    public class AdminController : BaseController
+    //[Authorize]
+    public class AdminController : ApiController
     {
         [HttpGet]
         [ProducesResponseType(200)]
