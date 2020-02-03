@@ -38,10 +38,10 @@ namespace YPS.WebUI
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUserService, UserService>();
+            
             services.AddTransient<IRandomGeneratorService, RandomGeneratorService>();
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
@@ -155,7 +155,7 @@ namespace YPS.WebUI
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseSwagger();
-            
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
