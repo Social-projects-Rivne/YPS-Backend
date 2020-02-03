@@ -14,6 +14,5 @@ namespace YPS.Application.Admins.Queries.GetAdmin
         public string Email { get; set; }
         public string ImageUrl { get; set; }
         public DateTime DateOfBirth { get; set; }
-        
     }
 }

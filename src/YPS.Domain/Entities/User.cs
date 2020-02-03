@@ -17,13 +17,9 @@ namespace YPS.Domain.Entities
         public string Password { get; set; }
         public string ImageUrl { get; set; }
         public DateTime DateOfBirth { get; set; }
-
         public long RoleId { get; set; }
         public long? SchoolId { get; set; }
-
-        #nullable enable
         public School School { get; set; }
-        #nullable disable
         public virtual Role RoleOf { get; set; }
         public Pupil Pupil { get; set; }
         public Teacher Teacher { get; set; }

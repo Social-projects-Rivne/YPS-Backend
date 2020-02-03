@@ -23,6 +23,5 @@ namespace YPS.WebUI.Controllers
             var viewModel = await Mediator.Send(new GetAdminQuery { Id=Id});
             return Ok(viewModel);
         }
-           
     }
 }
