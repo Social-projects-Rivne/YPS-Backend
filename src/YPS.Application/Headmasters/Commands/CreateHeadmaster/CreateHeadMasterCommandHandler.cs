@@ -15,11 +15,11 @@ using YPS.Application.Models;
 
 namespace YPS.Application.Auth.Command.CreateHeadMaster
 {
-    public sealed class CreateHeadMasterCommand : IRequest<CreateHeadMasterVM>
+    public sealed class CreateHeadMasterCommand : IRequest<long>
     {
         public UserPartial User { get; set; }
 
-        public sealed class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreateHeadMasterVM>
+        public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, long>
         {
             private readonly IUserService _userService;
 
@@ -28,20 +28,11 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
                 _userService = userService;
             }
 
-            public async Task<CreateHeadMasterVM> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
+            public async Task<long> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
             {
-                User user = await _userService.CreateUser(request.User);
+                User createdUser = await _userService.CreateUser(request.User);
 
-                return new CreateHeadMasterVM
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    FirstName = user.FirstName,
-                    Surname = user.Surname,
-                    MiddleName = user.MiddleName,
-                    PhoneNumber = user.PhoneNumber,
-                    Password = user.Password
-                };
+                return createdUser.Id;
             }
         }
     }
