@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using YPS.Application.Auth.Command.Login;
 
 namespace YPS.WebUI.Controllers
 {
+    
     public class AuthController : ApiController
     {
         private readonly string _apiKey;

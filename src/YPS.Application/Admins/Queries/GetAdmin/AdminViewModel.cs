@@ -1,16 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace YPS.Application.Models
+namespace YPS.Application.Admins.Queries.GetAdmin
 {
-    public class UserPartial
+    public class AdminViewModel
     {
+        public long Id { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string ImageUrl { get; set; }
+        public DateTime DateOfBirth { get; set; }
     }
 }
