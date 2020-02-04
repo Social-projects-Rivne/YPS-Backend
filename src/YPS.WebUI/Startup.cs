@@ -25,6 +25,7 @@ using YPS.WebUI.Services;
 using YPS.Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 
 namespace YPS.WebUI
@@ -56,7 +57,6 @@ namespace YPS.WebUI
                     {
                         Name = "Team YPS",
                         Email = string.Empty,
-
                     },
 
                 });
@@ -69,7 +69,6 @@ namespace YPS.WebUI
                         Type = SecuritySchemeType.Http, //We set the scheme type to http since we're using bearer authentication
                         Scheme = "bearer" //The name of the HTTP Authorization scheme to be used in the Authorization header. In this case "bearer".
                     });
-
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement{
                     {
                         new OpenApiSecurityScheme{
@@ -87,7 +86,6 @@ namespace YPS.WebUI
                 {
                     c.IncludeXmlComments(xmlPath);
                 }
-
             });
 
             var key = Encoding.ASCII.GetBytes(Configuration["ApiKey"]);
@@ -102,14 +100,7 @@ namespace YPS.WebUI
                     {
                         OnTokenValidated = context =>
                         {
-                            //                          var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
                             var userName = context.Principal.Identity.Name;
-                            //                          var user = userService.GetUser(userId);
-                            //                            if (user == null)
-                            //                            {
-                            //                                // return unauthorized if user no longer exists
-                            //                                context.Fail("Unauthorized");
-                            //                            }
                             return Task.CompletedTask;
                         },
                         OnAuthenticationFailed = context =>
@@ -137,12 +128,10 @@ namespace YPS.WebUI
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
             services.AddDbContext<IYPSDbContext, YPSDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(connectionStringName),
                     x => x.MigrationsAssembly("YPS.Persistence")
                 ));
-
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -152,37 +141,26 @@ namespace YPS.WebUI
                         .AllowAnyHeader()
                         .Build());
             });
-
             services.AddScoped<ICurrentUserInformationService, CurrentUserInformationService>();
-
             services.AddApplication();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseCors("CorsPolicy");
+            app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseAuthentication();
         }
     }
 }

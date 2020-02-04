@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Auth\Command\CreateHeadMaster\**" />
+    <EmbeddedResource Remove="Auth\Command\CreateHeadMaster\**" />
+    <None Remove="Auth\Command\CreateHeadMaster\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="FluentValidation" Version="8.6.1" />
@@ -23,10 +29,6 @@
     <Folder Include="Pupils\Queries\" />
     <Folder Include="Event\Models\" />
     <Folder Include="Event\Query\GetEvent\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Auth\Command\CreateHeadMaster\" />
   </ItemGroup>
 
 </Project>
