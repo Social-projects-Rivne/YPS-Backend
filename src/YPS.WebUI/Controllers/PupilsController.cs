@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YPS.Application.Pupils.Query.GetAllPupils;
 using YPS.Application.Pupils.Commands.AddPupil;
 
 namespace YPS.WebUI.Controllers
@@ -14,5 +15,20 @@ namespace YPS.WebUI.Controllers
         {
             return Ok(await Mediator.Send(command));
         }
+
+        [HttpGet]
+        public async Task<ActionResult<List<PupilVm>>> GetAllPupils()
+        {
+            try
+            {
+                return Ok(await Mediator.Send(new GetAllPupilsQuery()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
     }
 }
