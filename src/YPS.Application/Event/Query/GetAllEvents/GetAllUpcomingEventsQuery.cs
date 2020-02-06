@@ -31,7 +31,7 @@ namespace YPS.Application.Event.Query.GetAllEvents
             {
                 //var schoolId = _userInfoService.SchoolId;
                 var upcomingEvets = await _context.UpcomingEvents     
-                    //.Where(x => x.SchoolId == schoolId)
+                    //.Where(x => x.SchoolId == 2)
                     //.ProjectTo<UpcomingEventsDto>(_mapper.ConfigurationProvider)
                     .ProjectTo<UpcomingEventVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
