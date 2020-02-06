@@ -222,7 +222,7 @@ namespace YPS.Persistence
                 .HasMany(x => x.UpcomingEvents)
                 .WithOne(x => x.Teacher);
 
-            modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = "Headmaster", Description = "HeadMaster" });
+            //modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = "Headmaster", Description = "HeadMaster" });
         }
     }
 
