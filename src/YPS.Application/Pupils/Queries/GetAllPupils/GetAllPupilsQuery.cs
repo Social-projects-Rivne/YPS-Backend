@@ -7,10 +7,10 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using YPS.Application.Event.Query.GetAllEvents;
 using YPS.Application.Interfaces;
+using YPS.Application.Pupils.Query.GetAllPupils;
 
-namespace YPS.Application.Pupils.Query.GetAllPupils
+namespace YPS.Application.Pupils.Queries.GetAllPupils
 {
     public sealed class GetAllPupilsQuery : IRequest<List<PupilVm>>
     {

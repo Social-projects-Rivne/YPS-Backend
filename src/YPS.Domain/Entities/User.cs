@@ -20,7 +20,6 @@ namespace YPS.Domain.Entities
 
         public long RoleId { get; set; }
         public virtual Role RoleOf { get; set; }
-
         public Pupil Pupil { get; set; }
         public Teacher Teacher { get; set; }
         public Parent Parent { get; set; }

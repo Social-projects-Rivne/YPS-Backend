@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using YPS.Application.Pupils.Query.GetAllPupils;
 using YPS.Application.Pupils.Commands.AddPupil;
+using YPS.Application.Pupils.Queries.GetAllPupils;
 
 namespace YPS.WebUI.Controllers
 {
@@ -28,7 +29,5 @@ namespace YPS.WebUI.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-
     }
 }
