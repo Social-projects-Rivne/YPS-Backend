@@ -24,7 +24,7 @@ namespace YPS.Persistence.Configurations
             builder.HasMany(e => e.ParentToPupils)
                 .WithOne(e => e.PupilOf);
 
-            builder.HasData(new Pupil { Id = 1, SchoolId = 1, UserId = 15,ClassId = 1},
+            builder.HasData(new Pupil { Id = 1, SchoolId = 1, UserId = 15, ClassId = 1 },
                 new Pupil { Id = 2, SchoolId = 1, UserId = 16, ClassId = 1 },
                 new Pupil { Id = 3, SchoolId = 1, UserId = 17, ClassId = 1 },
                 new Pupil { Id = 4, SchoolId = 1, UserId = 18, ClassId = 2 },

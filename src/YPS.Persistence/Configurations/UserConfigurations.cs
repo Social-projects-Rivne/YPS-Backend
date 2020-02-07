@@ -181,7 +181,7 @@ namespace YPS.Persistence.Configurations
                 Id = 23,
                 FirstName = "Bill", Surname = "Ogon", MiddleName = "Nazarovich", PhoneNumber = "0555689477",
                 Email = "pupil9", Password = "pupil9", ImageUrl = "C:/image/standart",
-                DateOfBirth = new DateTime(2010, 8, 28),RoleId = 1
+                DateOfBirth = new DateTime(2010, 8, 28),RoleId = 1,
             },
             new User
             {
@@ -189,6 +189,55 @@ namespace YPS.Persistence.Configurations
                 FirstName = "Yura", Surname = "Sumko", MiddleName = "Denisovich", PhoneNumber = "0986969659",
                 Email = "pupil10", Password = "pupil10", ImageUrl = "C:/image/standart",
                 DateOfBirth = new DateTime(2010, 1, 20),RoleId = 1
+            },
+            new User
+            {
+                Id = 25,
+                FirstName = "Andriy", Surname = "Maleev", MiddleName = "Andriyovich", PhoneNumber = "096957877",
+                Email = "headassistant1", Password = "headassistant1", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(1980, 5, 10),RoleId = 4
+            },
+            new User
+            {
+                Id = 26,
+                FirstName = "Savelia", Surname = "Kuleeva", MiddleName = "Andrievna", PhoneNumber = "098569694",
+                Email = "headassistant2", Password = "headassistant2", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(1989, 11, 10),RoleId = 4
+            },
+            new User
+            {
+                Id = 27,
+                FirstName = "Dmytro", Surname = "Yak", MiddleName = "Olegivich", PhoneNumber = "096878318",
+                Email = "master1", Password = "master1", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(2000, 4, 8),RoleId = 5
+            },
+            new User
+            {
+                Id = 28,
+                FirstName = "Dariya", Surname = "Kleer", MiddleName = "Maksimivna", PhoneNumber = "0506874123",
+                Email = "master2", Password = "master2", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(2001, 5, 12),RoleId = 5
+            },
+            new User
+            {
+                Id = 29,
+                FirstName = "Bob", Surname = "Masterovich", MiddleName = "Shizazovich", PhoneNumber = "096878318",
+                Email = "headmaster1", Password = "headmaster1", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(1995, 9, 6),RoleId = 6
+            },
+            new User
+            {
+                Id = 30,
+                FirstName = "Sava", Surname = "Marlov", MiddleName = "Batkovich", PhoneNumber = "050878563",
+                Email = "headmaster2", Password = "headmaster2", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(1981, 5, 6),RoleId = 6
+            },
+            new User
+            {
+                Id = 31,
+                FirstName = "Sergey", Surname = "Admnen", MiddleName = "Oleksiyovich", PhoneNumber = "068969025",
+                Email = "admin1", Password = "admin1", ImageUrl = "C:/image/standart",
+                DateOfBirth = new DateTime(2000, 4, 8),RoleId = 7
             });
         }
     }

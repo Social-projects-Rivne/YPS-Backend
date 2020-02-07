@@ -17,9 +17,9 @@ namespace YPS.Persistence.Configurations
             builder.HasMany(x => x.UpcomingTests)
                 .WithOne(x => x.Discipline);
 
-            builder.HasData(new Discipline { Id = 1, Name = "Math"},
-                new Discipline { Id = 2, Name = "English"},
-                new Discipline { Id = 3, Name = "Germany"});
+            builder.HasData(new Discipline { Id = 1, Name = "Math" },
+                new Discipline { Id = 2, Name = "English" },
+                new Discipline { Id = 3, Name = "Germany" });
         }
     }
 }

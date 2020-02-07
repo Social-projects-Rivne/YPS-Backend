@@ -19,10 +19,10 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Parent)
                 .HasForeignKey<Parent>(e => e.UserId);
 
-            builder.HasData(new Parent {Id = 1, SchoolId = 1, UserId = 5, WorkInfo = "WorkInfo parent1"},
-                new Parent { Id = 2, SchoolId = 1,UserId = 6, WorkInfo = "WorkInfo parent2"},
-                new Parent { Id = 3, SchoolId = 1, UserId = 7, WorkInfo = "WorkInfo parent3"},
-                new Parent { Id = 4, SchoolId = 1, UserId = 8, WorkInfo = "WorkInfo parent4"},
+            builder.HasData(new Parent { Id = 1, SchoolId = 1, UserId = 5, WorkInfo = "WorkInfo parent1" },
+                new Parent { Id = 2, SchoolId = 1, UserId = 6, WorkInfo = "WorkInfo parent2" },
+                new Parent { Id = 3, SchoolId = 1, UserId = 7, WorkInfo = "WorkInfo parent3" },
+                new Parent { Id = 4, SchoolId = 1, UserId = 8, WorkInfo = "WorkInfo parent4" },
                 new Parent { Id = 5, SchoolId = 1, UserId = 9, WorkInfo = "WorkInfo parent5" },
                 new Parent { Id = 6, SchoolId = 2, UserId = 10, WorkInfo = "WorkInfo parent6" },
                 new Parent { Id = 7, SchoolId = 2, UserId = 11, WorkInfo = "WorkInfo parent7" },
