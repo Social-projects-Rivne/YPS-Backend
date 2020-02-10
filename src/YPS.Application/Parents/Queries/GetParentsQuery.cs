@@ -48,8 +48,6 @@ namespace YPS.Application.Parents.Queries
                     PhoneNumber = x.PhoneNumber,
                     Children=children.ToList()
                 }).ToList();
-
-
             }
         }
     }
