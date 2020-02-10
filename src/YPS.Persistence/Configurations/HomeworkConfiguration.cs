@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class HomeworkConfigurations : IEntityTypeConfiguration<Homework>
+    class HomeworkConfiguration : IEntityTypeConfiguration<Homework>
     {
         public void Configure(EntityTypeBuilder<Homework> builder)
         {

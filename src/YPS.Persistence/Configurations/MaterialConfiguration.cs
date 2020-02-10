@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class MaterialConfigurations : IEntityTypeConfiguration<Material>
+    class MaterialConfiguration : IEntityTypeConfiguration<Material>
     {
         public void Configure(EntityTypeBuilder<Material> builder)
         {

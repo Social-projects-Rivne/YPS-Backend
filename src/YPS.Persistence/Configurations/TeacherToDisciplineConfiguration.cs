@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class TeacherToDisciplineConfigurations : IEntityTypeConfiguration<TeacherToDiscipline>
+    class TeacherToDisciplineConfiguration : IEntityTypeConfiguration<TeacherToDiscipline>
     {
         public void Configure(EntityTypeBuilder<TeacherToDiscipline> builder)
         {

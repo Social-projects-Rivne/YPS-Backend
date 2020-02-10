@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class UpcomingTestConfigurations : IEntityTypeConfiguration<UpcomingTest>
+    class UpcomingTestConfiguration : IEntityTypeConfiguration<UpcomingTest>
     {
         public void Configure(EntityTypeBuilder<UpcomingTest> builder)
         {

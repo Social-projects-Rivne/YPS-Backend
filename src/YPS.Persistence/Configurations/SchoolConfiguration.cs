@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class SchoolConfigurations : IEntityTypeConfiguration<School>
+    class SchoolConfiguration : IEntityTypeConfiguration<School>
     {
         public void Configure(EntityTypeBuilder<School> builder)
         {

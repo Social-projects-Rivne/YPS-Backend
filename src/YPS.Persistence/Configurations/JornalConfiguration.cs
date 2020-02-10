@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class JornalConfigurations : IEntityTypeConfiguration<Journal>
+    class JornalConfiguration : IEntityTypeConfiguration<Journal>
     {
         public void Configure(EntityTypeBuilder<Journal> builder)
         {

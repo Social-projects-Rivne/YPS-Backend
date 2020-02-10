@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class ParentConfigurations : IEntityTypeConfiguration<Parent>
+    class ParentConfiguration : IEntityTypeConfiguration<Parent>
     {
         public void Configure(EntityTypeBuilder<Parent> builder)
         {

@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class MarkTypeConfigurations : IEntityTypeConfiguration<MarkType>
+    class MarkTypeConfiguration : IEntityTypeConfiguration<MarkType>
     {
         public void Configure(EntityTypeBuilder<MarkType> builder)
         {

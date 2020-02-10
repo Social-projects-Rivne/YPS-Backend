@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class DayConfigurations : IEntityTypeConfiguration<Day>
+    class DayConfiguration : IEntityTypeConfiguration<Day>
     {
         public void Configure(EntityTypeBuilder<Day> builder)
         {

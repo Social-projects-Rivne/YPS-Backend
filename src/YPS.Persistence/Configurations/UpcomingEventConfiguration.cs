@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class UpcomingEventConfigurations : IEntityTypeConfiguration<UpcomingEvent>
+    class UpcomingEventConfiguration : IEntityTypeConfiguration<UpcomingEvent>
     {
         public void Configure(EntityTypeBuilder<UpcomingEvent> builder)
         {

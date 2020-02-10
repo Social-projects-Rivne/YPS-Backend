@@ -6,7 +6,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class JournalColumnsConfigurations : IEntityTypeConfiguration<JournalColumn>
+    class JournalColumnsConfiguration : IEntityTypeConfiguration<JournalColumn>
     {
         public void Configure(EntityTypeBuilder<JournalColumn> builder)
         {

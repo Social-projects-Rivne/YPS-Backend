@@ -4,7 +4,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class DisciplineConfigurations : IEntityTypeConfiguration<Discipline>
+    class DisciplineConfiguration : IEntityTypeConfiguration<Discipline>
     {
         public void Configure(EntityTypeBuilder<Discipline> builder)
         {

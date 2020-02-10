@@ -7,7 +7,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class ScheduleConfigurations : IEntityTypeConfiguration<Schedule>
+    class ScheduleConfiguration : IEntityTypeConfiguration<Schedule>
     {
         public void Configure(EntityTypeBuilder<Schedule> builder)
         {
