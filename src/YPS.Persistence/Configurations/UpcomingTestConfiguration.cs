@@ -27,6 +27,21 @@ namespace YPS.Persistence.Configurations
             builder.HasOne(e => e.Discipline)
                 .WithMany(e => e.UpcomingTests)
                 .HasForeignKey(e => e.DisciplineId);
+
+            builder.HasData(new UpcomingTest
+            {
+                Id = 1,
+                TestType = "Test", Topic = "Adding and subtracting numbers",
+                ClassId = 1, DisciplineId = 1,
+                Date = DateTime.MaxValue
+            }, 
+            new UpcomingTest
+            {
+                Id = 2,
+                TestType = "Test", Topic = "Using complex object in English dialogs",
+                ClassId = 4, DisciplineId = 2,
+                Date = DateTime.MaxValue
+            });
         }
     }
 }
