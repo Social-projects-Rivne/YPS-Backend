@@ -14,9 +14,9 @@ namespace YPS.Domain.Entities
         public string TestType { get; set; }
 
         public long ClassId { get; set; }
-        public virtual Class Class { get; set; }
+        public Class Class { get; set; }
 
         public long DisciplineId { get; set; }
-        public virtual Discipline Discipline { get; set; }
+        public Discipline Discipline { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace YPS.Domain.Entities
         public ushort LessonNumber { get; set; }
 
         public long LessonId { get; set; }
-        public virtual Lesson Lesson { get; set; }
+        public Lesson Lesson { get; set; }
 
         public long DayId { get; set; }
-        public virtual Day Day { get; set; }
+        public Day Day { get; set; }
     }
 }
