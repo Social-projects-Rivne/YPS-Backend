@@ -18,10 +18,10 @@ namespace YPS.Domain.Entities
         public long SchoolId { get; set; }
 
         public long UserId { get; set; }
-        public virtual User User { get; set; }
+        public User User { get; set; }
 
         public long ClassId { get; set; }
-        public virtual Class ClassOf { get; set; }
+        public Class ClassOf { get; set; }
         
         public ICollection<ParentToPupil> ParentToPupils { get; set; }
         public ICollection<Mark> Marks { get; set; }

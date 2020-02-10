@@ -16,10 +16,10 @@ namespace YPS.Domain.Entities
         }
 
         public long DisciplineId { get; set; }
-        public virtual Discipline Discipline { get; set; }
+        public Discipline Discipline { get; set; }
 
         public long TeacherId { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public Teacher Teacher { get; set; }
 
         public ICollection<Lesson> Lessons { get; set; }
     }

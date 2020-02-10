@@ -17,7 +17,7 @@ namespace YPS.Domain.Entities
         public string Title { get; set; }
 
         public long MarkId { get; set; }
-        public virtual Mark Mark { get; set; }
+        public Mark Mark { get; set; }
 
         public ICollection<JournalColumn> JournalColumns { get; set; }
     }
