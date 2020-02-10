@@ -28,8 +28,7 @@ namespace YPS.Application.Pupils.Query.GetAllPupils
                 .ForMember(x=>x.Email, opt=>opt.MapFrom(x=>x.User.Email))
                 .ForMember(x=>x.DateOfBirth, opt=>opt.MapFrom(x=>x.User.DateOfBirth))
                 .ForMember(x=>x.Id,opt=>opt.MapFrom(x=>x.User.Id))
-                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassOf.Number+"-" + x.ClassOf.Character))
-                ;
+                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassOf.Number+"-" + x.ClassOf.Character));
         }
     }
 }

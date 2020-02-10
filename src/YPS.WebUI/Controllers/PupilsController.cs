@@ -22,7 +22,7 @@ namespace YPS.WebUI.Controllers
         {
             try
             {
-                return Ok(await Mediator.Send(new GetAllPupilsQuery()));
+                return Ok(await Mediator.Send(new GetPupilsBySchoolQuery()));
             }
             catch (Exception ex)
             {
