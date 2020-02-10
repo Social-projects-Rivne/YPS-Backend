@@ -23,7 +23,7 @@ namespace YPS.Persistence.Configurations
             builder.HasData(new Class { Id = 1, Number = 1, Character = "a", ClassTeacherId = 2 },
                 new Class { Id = 2, Number = 3, Character = "c", ClassTeacherId = 1 },
                 new Class { Id = 3, Number = 11, Character = "b", ClassTeacherId = 3 },
-                new Class { Id = 4, Number = 9, Character = "1", ClassTeacherId = 4 });
+                new Class { Id = 4, Number = 9, Character = "q", ClassTeacherId = 4 });
         }
     }
 }
