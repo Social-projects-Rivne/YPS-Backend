@@ -33,20 +33,19 @@ namespace YPS.Application.Parents.Queries
                     .Include(x => x.PupilOf.ClassOf)
                     .Where(x => x.ParentOf.SchoolId == request.Id)
                     .AsNoTracking()
-                    .Select(x => x.PupilOf).Select(x => new ChildInfoViewModel
-                    {
-                        Info=x.User.FirstName+" "+x.User.Surname+" "+x.User.MiddleName+" "+x.ClassOf.Number.ToString()+"-"+x.ClassOf.Character
-                    });
+                    .Select(x => x.PupilOf).Select(x =>
+                        x.User.FirstName + " " + x.User.Surname + " " + x.User.MiddleName + " Class:" + x.ClassOf.Character + "-" + x.ClassOf.Number.ToString()
+                    );
                 return parents.Select(x => new ParentViewModel
                 {
+                    Id=x.Id,
                     Email = x.Email,
                     FirstName = x.FirstName,
                     MiddleName = x.MiddleName,
                     Surname = x.Surname,
-                    ImageUrl = x.ImageUrl,
-                    WorkInfo=x.Parent.WorkInfo,
+                    WorkInfo = x.Parent.WorkInfo,
                     PhoneNumber = x.PhoneNumber,
-                    Children=children.ToList()
+                    Info = children.ToList()
                 }).ToList();
             }
         }
