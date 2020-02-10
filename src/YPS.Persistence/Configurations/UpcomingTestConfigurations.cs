@@ -22,7 +22,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.Class)
                 .WithMany(e => e.UpcomingTests)
-                .HasForeignKey(e => e.ClassId); //Not in the context
+                .HasForeignKey(e => e.ClassId);
 
             builder.HasOne(e => e.Discipline)
                 .WithMany(e => e.UpcomingTests)

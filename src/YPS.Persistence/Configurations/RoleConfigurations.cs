@@ -19,7 +19,7 @@ namespace YPS.Persistence.Configurations
                 
 
             builder.HasMany(e => e.Users)
-                .WithOne(e => e.RoleOf); //Not in the context
+                .WithOne(e => e.RoleOf);
 
             builder.HasData(new Role { Id = 1, Name = "Pupil", Description = "Simple pupil" },
                 new Role { Id = 2, Name = "Teacher", Description = "Simple teacher which lead the lessons" },

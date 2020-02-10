@@ -14,8 +14,7 @@ namespace YPS.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.Property(e => e.LessonDate) /////////?
-                .HasDefaultValue(DateAndTime.Now)
+            builder.Property(e => e.LessonDate)
                 .IsRequired();
 
             builder.HasMany(e => e.Marks)

@@ -21,7 +21,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.Day)
                 .WithMany(e => e.Schedules)
-                .HasForeignKey(e => e.DayId); //In context without this line
+                .HasForeignKey(e => e.DayId);
         }
     }
 }

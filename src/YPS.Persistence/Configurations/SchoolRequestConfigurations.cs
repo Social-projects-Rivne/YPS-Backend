@@ -34,6 +34,24 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.PhoneNumb)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            builder.HasData(
+                new SchoolRequest
+                {
+                    Id = 1,
+                    Name = "Rivnenskya gimnazia 'Harmony'", ShortName = "RG 'Harmony'", 
+                    Locality = "Rivne", Address = "Generala Bezrushuka 8",
+                    Email = "harmony@gmail.com", PhoneNumb = "24-02-84",
+                    Confirmation = true
+                },
+                new SchoolRequest
+                {
+                    Id = 2,
+                    Name = "Rivnentskiy oblasniy lisei internat", ShortName = "ROLI", 
+                    Locality = "Rivne", Address = "Lermontova 18",
+                    Email = "roli_school@gmail.com", PhoneNumb = "24-55-89",
+                    Confirmation = true
+                });
         }
     }
 }

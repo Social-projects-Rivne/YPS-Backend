@@ -14,7 +14,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.Class)
                 .WithMany(e => e.Journals)
-                .HasForeignKey(e => e.ClassId); //Not in the DBContext
+                .HasForeignKey(e => e.ClassId);
         }
     }
 }
