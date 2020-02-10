@@ -12,11 +12,11 @@ namespace YPS.WebUI.Controllers
     public class TeachersController : ApiController
     {
         [HttpGet("{schoolId}")]
-        public async Task<ActionResult<List<GetTeachersBySchoolIdVM>>> GetTeachers(long schoolId)
+        public async Task<ActionResult<List<TeachersBySchoolVm>>> GetTeachers(long schoolId)
         {
             try
             {
-                return Ok(await Mediator.Send(new GetTeachersBySchoolIdQuery { SchoolId = schoolId }));
+                return Ok(await Mediator.Send(new TeachersBySchoolIdQuery { SchoolId = schoolId }));
             }
             catch (Exception ex)
             {
