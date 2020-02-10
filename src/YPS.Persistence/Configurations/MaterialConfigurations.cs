@@ -13,9 +13,6 @@ namespace YPS.Persistence.Configurations
                 .HasMaxLength(255)
                 .IsRequired();
 
-            builder.Property(e => e.ImageUrl)
-                .HasDefaultValue(null);
-
             builder.Property(e => e.FileUrl)
                 .IsRequired()
                 .HasMaxLength(255);

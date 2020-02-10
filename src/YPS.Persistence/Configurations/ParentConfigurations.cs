@@ -10,6 +10,7 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Parent> builder)
         {
             builder.Property(e => e.WorkInfo)
+                .IsRequired()
                 .HasMaxLength(255);
 
             builder.HasMany(e => e.ParentToPupils)

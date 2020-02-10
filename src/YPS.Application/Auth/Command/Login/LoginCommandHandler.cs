@@ -37,9 +37,11 @@ namespace YPS.Application.Auth.Command.Login
             {
                 throw new ValidationException();
             }
-
             var claims = new List<Claim> {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.RoleId.ToString()),
+                new Claim(ClaimTypes.Name, user.FirstName),
+                new Claim(ClaimTypes.GivenName, user.SchoolId.ToString())
             };
 
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);

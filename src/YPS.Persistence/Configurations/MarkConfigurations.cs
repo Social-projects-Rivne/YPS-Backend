@@ -10,6 +10,7 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Mark> builder)
         {
             builder.Property(e => e.Value)
+                .IsRequired()
                 .HasMaxLength(3);
 
             builder.HasOne(e => e.JournalColumn)

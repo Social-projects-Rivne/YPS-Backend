@@ -17,9 +17,6 @@ namespace YPS.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(50);
 
-            //builder.HasMany(e => e.Teachers)
-            //    .WithOne(e => e.SchoolOf); //Not it the context
-
             builder.HasMany(e => e.UpcomingEvents)
                 .WithOne(e => e.School);
 

@@ -18,7 +18,7 @@ namespace YPS.Domain.Entities
         public string WorkInfo { get; set; }
 
         public long UserId { get; set; }
-        public virtual User User { get; set; }
+        public User User { get; set; }
 
         public ICollection<ParentToPupil> ParentToPupils { get; set; }
     }

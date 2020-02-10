@@ -10,13 +10,14 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<UpcomingTest> builder)
         {
             builder.Property(e => e.Date)
-                //.HasColumnType("datetime")
                 .IsRequired();
 
             builder.Property(e => e.Topic)
+                .IsRequired()
                 .HasMaxLength(255);
 
             builder.Property(e => e.TestType)
+                .IsRequired()
                 .HasMaxLength(255);
 
             builder.HasOne(e => e.Class)

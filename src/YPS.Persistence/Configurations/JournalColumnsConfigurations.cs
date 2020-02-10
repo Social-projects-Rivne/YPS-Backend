@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.VisualBasic;
 using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
@@ -9,11 +10,13 @@ namespace YPS.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<JournalColumn> builder)
         {
-            //builder.Property(e => e.LessonDate)
-            //    .HasColumnType("datetime");
-
             builder.Property(e => e.Theme)
+                .IsRequired()
                 .HasMaxLength(255);
+
+            builder.Property(e => e.LessonDate) /////////?
+                .HasDefaultValue(DateAndTime.Now)
+                .IsRequired();
 
             builder.HasMany(e => e.Marks)
                 .WithOne(e => e.JournalColumn);
@@ -32,9 +35,6 @@ namespace YPS.Persistence.Configurations
             builder.HasOne(e => e.Journal)
                 .WithMany(e => e.JournalColumns)
                 .HasForeignKey(e => e.JournalId);
-
-
-
         }
     }
 }

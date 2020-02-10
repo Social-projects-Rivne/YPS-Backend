@@ -10,12 +10,11 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Teacher> builder)
         {
             builder.Property(e => e.Degree)
-                .HasMaxLength(255)
-                .HasDefaultValue(null);
+                .HasMaxLength(256);
 
             builder.HasOne(e => e.SchoolOf)
                 .WithMany(e => e.Teachers)
-                .HasForeignKey(e => e.SchoolId); ///Not in the context this line
+                .HasForeignKey(e => e.SchoolId);
 
             builder.HasMany(e => e.Classes)
                 .WithOne(e => e.TeacherOf);
@@ -32,7 +31,7 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Teacher);
 
             builder.HasMany(e => e.UpcomingEvents)
-                .WithOne(e => e.Teacher); //Not in the SQL UML
+                .WithOne(e => e.Teacher);
 
             builder.HasData(new Teacher { Id = 1, UserId = 2, Degree = "Kindergarten teachers", SchoolId = 1 },
                 new Teacher { Id = 2, UserId = 1, Degree = "Kindergarten and elementary school teachers", SchoolId = 1 },

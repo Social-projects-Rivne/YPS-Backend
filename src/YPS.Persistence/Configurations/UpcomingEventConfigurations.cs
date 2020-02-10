@@ -12,8 +12,10 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.Title)
                 .HasMaxLength(255);
 
+            builder.Property(e => e.Content)
+                .HasMaxLength(5000);
+
             builder.Property(e => e.TimeOfCreation)
-                //.HasColumnType("datetime")
                 .IsRequired();
 
             builder.HasOne(e => e.School)

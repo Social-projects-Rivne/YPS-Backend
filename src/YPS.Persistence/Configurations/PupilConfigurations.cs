@@ -11,7 +11,7 @@ namespace YPS.Persistence.Configurations
         {
             builder.HasOne(e => e.ClassOf)
                 .WithMany(e => e.Pupils)
-                .HasForeignKey(e => e.ClassId); //Not in the context
+                .HasForeignKey(e => e.ClassId); 
 
             builder.HasOne(e => e.User)
                 .WithOne(e => e.Pupil)

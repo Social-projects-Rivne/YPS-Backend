@@ -9,6 +9,7 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Discipline> builder)
         {
             builder.Property(e => e.Name)
+                .IsRequired()
                 .HasMaxLength(100);
 
             builder.HasMany(x => x.TeacherToDisciplines)

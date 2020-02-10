@@ -10,6 +10,7 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Homework> builder)
         {
             builder.Property(e => e.Title)
+                .IsRequired()
                 .HasMaxLength(255);
 
             builder.HasOne(e => e.Mark)

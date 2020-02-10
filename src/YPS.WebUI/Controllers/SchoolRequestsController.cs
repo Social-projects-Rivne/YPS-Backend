@@ -20,7 +20,6 @@ namespace YPS.WebUI.Controllers
             {
                 return BadRequest();
             }
-
             try
             {
                 var account = await Mediator.Send(command).ConfigureAwait(false);

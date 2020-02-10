@@ -34,9 +34,6 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.PhoneNumb)
                 .IsRequired()
                 .HasMaxLength(50);
-
-            builder.Property(e => e.Confirmation)
-                .HasDefaultValue(false);
         }
     }
 }

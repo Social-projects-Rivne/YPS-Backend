@@ -7,12 +7,17 @@ namespace YPS.Persistence.Configurations
 {
     class RoleConfigurations : IEntityTypeConfiguration<Role>
     {
-        /// <summary>
-        /// Не чіпать
-        /// </summary>
-        /// <param name="builder"></param>
         public void Configure(EntityTypeBuilder<Role> builder)
         {
+            builder.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(64);
+
+            builder.Property(e => e.Description)
+                .IsRequired()
+                .HasMaxLength(256);
+                
+
             builder.HasMany(e => e.Users)
                 .WithOne(e => e.RoleOf); //Not in the context
 

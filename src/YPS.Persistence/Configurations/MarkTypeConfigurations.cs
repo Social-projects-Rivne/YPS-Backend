@@ -10,9 +10,11 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<MarkType> builder)
         {
             builder.Property(e => e.Type)
+                .IsRequired()
                 .HasMaxLength(50);
 
             builder.Property(e => e.Description)
+                .IsRequired()
                 .HasMaxLength(255);
 
             builder.HasMany(e => e.Marks)

@@ -12,7 +12,8 @@ namespace YPS.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Schedule> builder)
         {
             builder.Property(e => e.LessonNumber)
-                .HasMaxLength(2);
+                .IsRequired()
+                .HasMaxLength(5);
 
             builder.HasOne(e => e.Lesson)
                 .WithMany(e => e.Schedules)
