@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using AutoMapper;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Pupils.Query.GetAllPupils
+namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
 {
-    public class PupilVm: IMapFrom<PupilDto>
+    public class PupilsBySchoolVm : IMapFrom<Pupil>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -20,7 +17,7 @@ namespace YPS.Application.Pupils.Query.GetAllPupils
         public DateTime DateOfBirth { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Pupil, PupilVm>()
+            profile.CreateMap<Pupil, PupilsBySchoolVm>()
                 .ForMember(x=>x.FirstName , opt=>opt.MapFrom(x=>x.User.FirstName))
                 .ForMember(x=>x.Surname, opt=>opt.MapFrom(x=>x.User.Surname))
                 .ForMember(x=>x.MiddleName, opt=>opt.MapFrom(x=>x.User.MiddleName))

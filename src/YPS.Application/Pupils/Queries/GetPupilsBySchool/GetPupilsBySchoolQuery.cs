@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,33 +7,31 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using YPS.Application.Interfaces;
-using YPS.Application.Pupils.Query.GetAllPupils;
 
-namespace YPS.Application.Pupils.Queries.GetAllPupils
+namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
 {
-    public sealed class GetAllPupilsQuery : IRequest<List<PupilVm>>
+    public sealed class GetPupilsBySchoolQuery : IRequest<List<PupilsBySchoolVm>>
     {
-        public class GetAllPupilsHandler : IRequestHandler<GetAllPupilsQuery, List<PupilVm>>
+        public long SchoolId { get; set; }
+        public class GetPupilsBySchoolHandler : IRequestHandler<GetPupilsBySchoolQuery, List<PupilsBySchoolVm>>
         {
             private readonly IYPSDbContext _context;
-            //private readonly ICurrentUserInformationService _userInfoService;
             private readonly IMapper _mapper;
 
-            public GetAllPupilsHandler(IYPSDbContext context, /*ICurrentUserInformationService userInformationService, */IMapper mapper)
+            public GetPupilsBySchoolHandler(IYPSDbContext context, IMapper mapper)
             {
                 _context = context;
-                //_userInfoService = userInformationService;
                 _mapper = mapper;
             }
 
-            public async Task<List<PupilVm>> Handle(GetAllPupilsQuery request, CancellationToken cancellationToken)
+            public async Task<List<PupilsBySchoolVm>> Handle(GetPupilsBySchoolQuery request, CancellationToken cancellationToken)
             {
-                //var schoolId = _userInfoService.SchoolId;
-
-                var pupils = await _context.Pupils
-                        .ProjectTo<PupilVm>(_mapper.ConfigurationProvider)
+                List<PupilsBySchoolVm> result = await _context.Pupils
+                        .Where(cl=>cl.SchoolId== request.SchoolId)
+                        .ProjectTo<PupilsBySchoolVm>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
-                return pupils;
+
+                return result;
             }
         }
     }

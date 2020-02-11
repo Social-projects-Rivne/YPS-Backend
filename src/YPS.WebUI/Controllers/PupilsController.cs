@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YPS.Application.Pupils.Query.GetAllPupils;
 using YPS.Application.Pupils.Commands.AddPupil;
-using YPS.Application.Pupils.Queries.GetAllPupils;
+using YPS.Application.Pupils.Queries.GetPupilsBySchool;
 
 namespace YPS.WebUI.Controllers
 {
@@ -17,12 +16,12 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<PupilVm>>> GetAllPupils()
+        [HttpGet("{schoolId}")]
+        public async Task<ActionResult<List<PupilsBySchoolVm>>> GetAllPupils(long schoolId)
         {
             try
             {
-                return Ok(await Mediator.Send(new GetPupilsBySchoolQuery()));
+                return Ok(await Mediator.Send(new GetPupilsBySchoolQuery {SchoolId = schoolId}));
             }
             catch (Exception ex)
             {
