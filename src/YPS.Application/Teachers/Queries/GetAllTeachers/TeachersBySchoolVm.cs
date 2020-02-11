@@ -6,6 +6,7 @@ using System.Linq;
 using YPS.Application.Event.Query.GetAllEvents;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
+using FluentValidation;
 
 namespace YPS.Application.Teachers.Queries.GetTeacher
 {
@@ -34,3 +35,4 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
         }
     }
 }
+

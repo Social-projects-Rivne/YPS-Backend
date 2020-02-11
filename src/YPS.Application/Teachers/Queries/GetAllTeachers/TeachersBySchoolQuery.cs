@@ -13,11 +13,11 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.Teachers.Queries.GetTeacher
 {
-    public class TeachersBySchoolIdQuery : IRequest<List<TeachersBySchoolVm>>
+    public class TeachersBySchoolQuery : IRequest<List<TeachersBySchoolVm>>
     {
         public long SchoolId { get; set; }
 
-        public class GetTeachersQueryHandler : IRequestHandler<TeachersBySchoolIdQuery, List<TeachersBySchoolVm>>
+        public class GetTeachersQueryHandler : IRequestHandler<TeachersBySchoolQuery, List<TeachersBySchoolVm>>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
@@ -28,12 +28,13 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
                 _mapper = mapper;
             }
 
-            public async Task<List<TeachersBySchoolVm>> Handle(TeachersBySchoolIdQuery request, CancellationToken cancellationToken)
+            public async Task<List<TeachersBySchoolVm>> Handle(TeachersBySchoolQuery request, CancellationToken cancellationToken)
             {
                 var teachers = await _dbContext.Teachers
                     .Where(x => x.SchoolId == request.SchoolId)
                     .ProjectTo<TeachersBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
+                
                 return teachers;
             }
         }
