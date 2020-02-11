@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Event\Models\" />
     <Folder Include="Event\Query\GetEvent\" />
   </ItemGroup>
 
