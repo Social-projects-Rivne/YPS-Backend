@@ -17,7 +17,7 @@ namespace YPS.Domain.Entities
         public string Value { get; set; }
 
         public long JournalColumnId { get; set; }
-        public virtual JournalColumn JournalColumn { get; set; }
+        public JournalColumn JournalColumn { get; set; }
 
         public long MarkTypeId { get; set; }
         public virtual MarkType MarkType { get; set; }
