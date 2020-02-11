@@ -36,7 +36,7 @@ namespace YPS.WebUI.Controllers
             try
             {   
                 command.ApiKey = _apiKey;
-                string token = await Mediator.Send(command);
+                var token = await Mediator.Send(command);
                 return Ok(new { token });
             }
             catch (ValidationException e)
