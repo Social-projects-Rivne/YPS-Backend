@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using YPS.Application.Pupils.Query.GetAllPupils;
 using YPS.Application.Pupils.Commands.AddPupil;
 using YPS.Application.Pupils.Queries.GetAllPupils;
+using YPS.Application.Pupils.Queries.GetPupilsByClass;
 
 namespace YPS.WebUI.Controllers
 {
@@ -28,6 +29,12 @@ namespace YPS.WebUI.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet("{classId}")]
+        public async Task<ActionResult<List<PupilByClassVm>>> GetByClass(long classId)
+        {
+            return Ok(await Mediator.Send(new GetPupilsByClassQuery { ClassId = classId }));
         }
     }
 }
