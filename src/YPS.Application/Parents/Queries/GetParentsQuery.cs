@@ -34,7 +34,7 @@ namespace YPS.Application.Parents.Queries
                     .Where(x => x.ParentOf.SchoolId == request.Id)
                     .AsNoTracking()
                     .Select(x => x.PupilOf).Select(x =>
-                        x.User.FirstName + " " + x.User.Surname + " " + x.User.MiddleName + " Class:" + x.ClassOf.Character + "-" + x.ClassOf.Number.ToString()
+                        x.User.FirstName + " " + x.User.Surname + " " + x.User.MiddleName + " Class:" + x.ClassOf.Character + "-" + x.ClassOf.Number.ToString() + "\n"
                     );
                 return parents.Select(x => new ParentViewModel
                 {
@@ -45,7 +45,7 @@ namespace YPS.Application.Parents.Queries
                     Surname = x.Surname,
                     WorkInfo = x.Parent.WorkInfo,
                     PhoneNumber = x.PhoneNumber,
-                    Info = children.ToList()
+                    Children = children.ToList()
                 }).ToList();
             }
         }

@@ -13,6 +13,6 @@ namespace YPS.Application.Parents.ViewModels
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string WorkInfo { get; set; }
-        public List<string> Info { get; set; }
+        public List<string> Children { get; set; }
     }
 }
