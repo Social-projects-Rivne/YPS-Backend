@@ -10,29 +10,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 
-
 namespace YPS.Application.Teachers.Queries.GetTeacher
 {
-    public class TeachersBySchoolQuery : IRequest<List<TeachersBySchoolVm>>
+    public class GetTeachersBySchoolQuery : IRequest<List<TeacherBySchoolVm>>
     {
         public long SchoolId { get; set; }
 
-        public class GetTeachersQueryHandler : IRequestHandler<TeachersBySchoolQuery, List<TeachersBySchoolVm>>
+        public class GetTeachersBySchoolQueryHandler : IRequestHandler<GetTeachersBySchoolQuery, List<TeacherBySchoolVm>>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
 
-            public GetTeachersQueryHandler(IYPSDbContext dbContext, IMapper mapper)
+            public GetTeachersBySchoolQueryHandler(IYPSDbContext dbContext, IMapper mapper)
             {
                 _dbContext = dbContext;
                 _mapper = mapper;
             }
 
-            public async Task<List<TeachersBySchoolVm>> Handle(TeachersBySchoolQuery request, CancellationToken cancellationToken)
+            public async Task<List<TeacherBySchoolVm>> Handle(GetTeachersBySchoolQuery request, CancellationToken cancellationToken)
             {
-                var teachers = await _dbContext.Teachers
+                List<TeacherBySchoolVm> teachers = await _dbContext.Teachers
                     .Where(x => x.SchoolId == request.SchoolId)
-                    .ProjectTo<TeachersBySchoolVm>(_mapper.ConfigurationProvider)
+                    .ProjectTo<TeacherBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
                 
                 return teachers;
