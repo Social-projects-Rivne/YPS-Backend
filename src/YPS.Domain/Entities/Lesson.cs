@@ -16,7 +16,7 @@ namespace YPS.Domain.Entities
         }
 
         public long TeacherToDisciplineId { get; set; }
-        public virtual TeacherToDiscipline TeacherToDiscipline { get; set; }
+        public TeacherToDiscipline TeacherToDiscipline { get; set; }
 
         public ICollection<JournalColumn> JournalColumns { get; set; }
         public ICollection<Schedule> Schedules { get; set; }
