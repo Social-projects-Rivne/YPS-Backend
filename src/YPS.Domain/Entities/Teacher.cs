@@ -14,12 +14,13 @@ namespace YPS.Domain.Entities
             Materials = new HashSet<Material>();
             Classes = new HashSet<Class>();
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
+            UpcomingEvents = new HashSet<UpcomingEvent>();
         }
 
         public string  Degree { get; set; }
 
         public long SchoolId { get; set; }
-        public virtual School SchoolOf { get; set; }
+        public School SchoolOf { get; set; }
 
         public long UserId { get; set; }
         public User User { get; set; }
