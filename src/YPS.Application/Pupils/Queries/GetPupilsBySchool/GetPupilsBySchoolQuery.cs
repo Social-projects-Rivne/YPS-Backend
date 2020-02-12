@@ -27,9 +27,9 @@ namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
             public async Task<List<PupilBySchoolVm>> Handle(GetPupilsBySchoolQuery request, CancellationToken cancellationToken)
             {
                 List<PupilBySchoolVm> result = await _context.Pupils
-                        .Where(cl=>cl.SchoolId == request.SchoolId)
-                        .ProjectTo<PupilBySchoolVm>(_mapper.ConfigurationProvider)
-                        .ToListAsync(cancellationToken);
+                    .Where(cl => cl.SchoolId == request.SchoolId)
+                    .ProjectTo<PupilBySchoolVm>(_mapper.ConfigurationProvider)
+                    .ToListAsync(cancellationToken);
 
                 return result;
             }
