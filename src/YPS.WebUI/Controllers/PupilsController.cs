@@ -17,7 +17,7 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpGet("{schoolId}")]
-        public async Task<ActionResult<List<PupilsBySchoolVm>>> GetAllPupils(long schoolId)
+        public async Task<ActionResult<List<PupilBySchoolVm>>> GetPupilBySchool(long schoolId)
         {
             return Ok(await Mediator.Send(new GetPupilsBySchoolQuery {SchoolId = schoolId}));
         }
