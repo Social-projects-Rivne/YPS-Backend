@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
 {
-    public class PupilsBySchoolVm : IMapFrom<Pupil>
+    public class PupilBySchoolVm : IMapFrom<Pupil>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -17,7 +17,7 @@ namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
         public DateTime DateOfBirth { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Pupil, PupilsBySchoolVm>()
+            profile.CreateMap<Pupil, PupilBySchoolVm>()
                 .ForMember(x=>x.FirstName , opt=>opt.MapFrom(x=>x.User.FirstName))
                 .ForMember(x=>x.Surname, opt=>opt.MapFrom(x=>x.User.Surname))
                 .ForMember(x=>x.MiddleName, opt=>opt.MapFrom(x=>x.User.MiddleName))

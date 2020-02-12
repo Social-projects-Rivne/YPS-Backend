@@ -10,7 +10,7 @@ using YPS.Application.Interfaces;
 using YPS.Application.Models;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Pupils.Commands.AddPupil
+namespace YPS.Application.Pupils.Commands.CreatePupil
 {
     public sealed class CreatePupilCommand : IRequest<long>
     {

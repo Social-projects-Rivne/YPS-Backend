@@ -10,10 +10,10 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
 {
-    public sealed class GetPupilsBySchoolQuery : IRequest<List<PupilsBySchoolVm>>
+    public sealed class GetPupilsBySchoolQuery : IRequest<List<PupilBySchoolVm>>
     {
         public long SchoolId { get; set; }
-        public class GetPupilsBySchoolHandler : IRequestHandler<GetPupilsBySchoolQuery, List<PupilsBySchoolVm>>
+        public class GetPupilsBySchoolHandler : IRequestHandler<GetPupilsBySchoolQuery, List<PupilBySchoolVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
@@ -24,11 +24,11 @@ namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
                 _mapper = mapper;
             }
 
-            public async Task<List<PupilsBySchoolVm>> Handle(GetPupilsBySchoolQuery request, CancellationToken cancellationToken)
+            public async Task<List<PupilBySchoolVm>> Handle(GetPupilsBySchoolQuery request, CancellationToken cancellationToken)
             {
-                List<PupilsBySchoolVm> result = await _context.Pupils
+                List<PupilBySchoolVm> result = await _context.Pupils
                         .Where(cl=>cl.SchoolId == request.SchoolId)
-                        .ProjectTo<PupilsBySchoolVm>(_mapper.ConfigurationProvider)
+                        .ProjectTo<PupilBySchoolVm>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
 
                 return result;
