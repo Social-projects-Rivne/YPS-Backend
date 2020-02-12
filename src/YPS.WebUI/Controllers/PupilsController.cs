@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YPS.Application.Pupils.Query.GetAllPupils;
-using YPS.Application.Pupils.Commands.AddPupil;
-using YPS.Application.Pupils.Queries.GetAllPupils;
+using YPS.Application.Pupils.Commands.CreatePupil;
 using YPS.Application.Pupils.Queries.GetPupilsByClass;
+using YPS.Application.Pupils.Queries.GetPupilsBySchool;
 
 namespace YPS.WebUI.Controllers
 {
@@ -18,17 +17,10 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<PupilVm>>> GetAllPupils()
+        [HttpGet("{schoolId}")]
+        public async Task<ActionResult<List<PupilBySchoolVm>>> GetPupilBySchool(long schoolId)
         {
-            try
-            {
-                return Ok(await Mediator.Send(new GetAllPupilsQuery()));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            return Ok(await Mediator.Send(new GetPupilsBySchoolQuery { SchoolId = schoolId }));
         }
 
         [HttpGet("{classId}")]

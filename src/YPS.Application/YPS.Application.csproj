@@ -17,6 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Pupils\Queries\GetPupilsByClass\GetPupilsByClassQuery.cs" />
+    <Compile Include="Pupils\Queries\GetPupilsByClass\PupilByClassVm.cs" />
+    <Compile Include="Pupils\Queries\GetPupilsBySchool\GetPupilsBySchoolQuery.cs" />
+    <Compile Include="Pupils\Queries\GetPupilsBySchool\PupilBySchoolVm.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="FluentValidation" Version="8.6.1" />
