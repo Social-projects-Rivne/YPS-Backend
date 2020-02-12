@@ -26,7 +26,6 @@ namespace YPS.Infrastructure.Services
                 MiddleName = userPartial.MiddleName,
                 PhoneNumber = userPartial.PhoneNumber,
                 Email = userPartial.Email,
-                Password = userPartial.Password,
                 ImageUrl = "url",
                 DateOfBirth = new DateTime(),
                 RoleId = 2
