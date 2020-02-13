@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -33,18 +34,8 @@ namespace YPS.Application.Parents.Queries
                     .AsNoTracking()
                     .Where(x => x.Parent.SchoolId == request.Id)
                     .Select(x => x.Parent)
-                    .Select(x => new ParentViewModel
-                    {
-                        Id = x.Id,
-                        Email = x.User.Email,
-                        FirstName = x.User.FirstName,
-                        MiddleName = x.User.MiddleName,
-                        Surname = x.User.Surname,
-                        WorkInfo = x.User.Parent.WorkInfo,
-                        PhoneNumber = x.User.PhoneNumber,
-                        Children = x.ParentToPupils.Select(y => y.PupilOf.User.FirstName + " " + y.PupilOf.User.Surname + " " + y.PupilOf.User.MiddleName 
-                        + " Class:" + y.PupilOf.ClassOf.Number.ToString() + "-" + y.PupilOf.ClassOf.Character + "\n").ToList()
-                    }).ToListAsync();
+                    .ProjectTo<ParentViewModel>(_mapper.ConfigurationProvider)
+                    .ToListAsync();
             }
         }
     }
