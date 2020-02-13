@@ -143,6 +143,7 @@ namespace YPS.WebUI
             });
             services.AddScoped<ICurrentUserInformationService, CurrentUserInformationService>();
             services.AddApplication();
+            services.AddTransient<IUserService, UserService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
