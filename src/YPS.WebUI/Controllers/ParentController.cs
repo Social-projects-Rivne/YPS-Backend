@@ -18,8 +18,13 @@ namespace YPS.WebUI.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<ParentViewModel>>> GetParents([FromQuery]GetParentsQuery command)
         {
-            var vm = await Mediator.Send(command);
-            return Ok(vm);
+            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
+            if (claim != null)
+            {
+                var viewModel = await Mediator.Send(new GetParentsQuery { Id = long.Parse(claim.Value) });
+                return Ok(viewModel);
+            }
+            return BadRequest($"Unatorized");
         }
     }
 }
