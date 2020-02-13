@@ -147,63 +147,63 @@ namespace YPS.Persistence.Configurations
             {
                 Id = 15,
                 FirstName = "Eva", Surname = "Yakovleva", MiddleName = "Andrievna", PhoneNumber = "0986969659",
-                Email = "pupil1@gmail.com", Password = "pupil1", 
+                Email = "pupil1@gmail.com", Password = "pupil1_", 
                 DateOfBirth = new DateTime(2014, 9, 18),RoleId = 1
             },
             new User
             {
                 Id = 16,
                 FirstName = "Petro", Surname = "Golovach", MiddleName = "Andiev", PhoneNumber = "0984578752",
-                Email = "pupil2@gmail.com", Password = "pupil2", 
+                Email = "pupil2@gmail.com", Password = "pupil2_", 
                 DateOfBirth = new DateTime(2014, 1, 1),RoleId = 1
             },
             new User
             {
                 Id = 17,
                 FirstName = "Oleksandra", Surname = "Geruk", MiddleName = "Yurivna", PhoneNumber = "0986969659",
-                Email = "pupil3@gmail.com", Password = "pupil3", 
+                Email = "pupil3@gmail.com", Password = "pupil3_", 
                 DateOfBirth = new DateTime(2014, 9, 18),RoleId = 1
             },
             new User
             {
                 Id = 18,
                 FirstName = "Anastasya", Surname = "Lubak", MiddleName = "Romanovna", PhoneNumber = "098555685",
-                Email = "pupil4@gmail.com", Password = "pupil4", 
+                Email = "pupil4@gmail.com", Password = "pupil4_", 
                 DateOfBirth = new DateTime(2013, 11, 20),RoleId = 1
             },
             new User
             {
                 Id = 19,
                 FirstName = "Bohdan", Surname = "Pokalchuk", MiddleName = "Bohdanov", PhoneNumber = "0986969659",
-                Email = "pupil5@gmail.com", Password = "pupil5", 
+                Email = "pupil5@gmail.com", Password = "pupil5_", 
                 DateOfBirth = new DateTime(2014, 8, 23),RoleId = 1
             },
             new User
             {
                 Id = 20,
                 FirstName = "Maksim", Surname = "Matlah", MiddleName = "Maksimov", PhoneNumber = "0974570695",
-                Email = "pupil6@gmail.com", Password = "pupil6", 
+                Email = "pupil6@gmail.com", Password = "pupil6_", 
                 DateOfBirth = new DateTime(2010, 9, 18),RoleId = 1
             },
             new User
             {
                 Id = 21,
                 FirstName = "Eva", Surname = "Yakovleva", MiddleName = "Andrievna", PhoneNumber = "0986969659",
-                Email = "pupil7@gmail.com", Password = "pupil7", 
+                Email = "pupil7@gmail.com", Password = "pupil7_", 
                 DateOfBirth = new DateTime(2010, 9, 25),RoleId = 1
             },
             new User
             {
                 Id = 22,
                 FirstName = "Edward", Surname = "Misko", MiddleName = "Bohdanov", PhoneNumber = "0966907769",
-                Email = "pupil8@gmail.com", Password = "pupil8", 
+                Email = "pupil8@gmail.com", Password = "pupil8_", 
                 DateOfBirth = new DateTime(2010, 7, 7),RoleId = 1
             },
             new User
             {
                 Id = 23,
                 FirstName = "Bill", Surname = "Ogon", MiddleName = "Nazarovich", PhoneNumber = "0555689477",
-                Email = "pupil9@gmail.com", Password = "pupil9", 
+                Email = "pupil9@gmail.com", Password = "pupil9_", 
                 DateOfBirth = new DateTime(2010, 8, 28),RoleId = 1,
             },
             new User
@@ -259,7 +259,7 @@ namespace YPS.Persistence.Configurations
             {
                 Id = 31,
                 FirstName = "Sergey", Surname = "Admnen", MiddleName = "Oleksiyovich", PhoneNumber = "068969025",
-                Email = "admin1@gmail.com", Password = "admin1", 
+                Email = "admin1@gmail.com", Password = "admin1_", 
                 DateOfBirth = new DateTime(2000, 4, 8),RoleId = 7
             });
         }

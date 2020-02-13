@@ -26,27 +26,26 @@ namespace YPS.Application.Parents.Queries
             }
             public async Task<ICollection<ParentViewModel>> Handle(GetParentsQuery request, CancellationToken cancellationToken)
             {
-                var parents = _dbContext.Users.Include(x => x.Parent).Where(x => x.Parent != null).AsNoTracking().Where(x => x.Parent.SchoolId == request.Id);
-                var children = _dbContext.ParentToPupils.Include(x => x.ParentOf)
-                    .Include(x => x.PupilOf)
-                    .Include(x => x.PupilOf.User)
-                    .Include(x => x.PupilOf.ClassOf)
-                    .Where(x => x.ParentOf.SchoolId == request.Id)
+
+                return await _dbContext.Users
+                    .Include(x => x.Parent)
+                    .Where(x => x.Parent != null)
                     .AsNoTracking()
-                    .Select(x => x.PupilOf).Select(x =>
-                        x.User.FirstName + " " + x.User.Surname + " " + x.User.MiddleName + " Class:" + x.ClassOf.Character + "-" + x.ClassOf.Number.ToString() + "\n"
-                    );
-                return parents.Select(x => new ParentViewModel
-                {
-                    Id=x.Id,
-                    Email = x.Email,
-                    FirstName = x.FirstName,
-                    MiddleName = x.MiddleName,
-                    Surname = x.Surname,
-                    WorkInfo = x.Parent.WorkInfo,
-                    PhoneNumber = x.PhoneNumber,
-                    Children = children.ToList()
-                }).ToList();
+                    .Where(x => x.Parent.SchoolId == request.Id)
+                    .Select(x => x.Parent)
+                    .Select(x => new ParentViewModel
+                    {
+                        Id = x.Id,
+                        Email = x.User.Email,
+                        FirstName = x.User.FirstName,
+                        MiddleName = x.User.MiddleName,
+                        Surname = x.User.Surname,
+                        WorkInfo = x.User.Parent.WorkInfo,
+                        PhoneNumber = x.User.PhoneNumber,
+                        Children = x.ParentToPupils.Select(y => y.PupilOf.User.FirstName + " " + y.PupilOf.User.Surname + " " + y.PupilOf.User.MiddleName 
+                        + " Class:" + y.PupilOf.ClassOf.Number.ToString() + "-" + y.PupilOf.ClassOf.Character 
+                              + "\n").ToList()
+                    }).ToListAsync();
             }
         }
     }

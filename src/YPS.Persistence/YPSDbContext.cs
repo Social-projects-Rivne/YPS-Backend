@@ -44,5 +44,4 @@ namespace YPS.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(YPSDbContext).Assembly);
         }
     }
-
 }
