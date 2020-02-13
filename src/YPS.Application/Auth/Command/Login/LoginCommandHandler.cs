@@ -33,23 +33,23 @@ namespace YPS.Application.Auth.Command.Login
                         x.Password == request.Password, cancellationToken: cancellationToken)
                 .ConfigureAwait(false);
 
+            var role = await _dbContext.Roles.SingleOrDefaultAsync(x => x.Id == user.RoleId);
+
             if (user == null)
             {
                 throw new ValidationException();
             }
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Role, user.RoleId.ToString()),
+                new Claim(ClaimTypes.Role, role.Name),
                 new Claim(ClaimTypes.Name, user.FirstName),
                 new Claim(ClaimTypes.GivenName, user.SchoolId.ToString())
             };
 
-            var role = await _dbContext.Roles.SingleOrDefaultAsync(x=>x.Id ==user.RoleId);
-            var r = role.Name;
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);
             return new LoginViewModel {
                 Token = token,
-                Role = r
+                Role = role.Name
             };
         }
     }
