@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using AutoMapper;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Pupils.Query.GetAllPupils
+namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
 {
-    public class PupilVm: IMapFrom<PupilDto>
+    public class PupilBySchoolVm : IMapFrom<Pupil>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -20,7 +17,7 @@ namespace YPS.Application.Pupils.Query.GetAllPupils
         public DateTime DateOfBirth { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Pupil, PupilVm>()
+            profile.CreateMap<Pupil, PupilBySchoolVm>()
                 .ForMember(x=>x.FirstName , opt=>opt.MapFrom(x=>x.User.FirstName))
                 .ForMember(x=>x.Surname, opt=>opt.MapFrom(x=>x.User.Surname))
                 .ForMember(x=>x.MiddleName, opt=>opt.MapFrom(x=>x.User.MiddleName))
@@ -28,8 +25,7 @@ namespace YPS.Application.Pupils.Query.GetAllPupils
                 .ForMember(x=>x.Email, opt=>opt.MapFrom(x=>x.User.Email))
                 .ForMember(x=>x.DateOfBirth, opt=>opt.MapFrom(x=>x.User.DateOfBirth))
                 .ForMember(x=>x.Id,opt=>opt.MapFrom(x=>x.User.Id))
-                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassOf.Number+"-" + x.ClassOf.Character))
-                ;
+                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassOf.Number+"-" + x.ClassOf.Character));
         }
     }
 }

@@ -16,18 +16,19 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.Description)
                 .IsRequired()
                 .HasMaxLength(256);
-                
 
             builder.HasMany(e => e.Users)
-                .WithOne(e => e.RoleOf);
+                .WithOne(e => e.Role);
 
-            builder.HasData(new Role { Id = 1, Name = "Pupil", Description = "Simple pupil" },
-                new Role { Id = 2, Name = "Teacher", Description = "Simple teacher which lead the lessons" },
-                new Role { Id = 3, Name = "Parent", Description = "Parent of the child pupil" },
-                new Role { Id = 4, Name = "Head assistant", Description = "Head assistant of the school which create schedule"},
-                new Role { Id = 5, Name = "Master", Description = "Master of the system can create users"},
-                new Role { Id = 6, Name = "Head master", Description = "Simple master but can create other users and masters"},
-                new Role { Id = 7, Name = "Admin", Description = "Main person of the system. Add new school"});
+            builder.HasData(
+                new Role { Id = 1, Name = "pupil", Description = "Simple pupil" },
+                new Role { Id = 2, Name = "teacher", Description = "Simple teacher which lead the lessons" },
+                new Role { Id = 3, Name = "parent", Description = "Parent of the child pupil" },
+                new Role { Id = 4, Name = "head-assistant", Description = "Head assistant of the school which create schedule" },
+                new Role { Id = 5, Name = "master", Description = "Master of the system can create users" },
+                new Role { Id = 6, Name = "head-master", Description = "Simple master but can create other users and masters" },
+                new Role { Id = 7, Name = "admin", Description = "Main person of the system. Add new school" }
+            );
         }
     }
 }

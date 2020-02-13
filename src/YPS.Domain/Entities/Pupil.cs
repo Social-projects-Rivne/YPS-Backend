@@ -15,8 +15,6 @@ namespace YPS.Domain.Entities
             Marks = new HashSet<Mark>();
         }
 
-        public long SchoolId { get; set; }
-
         public long UserId { get; set; }
         public User User { get; set; }
 
