@@ -6,8 +6,21 @@
 
   <ItemGroup>
     <Compile Remove="Auth\Command\CreateHeadMaster\**" />
+    <Compile Remove="Event\Models\**" />
+    <Compile Remove="Pupils\Queries\**" />
     <EmbeddedResource Remove="Auth\Command\CreateHeadMaster\**" />
+    <EmbeddedResource Remove="Event\Models\**" />
+    <EmbeddedResource Remove="Pupils\Queries\**" />
     <None Remove="Auth\Command\CreateHeadMaster\**" />
+    <None Remove="Event\Models\**" />
+    <None Remove="Pupils\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Pupils\Queries\GetPupilsByClass\GetPupilsByClassQuery.cs" />
+    <Compile Include="Pupils\Queries\GetPupilsByClass\PupilByClassVm.cs" />
+    <Compile Include="Pupils\Queries\GetPupilsBySchool\GetPupilsBySchoolQuery.cs" />
+    <Compile Include="Pupils\Queries\GetPupilsBySchool\PupilBySchoolVm.cs" />
   </ItemGroup>
 
   <ItemGroup>
