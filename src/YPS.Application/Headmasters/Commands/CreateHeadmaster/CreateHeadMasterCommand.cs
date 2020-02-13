@@ -19,6 +19,8 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
     {
         public UserPartial User { get; set; }
        // public string Degree { get; set; }
+        public string Password { get; set; }
+
         public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, long>
         {
             
@@ -33,7 +35,7 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
 
             public async Task<long> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
             {
-                User createdUser = await _userService.CreateUser(request.User);
+                User createdUser = await _userService.CreateUser(request.User, request.Password, 6, 1);
 
                 if (createdUser != null)
                 {
