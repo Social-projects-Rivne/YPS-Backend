@@ -21,23 +21,26 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
+            private readonly IRandomGeneratorService _randomGenerator;
 
-            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService)
+            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator)
             {
                 _context = context;
                 _userService = userService;
+                _randomGenerator = randomGenerator;
             }
 
             public async Task<long> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
             {
-                User createdUser = await _userService.CreateUser(request.User);
+                string password = _randomGenerator.RandomPassword();
+                User createdUser = await _userService.CreateUser(request.User, password, 1, 1);
 
                 if (createdUser != null)
                 {
                     Pupil pupil = new Pupil
                     {
                         UserId = createdUser.Id,
-                        ClassId = 2
+                        ClassId = request.ClassId
                     };
 
                     _context.Pupils.Add(pupil);

@@ -9,6 +9,6 @@ namespace YPS.Application.Interfaces
 {
     public interface IUserService
     {
-        public Task<User> CreateUser(UserPartial user);
+        public Task<User> CreateUser(UserPartial user, string password, long roleId, long schoolId);
     }
 }
