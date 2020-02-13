@@ -43,8 +43,7 @@ namespace YPS.Application.Parents.Queries
                         WorkInfo = x.User.Parent.WorkInfo,
                         PhoneNumber = x.User.PhoneNumber,
                         Children = x.ParentToPupils.Select(y => y.PupilOf.User.FirstName + " " + y.PupilOf.User.Surname + " " + y.PupilOf.User.MiddleName 
-                        + " Class:" + y.PupilOf.ClassOf.Number.ToString() + "-" + y.PupilOf.ClassOf.Character 
-                              + "\n").ToList()
+                        + " Class:" + y.PupilOf.ClassOf.Number.ToString() + "-" + y.PupilOf.ClassOf.Character + "\n").ToList()
                     }).ToListAsync();
             }
         }
