@@ -35,7 +35,6 @@ namespace YPS.Application.Parents.Commands.CreateParent
                     Parent parent = new Parent
                     {
                         UserId = createdUser.Id,
-                        SchoolId = 1
                     };
 
                     _context.Parents.Add(parent);

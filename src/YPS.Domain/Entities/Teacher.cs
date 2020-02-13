@@ -19,9 +19,6 @@ namespace YPS.Domain.Entities
 
         public string  Degree { get; set; }
 
-        public long SchoolId { get; set; }
-        public School SchoolOf { get; set; }
-
         public long UserId { get; set; }
         public User User { get; set; }
 

@@ -15,7 +15,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
     public sealed class CreatePupilCommand : IRequest<long>
     {
         public UserPartial User { get; set; }
-        public string ClassId { get; set; }
+        public long ClassId { get; set; }
 
         public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, long>
         {
@@ -37,7 +37,6 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                     Pupil pupil = new Pupil
                     {
                         UserId = createdUser.Id,
-                        SchoolId = 1,
                         ClassId = 2
                     };
 

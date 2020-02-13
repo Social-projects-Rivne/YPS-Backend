@@ -38,7 +38,6 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
                     {
                         UserId = createdUser.Id,
                         Degree = request.Degree,
-                        SchoolId = 1
                     };
 
                     _context.Teachers.Add(teacher);
