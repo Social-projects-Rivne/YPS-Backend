@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using YPS.Application.Behaviors;
 using YPS.Application.Interfaces;
-using YPS.Infrastructure.Services;
+
 
 namespace YPS.Application
 {
@@ -18,7 +18,7 @@ namespace YPS.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
-            services.AddTransient<IUserService, UserService>();
+            
 
             return services;
         }

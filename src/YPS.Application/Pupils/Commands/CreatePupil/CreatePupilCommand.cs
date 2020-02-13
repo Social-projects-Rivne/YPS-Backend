@@ -15,7 +15,6 @@ namespace YPS.Application.Pupils.Commands.AddPupil
     public sealed class CreatePupilCommand : IRequest<long>
     {
         public UserPartial User { get; set; }
-        public string RoleId { get; set; }
         public string ClassId { get; set; }
 
         public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, long>
