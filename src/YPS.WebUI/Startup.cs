@@ -41,7 +41,6 @@ namespace YPS.WebUI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
             services.AddTransient<IRandomGeneratorService, RandomGeneratorService>();
             services.AddControllers();
             var connectionStringName = "YPSDataBase";
@@ -143,6 +142,7 @@ namespace YPS.WebUI
             });
             services.AddScoped<ICurrentUserInformationService, CurrentUserInformationService>();
             services.AddApplication();
+            services.AddTransient<IUserService, UserService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

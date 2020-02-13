@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,37 +8,36 @@ using YPS.Application.Interfaces;
 using YPS.Application.Models;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Pupils.Commands.CreatePupil
+namespace YPS.Application.Parents.Commands.CreateParent
 {
-    public sealed class CreatePupilCommand : IRequest<long>
+    public sealed class CreateParentCommand : IRequest<long>
     {
         public UserPartial User { get; set; }
-        public long ClassId { get; set; }
+        public string WorkInfo { get; set; }
+        public long SchoolId { get; set; }
 
-        public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, long>
+        public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, long>
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
 
-            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService)
+            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService)
             {
                 _context = context;
                 _userService = userService;
             }
-
-            public async Task<long> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
+            public async Task<long> Handle(CreateParentCommand request, CancellationToken cancellationToken)
             {
                 User createdUser = await _userService.CreateUser(request.User);
 
                 if (createdUser != null)
                 {
-                    Pupil pupil = new Pupil
+                    Parent parent = new Parent
                     {
                         UserId = createdUser.Id,
-                        ClassId = 2
                     };
 
-                    _context.Pupils.Add(pupil);
+                    _context.Parents.Add(parent);
                     await _context.SaveChangesAsync(cancellationToken);
                 }
 

@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,37 +8,39 @@ using YPS.Application.Interfaces;
 using YPS.Application.Models;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Pupils.Commands.CreatePupil
+namespace YPS.Application.Teachers.Commands.CreateTeacher
 {
-    public sealed class CreatePupilCommand : IRequest<long>
+    public sealed class CreateTeacherCommand : IRequest<long>
     {
         public UserPartial User { get; set; }
-        public long ClassId { get; set; }
+        public string Degree { get; set; }
+        public long RoleId { get; set; }
+        public long SchoolId { get; set; }
 
-        public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, long>
+        public sealed class CreateTeacherCommandHandler : IRequestHandler<CreateTeacherCommand, long>
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
 
-            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService)
+            public CreateTeacherCommandHandler(IYPSDbContext context, IUserService userService)
             {
                 _context = context;
                 _userService = userService;
             }
 
-            public async Task<long> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
+            public async Task<long> Handle(CreateTeacherCommand request, CancellationToken cancellationToken)
             {
                 User createdUser = await _userService.CreateUser(request.User);
 
                 if (createdUser != null)
                 {
-                    Pupil pupil = new Pupil
+                    Teacher teacher = new Teacher
                     {
                         UserId = createdUser.Id,
-                        ClassId = 2
+                        Degree = request.Degree,
                     };
 
-                    _context.Pupils.Add(pupil);
+                    _context.Teachers.Add(teacher);
                     await _context.SaveChangesAsync(cancellationToken);
                 }
 
