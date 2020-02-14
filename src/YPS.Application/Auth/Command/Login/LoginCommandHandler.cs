@@ -61,11 +61,7 @@ namespace YPS.Application.Auth.Command.Login
             return new LoginViewModel
             {
                 Token = token,
-                RefreshToken = refreshToken
-            };
-
-            return new LoginViewModel {
-                Token = token,
+                RefreshToken = refreshToken,
                 Role = role.Name
             };
         }
