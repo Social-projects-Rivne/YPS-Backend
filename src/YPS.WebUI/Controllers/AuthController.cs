@@ -31,13 +31,13 @@ namespace YPS.WebUI.Controllers
         [ProducesResponseType(401)]
         [ProducesResponseType(500)]
         [HttpPost]
-        public async Task<ActionResult<string>> Login([FromBody] LoginCommand command)
+        public async Task<ActionResult<LoginViewModel>> Login([FromBody] LoginCommand command)
         {
             try
             {   
                 command.ApiKey = _apiKey;
-                var token = await Mediator.Send(command);
-                return Ok(new { token });
+                var response = await Mediator.Send(command);
+                return Ok(response);
             }
             catch (ValidationException e)
             {

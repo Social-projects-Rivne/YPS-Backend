@@ -47,6 +47,7 @@ namespace YPS.Application.Auth.Command.Login
             };
 
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);
+
             return new LoginViewModel {
                 Token = token,
                 Role = role.Name
