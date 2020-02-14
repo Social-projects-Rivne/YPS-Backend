@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using YPS.Application.Auth.Command.Login;
+using YPS.Application.Auth.Command.RefreshToken;
 
 namespace YPS.WebUI.Controllers
 {
@@ -31,22 +32,19 @@ namespace YPS.WebUI.Controllers
         [ProducesResponseType(401)]
         [ProducesResponseType(500)]
         [HttpPost]
-        public async Task<ActionResult<string>> Login([FromBody] LoginCommand command)
+        public async Task<ActionResult> Login([FromBody] LoginCommand command)
         {
-            try
-            {   
-                command.ApiKey = _apiKey;
-                string token = await Mediator.Send(command);
-                return Ok(new { token });
-            }
-            catch (ValidationException e)
-            {
-                return BadRequest(e.Message);
-            }
-            catch (Exception)
-            {
-                return BadRequest("Invalid password ");
-            }
+            command.ApiKey = _apiKey;
+            var viewModel = await Mediator.Send(command).ConfigureAwait(false);
+            return Ok(viewModel);
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Refresh(string token, string refreshToken)
+        {
+            var command = new RefreshTokenCommand(_apiKey, token, refreshToken);
+            return Ok(await Mediator.Send(command).ConfigureAwait(false));
         }
     }
 }
