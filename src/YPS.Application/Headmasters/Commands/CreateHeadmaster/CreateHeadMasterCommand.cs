@@ -18,7 +18,6 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
     public sealed class CreateHeadMasterCommand : IRequest<long>
     {
         public UserPartial User { get; set; }
-       // public string Degree { get; set; }
         public string Password { get; set; }
 
         public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, long>
@@ -41,8 +40,7 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
                 {
                     Teacher teacher = new Teacher
                     {
-                        UserId = createdUser.Id,
-                       //Degree = request.Degree
+                        UserId = createdUser.Id
                     };
 
                     _context.Teachers.Add(teacher);
