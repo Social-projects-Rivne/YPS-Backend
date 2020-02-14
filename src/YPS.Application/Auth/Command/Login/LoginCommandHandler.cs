@@ -10,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 using YPS.Application.Auth.Helpers;
 using YPS.Application.Exceptions;
 using YPS.Application.Interfaces;
-
+using YPS.Domain.Entities;
 
 namespace YPS.Application.Auth.Command.Login
 {
-    public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, string>
+    public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, LoginViewModel>
     {
         private readonly IYPSDbContext _dbContext;
         private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ namespace YPS.Application.Auth.Command.Login
             _mapper = mapper;
         }
 
-        public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<LoginViewModel> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = await _dbContext.Users
                 .SingleOrDefaultAsync(x => 
@@ -45,7 +45,22 @@ namespace YPS.Application.Auth.Command.Login
             };
 
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);
-            return token;
+            var refreshToken = AuthHelpers.GenerateRefreshToken();
+
+            await _dbContext.UserRefreshTokens.AddAsync(new UserRefreshToken
+            {
+                UserId = user.Id,
+                RefreshToken = refreshToken,
+                ExpiryDate = DateTime.UtcNow.AddMonths(1)
+            }, cancellationToken).ConfigureAwait(false);
+
+            await _dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+
+            return new LoginViewModel
+            {
+                Token = token,
+                RefreshToken = refreshToken
+            };
         }
     }
 }
