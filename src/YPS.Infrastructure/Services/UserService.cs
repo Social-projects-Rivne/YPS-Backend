@@ -17,7 +17,7 @@ namespace YPS.Infrastructure.Services
             _context = context;
         }
 
-        public async Task<User> CreateUser(UserPartial userPartial)
+        public async Task<User> CreateUser(UserPartial userPartial, string password, long roleId, long schoolId)
         {
             User user = new User
             {
@@ -26,9 +26,11 @@ namespace YPS.Infrastructure.Services
                 MiddleName = userPartial.MiddleName,
                 PhoneNumber = userPartial.PhoneNumber,
                 Email = userPartial.Email,
+                Password = password,
                 ImageUrl = "url",
                 DateOfBirth = new DateTime(),
-                RoleId = 2
+                RoleId = roleId,
+                SchoolId = schoolId
             };
 
             _context.Users.Add(user);
