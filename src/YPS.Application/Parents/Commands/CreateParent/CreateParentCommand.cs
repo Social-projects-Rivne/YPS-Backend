@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,12 +11,13 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Parents.Commands.CreateParent
 {
-    public sealed class CreateParentCommand : IRequest<long>
+    public sealed class CreateParentCommand : IRequest<CreateUserResponse>
     {
         public UserPartial User { get; set; }
         public string WorkInfo { get; set; }
+        public long PupilId { get; set; }
 
-        public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, long>
+        public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, CreateUserResponse>
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
@@ -27,23 +29,48 @@ namespace YPS.Application.Parents.Commands.CreateParent
                 _userService = userService;
                 _randomGenerator = randomGenerator;
             }
-            public async Task<long> Handle(CreateParentCommand request, CancellationToken cancellationToken)
+            public async Task<CreateUserResponse> Handle(CreateParentCommand request, CancellationToken cancellationToken)
             {
-                string password = _randomGenerator.RandomPassword();
-                User createdUser = await _userService.CreateUser(request.User, password, 3, 1);
+                CreateUserResponse res = new CreateUserResponse();
 
-                if (createdUser != null)
+                IDictionary<string, string> failures = await _userService.CheckFailuresAsync(request.User.Email, request.User.PhoneNumber);
+
+                res.Failures = failures;
+
+                if (res.Failures == null || !res.Failures.Any())
                 {
-                    Parent parent = new Parent
-                    {
-                        UserId = createdUser.Id,
-                    };
+                    string password = _randomGenerator.RandomPassword();
+                    User createdUser = await _userService.CreateUser(request.User, password, 3, 1);
 
-                    _context.Parents.Add(parent);
-                    await _context.SaveChangesAsync(cancellationToken);
+                    if (createdUser != null)
+                    {
+                        Parent parent = new Parent
+                        {
+                            UserId = createdUser.Id,
+                            WorkInfo = request.WorkInfo
+                        };
+
+                        res.CreatedId = createdUser.Id;
+                        _context.Parents.Add(parent);
+                        await _context.SaveChangesAsync(cancellationToken);
+
+                        Parent createdParent = await _context.Parents.FindAsync(parent.Id);
+
+                        if (createdParent != null)
+                        {
+                            ParentToPupil parentToPupil = new ParentToPupil
+                            {
+                                ParentId = createdParent.Id,
+                                PupilId = request.PupilId
+                            };
+
+                            _context.ParentToPupils.Add(parentToPupil);
+                            await _context.SaveChangesAsync(cancellationToken);
+                        }
+                    }
                 }
 
-                return createdUser.Id;
+                return res;
             }
         }
     }
