@@ -32,7 +32,7 @@ namespace YPS.Application.Parents.Queries
                     .Include(x => x.Parent)
                     .Where(x => x.Parent != null)
                     .AsNoTracking()
-                    .Where(x => x.Parent.User.SchoolId == request.Id)
+                    .Where(x => x.SchoolId == request.Id)
                     .Select(x => x.Parent)
                     .ProjectTo<ParentViewModel>(_mapper.ConfigurationProvider)
                     .ToListAsync();

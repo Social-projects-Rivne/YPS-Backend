@@ -439,13 +439,14 @@ namespace YPS.Persistence.Configurations
             {
                 Id = 31,
                 FirstName = "Sergey",
-                Surname = "Admnen",
+                Surname = "Admen",
                 MiddleName = "Oleksiyovich",
                 PhoneNumber = "068969025",
                 Email = "admin1@gmail.com",
                 Password = "admin1_",
                 DateOfBirth = new DateTime(2000, 4, 8),
-                RoleId = 7
+                RoleId = 7,
+                SchoolId = null
             });
         }
     }
