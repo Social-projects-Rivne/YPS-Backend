@@ -12,12 +12,12 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Pupils.Commands.CreatePupil
 {
-    public sealed class CreatePupilCommand : IRequest<long>
+    public sealed class CreatePupilCommand : IRequest<CreateUserResponse>
     {
         public UserPartial User { get; set; }
         public long ClassId { get; set; }
 
-        public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, long>
+        public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, CreateUserResponse>
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
@@ -30,24 +30,34 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                 _randomGenerator = randomGenerator;
             }
 
-            public async Task<long> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
+            public async Task<CreateUserResponse> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
             {
-                string password = _randomGenerator.RandomPassword();
-                User createdUser = await _userService.CreateUser(request.User, password, 1, 1);
+                CreateUserResponse res = new CreateUserResponse();
 
-                if (createdUser != null)
-                {
-                    Pupil pupil = new Pupil
+                IDictionary<string, string> failures = await _userService.CheckFailuresAsync(request.User.Email, request.User.PhoneNumber);
+
+                res.Failures = failures;
+
+                if (res.Failures == null || !res.Failures.Any())
+                { 
+                    string password = _randomGenerator.RandomPassword();
+                    User createdUser = await _userService.CreateUser(request.User, password, 1, 1);
+
+                    if (createdUser != null)
                     {
-                        UserId = createdUser.Id,
-                        ClassId = request.ClassId
-                    };
+                        Pupil pupil = new Pupil
+                        {
+                            UserId = createdUser.Id,
+                            ClassId = request.ClassId
+                        };
 
-                    _context.Pupils.Add(pupil);
-                    await _context.SaveChangesAsync(cancellationToken);
+                        res.CreatedId = createdUser.Id;
+                        _context.Pupils.Add(pupil);
+                        await _context.SaveChangesAsync(cancellationToken);
+                    }
                 }
 
-                return createdUser.Id;
+                return res;
             }
         }
     }
