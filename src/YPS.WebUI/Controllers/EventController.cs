@@ -12,7 +12,7 @@ using YPS.Application.Interfaces;
 
 namespace YPS.WebUI.Controllers
 {    
-    //[Authorize]
+    [Authorize]
     public class EventController : ApiController
     {
         [HttpGet]
