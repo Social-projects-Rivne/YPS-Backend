@@ -34,17 +34,20 @@ namespace YPS.WebUI.Controllers
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] LoginCommand command)
         {
-            command.ApiKey = _apiKey;
-            var viewModel = await Mediator.Send(command).ConfigureAwait(false);
-            return Ok(viewModel);
-        }
-
-
-        [HttpGet]
-        public async Task<ActionResult> Refresh(string token, string refreshToken)
-        {
-            var command = new RefreshTokenCommand(_apiKey, token, refreshToken);
-            return Ok(await Mediator.Send(command).ConfigureAwait(false));
+            try
+            {   
+                command.ApiKey = _apiKey;
+                var response = await Mediator.Send(command);
+                return Ok(response);
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Invalid password ");
+            }
         }
     }
 }

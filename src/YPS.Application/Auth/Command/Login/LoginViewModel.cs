@@ -8,5 +8,6 @@ namespace YPS.Application.Auth.Command.Login
     {
         public string Token { get; set; }
         public string RefreshToken { get; set; }
+        public string Role { get; set; }
     }
 }
