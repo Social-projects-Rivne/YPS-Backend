@@ -13,9 +13,9 @@ namespace YPS.WebUI.Controllers
     public class HeadmastersController : ApiController
     {
         [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> CreateHeadMaster([FromBody] CreateHeadMasterCommand command)
+        public async Task<ActionResult<CreateUserResponse>> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
         {
-            return Ok(await Mediator.Send(command));
+            return Ok(await Mediator.Send(request));
         }
     }
 }
