@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YPS.Application.Models;
 using YPS.Application.Pupils.Commands.CreatePupil;
 using YPS.Application.Pupils.Queries.GetPupilsByClass;
 using YPS.Application.Pupils.Queries.GetPupilsBySchool;
@@ -12,7 +13,7 @@ namespace YPS.WebUI.Controllers
     public class PupilsController : ApiController
     {
         [HttpPost]
-        public async Task<ActionResult<long>> Create([FromBody] CreatePupilCommand command)
+        public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreatePupilCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

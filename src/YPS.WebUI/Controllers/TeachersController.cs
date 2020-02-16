@@ -8,6 +8,7 @@ using YPS.Application.SchoolRequests.ViewModel;
 using YPS.Application.Teachers.Commands.CreateTeacher;
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
+using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
 
 namespace YPS.WebUI.Controllers
@@ -17,7 +18,7 @@ namespace YPS.WebUI.Controllers
     {
 
         [HttpPost]
-        public async Task<ActionResult<long>> Create([FromBody] CreateTeacherCommand command)
+        public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateTeacherCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

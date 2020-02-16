@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using YPS.Application.Models;
 using YPS.Application.Parents.Commands.CreateParent;
 using YPS.Application.Parents.Queries;
 using YPS.Application.Parents.ViewModels;
@@ -29,7 +30,7 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<long>> Create([FromBody] CreateParentCommand command)
+        public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateParentCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

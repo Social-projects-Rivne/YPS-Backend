@@ -9,6 +9,7 @@ namespace YPS.Application.Interfaces
 {
     public interface IUserService
     {
-        public Task<User> CreateUser(UserPartial user, string password, long roleId, long schoolId);
+        Task<User> CreateUser(UserPartial user, string password, long roleId, long schoolId);
+        Task<IDictionary<string, string>> CheckFailuresAsync(string email, string phoneNumber);
     }
 }

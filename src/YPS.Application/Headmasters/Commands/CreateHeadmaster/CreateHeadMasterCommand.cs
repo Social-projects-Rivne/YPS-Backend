@@ -15,12 +15,12 @@ using YPS.Application.Models;
 
 namespace YPS.Application.Auth.Command.CreateHeadMaster
 {
-    public sealed class CreateHeadMasterCommand : IRequest<long>
+    public sealed class CreateHeadMasterCommand : IRequest<CreateUserResponse>
     {
         public UserPartial User { get; set; }
         public string Password { get; set; }
 
-        public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, long>
+        public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreateUserResponse>
         {
             
             private readonly IUserService _userService;
@@ -32,21 +32,32 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
                 _userService = userService;
             }
 
-            public async Task<long> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
+            public async Task<CreateUserResponse> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
             {
-                User createdUser = await _userService.CreateUser(request.User, request.Password, 6, 1);
+                CreateUserResponse res = new CreateUserResponse();
 
-                if (createdUser != null)
+                IDictionary<string, string> failures = await _userService.CheckFailuresAsync(request.User.Email, request.User.PhoneNumber);
+
+                res.Failures = failures;
+
+                if (res.Failures == null || !res.Failures.Any())
                 {
-                    Teacher teacher = new Teacher
-                    {
-                        UserId = createdUser.Id
-                    };
+                    User createdUser = await _userService.CreateUser(request.User, request.Password, 6, 1);
 
-                    _context.Teachers.Add(teacher);
-                    await _context.SaveChangesAsync(cancellationToken);
+                    if (createdUser != null)
+                    {
+                        Teacher headmaster = new Teacher
+                        {
+                            UserId = createdUser.Id
+                        };
+
+                        res.CreatedId = createdUser.Id;
+                        _context.Teachers.Add(headmaster);
+                        await _context.SaveChangesAsync(cancellationToken);
+                    }
                 }
-                return createdUser.Id;
+
+                return res;
             }
         }
     }
