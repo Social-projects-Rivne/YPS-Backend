@@ -23,8 +23,8 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpGet("{schoolId}")]
-        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers(long schoolId)
+        [HttpGet]
+        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers()
         {
             var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
             if (claim != null)
