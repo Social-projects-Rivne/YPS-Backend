@@ -5,9 +5,9 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Event.Query.GetAllEvents
+namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsBySchool
 {
-    public class UpcomingEventVm : IMapFrom<UpcomingEventsDto>
+    public class UpcomingEventVm : IMapFrom<UpcomingEvent>
     {
         public string SchoolName { get; set; }
         public DateTime TimeOfCreating { get; set; }

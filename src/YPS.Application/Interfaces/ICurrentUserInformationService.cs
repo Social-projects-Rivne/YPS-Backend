@@ -3,6 +3,6 @@
     public interface ICurrentUserInformationService
     {
         long UserId { get; }
-        long? SchoolId { get; }
+        long SchoolId { get; }
     }
 }
