@@ -8,7 +8,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Parents.ViewModels
 {
-    public class ParentViewModel:IMapFrom<Parent>
+    public class ParentBySchoolVm: IMapFrom<Parent>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -21,7 +21,7 @@ namespace YPS.Application.Parents.ViewModels
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Parent, ParentViewModel>()
+            profile.CreateMap<Parent, ParentBySchoolVm>()
                 .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.User.FirstName))
                 .ForMember(x => x.Surname, opt => opt.MapFrom(x => x.User.Surname))
                 .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))

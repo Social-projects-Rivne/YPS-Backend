@@ -13,10 +13,10 @@ using YPS.Application.Parents.ViewModels;
 
 namespace YPS.Application.Parents.Queries
 {
-    public class GetParentsQuery : IRequest<ICollection<ParentViewModel>>
+    public class GetParentsBySchoolQuery : IRequest<ICollection<ParentBySchoolVm>>
     {
         public long Id { get; set; }
-        public class GetParentsQueryHandler : IRequestHandler<GetParentsQuery, ICollection<ParentViewModel>>
+        public class GetParentsQueryHandler : IRequestHandler<GetParentsBySchoolQuery, ICollection<ParentBySchoolVm>>
         {
             private IYPSDbContext _dbContext;
             private IMapper _mapper;
@@ -25,7 +25,7 @@ namespace YPS.Application.Parents.Queries
                 _dbContext = dbContext;
                 _mapper = mapper;
             }
-            public async Task<ICollection<ParentViewModel>> Handle(GetParentsQuery request, CancellationToken cancellationToken)
+            public async Task<ICollection<ParentBySchoolVm>> Handle(GetParentsBySchoolQuery request, CancellationToken cancellationToken)
             {
 
                 return await _dbContext.Users
@@ -34,7 +34,7 @@ namespace YPS.Application.Parents.Queries
                     .AsNoTracking()
                     .Where(x => x.SchoolId == request.Id)
                     .Select(x => x.Parent)
-                    .ProjectTo<ParentViewModel>(_mapper.ConfigurationProvider)
+                    .ProjectTo<ParentBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
             }
         }
