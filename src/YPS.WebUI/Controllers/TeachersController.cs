@@ -29,7 +29,6 @@ namespace YPS.WebUI.Controllers
         public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
-            //var viewModel = await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = schoolId });
             return Ok(await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = schoolId }));
         }
         [HttpGet("[action]")]
