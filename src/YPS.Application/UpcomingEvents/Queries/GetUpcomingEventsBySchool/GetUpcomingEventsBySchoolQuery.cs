@@ -29,7 +29,7 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsBySchool
             public async Task<List<UpcomingEventVm>> Handle(GetUpcomingEventsBySchoolQuery request, CancellationToken cancellationToken)
             {
                 var upcomingEvets = await _context.UpcomingEvents
-                    .Where(x => x.SchoolId == request.SchoolId)
+                    .Where(x => x.SchoolId == request.SchoolId && x.ClassId == null)
                     .ProjectTo<UpcomingEventVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
                 return upcomingEvets;
