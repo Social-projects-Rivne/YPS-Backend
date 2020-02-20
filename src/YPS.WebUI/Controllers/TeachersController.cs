@@ -10,29 +10,34 @@ using Microsoft.AspNetCore.Authorization;
 using MediatR;
 using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
+using System.Security.Claims;
+using YPS.Application.Teachers.Queries.GetTeacher;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles = "head-master, master")]
+    [Authorize]
     public class TeachersController : ApiController
     {
-
+        [Authorize(Roles = "head-master, master")]
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateTeacherCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
-
-        [HttpGet]
+        [Authorize(Roles = "head-master, master")]
+        [HttpGet("[action]")]
         public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers()
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
-            if (claim != null)
-            {
-                var viewModel = await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = long.Parse(claim.Value) });
-                return Ok(viewModel);
-            }
-            return BadRequest($"Unatorized");
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            //var viewModel = await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = schoolId });
+            return Ok(await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = schoolId }));
+        }
+        [HttpGet("[action]")]
+        [Authorize(Roles = "teacher")]
+        public async Task<ActionResult<TeacherVM>> GetTeacher()
+        {
+            long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetTeacherQuery { Id = userId }));
         }
     }
- }
+}

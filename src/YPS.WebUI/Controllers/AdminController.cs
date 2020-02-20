@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,13 +19,8 @@ namespace YPS.WebUI.Controllers
         [ProducesResponseType(400)]
         public async Task<ActionResult> Admin()
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", StringComparison.InvariantCultureIgnoreCase));
-            if (claim != null)
-            {
-                var viewModel = await Mediator.Send(new GetAdminQuery { Id = long.Parse(claim.Value) });
-                return Ok(viewModel);
-            }
-            return BadRequest($"Unatorized");
+            long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetAdminQuery { Id = userId }));
         }
     }
 }
