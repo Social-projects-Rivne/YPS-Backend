@@ -14,11 +14,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace YPS.WebUI.Controllers
 {
-<<<<<<< HEAD
-    [Authorize]
-=======
+
     [Authorize(Roles = "head-master, master")]
->>>>>>> 19d953765ff098d484a758b15de6d94f01023c98
+
     public class TeachersController : ApiController
     {
 
