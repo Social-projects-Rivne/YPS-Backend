@@ -20,9 +20,7 @@ namespace YPS.Application.Auth.Helpers
                 expires: DateTime.UtcNow.AddMinutes(1),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
             );
-
             return new JwtSecurityTokenHandler().WriteToken(jwt);
-        
         }
         public static string GenerateRefreshToken()
         {
@@ -33,7 +31,6 @@ namespace YPS.Application.Auth.Helpers
                 return Convert.ToBase64String(randomNumber);
             }
         }
-
         public static ClaimsPrincipal GetPrincipalFromExpiredToken(string apiKey, string token)
         {
             var tokenValidationParameters = new TokenValidationParameters
@@ -44,13 +41,11 @@ namespace YPS.Application.Auth.Helpers
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiKey)),
                 ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
             };
-
             var tokenHandler = new JwtSecurityTokenHandler();
             var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out var securityToken);
             var jwtSecurityToken = securityToken as JwtSecurityToken;
             if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
                 throw new SecurityTokenException("Invalid token");
-
             return principal;
         }
 

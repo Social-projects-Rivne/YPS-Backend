@@ -10,10 +10,13 @@ using Microsoft.AspNetCore.Authorization;
 using MediatR;
 using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
+using Microsoft.AspNetCore.Authorization;
 
 namespace YPS.WebUI.Controllers
 {
+
     [Authorize(Roles = "head-master, master")]
+
     public class TeachersController : ApiController
     {
 

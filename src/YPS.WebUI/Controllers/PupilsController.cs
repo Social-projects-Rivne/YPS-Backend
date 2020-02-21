@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using YPS.Application.Pupils.Queries.GetPupilsBySchool;
 
 namespace YPS.WebUI.Controllers
 {
+    [Authorize]
     public class PupilsController : ApiController
     {
         [HttpPost]
