@@ -19,8 +19,9 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
         public string Email { get; set; }
         public string Degree { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string ClassName { get; set; }
+        public string SchoolName { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -31,12 +32,16 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
                 .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
                 .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
                 .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.User.ImageUrl))
-                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth))
+                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth.ToString("yyyy-MM-dd")))
                 .ForMember(
                     x => x.ClassName,
                     opts => opts.MapFrom(
                         x => x.Classes.First().Number + "-" + x.Classes.First().Character)
-                );
+                )
+                .ForMember(
+                    x => x.SchoolName,
+                    opt => opt.MapFrom(
+                        x => x.User.School.ShortName));
         }
     }
 }
