@@ -21,5 +21,4 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetUpcomingEventsBySchoolQuery { SchoolId = schoolId }));
         }
     }
-
 }
