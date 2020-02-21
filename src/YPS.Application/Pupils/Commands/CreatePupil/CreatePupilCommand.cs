@@ -16,6 +16,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
     {
         public UserPartial User { get; set; }
         public long ClassId { get; set; }
+        
 
         public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, CreateUserResponse>
         {

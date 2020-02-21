@@ -8,6 +8,7 @@ using System.Text;
 using YPS.Application.Behaviors;
 using YPS.Application.Interfaces;
 
+
 namespace YPS.Application
 {
     public static class DependencyInjection
@@ -17,6 +18,7 @@ namespace YPS.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
+            
 
             return services;
         }
