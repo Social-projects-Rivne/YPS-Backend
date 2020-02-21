@@ -28,7 +28,7 @@ namespace YPS.WebUI.Controllers
             }
             return BadRequest($"Unatorized");
         }
-
+        
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateParentCommand command)
         {
