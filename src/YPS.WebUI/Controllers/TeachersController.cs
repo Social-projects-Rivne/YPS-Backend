@@ -8,9 +8,11 @@ using YPS.Application.SchoolRequests.ViewModel;
 using YPS.Application.Teachers.Commands.CreateTeacher;
 using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
+using Microsoft.AspNetCore.Authorization;
 
 namespace YPS.WebUI.Controllers
 {
+    [Authorize]
     public class TeachersController : ApiController
     {
         [HttpPost]

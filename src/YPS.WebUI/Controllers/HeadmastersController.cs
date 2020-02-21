@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@ using YPS.Application.Auth.Command.CreateHeadMaster;
 
 namespace YPS.WebUI.Controllers
 {
+    [Authorize]
     public class HeadmastersController : ApiController
     {
         [HttpPost]
