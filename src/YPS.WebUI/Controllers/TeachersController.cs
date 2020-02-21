@@ -16,7 +16,6 @@ using YPS.Application.Teachers.Queries.GetTeacher;
 namespace YPS.WebUI.Controllers
 {
     [Authorize]
-
     public class TeachersController : ApiController
     {
         [Authorize(Roles = "head-master, master")]
