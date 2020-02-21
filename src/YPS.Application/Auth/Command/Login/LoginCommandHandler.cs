@@ -32,9 +32,7 @@ namespace YPS.Application.Auth.Command.Login
                         x.Email.ToUpper() == request.Email.ToUpper() &&
                         x.Password == request.Password, cancellationToken: cancellationToken)
                 .ConfigureAwait(false);
-
             var role = await _dbContext.Roles.SingleOrDefaultAsync(x => x.Id == user.RoleId);
-
             if (user == null)
             {
                 throw new ValidationException();
@@ -45,19 +43,15 @@ namespace YPS.Application.Auth.Command.Login
                 new Claim(ClaimTypes.Name, user.FirstName),
                 new Claim(ClaimTypes.GivenName, user.SchoolId.ToString())
             };
-
             var token = AuthHelpers.GenerateToken(request.ApiKey, claims);
             var refreshToken = AuthHelpers.GenerateRefreshToken();
-
             await _dbContext.UserRefreshTokens.AddAsync(new UserRefreshToken
             {
                 UserId = user.Id,
                 RefreshToken = refreshToken,
                 ExpiryDate = DateTime.UtcNow.AddMonths(1)
             }, cancellationToken).ConfigureAwait(false);
-
             await _dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-
             return new LoginViewModel
             {
                 Token = token,

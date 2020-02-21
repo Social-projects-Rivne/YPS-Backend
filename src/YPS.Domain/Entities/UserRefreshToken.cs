@@ -10,11 +10,8 @@ namespace YPS.Domain.Entities
     {
         [MaxLength(50)]
         public string RefreshToken { get; set; }
-
         public DateTime ExpiryDate { get; set; }
-
         public long UserId { get; set; }
-
         public User User { get; set; }
     }
 }

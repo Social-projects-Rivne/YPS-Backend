@@ -18,4 +18,5 @@ namespace YPS.Application.Auth.Command.RefreshToken
             RefreshToken = refreshToken;
         }
     }
+
 }
