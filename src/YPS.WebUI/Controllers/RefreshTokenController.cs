@@ -21,6 +21,7 @@ namespace YPS.WebUI.Controllers
         [HttpPost]
         public async Task<ActionResult> Refresh([FromBody] RefreshTokenCommand command)
         {
+            command.ApiKey = _apiKey;
             var response = await Mediator.Send(command);
             return Ok(response);
         }

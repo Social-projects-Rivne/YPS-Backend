@@ -16,6 +16,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
         public UserPartial User { get; set; }
         public string WorkInfo { get; set; }
         public long PupilId { get; set; }
+        public long SchoolId { get; set; }
 
         public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, CreateUserResponse>
         {
@@ -40,7 +41,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
                 if (res.Failures == null || !res.Failures.Any())
                 {
                     string password = _randomGenerator.RandomPassword();
-                    User createdUser = await _userService.CreateUser(request.User, password, 3, 1);
+                    User createdUser = await _userService.CreateUser(request.User, password, 3, request.SchoolId);
 
                     if (createdUser != null)
                     {
