@@ -8,7 +8,6 @@ namespace YPS.Application.Auth.Command.RefreshToken
     {
         public string Token { get; }
         public string RefreshToken { get; }
-
         public RefreshTokenViewModel(string token, string refreshToken)
         {
             Token = token;

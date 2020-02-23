@@ -10,6 +10,7 @@ using YPS.Application.Models;
 
 namespace YPS.WebUI.Controllers
 {
+    [Authorize]
     public class HeadmastersController : ApiController
     {
         [HttpPost]

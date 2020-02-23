@@ -10,16 +10,18 @@ using Microsoft.AspNetCore.Authorization;
 using MediatR;
 using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
+using System.Security.Claims;
 
 namespace YPS.WebUI.Controllers
 {
     [Authorize(Roles = "head-master, master")]
     public class TeachersController : ApiController
     {
-
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateTeacherCommand command)
         {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            command.SchoolId = schoolId;
             return Ok(await Mediator.Send(command));
         }
 
