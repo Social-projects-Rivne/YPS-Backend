@@ -20,11 +20,13 @@ namespace YPS.Application.SchoolRequests.Command
         {
             private IYPSDbContext _dbContext;
             private IMapper _mapper;
+            private IMailSenderService _mailSender;
 
-            public ApproveCommandHandler(IYPSDbContext dbContext, IMapper mapper)
+            public ApproveCommandHandler(IYPSDbContext dbContext, IMapper mapper,IMailSenderService mailSender)
             {
                 _dbContext = dbContext;
                 _mapper = mapper;
+                _mailSender = mailSender;
             }
 
             public async Task<SchoolViewModel> Handle(ApproveCommand request, CancellationToken cancellationToken)
@@ -38,6 +40,12 @@ namespace YPS.Application.SchoolRequests.Command
                 _dbContext.Schools.Add(school);
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
+                string guidLink = Guid.NewGuid().ToString();
+                string masterRegisterLink= "http://localhost:4200/register-headmaster/"+guidLink;
+                string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master "+ masterRegisterLink;
+                _mailSender.SendMessageAsync(requests.FirstOrDefault(x => x.Id == request.Id).Email, "Successfuly registered", message);
+                _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).RegistrationLink = guidLink;
+                await _dbContext.SaveChangesAsync(cancellationToken);
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
                 await _dbContext.SaveChangesAsync(cancellationToken);
                 return new SchoolViewModel { Id = request.Id };   

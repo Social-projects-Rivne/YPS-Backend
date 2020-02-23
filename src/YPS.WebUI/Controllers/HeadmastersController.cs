@@ -7,16 +7,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using YPS.Application.Auth.Command.CreateHeadMaster;
 using YPS.Application.Models;
+using YPS.Application.SchoolRequests.Commands.GetMasterRegisterLink;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize]
     public class HeadmastersController : ApiController
     {
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
         {
             return Ok(await Mediator.Send(request));
+        }
+
+        [HttpPost("action")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<RegisterLinkViewModel>> GetSchool([FromQuery] CheckMasterLinkCommand command)
+        {
+            var vm = await Mediator.Send(command);
+            return Ok(vm);
         }
     }
 }
