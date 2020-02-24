@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using YPS.Application.Models;
 using YPS.Application.Pupils.Commands.CreatePupil;
@@ -17,6 +18,8 @@ namespace YPS.WebUI.Controllers
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreatePupilCommand command)
         {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            command.SchoolId = schoolId;
             return Ok(await Mediator.Send(command));
         }
 
