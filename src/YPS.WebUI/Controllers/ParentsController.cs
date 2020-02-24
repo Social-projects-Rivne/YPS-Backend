@@ -29,7 +29,7 @@ namespace YPS.WebUI.Controllers
         public async Task<ActionResult<GetParentProfileInfoVm>> GetParentProfileInfo()
         {
             long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetParentsProfileInfoQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetParentProfileInfoQuery { Id = id }));
         }
 
         [HttpPost]
