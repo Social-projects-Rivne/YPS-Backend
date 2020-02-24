@@ -18,20 +18,19 @@ namespace YPS.WebUI.Controllers
     public class ParentsController : ApiController
     {
         [HttpGet]
-        public async Task<ActionResult<ICollection<ParentBySchoolVm>>> GetParents([FromQuery]GetParentsBySchoolQuery command)
+        public async Task<ActionResult<ICollection<ParentBySchoolVm>>> GetParentsBySchool()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
-            command.SchoolId = schoolId;
-            return Ok(command);
+            return Ok(await Mediator.Send(new GetParentsBySchoolQuery { SchoolId = schoolId }));
         }
 
-        //[HttpGet("[action]")]
-        //[Authorize(Roles = "parent")]
-        //public async Task<ActionResult<GetParentProfileInfoVm>> GetParentProfileInfo()
-        //{
-        //    long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        //    return Ok(await Mediator.Send(new GetParentProfileInfoQuery { Id = id }));
-        //}
+        [HttpGet("[action]")]
+        [Authorize(Roles = "parent")]
+        public async Task<ActionResult<GetParentProfileInfoVm>> GetParentProfileInfo()
+        {
+            long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetParentProfileInfoQuery { Id = id }));
+        }
 
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateParentCommand command)
