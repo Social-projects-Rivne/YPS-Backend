@@ -12,10 +12,10 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.Parents.Queries.GetParentProfileInfo
 {
-    public class GetParentsBySchoolQuety : IRequest<GetParentProfileInfoVm>
+    public class GetParentsProfileInfoQuery : IRequest<GetParentProfileInfoVm>
     {
         public long Id;
-        public class GetParentProfileInfoQueryHandler : IRequestHandler<GetParentsBySchoolQuety, GetParentProfileInfoVm>
+        public class GetParentProfileInfoQueryHandler : IRequestHandler<GetParentsProfileInfoQuery, GetParentProfileInfoVm>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
@@ -24,7 +24,7 @@ namespace YPS.Application.Parents.Queries.GetParentProfileInfo
                 _dbContext = dbContext;
                 _mapper = mapper;
             }
-            public async Task<GetParentProfileInfoVm> Handle(GetParentsBySchoolQuety request, CancellationToken cancellationToken)
+            public async Task<GetParentProfileInfoVm> Handle(GetParentsProfileInfoQuery request, CancellationToken cancellationToken)
             {
                 var parentinfo = await _dbContext.Parents
                     .ProjectTo<GetParentProfileInfoVm>(_mapper.ConfigurationProvider)

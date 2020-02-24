@@ -8,8 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Models;
 using YPS.Application.Parents.Commands.CreateParent;
-using YPS.Application.Parents.Queries;
-using YPS.Application.Parents.ViewModels;
+using YPS.Application.Parents.Queries.GetParentProfileInfo;
+using YPS.Application.Parents.Queries.GetParentsBySchool;
+using YPS.Application.Parents.ViewModels.GetParentsBySchool;
 
 namespace YPS.WebUI.Controllers
 {
@@ -17,15 +18,18 @@ namespace YPS.WebUI.Controllers
     public class ParentsController : ApiController
     {
         [HttpGet]
-        public async Task<ActionResult<ICollection<ParentBySchoolVm>>> GetParents([FromQuery]GetParentsBySchoolQuery command)
+        public async Task<ActionResult<ICollection<ParentBySchoolVm>>> GetParentsBySchool()
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
-            if (claim != null)
-            {
-                var viewModel = await Mediator.Send(new GetParentsBySchoolQuery { Id = long.Parse(claim.Value) });
-                return Ok(viewModel);
-            }
-            return BadRequest($"Unatorized");
+            //var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
+            //if (claim != null)
+            //{
+            //    var viewModel = await Mediator.Send(new GetParentsBySchoolQuery { Id = long.Parse(claim.Value) });
+            //    return Ok(viewModel);
+            //}
+            //return BadRequest($"Unatorized");1
+
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetParentsBySchoolQuery { SchoolId = schoolId }));
         }
 
         [HttpGet("[action]")]
@@ -33,7 +37,7 @@ namespace YPS.WebUI.Controllers
         public async Task<ActionResult<GetParentProfileInfoVm>> GetParentProfileInfo()
         {
             long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetParentProfileInfoQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetParentsProfileInfoQuery { Id = id }));
         }
 
         [HttpPost]
