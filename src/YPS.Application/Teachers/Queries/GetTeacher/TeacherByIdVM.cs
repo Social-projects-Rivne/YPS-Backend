@@ -8,7 +8,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Teachers.Queries.GetTeacher
 {
-    public class TeacherVM : IMapFrom<Teacher>
+    public class TeacherByIdVM : IMapFrom<Teacher>
     {
         public long Id { get; set; }
         public long UserId { get; set; }
@@ -25,7 +25,7 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Teacher, TeacherVM>()
+            profile.CreateMap<Teacher, TeacherByIdVM>()
                 .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.User.FirstName))
                 .ForMember(x => x.Surname, opt => opt.MapFrom(x => x.User.Surname))
                 .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))
