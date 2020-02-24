@@ -15,6 +15,7 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
     {
         public UserPartial User { get; set; }
         public string Degree { get; set; }
+        public long SchoolId { get; set; }
 
         public sealed class CreateTeacherCommandHandler : IRequestHandler<CreateTeacherCommand, CreateUserResponse>
         {
@@ -40,7 +41,7 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
                 if (res.Failures == null || !res.Failures.Any())
                 { 
                     string password = _randomGenerator.RandomPassword();
-                    User createdUser = await _userService.CreateUser(request.User, password, 2, 1);
+                    User createdUser = await _userService.CreateUser(request.User, password, 2, request.SchoolId);
 
                     if (createdUser != null)
                     {
