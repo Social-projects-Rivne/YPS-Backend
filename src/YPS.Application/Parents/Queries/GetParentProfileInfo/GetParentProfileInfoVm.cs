@@ -6,7 +6,7 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Parents.ViewModels
+namespace YPS.Application.Parents.Queries.GetParentProfileInfo
 {
     public class GetParentProfileInfoVm : IMapFrom<Parent>
     {

@@ -9,9 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
-using YPS.Application.Parents.ViewModels;
 
-namespace YPS.Application.Parents.Queries
+namespace YPS.Application.Parents.Queries.GetParentProfileInfo
 {
     public class GetParentProfileInfoQuery : IRequest<GetParentProfileInfoVm>
     {

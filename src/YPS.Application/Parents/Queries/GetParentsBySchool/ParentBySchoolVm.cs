@@ -6,9 +6,9 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Parents.ViewModels
+namespace YPS.Application.Parents.ViewModels.GetParentsBySchool
 {
-    public class ParentBySchoolVm: IMapFrom<Parent>
+    public class ParentBySchoolVm : IMapFrom<Parent>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }

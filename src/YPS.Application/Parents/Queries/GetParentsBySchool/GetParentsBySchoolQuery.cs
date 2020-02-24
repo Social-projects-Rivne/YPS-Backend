@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
-using YPS.Application.Parents.ViewModels;
+using YPS.Application.Parents.ViewModels.GetParentsBySchool;
 
-namespace YPS.Application.Parents.Queries
+namespace YPS.Application.Parents.Queries.GetParentsBySchool
 {
     public class GetParentsBySchoolQuery : IRequest<ICollection<ParentBySchoolVm>>
     {
