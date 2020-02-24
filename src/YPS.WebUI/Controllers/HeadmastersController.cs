@@ -10,7 +10,7 @@ using YPS.Application.Models;
 using YPS.Application.SchoolRequests.Commands.GetMasterRegisterLink;
 
 namespace YPS.WebUI.Controllers
-{
+{   
     public class HeadmastersController : ApiController
     {
         [HttpPost]
@@ -22,7 +22,7 @@ namespace YPS.WebUI.Controllers
         [HttpPost("action")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<RegisterLinkViewModel>> GetSchool([FromQuery] CheckMasterLinkCommand command)
+        public async Task<ActionResult<bool>> CheckMaster([FromQuery] CheckMasterLinkCommand command)
         {
             var vm = await Mediator.Send(command);
             return Ok(vm);

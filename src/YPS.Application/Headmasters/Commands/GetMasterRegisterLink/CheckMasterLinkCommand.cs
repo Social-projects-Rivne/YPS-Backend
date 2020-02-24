@@ -11,10 +11,10 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.SchoolRequests.Commands.GetMasterRegisterLink
 {
-    public class CheckMasterLinkCommand: IRequest<RegisterLinkViewModel>
+    public class CheckMasterLinkCommand: IRequest<bool>
     {
         public string Link { get; set; }
-        public class GetMasterLinkCommandHandler : IRequestHandler<CheckMasterLinkCommand, RegisterLinkViewModel>
+        public class GetMasterLinkCommandHandler : IRequestHandler<CheckMasterLinkCommand, bool>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
@@ -25,24 +25,17 @@ namespace YPS.Application.SchoolRequests.Commands.GetMasterRegisterLink
                 _mapper = mapper;
             }
 
-            public async Task<RegisterLinkViewModel> Handle(CheckMasterLinkCommand request, CancellationToken cancellationToken)
+            public async Task<bool> Handle(CheckMasterLinkCommand request, CancellationToken cancellationToken)
             {
-                var schoolRequest = await _dbContext.SchoolRequests.FirstOrDefaultAsync(x => x.RegistrationLink == request.Link);
-                if (schoolRequest != null) 
+                var school = await _dbContext.Schools.FirstOrDefaultAsync(x => x.RegistrationLink == request.Link);
+                if (school != null) 
                 {
-                    return new RegisterLinkViewModel
-                    {
-                        IsValid = true,
-                        SchoolId = _dbContext.Schools.FirstOrDefault(x => x.Name == schoolRequest.Name).Id
-                    }; 
+                    return true;
+                    
                 }
                 else
                 {
-                    return new RegisterLinkViewModel
-                    {
-                        IsValid = false,
-                        SchoolId = 0
-                    };
+                    return false;
                 }
                 
             }

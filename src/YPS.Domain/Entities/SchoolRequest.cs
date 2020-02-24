@@ -15,6 +15,5 @@ namespace YPS.Domain.Entities
         public bool? IsApproved { get; set; }
         public string PhoneNumb { get; set; }
         public bool Confirmation { get; set; }
-        public string RegistrationLink { get; set; }
     }
 }

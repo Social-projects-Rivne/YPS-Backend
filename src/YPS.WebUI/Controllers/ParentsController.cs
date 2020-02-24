@@ -13,8 +13,6 @@ using YPS.Application.Parents.ViewModels;
 
 namespace YPS.WebUI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     [Authorize]
     public class ParentsController : ApiController
     {
