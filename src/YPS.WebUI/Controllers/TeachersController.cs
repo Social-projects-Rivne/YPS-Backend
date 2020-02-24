@@ -28,14 +28,14 @@ namespace YPS.WebUI.Controllers
         }
         [Authorize(Roles = "head-master, master")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers()
+        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachersBySchoolId()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = schoolId }));
         }
         [HttpGet("[action]")]
         [Authorize(Roles = "teacher")]
-        public async Task<ActionResult<TeacherVM>> GetTeacher()
+        public async Task<ActionResult<TeacherVM>> GetTeacherById()
         {
             long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             return Ok(await Mediator.Send(new GetTeacherQuery { Id = userId }));
