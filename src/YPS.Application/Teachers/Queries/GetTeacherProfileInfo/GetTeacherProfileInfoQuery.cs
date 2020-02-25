@@ -27,7 +27,6 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
             }
             public async Task<TeacherProfileInfoVM> Handle(GetTeacherProfileInfoQuery request, CancellationToken cancellationToken)
             {
-
                 TeacherProfileInfoVM teacher = await _dbContext.Teachers
                     .ProjectTo<TeacherProfileInfoVM>(_mapper.ConfigurationProvider)
                     .FirstOrDefaultAsync(x => x.UserId == request.Id);
