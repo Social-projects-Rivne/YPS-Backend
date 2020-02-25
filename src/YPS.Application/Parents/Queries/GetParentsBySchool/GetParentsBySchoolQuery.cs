@@ -27,12 +27,8 @@ namespace YPS.Application.Parents.Queries.GetParentsBySchool
             }
             public async Task<ICollection<ParentBySchoolVm>> Handle(GetParentsBySchoolQuery request, CancellationToken cancellationToken)
             {
-                return await _dbContext.Users
-                    .Include(x => x.Parent)
-                    .Where(x => x.Parent != null)
-                    .AsNoTracking()
-                    .Where(x => x.SchoolId == request.SchoolId)
-                    .Select(x => x.Parent)
+                return await _dbContext.Parents
+                    .Where(x => x.User.SchoolId == request.SchoolId)
                     .ProjectTo<ParentBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
             }
