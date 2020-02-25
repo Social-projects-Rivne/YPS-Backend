@@ -35,10 +35,10 @@ namespace YPS.WebUI.Controllers
         }
         [HttpGet("[action]")]
         [Authorize(Roles = "teacher")]
-        public async Task<ActionResult<TeacherByIdVM>> GetTeacherById()
+        public async Task<ActionResult<TeacherProfileInfoVM>> GetTeacherById()
         {
             long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetTeacherByIdQuery { Id = userId }));
+            return Ok(await Mediator.Send(new GetTeacherProfileInfoQuery { Id = userId }));
         }
     }
 }
