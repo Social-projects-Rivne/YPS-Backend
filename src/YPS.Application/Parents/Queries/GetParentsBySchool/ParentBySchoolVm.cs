@@ -6,7 +6,7 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Parents.ViewModels.GetParentsBySchool
+namespace YPS.Application.Parents.GetParentsBySchool
 {
     public class ParentBySchoolVm : IMapFrom<Parent>
     {
