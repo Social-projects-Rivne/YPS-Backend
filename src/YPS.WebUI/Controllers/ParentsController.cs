@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Models;
 using YPS.Application.Parents.Commands.CreateParent;
 using YPS.Application.Parents.Queries;
+using YPS.Application.Parents.Queries.GetParentProfileInfo;
 using YPS.Application.Parents.Queries.GetParentsBySchool;
 using YPS.Application.Parents.ViewModels;
 using YPS.Application.Parents.ViewModels.GetParentsBySchool;
