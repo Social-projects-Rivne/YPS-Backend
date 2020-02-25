@@ -55,7 +55,6 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
                         await _context.SaveChangesAsync(cancellationToken);
                     }
                 }
-
                 return res;
             }
         }

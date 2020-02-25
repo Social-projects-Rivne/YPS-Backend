@@ -9,6 +9,7 @@ using YPS.Application.Teachers.Commands.CreateTeacher;
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
 using YPS.Application.Models;
+using YPS.Application.Teachers.Queries.GetTeacherBySchoolShort;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
 
 namespace YPS.WebUI.Controllers
@@ -23,7 +24,7 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers()
         {
             var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
@@ -32,7 +33,19 @@ namespace YPS.WebUI.Controllers
                 var viewModel = await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = long.Parse(claim.Value) });
                 return Ok(viewModel);
             }
-            return BadRequest($"Unatorized");
+            return BadRequest($"Unauthorized");
+        }
+
+        [HttpGet("[action]")]
+        public async Task<ActionResult<List<GetTeacherBySchoolShortVm>>> GetTeachersShort()
+        {
+            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
+            if (claim != null)
+            {
+                var viewModel = await Mediator.Send(new GetTeacherBySchoolShortQuery { SchoolId = long.Parse(claim.Value) });
+                return Ok(viewModel);
+            }
+            return BadRequest($"Unauthorized");
         }
     }
  }
