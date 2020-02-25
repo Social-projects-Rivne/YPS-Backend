@@ -11,7 +11,7 @@ namespace YPS.WebUI.Services
     public class CurrentUserInformationService : ICurrentUserInformationService
     {
         public long UserId { get; }
-        public long? SchoolId { get; }
+        public long SchoolId { get; }
 
         public CurrentUserInformationService(IHttpContextAccessor httpContextAccessor)
         {
