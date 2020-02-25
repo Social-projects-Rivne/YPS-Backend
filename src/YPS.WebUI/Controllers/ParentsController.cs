@@ -22,13 +22,8 @@ namespace YPS.WebUI.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<ParentBySchoolVm>>> GetParentsBySchool()
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
-            if (claim != null)
-            {
-                var viewModel = await Mediator.Send(new GetParentsBySchoolQuery { SchoolId = long.Parse(claim.Value) });
-                return Ok(viewModel);
-            }
-            return BadRequest($"Unatorized");
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetParentsBySchoolQuery { SchoolId = schoolId }));
         }
 
         [HttpGet("[action]")]
