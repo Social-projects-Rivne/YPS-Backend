@@ -30,6 +30,7 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsBySchool
             {
                 var upcomingEvets = await _context.UpcomingEvents
                     .Where(x => x.SchoolId == request.SchoolId && x.ClassId == null)
+                    .Where(x => x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingEventVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
                 return upcomingEvets;
