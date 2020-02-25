@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
-using YPS.Application.Parents.ViewModels.GetParentsBySchool;
+using YPS.Application.Parents.GetParentsBySchool;
 
 namespace YPS.Application.Parents.Queries.GetParentsBySchool
 {

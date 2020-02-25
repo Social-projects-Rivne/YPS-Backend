@@ -12,7 +12,7 @@ namespace YPS.Domain.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime TimeOfCreation { get; set; }
-
+        public DateTime ScheduledDate { get; set; }
         public long? ClassId { get; set; }
         public Class Class { get; set; }
 
