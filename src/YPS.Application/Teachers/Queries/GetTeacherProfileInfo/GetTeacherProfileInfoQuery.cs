@@ -15,12 +15,12 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
     public class GetTeacherProfileInfoQuery : IRequest<TeacherProfileInfoVM>
     {
         public long Id;
-        public class GetTeachersQueryHandler : IRequestHandler<GetTeacherProfileInfoQuery, TeacherProfileInfoVM>
+        public class GetTeacherProfileInfoQueryHandler : IRequestHandler<GetTeacherProfileInfoQuery, TeacherProfileInfoVM>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
 
-            public GetTeachersQueryHandler(IYPSDbContext dbContext, IMapper mapper)
+            public GetTeacherProfileInfoQueryHandler(IYPSDbContext dbContext, IMapper mapper)
             {
                 _dbContext = dbContext;
                 _mapper = mapper;
