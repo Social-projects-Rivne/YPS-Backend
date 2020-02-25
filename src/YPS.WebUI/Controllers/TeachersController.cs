@@ -11,41 +11,45 @@ using MediatR;
 using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeacherBySchoolShort;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
+using System.Security.Claims;
+using YPS.Application.Teachers.Queries.GetTeacher;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles = "head-master, master")]
+    [Authorize]
     public class TeachersController : ApiController
     {
-
+        [Authorize(Roles = "head-master, master")]
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateTeacherCommand command)
         {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            command.SchoolId = schoolId;
             return Ok(await Mediator.Send(command));
         }
 
+        [Authorize(Roles = "head-master, master")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachers()
+        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachersBySchoolId()
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
-            if (claim != null)
-            {
-                var viewModel = await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = long.Parse(claim.Value) });
-                return Ok(viewModel);
-            }
-            return BadRequest($"Unauthorized");
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetTeachersBySchoolQuery { SchoolId = schoolId }));
         }
 
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<GetTeacherBySchoolShortVm>>> GetTeachersShort()
+        [Authorize(Roles = "teacher")]
+        public async Task<ActionResult<TeacherProfileInfoVM>> GetTeacherById()
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", StringComparison.InvariantCultureIgnoreCase));
-            if (claim != null)
-            {
-                var viewModel = await Mediator.Send(new GetTeacherBySchoolShortQuery { SchoolId = long.Parse(claim.Value) });
-                return Ok(viewModel);
-            }
-            return BadRequest($"Unauthorized");
+            long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetTeacherProfileInfoQuery { Id = userId }));
+        }
+
+        [Authorize(Roles = "head-master, master")]
+        [HttpGet("[action]")]
+        public async Task<ActionResult<List<GetTeacherBySchoolShortVm>>> GetTeachersBySchoolIdShort()
+        {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetTeacherBySchoolShortQuery { SchoolId = schoolId }));
         }
     }
- }
+}

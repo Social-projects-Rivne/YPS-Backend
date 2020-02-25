@@ -6,11 +6,14 @@
 
   <ItemGroup>
     <Compile Remove="Auth\Command\CreateHeadMaster\**" />
-    <Compile Remove="Event\Models\**" />
+    <Compile Remove="UpcomingEvents\Models\**" />
+    <Compile Remove="UpcomingEvents\Queries\GetEvent\**" />
     <EmbeddedResource Remove="Auth\Command\CreateHeadMaster\**" />
-    <EmbeddedResource Remove="Event\Models\**" />
+    <EmbeddedResource Remove="UpcomingEvents\Models\**" />
+    <EmbeddedResource Remove="UpcomingEvents\Queries\GetEvent\**" />
     <None Remove="Auth\Command\CreateHeadMaster\**" />
-    <None Remove="Event\Models\**" />
+    <None Remove="UpcomingEvents\Models\**" />
+    <None Remove="UpcomingEvents\Queries\GetEvent\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,11 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YPS.Domain\YPS.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Event\Models\" />
-    <Folder Include="Event\Query\GetEvent\" />
   </ItemGroup>
 
 </Project>

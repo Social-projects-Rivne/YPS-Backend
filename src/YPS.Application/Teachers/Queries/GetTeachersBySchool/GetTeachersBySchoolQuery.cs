@@ -25,15 +25,11 @@ namespace YPS.Application.Teachers.Queries.GetTeachersBySchool
                 _mapper = mapper;
             }
 
-            public async Task<List<TeacherBySchoolVm>> Handle(GetTeachersBySchoolQuery request, CancellationToken cancellationToken)
-            {
-                List<TeacherBySchoolVm> teachers = await _dbContext.Teachers
+            public async Task<List<TeacherBySchoolVm>> Handle(GetTeachersBySchoolQuery request, CancellationToken cancellationToken) =>
+                await _dbContext.Teachers
                     .Where(x => x.User.SchoolId == request.SchoolId)
                     .ProjectTo<TeacherBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
-                
-                return teachers;
-            }
         }
     }
 }

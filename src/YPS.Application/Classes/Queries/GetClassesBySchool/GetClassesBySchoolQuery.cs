@@ -26,15 +26,11 @@ namespace YPS.Application.Classes.Queries.GetClassesBySchool
                 _mapper = mapper;
             }
 
-            public async Task<List<ClassBySchoolVm>> Handle(GetClassesBySchoolQuery request, CancellationToken cancellationToken)
-            {
-                List<ClassBySchoolVm> result = await  _context.Classes
+            public async Task<List<ClassBySchoolVm>> Handle(GetClassesBySchoolQuery request, CancellationToken cancellationToken) =>
+                await  _context.Classes
                     .Where(cl => cl.TeacherOf.User.SchoolId == request.SchoolId)
                     .ProjectTo<ClassBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
-
-                return result;
-            }
         }
     }
 }

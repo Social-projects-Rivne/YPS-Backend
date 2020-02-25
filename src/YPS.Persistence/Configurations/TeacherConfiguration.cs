@@ -12,8 +12,6 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.Degree)
                 .HasMaxLength(256);
 
-            
-
             builder.HasMany(e => e.Classes)
                 .WithOne(e => e.TeacherOf);
 
