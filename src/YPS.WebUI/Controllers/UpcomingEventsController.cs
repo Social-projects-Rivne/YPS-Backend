@@ -21,7 +21,7 @@ namespace YPS.WebUI.Controllers
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetUpcomingEventsBySchoolQuery { SchoolId = schoolId }));
         }
-        //[Authorize(Roles ="pupil")]
+        [Authorize(Roles ="pupil")]
         [HttpGet("[action]")]
         public async Task<ActionResult<List<UpcomingEventVm>>> GetUpcomingEventsByPupil()
         {   

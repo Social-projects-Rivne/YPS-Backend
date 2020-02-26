@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 using YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsBySchool;
+using YPS.Domain.Entities;
 
 namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
 {
@@ -17,12 +18,12 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
     {
         public long PupilId { get; set; }
         public long SchoolId { get; set; }
-        public class GetAllUpcomingEventsHandler : IRequestHandler<GetUpcomingEventsByPupilQuery, List<UpcomingEventVm>>
+        public class GetUpcomingEventsByPupilQueryHandler : IRequestHandler<GetUpcomingEventsByPupilQuery, List<UpcomingEventVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
 
-            public GetAllUpcomingEventsHandler(IYPSDbContext context, IMapper mapper)
+            public GetUpcomingEventsByPupilQueryHandler(IYPSDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
@@ -30,14 +31,17 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
 
             public async Task<List<UpcomingEventVm>> Handle(GetUpcomingEventsByPupilQuery request, CancellationToken cancellationToken)
             {
-                var pupil = await _context.Pupils
+                Pupil pupil = await _context.Pupils
                    .FirstOrDefaultAsync(x => x.UserId == request.PupilId);
 
-                var upcomingEvets = await _context.UpcomingEvents
-                    .Where(x => x.SchoolId == request.SchoolId && x.ClassId == pupil.ClassId)
-                    .Where(x => x.ScheduledDate >= DateTime.Now)
+                List<UpcomingEventVm> upcomingEvets = await _context.UpcomingEvents
+                    .Where(x => 
+                        x.SchoolId == request.SchoolId && 
+                        x.ClassId == pupil.ClassId && 
+                        x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingEventVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
+
                 return upcomingEvets;
             }
         }
