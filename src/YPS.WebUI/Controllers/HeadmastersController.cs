@@ -6,9 +6,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using YPS.Application.Auth.Command.CreateHeadMaster;
+using YPS.Application.HeadMasters.Command.CheckMasterRegisterLink;
 using YPS.Application.Models;
-using YPS.Application.SchoolRequests.Commands.GetMasterRegisterLink;
-
 namespace YPS.WebUI.Controllers
 {   
     public class HeadmastersController : ApiController
@@ -22,7 +21,7 @@ namespace YPS.WebUI.Controllers
         [HttpPost("action")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<bool>> CheckMaster([FromQuery] CheckMasterLinkCommand command)
+        public async Task<ActionResult<bool>> CheckMaster([FromQuery] CheckMasterRegisterLinkCommand command)
         {
             var vm = await Mediator.Send(command);
             return Ok(vm);
