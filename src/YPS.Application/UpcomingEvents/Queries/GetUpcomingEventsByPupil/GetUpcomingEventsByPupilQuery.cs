@@ -32,7 +32,7 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
             public async Task<List<UpcomingEventVm>> Handle(GetUpcomingEventsByPupilQuery request, CancellationToken cancellationToken)
             {
                 Pupil pupil = await _context.Pupils
-                   .FirstOrDefaultAsync(x => x.UserId == request.PupilId);
+                   .FirstOrDefaultAsync(x => x.Id == request.PupilId);
 
                 List<UpcomingEventVm> upcomingEvets = await _context.UpcomingEvents
                     .Where(x => 
