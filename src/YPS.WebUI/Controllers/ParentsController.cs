@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Models;
 using YPS.Application.Parents.Commands.CreateParent;
+using YPS.Application.Parents.Queries.GetPupilInfoOfParent;
 using YPS.Application.Parents.Queries.GetParentProfileInfo;
 using YPS.Application.Parents.Queries.GetParentsBySchool;
 using YPS.Application.Parents.ViewModels.GetParentsBySchool;
@@ -29,7 +30,15 @@ namespace YPS.WebUI.Controllers
         public async Task<ActionResult<GetParentProfileInfoVm>> GetParentProfileInfo()
         {
             long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetParentProfileInfoQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetParentsProfileInfoQuery { Id = id }));
+        }
+
+        [HttpGet("[action]")]
+        //[Authorize(Roles = "parent")]
+        public async Task<ActionResult<ICollection<GetPupilInfoOfParentVm>>> GetPupilInfoOfParent()
+        {
+            long pupilid = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetPupilInfoOfParentQuery { Id = pupilid }));
         }
 
         [HttpPost]
