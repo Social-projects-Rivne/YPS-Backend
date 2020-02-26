@@ -36,8 +36,7 @@ namespace YPS.Application.HeadMasters.Command.CheckMasterRegisterLink
                 else
                 {
                     return false;
-                }
-                
+                }                
             }
         }
     }
