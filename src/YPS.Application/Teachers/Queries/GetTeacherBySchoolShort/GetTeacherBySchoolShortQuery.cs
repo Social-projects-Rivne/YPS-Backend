@@ -32,6 +32,8 @@ namespace YPS.Application.Teachers.Queries.GetTeacherBySchoolShort
             {
                 List<GetTeacherBySchoolShortVm> result = await _context.Teachers
                     .Where(x => x.User.SchoolId == request.SchoolId)
+                    .Where(x=>x.User.Role.Name == "teacher")
+                    //.Where(x=>x.Classes==null)
                     .ProjectTo<GetTeacherBySchoolShortVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 

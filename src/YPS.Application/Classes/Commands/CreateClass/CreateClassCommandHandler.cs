@@ -23,7 +23,6 @@ namespace YPS.Application.Classes.Commands.CreateClass
 
         public async Task<long> Handle(CreateClassRequestCommand request, CancellationToken cancellationToken)
         {
-
             var classRequest = new Class
             {
                 Character = request.Character,
@@ -31,13 +30,10 @@ namespace YPS.Application.Classes.Commands.CreateClass
                 ClassTeacherId = request.ClassTeacherId
             };
 
-
-
-            await _context.Classes.AddAsync(classRequest, cancellationToken).ConfigureAwait(false);
+            _context.Classes.Add(classRequest);
 
             await _context.SaveChangesAsync(cancellationToken)
                 .ConfigureAwait(false);
-
 
             return classRequest.Id;
         }
