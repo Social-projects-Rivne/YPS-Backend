@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Models;
 using YPS.Application.Parents.Commands.CreateParent;
 using YPS.Application.Parents.Queries.GetPupilInfoOfParent;
 using YPS.Application.Parents.Queries.GetParentProfileInfo;
 using YPS.Application.Parents.Queries.GetParentsBySchool;
-using YPS.Application.Parents.ViewModels.GetParentsBySchool;
+using YPS.Application.Parents.GetParentsBySchool;
 
 namespace YPS.WebUI.Controllers
 {

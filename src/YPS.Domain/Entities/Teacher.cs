@@ -7,7 +7,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class Teacher : EntityBase
+    public class Teacher 
     {
         public Teacher()
         {
@@ -17,9 +17,9 @@ namespace YPS.Domain.Entities
             UpcomingEvents = new HashSet<UpcomingEvent>();
         }
 
+        public long Id { get; set; }
         public string  Degree { get; set; }
-
-        public long UserId { get; set; }
+        
         public User User { get; set; }
 
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }

@@ -7,7 +7,7 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class ParentToPupil : EntityBase
+    public class ParentToPupil 
     {
         public long PupilId { get; set; }
         public Pupil PupilOf { get; set; }

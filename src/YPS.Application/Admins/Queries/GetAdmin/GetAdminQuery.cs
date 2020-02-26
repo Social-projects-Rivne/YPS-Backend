@@ -38,7 +38,6 @@ namespace YPS.Application.Admins.Queries.GetAdmin
                     PhoneNumber = admin.PhoneNumber,
                     ImageUrl = admin.ImageUrl,
                     DateOfBirth = admin.DateOfBirth
-
                 };
             }
         }
