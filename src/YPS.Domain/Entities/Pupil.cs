@@ -7,15 +7,15 @@ using YPS.Domain.Entities.Base;
 
 namespace YPS.Domain.Entities
 {
-    public class Pupil : EntityBase
-    {
+    public class Pupil{
         public Pupil()
         {
             ParentToPupils = new HashSet<ParentToPupil>();
             Marks = new HashSet<Mark>();
         }
 
-        public long UserId { get; set; }
+        public long Id { get; set; }
+
         public User User { get; set; }
 
         public long ClassId { get; set; }

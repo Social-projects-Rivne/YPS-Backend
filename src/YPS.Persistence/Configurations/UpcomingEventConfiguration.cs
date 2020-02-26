@@ -52,7 +52,7 @@ namespace YPS.Persistence.Configurations
                     Content = "Happy birthday of our school 'Kindergarten and elementary school №1' A lot of fun and chill come with parents and friends.",
                     TimeOfCreation = DateTime.Now,
                     ScheduledDate = DateTime.Now.AddDays(3),
-                    TeacherId = 5 //We can add event by teacher for another school. BUG! For example try 6 it's a head-master of 2 school
+                    TeacherId = 25 //We can add event by teacher for another school. BUG! For example try 6 it's a head-master of 2 school
                 },
                 new UpcomingEvent
                 {
@@ -74,7 +74,7 @@ namespace YPS.Persistence.Configurations
                     Content = "Our school is going to excursion in forest.",
                     TimeOfCreation = DateTime.Now,
                     ScheduledDate = DateTime.Now.AddDays(3),
-                    TeacherId = 5 
+                    TeacherId = 25
                 });
         }
     }
