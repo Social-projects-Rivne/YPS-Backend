@@ -47,7 +47,7 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
                     {
                         Teacher teacher = new Teacher
                         {
-                            UserId = createdUser.Id,
+                            Id = createdUser.Id,
                             Degree = request.Degree,
                         };
 

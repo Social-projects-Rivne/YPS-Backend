@@ -15,7 +15,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.User)
                 .WithOne(e => e.Pupil)
-                .HasForeignKey<Pupil>(e => e.UserId)
+                .HasForeignKey<Pupil>(e => e.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(e => e.Marks)
@@ -25,16 +25,16 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.PupilOf);
 
             builder.HasData(
-                new Pupil { Id = 1, UserId = 15, ClassId = 1 },
-                new Pupil { Id = 2, UserId = 16, ClassId = 1 },
-                new Pupil { Id = 3, UserId = 17, ClassId = 1 },
-                new Pupil { Id = 4, UserId = 18, ClassId = 2 },
-                new Pupil { Id = 5, UserId = 19, ClassId = 2 },
-                new Pupil { Id = 6, UserId = 20, ClassId = 3 },
-                new Pupil { Id = 7, UserId = 21, ClassId = 3 },
-                new Pupil { Id = 8, UserId = 22, ClassId = 4 },
-                new Pupil { Id = 9, UserId = 23, ClassId = 4 },
-                new Pupil { Id = 10, UserId = 24, ClassId = 4 }
+                new Pupil { Id = 15, ClassId = 1 },
+                new Pupil { Id = 16, ClassId = 1 },
+                new Pupil { Id = 17, ClassId = 1 },
+                new Pupil { Id = 18, ClassId = 2 },
+                new Pupil { Id = 19, ClassId = 2 },
+                new Pupil { Id = 20, ClassId = 3 },
+                new Pupil { Id = 21, ClassId = 3 },
+                new Pupil { Id = 22, ClassId = 4 },
+                new Pupil { Id = 23, ClassId = 4 },
+                new Pupil { Id = 24, ClassId = 4 }
             );
         }
     }
