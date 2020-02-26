@@ -20,7 +20,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.User)
                 .WithOne(e => e.Teacher)
-                .HasForeignKey<Teacher>(e => e.UserId)
+                .HasForeignKey<Teacher>(e => e.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(e => e.TeacherToDisciplines)
@@ -30,16 +30,28 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Teacher);
 
             builder.HasData(
-                new Teacher { Id = 1, UserId = 2, Degree = "Kindergarten teachers" },
-                new Teacher { Id = 2, UserId = 1, Degree = "Kindergarten and elementary school teachers" },
-                new Teacher { Id = 3, UserId = 3, Degree = "High school teachers" },
-                new Teacher { Id = 4, UserId = 4, Degree = "Middle school teachers" },
-                new Teacher { Id = 5, UserId = 25 }, //head-assistant
-                new Teacher { Id = 6, UserId = 26 },
-                new Teacher { Id = 7, UserId = 27 }, //master
-                new Teacher { Id = 8, UserId = 28 },
-                new Teacher { Id = 9, UserId = 29 }, //head-master
-                new Teacher { Id = 10, UserId = 30 }
+                new Teacher { 
+                    Id = 2, 
+                    Degree = "Kindergarten teachers" 
+                },
+                new Teacher { 
+                    Id = 1, 
+                    Degree = "Kindergarten and elementary school teachers" 
+                },
+                new Teacher { 
+                    Id = 3, 
+                    Degree = "High school teachers" 
+                },
+                new Teacher { 
+                    Id = 4, 
+                    Degree = "Middle school teachers" 
+                },
+                new Teacher { Id = 25 }, //head-assistant
+                new Teacher { Id = 26 },
+                new Teacher { Id = 27 }, //master
+                new Teacher { Id = 28 },
+                new Teacher { Id = 29 }, //head-master
+                new Teacher { Id = 30 }
             );
         }
     }

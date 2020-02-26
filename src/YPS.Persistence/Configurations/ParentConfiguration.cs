@@ -18,19 +18,19 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.User)
                 .WithOne(e => e.Parent)
-                .HasForeignKey<Parent>(e => e.UserId);
+                .HasForeignKey<Parent>(e => e.Id);
 
             builder.HasData(
-                new Parent { Id = 1, UserId = 5, WorkInfo = "WorkInfo parent1" },
-                new Parent { Id = 2, UserId = 6, WorkInfo = "WorkInfo parent2" },
-                new Parent { Id = 3, UserId = 7, WorkInfo = "WorkInfo parent3" },
-                new Parent { Id = 4, UserId = 8, WorkInfo = "WorkInfo parent4" },
-                new Parent { Id = 5, UserId = 9, WorkInfo = "WorkInfo parent5" },
-                new Parent { Id = 6, UserId = 10, WorkInfo = "WorkInfo parent6" },
-                new Parent { Id = 7, UserId = 11, WorkInfo = "WorkInfo parent7" },
-                new Parent { Id = 8, UserId = 12, WorkInfo = "WorkInfo parent8" },
-                new Parent { Id = 9, UserId = 13, WorkInfo = "WorkInfo parent9" },
-                new Parent { Id = 10, UserId = 14, WorkInfo = "WorkInfo parent10" }
+                new Parent { Id = 5, WorkInfo = "WorkInfo parent1" },
+                new Parent { Id = 6, WorkInfo = "WorkInfo parent2" },
+                new Parent { Id = 7, WorkInfo = "WorkInfo parent3" },
+                new Parent { Id = 8, WorkInfo = "WorkInfo parent4" },
+                new Parent { Id = 9, WorkInfo = "WorkInfo parent5" },
+                new Parent { Id = 10, WorkInfo = "WorkInfo parent6" },
+                new Parent { Id = 11, WorkInfo = "WorkInfo parent7" },
+                new Parent { Id = 12, WorkInfo = "WorkInfo parent8" },
+                new Parent { Id = 13, WorkInfo = "WorkInfo parent9" },
+                new Parent { Id = 14, WorkInfo = "WorkInfo parent10" }
             );
         }
     }
