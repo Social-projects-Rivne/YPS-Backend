@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YPS.Application.Helpers;
 using YPS.Application.Interfaces;
 using YPS.Application.Models;
 using YPS.Domain.Entities;
@@ -46,6 +47,9 @@ namespace YPS.Infrastructure.Services
 
         public async Task<User> CreateUser(UserPartial userPartial, string password, long roleId, long schoolId)
         {
+            PasswordHash hash = new PasswordHash(password);
+            string hashedPassword = Convert.ToBase64String(hash.ToArray());
+            
             User user = new User
             {
                 FirstName = userPartial.FirstName,
@@ -53,7 +57,7 @@ namespace YPS.Infrastructure.Services
                 MiddleName = userPartial.MiddleName,
                 PhoneNumber = userPartial.PhoneNumber,
                 Email = userPartial.Email,
-                Password = password,
+                Password = hashedPassword,
                 ImageUrl = "url",
                 DateOfBirth = DateTime.Now,
                 RoleId = roleId,
