@@ -23,12 +23,14 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
             private readonly IRandomGeneratorService _randomGenerator;
+            private readonly IMailSenderService _mailSender;
 
-            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator)
+            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator,IMailSenderService mailSender)
             {
                 _context = context;
                 _userService = userService;
                 _randomGenerator = randomGenerator;
+                _mailSender = mailSender;
             }
 
             public async Task<CreateUserResponse> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
@@ -55,6 +57,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                         res.CreatedId = createdUser.Id;
                         _context.Pupils.Add(pupil);
                         await _context.SaveChangesAsync(cancellationToken);
+                        _mailSender.SendRegistrationMessage(createdUser.Email,password);
                     }
                 }
 

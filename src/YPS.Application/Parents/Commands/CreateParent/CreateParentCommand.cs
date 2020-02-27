@@ -23,12 +23,14 @@ namespace YPS.Application.Parents.Commands.CreateParent
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
             private readonly IRandomGeneratorService _randomGenerator;
+            private readonly IMailSenderService _mailSender;
 
-            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator)
+            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator,IMailSenderService mailSender)
             {
                 _context = context;
                 _userService = userService;
                 _randomGenerator = randomGenerator;
+                _mailSender = mailSender;
             }
             public async Task<CreateUserResponse> Handle(CreateParentCommand request, CancellationToken cancellationToken)
             {
@@ -56,7 +58,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
                         await _context.SaveChangesAsync(cancellationToken);
 
                         Parent createdParent = await _context.Parents.FindAsync(parent.Id);
-
+                        _mailSender.SendRegistrationMessage(createdUser.Email, password);
                         if (createdParent != null)
                         {
                             ParentToPupil parentToPupil = new ParentToPupil
@@ -67,7 +69,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
 
                             _context.ParentToPupils.Add(parentToPupil);
                             await _context.SaveChangesAsync(cancellationToken);
-                        }
+                        }                        
                     }
                 }
 
