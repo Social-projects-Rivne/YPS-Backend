@@ -10,6 +10,7 @@ namespace YPS.Domain.Entities
     public class UpcomingTest : EntityBase
     {
         public DateTime Date { get; set; }
+        public DateTime ScheduledDate { get; set; }
         public string Topic { get; set; }
         public string TestType { get; set; }
 

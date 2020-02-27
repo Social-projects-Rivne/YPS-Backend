@@ -9,6 +9,8 @@ namespace YPS.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Pupil> builder)
         {
+
+
             builder.HasOne(e => e.ClassOf)
                 .WithMany(e => e.Pupils)
                 .HasForeignKey(e => e.ClassId);

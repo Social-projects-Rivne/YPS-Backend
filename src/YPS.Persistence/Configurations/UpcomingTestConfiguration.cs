@@ -36,7 +36,8 @@ namespace YPS.Persistence.Configurations
                     Topic = "Adding and subtracting numbers",
                     ClassId = 1,
                     DisciplineId = 1,
-                    Date = DateTime.MaxValue
+                    Date = DateTime.Now,
+                    ScheduledDate = DateTime.Now.AddDays(3)
                 },
                 new UpcomingTest
                 {
@@ -45,7 +46,8 @@ namespace YPS.Persistence.Configurations
                     Topic = "Using complex object in English dialogs",
                     ClassId = 4,
                     DisciplineId = 2,
-                    Date = DateTime.MaxValue
+                    Date = DateTime.MaxValue,
+                    ScheduledDate = DateTime.Now.AddDays(3)
                 });
         }
     }
