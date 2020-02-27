@@ -31,6 +31,7 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
                 .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))
                 .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
                 .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
+                .ForMember(x => x.Degree, opt => opt.MapFrom(x => x.User.Teacher.Degree))
                 .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.User.ImageUrl))
                 .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth.ToString("yyyy-MM-dd")))
                 .ForMember(

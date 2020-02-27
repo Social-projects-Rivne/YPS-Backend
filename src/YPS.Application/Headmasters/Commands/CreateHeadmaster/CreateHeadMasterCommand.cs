@@ -50,7 +50,7 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
                     {
                         Teacher headmaster = new Teacher
                         {
-                            UserId = createdUser.Id
+                            Id = createdUser.Id
                         };
 
                         res.CreatedId = createdUser.Id;

@@ -47,7 +47,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
                     {
                         Parent parent = new Parent
                         {
-                            UserId = createdUser.Id,
+                            Id = createdUser.Id,
                             WorkInfo = request.WorkInfo
                         };
 

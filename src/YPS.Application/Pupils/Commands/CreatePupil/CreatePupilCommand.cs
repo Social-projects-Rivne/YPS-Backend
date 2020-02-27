@@ -48,7 +48,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                     {
                         Pupil pupil = new Pupil
                         {
-                            UserId = createdUser.Id,
+                            Id = createdUser.Id,
                             ClassId = request.ClassId
                         };
 
