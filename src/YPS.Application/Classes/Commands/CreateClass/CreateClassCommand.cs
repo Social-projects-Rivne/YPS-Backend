@@ -5,7 +5,7 @@ using MediatR;
 
 namespace YPS.Application.Classes.Commands.CreateClass
 {
-    public class CreateClassRequestCommand : IRequest<long>
+    public class CreateClassCommand : IRequest<long>
     {
         public long Number { get; set; }
         public string Character { get; set; }

@@ -23,21 +23,10 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<long>> Create([FromBody] CreateClassRequestCommand command)
+        public async Task<ActionResult<long>> Create([FromBody] CreateClassCommand command)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-            try
-            {
-                var account = await Mediator.Send(command).ConfigureAwait(false);
-                return Ok(account);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            var classes = await Mediator.Send(command).ConfigureAwait(false);
+            return Ok(classes);
         }
 
         [HttpGet("[action]")]

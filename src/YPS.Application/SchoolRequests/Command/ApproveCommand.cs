@@ -18,7 +18,7 @@ namespace YPS.Application.SchoolRequests.Command
         public long Id { get; set; }
         public class ApproveCommandHandler : IRequestHandler<ApproveCommand, SchoolViewModel>
         {
-            private IYPSDbContext _dbContext;
+            private readonly IYPSDbContext _dbContext;
             private IMapper _mapper;
 
             public ApproveCommandHandler(IYPSDbContext dbContext, IMapper mapper)
