@@ -19,23 +19,21 @@ namespace YPS.Application.SchoolRequests.Command
         public class ApproveSchoolRequestCommandHandler : IRequestHandler<ApproveSchoolRequestCommand, SchoolViewModel>
         {
             private IYPSDbContext _dbContext;
-            private IMapper _mapper;
             private IMailSenderService _mailSender;
 
-            public ApproveSchoolRequestCommandHandler(IYPSDbContext dbContext, IMapper mapper, IMailSenderService mailSender)
+            public ApproveSchoolRequestCommandHandler(IYPSDbContext dbContext, IMailSenderService mailSender)
             {
                 _dbContext = dbContext;
-                _mapper = mapper;
                 _mailSender = mailSender;
             }
 
             public async Task<SchoolViewModel> Handle(ApproveSchoolRequestCommand request, CancellationToken cancellationToken)
             {
-                var requests = _dbContext.SchoolRequests.AsNoTracking();                
-                
+                var requests = _dbContext.SchoolRequests.AsNoTracking();
+
                 string guidLink = Guid.NewGuid().ToString();
-                string masterRegisterLink= "http://localhost:4200/register-headmaster/"+guidLink;
-                string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master "+ masterRegisterLink;
+                string masterRegisterLink = "http://localhost:4200/register-headmaster/" + guidLink;
+                string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master " + masterRegisterLink;
                 _mailSender.SendMessageAsync(requests.FirstOrDefault(x => x.Id == request.Id).Email, "Successfuly registered", message);
 
                 var school = new School
@@ -50,7 +48,7 @@ namespace YPS.Application.SchoolRequests.Command
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
-                return new SchoolViewModel { Id = request.Id };   
+                return new SchoolViewModel { Id = request.Id };
             }
         }
     }

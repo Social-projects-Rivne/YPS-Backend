@@ -9,23 +9,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 
-namespace YPS.Application.HeadMasters.Command.CheckMasterRegisterLink
+namespace YPS.Application.HeadMasters.Queries.CheckMasterRegisterLink
 {
-    public class CheckMasterRegisterLinkCommand: IRequest<bool>
+    public class CheckHeadMasterRegisterLinkQuery: IRequest<bool>
     {
         public string Link { get; set; }
-        public class CheckMasterRegisterLinkCommandHandler : IRequestHandler<CheckMasterRegisterLinkCommand, bool>
+
+        public class CheckHeadMasterRegisterLinkQueryHandler : IRequestHandler<CheckHeadMasterRegisterLinkQuery, bool>
         {
             private readonly IYPSDbContext _dbContext;
-            private readonly IMapper _mapper;
 
-            public CheckMasterRegisterLinkCommandHandler(IYPSDbContext dbContext, IMapper mapper)
+            public CheckHeadMasterRegisterLinkQueryHandler(IYPSDbContext dbContext)
             {
                 _dbContext = dbContext;
-                _mapper = mapper;
             }
 
-            public async Task<bool> Handle(CheckMasterRegisterLinkCommand request, CancellationToken cancellationToken)
+            public async Task<bool> Handle(CheckHeadMasterRegisterLinkQuery request, CancellationToken cancellationToken)
             {
                 var school = await _dbContext.Schools.FirstOrDefaultAsync(x => x.RegistrationLink == request.Link);
                 return school != null ? true : false;

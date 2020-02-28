@@ -19,23 +19,21 @@ namespace YPS.Application.SchoolRequests.Command
         public class DisapproveSchoolRequestCommandHandler : IRequestHandler<DisapproveSchoolRequestCommand, RemoveRequestViewModel>
         {
             private IYPSDbContext _dbContext;
-            private IMapper _mapper;
-            public DisapproveSchoolRequestCommandHandler(IYPSDbContext dbContext, IMapper mapper)
+            public DisapproveSchoolRequestCommandHandler(IYPSDbContext dbContext)
             {
                 _dbContext = dbContext;
-                _mapper = mapper;
             }
 
             public async Task<RemoveRequestViewModel> Handle(DisapproveSchoolRequestCommand request, CancellationToken cancellationToken)
             {
-               
-                var schoolsRequests=_dbContext.SchoolRequests;
+
+                var schoolsRequests = _dbContext.SchoolRequests;
                 schoolsRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = false;
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
                 return new RemoveRequestViewModel
-                {                   
-                    Id = request.Id                    
+                {
+                    Id = request.Id
                 };
             }
         }
