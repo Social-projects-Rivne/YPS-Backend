@@ -23,15 +23,15 @@ namespace YPS.Persistence.Configurations
 
             builder.HasData(
                 new ParentToPupil { ParentId = 5, PupilId = 15 },
-                new ParentToPupil { ParentId = 5, PupilId = 16 },
-                new ParentToPupil { ParentId = 5, PupilId = 17 },
+                new ParentToPupil { ParentId = 6, PupilId = 16 },
+                new ParentToPupil { ParentId = 7, PupilId = 17 },
                 new ParentToPupil { ParentId = 8, PupilId = 18 },
                 new ParentToPupil { ParentId = 9, PupilId = 19 },
                 new ParentToPupil { ParentId = 10, PupilId = 20 },
                 new ParentToPupil { ParentId = 11, PupilId = 21 },
                 new ParentToPupil { ParentId = 12, PupilId = 22 },
-                new ParentToPupil { ParentId = 13, PupilId = 23 },
-                new ParentToPupil { ParentId = 14, PupilId = 24 });
+                new ParentToPupil { ParentId = 5, PupilId = 23 },
+                new ParentToPupil { ParentId = 5, PupilId = 24 });
         }
     }
 }
