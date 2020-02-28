@@ -34,8 +34,9 @@ namespace YPS.WebUI.Controllers
         [Authorize(Roles = "parent")]
         public async Task<ActionResult<ICollection<GetPupilsInfoByParentVm>>> GetPupilsInfoByParent()
         {
-            long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetPupilsInfoByParentQuery { Id = id }));
+            long pupilid = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetPupilsInfoByParentQuery { PupilId = pupilid, SchoolId = schoolId }));
         }
 
         [HttpPost]

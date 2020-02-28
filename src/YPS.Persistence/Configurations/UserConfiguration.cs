@@ -342,7 +342,7 @@ namespace YPS.Persistence.Configurations
                 Password = "pupil9_",
                 DateOfBirth = new DateTime(2010, 8, 28),
                 RoleId = 1,
-                SchoolId = 2
+                SchoolId = 1
             },
             new User
             {
@@ -355,7 +355,7 @@ namespace YPS.Persistence.Configurations
                 Password = "pupil10",
                 DateOfBirth = new DateTime(2010, 1, 20),
                 RoleId = 1,
-                SchoolId = 2
+                SchoolId = 1
             },
             new User
             {

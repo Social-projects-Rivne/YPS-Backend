@@ -10,7 +10,7 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
 {
     public class GetPupilsInfoByParentVm : IMapFrom<Parent>
     {
-        public long Id { get; set; }
+        public long PupilId { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
