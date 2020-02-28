@@ -24,16 +24,15 @@ namespace YPS.Application.Parents.Queries.GetParentProfileInfo
    
     public void Mapping(Profile profile)
     {
-         profile.CreateMap<Parent, GetParentProfileInfoVm>()
-             .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
-             .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
-             .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.User.FirstName))
-             .ForMember(x => x.Surname, opt => opt.MapFrom(x => x.User.Surname))
-             .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))
-             .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.User.School.ShortName))
-             .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth.ToString("dd-MM-yyyy")))
-             .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.User.ImageUrl))
-             .ForMember(x => x.WorkInfo, opt => opt.MapFrom(x => x.WorkInfo));
+            profile.CreateMap<Parent, GetParentProfileInfoVm>()
+                .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
+                .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
+                .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.User.FirstName))
+                .ForMember(x => x.Surname, opt => opt.MapFrom(x => x.User.Surname))
+                .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))
+                .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.User.School.ShortName))
+                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth.ToString("dd-MM-yyyy")))
+                .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.User.ImageUrl));
         }
     }
 }
