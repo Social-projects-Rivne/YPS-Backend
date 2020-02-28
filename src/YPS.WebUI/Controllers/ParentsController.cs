@@ -32,10 +32,10 @@ namespace YPS.WebUI.Controllers
 
         [HttpGet("[action]")]
         [Authorize(Roles = "parent")]
-        public async Task<ActionResult<ICollection<GetPupilsInfoByParentVm>>> GetPupilInfoOfParent()
+        public async Task<ActionResult<ICollection<GetPupilsInfoByParentVm>>> GetPupilsInfoByParent()
         {
-            long pupilid = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetPupilsInfoByParentQuery { Id = pupilid }));
+            long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetPupilsInfoByParentQuery { Id = id }));
         }
 
         [HttpPost]
