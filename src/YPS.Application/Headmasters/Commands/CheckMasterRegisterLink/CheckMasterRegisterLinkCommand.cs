@@ -28,15 +28,7 @@ namespace YPS.Application.HeadMasters.Command.CheckMasterRegisterLink
             public async Task<bool> Handle(CheckMasterRegisterLinkCommand request, CancellationToken cancellationToken)
             {
                 var school = await _dbContext.Schools.FirstOrDefaultAsync(x => x.RegistrationLink == request.Link);
-                if (school != null) 
-                {
-                    return true;
-                    
-                }
-                else
-                {
-                    return false;
-                }                
+                return school != null ? true : false;
             }
         }
     }
