@@ -20,7 +20,7 @@ namespace YPS.Application.Parents.Queries.GetParentProfileInfo
         public string SchoolName { get; set; }
         public string DateOfBirth { get; set; }
         public string ImageUrl { get; set; }
-        public string Workinfo { get; set; }
+        public string WorkInfo { get; set; }
    
     public void Mapping(Profile profile)
     {
@@ -33,7 +33,7 @@ namespace YPS.Application.Parents.Queries.GetParentProfileInfo
              .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.User.School.ShortName))
              .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth.ToString("dd-MM-yyyy")))
              .ForMember(x => x.ImageUrl, opt => opt.MapFrom(x => x.User.ImageUrl))
-             .ForMember(x => x.Workinfo, opt => opt.MapFrom(x => x.WorkInfo));
+             .ForMember(x => x.WorkInfo, opt => opt.MapFrom(x => x.WorkInfo));
         }
     }
 }
