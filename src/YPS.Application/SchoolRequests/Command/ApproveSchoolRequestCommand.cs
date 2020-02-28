@@ -13,23 +13,23 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.SchoolRequests.Command
 {
-    public class ApproveCommand : IRequest<SchoolViewModel>
+    public class ApproveSchoolRequestCommand : IRequest<SchoolViewModel>
     {
         public long Id { get; set; }
-        public class ApproveCommandHandler : IRequestHandler<ApproveCommand, SchoolViewModel>
+        public class ApproveSchoolRequestCommandHandler : IRequestHandler<ApproveSchoolRequestCommand, SchoolViewModel>
         {
             private IYPSDbContext _dbContext;
             private IMapper _mapper;
             private IMailSenderService _mailSender;
 
-            public ApproveCommandHandler(IYPSDbContext dbContext, IMapper mapper,IMailSenderService mailSender)
+            public ApproveSchoolRequestCommandHandler(IYPSDbContext dbContext, IMapper mapper, IMailSenderService mailSender)
             {
                 _dbContext = dbContext;
                 _mapper = mapper;
                 _mailSender = mailSender;
             }
 
-            public async Task<SchoolViewModel> Handle(ApproveCommand request, CancellationToken cancellationToken)
+            public async Task<SchoolViewModel> Handle(ApproveSchoolRequestCommand request, CancellationToken cancellationToken)
             {
                 var requests = _dbContext.SchoolRequests.AsNoTracking();                
                 
@@ -42,11 +42,9 @@ namespace YPS.Application.SchoolRequests.Command
                 {
                     Name = requests.FirstOrDefault(x => x.Id == request.Id).Name,
                     ShortName = requests.FirstOrDefault(x => x.Id == request.Id).ShortName,
-                    RegistrationLink=guidLink
+                    RegistrationLink = guidLink
                 };
                 _dbContext.Schools.Add(school);
-                await _dbContext.SaveChangesAsync(cancellationToken);
-
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
