@@ -21,7 +21,7 @@ namespace YPS.WebUI.Controllers
         [HttpPost("action")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<bool>> CheckMaster([FromQuery] CheckMasterRegisterLinkCommand command)
+        public async Task<ActionResult<bool>> CheckMasterRegisterLink([FromQuery] CheckMasterRegisterLinkCommand command)
         {
             var vm = await Mediator.Send(command);
             return Ok(vm);

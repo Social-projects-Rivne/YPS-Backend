@@ -14,12 +14,12 @@ namespace YPS.Application.HeadMasters.Command.CheckMasterRegisterLink
     public class CheckMasterRegisterLinkCommand: IRequest<bool>
     {
         public string Link { get; set; }
-        public class GetMasterRegisterLinkCommandHandler : IRequestHandler<CheckMasterRegisterLinkCommand, bool>
+        public class CheckMasterRegisterLinkCommandHandler : IRequestHandler<CheckMasterRegisterLinkCommand, bool>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
 
-            public GetMasterRegisterLinkCommandHandler(IYPSDbContext dbContext, IMapper mapper)
+            public CheckMasterRegisterLinkCommandHandler(IYPSDbContext dbContext, IMapper mapper)
             {
                 _dbContext = dbContext;
                 _mapper = mapper;
