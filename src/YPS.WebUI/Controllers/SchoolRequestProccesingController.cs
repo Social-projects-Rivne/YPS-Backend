@@ -17,8 +17,7 @@ namespace YPS.WebUI.Controllers
     {
         [HttpPost]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        
+        [ProducesResponseType(400)]       
         public async Task<ActionResult<SchoolViewModel>> Approve([FromBody] ApproveCommand command)
         {
             var response = await this.Mediator.Send(command);
