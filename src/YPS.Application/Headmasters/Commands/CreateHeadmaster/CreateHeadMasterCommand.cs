@@ -23,7 +23,7 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
 
         public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreateUserResponse>
         {
-            
+
             private readonly IUserService _userService;
             private readonly IYPSDbContext _context;
 
@@ -43,9 +43,9 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
 
                 if (res.Failures == null || !res.Failures.Any())
                 {
-                    var schoolId=_context.Schools.FirstOrDefault(x => x.RegistrationLink == request.Link).Id;
+                    var schoolId = _context.Schools.FirstOrDefault(x => x.RegistrationLink == request.Link).Id;
                     User createdUser = await _userService.CreateUser(request.User, request.Password, 6, schoolId);
-                    
+
                     if (createdUser != null)
                     {
                         Teacher headmaster = new Teacher
