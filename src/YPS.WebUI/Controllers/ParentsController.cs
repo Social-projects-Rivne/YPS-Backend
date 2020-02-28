@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Models;
 using YPS.Application.Parents.Commands.CreateParent;
-using YPS.Application.Parents.Queries.GetPupilInfoOfParent;
+using YPS.Application.Parents.Queries.GetPupilsInfoByParent;
 using YPS.Application.Parents.Queries.GetParentProfileInfo;
 using YPS.Application.Parents.Queries.GetParentsBySchool;
 using YPS.Application.Parents.GetParentsBySchool;
@@ -31,11 +31,11 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpGet("[action]")]
-        //[Authorize(Roles = "parent")]
-        public async Task<ActionResult<ICollection<GetPupilInfoOfParentVm>>> GetPupilInfoOfParent()
+        [Authorize(Roles = "parent")]
+        public async Task<ActionResult<ICollection<GetPupilsInfoByParentVm>>> GetPupilInfoOfParent()
         {
             long pupilid = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetPupilInfoOfParentQuery { Id = pupilid }));
+            return Ok(await Mediator.Send(new GetPupilsInfoByParentQuery { Id = pupilid }));
         }
 
         [HttpPost]
