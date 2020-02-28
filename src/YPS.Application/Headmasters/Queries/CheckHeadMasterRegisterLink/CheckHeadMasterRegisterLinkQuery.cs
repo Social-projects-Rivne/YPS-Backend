@@ -11,7 +11,7 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.HeadMasters.Queries.CheckMasterRegisterLink
 {
-    public class CheckHeadMasterRegisterLinkQuery: IRequest<bool>
+    public class CheckHeadMasterRegisterLinkQuery : IRequest<bool>
     {
         public string Link { get; set; }
 
