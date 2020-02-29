@@ -16,6 +16,7 @@ namespace YPS.WebUI.Controllers
     public class ParentsController : ApiController
     {
         [HttpGet]
+        [Authorize(Roles = "head-master,master")]
         public async Task<ActionResult<ICollection<ParentBySchoolVm>>> GetParentsBySchool()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));

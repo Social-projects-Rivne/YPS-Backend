@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using YPS.Application.Helpers;
 using YPS.Domain.Entities;
+using System.Text;
 
 namespace YPS.Persistence.Configurations
 {
@@ -53,7 +55,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Olehivna",
                 PhoneNumber = "0685701035",
                 Email = "teacher1@gmail.com",
-                Password = "teacher1",
+                Password = Convert.ToBase64String(new PasswordHash("teacher1").ToArray()),
                 DateOfBirth = new DateTime(1980, 5, 2),
                 RoleId = 2,
                 SchoolId = 1
@@ -66,7 +68,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Bohdanovich",
                 PhoneNumber = "0689652005",
                 Email = "teacher2@gmail.com",
-                Password = "teacher2",
+                Password = Convert.ToBase64String(new PasswordHash("teacher2").ToArray()),
                 DateOfBirth = new DateTime(1971, 1, 22),
                 RoleId = 2,
                 SchoolId = 1
@@ -79,7 +81,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Nazarovich",
                 PhoneNumber = "0665000310",
                 Email = "teacher3@gmail.com",
-                Password = "teacher3",
+                Password = Convert.ToBase64String(new PasswordHash("teacher3").ToArray()),
                 DateOfBirth = new DateTime(1990, 11, 11),
                 RoleId = 2,
                 SchoolId = 2
@@ -92,7 +94,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Olehivna",
                 PhoneNumber = "0685701035",
                 Email = "teacher4@gmail.com",
-                Password = "teacher4",
+                Password = Convert.ToBase64String(new PasswordHash("teacher4").ToArray()),
                 DateOfBirth = new DateTime(1980, 5, 2),
                 RoleId = 2,
                 SchoolId = 2
@@ -105,7 +107,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Andriev",
                 PhoneNumber = "0974585936",
                 Email = "parent1@gmail.com",
-                Password = "parent1",
+                Password = Convert.ToBase64String(new PasswordHash("parent1").ToArray()),
                 DateOfBirth = new DateTime(1965, 11, 11),
                 RoleId = 3,
                 SchoolId = 1
@@ -118,7 +120,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Oleksandrovich",
                 PhoneNumber = "0689908751",
                 Email = "parent2@gmail.com",
-                Password = "parent2",
+                Password = Convert.ToBase64String(new PasswordHash("parent2").ToArray()),
                 DateOfBirth = new DateTime(1971, 4, 16),
                 RoleId = 3,
                 SchoolId = 1
@@ -131,7 +133,7 @@ namespace YPS.Persistence.Configurations
                  MiddleName = "Vitalivna",
                  PhoneNumber = "0668752000",
                  Email = "parent3@gmail.com",
-                 Password = "parent3",
+                 Password = Convert.ToBase64String(new PasswordHash("parent3").ToArray()),
                  DateOfBirth = new DateTime(1985, 4, 4),
                  RoleId = 3,
                  SchoolId = 1
@@ -144,7 +146,7 @@ namespace YPS.Persistence.Configurations
                  MiddleName = "Oleksandrovich",
                  PhoneNumber = "0974982055",
                  Email = "parent4@gmail.com",
-                 Password = "parent4",
+                 Password = Convert.ToBase64String(new PasswordHash("parent4").ToArray()),
                  DateOfBirth = new DateTime(1988, 9, 28),
                  RoleId = 3,
                  SchoolId = 1
@@ -157,7 +159,7 @@ namespace YPS.Persistence.Configurations
                  MiddleName = "Grugorovich",
                  PhoneNumber = "0508749686",
                  Email = "parent5@gmail.com",
-                 Password = "parent5",
+                 Password = Convert.ToBase64String(new PasswordHash("parent5").ToArray()),
                  DateOfBirth = new DateTime(1984, 1, 27),
                  RoleId = 3,
                  SchoolId = 1
@@ -170,7 +172,7 @@ namespace YPS.Persistence.Configurations
                  MiddleName = "Romanov",
                  PhoneNumber = "0984756884",
                  Email = "parent6@gmail.com",
-                 Password = "parent6",
+                 Password = Convert.ToBase64String(new PasswordHash("parent6").ToArray()),
                  DateOfBirth = new DateTime(1990, 5, 9),
                  RoleId = 3,
                  SchoolId = 2
@@ -183,7 +185,7 @@ namespace YPS.Persistence.Configurations
                  MiddleName = "Vitalivna",
                  PhoneNumber = "0998730287",
                  Email = "parent7@gmail.com",
-                 Password = "parent7",
+                 Password = Convert.ToBase64String(new PasswordHash("parent7").ToArray()),
                  DateOfBirth = new DateTime(1994, 8, 22),
                  RoleId = 3,
                  SchoolId = 2
@@ -196,7 +198,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Olegivna",
                 PhoneNumber = "050687745",
                 Email = "parent8@gmail.com",
-                Password = "parent8",
+                Password = Convert.ToBase64String(new PasswordHash("parent8").ToArray()),
                 DateOfBirth = new DateTime(1985, 4, 5),
                 RoleId = 3,
                 SchoolId = 2
@@ -209,7 +211,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Kostiantinovna",
                 PhoneNumber = "098569764",
                 Email = "parent9@gmail.com",
-                Password = "parent9",
+                Password = Convert.ToBase64String(new PasswordHash("parent9").ToArray()),
                 DateOfBirth = new DateTime(1989, 10, 7),
                 RoleId = 3,
                 SchoolId = 2
@@ -222,7 +224,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Oleksandrivna",
                 PhoneNumber = "0869545688",
                 Email = "parent10@gmail.com",
-                Password = "parent10",
+                Password = Convert.ToBase64String(new PasswordHash("parent10").ToArray()),
                 DateOfBirth = new DateTime(1985, 9, 18),
                 RoleId = 3,
                 SchoolId = 2
@@ -235,7 +237,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Andrievna",
                 PhoneNumber = "0986969659",
                 Email = "pupil1@gmail.com",
-                Password = "pupil1_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil1_").ToArray()),
                 DateOfBirth = new DateTime(2014, 9, 18),
                 RoleId = 1,
                 SchoolId = 1
@@ -248,7 +250,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Andiev",
                 PhoneNumber = "0984578752",
                 Email = "pupil2@gmail.com",
-                Password = "pupil2_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil2_").ToArray()),
                 DateOfBirth = new DateTime(2014, 1, 1),
                 RoleId = 1,
                 SchoolId = 1
@@ -261,7 +263,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Yurivna",
                 PhoneNumber = "0986969659",
                 Email = "pupil3@gmail.com",
-                Password = "pupil3_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil3_").ToArray()),
                 DateOfBirth = new DateTime(2014, 9, 18),
                 RoleId = 1,
                 SchoolId = 1
@@ -274,7 +276,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Romanovna",
                 PhoneNumber = "098555685",
                 Email = "pupil4@gmail.com",
-                Password = "pupil4_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil4_").ToArray()),
                 DateOfBirth = new DateTime(2013, 11, 20),
                 RoleId = 1,
                 SchoolId = 1
@@ -287,7 +289,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Bohdanov",
                 PhoneNumber = "0986969659",
                 Email = "pupil5@gmail.com",
-                Password = "pupil5_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil5_").ToArray()),
                 DateOfBirth = new DateTime(2014, 8, 23),
                 RoleId = 1,
                 SchoolId = 1
@@ -300,7 +302,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Maksimov",
                 PhoneNumber = "0974570695",
                 Email = "pupil6@gmail.com",
-                Password = "pupil6_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil6_").ToArray()),
                 DateOfBirth = new DateTime(2010, 9, 18),
                 RoleId = 1,
                 SchoolId = 2
@@ -313,7 +315,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Andrievna",
                 PhoneNumber = "0986969659",
                 Email = "pupil7@gmail.com",
-                Password = "pupil7_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil7_").ToArray()),
                 DateOfBirth = new DateTime(2010, 9, 25),
                 RoleId = 1,
                 SchoolId = 2
@@ -326,7 +328,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Bohdanov",
                 PhoneNumber = "0966907769",
                 Email = "pupil8@gmail.com",
-                Password = "pupil8_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil8_").ToArray()),
                 DateOfBirth = new DateTime(2010, 7, 7),
                 RoleId = 1,
                 SchoolId = 2
@@ -339,7 +341,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Nazarovich",
                 PhoneNumber = "0555689477",
                 Email = "pupil9@gmail.com",
-                Password = "pupil9_",
+                Password = Convert.ToBase64String(new PasswordHash("pupil9_").ToArray()),
                 DateOfBirth = new DateTime(2010, 8, 28),
                 RoleId = 1,
                 SchoolId = 1
@@ -352,7 +354,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Denisovich",
                 PhoneNumber = "0986969659",
                 Email = "pupil10@gmail.com",
-                Password = "pupil10",
+                Password = Convert.ToBase64String(new PasswordHash("pupil10").ToArray()),
                 DateOfBirth = new DateTime(2010, 1, 20),
                 RoleId = 1,
                 SchoolId = 1
@@ -365,7 +367,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Andriyovich",
                 PhoneNumber = "096957877",
                 Email = "headassistant1@gmail.com",
-                Password = "headassistant1",
+                Password = Convert.ToBase64String(new PasswordHash("headassistant1").ToArray()),
                 DateOfBirth = new DateTime(1980, 5, 10),
                 RoleId = 4,
                 SchoolId = 1
@@ -378,7 +380,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Andrievna",
                 PhoneNumber = "098569694",
                 Email = "headassistant2@gmail.com",
-                Password = "headassistant2",
+                Password = Convert.ToBase64String(new PasswordHash("headassistant2").ToArray()),
                 DateOfBirth = new DateTime(1989, 11, 10),
                 RoleId = 4,
                 SchoolId = 2
@@ -391,7 +393,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Olegivich",
                 PhoneNumber = "096878318",
                 Email = "master1@gmail.com",
-                Password = "master1",
+                Password = Convert.ToBase64String(new PasswordHash("master1").ToArray()),
                 DateOfBirth = new DateTime(2000, 4, 8),
                 RoleId = 5,
                 SchoolId = 1
@@ -404,7 +406,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Maksimivna",
                 PhoneNumber = "0506874123",
                 Email = "master2@gmail.com",
-                Password = "master2",
+                Password = Convert.ToBase64String(new PasswordHash("master2").ToArray()),
                 DateOfBirth = new DateTime(2001, 5, 12),
                 RoleId = 5,
                 SchoolId = 2
@@ -417,7 +419,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Shizazovich",
                 PhoneNumber = "096878318",
                 Email = "headmaster1@gmail.com",
-                Password = "headmaster1",
+                Password = Convert.ToBase64String(new PasswordHash("headmaster1").ToArray()),
                 DateOfBirth = new DateTime(1995, 9, 6),
                 RoleId = 6,
                 SchoolId = 1
@@ -430,7 +432,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Batkovich",
                 PhoneNumber = "050878563",
                 Email = "headmaster2@gmail.com",
-                Password = "headmaster2",
+                Password = Convert.ToBase64String(new PasswordHash("headmaster2").ToArray()),
                 DateOfBirth = new DateTime(1981, 5, 6),
                 RoleId = 6,
                 SchoolId = 2
@@ -443,7 +445,7 @@ namespace YPS.Persistence.Configurations
                 MiddleName = "Oleksiyovich",
                 PhoneNumber = "068969025",
                 Email = "admin1@gmail.com",
-                Password = "admin1_",
+                Password = Convert.ToBase64String(new PasswordHash("admin1_").ToArray()),
                 DateOfBirth = new DateTime(2000, 4, 8),
                 RoleId = 7,
                 SchoolId = null

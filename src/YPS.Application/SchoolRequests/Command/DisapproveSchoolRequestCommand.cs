@@ -13,29 +13,27 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.SchoolRequests.Command
 {
-    public class DisapproveCommand : IRequest<RemoveRequestViewModel>
+    public class DisapproveSchoolRequestCommand : IRequest<RemoveRequestViewModel>
     {
         public int Id { get; set; }
-        public class DisapproveCommandHandler : IRequestHandler<DisapproveCommand, RemoveRequestViewModel>
+        public class DisapproveSchoolRequestCommandHandler : IRequestHandler<DisapproveSchoolRequestCommand, RemoveRequestViewModel>
         {
             private IYPSDbContext _dbContext;
-            private IMapper _mapper;
-            public DisapproveCommandHandler(IYPSDbContext dbContext, IMapper mapper)
+            public DisapproveSchoolRequestCommandHandler(IYPSDbContext dbContext)
             {
                 _dbContext = dbContext;
-                _mapper = mapper;
             }
 
-            public async Task<RemoveRequestViewModel> Handle(DisapproveCommand request, CancellationToken cancellationToken)
+            public async Task<RemoveRequestViewModel> Handle(DisapproveSchoolRequestCommand request, CancellationToken cancellationToken)
             {
-               
-                var schoolsRequests=_dbContext.SchoolRequests;
+
+                var schoolsRequests = _dbContext.SchoolRequests;
                 schoolsRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = false;
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
                 return new RemoveRequestViewModel
-                {                   
-                    Id = request.Id                    
+                {
+                    Id = request.Id
                 };
             }
         }

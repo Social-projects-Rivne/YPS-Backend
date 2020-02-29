@@ -9,6 +9,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using YPS.Application.Auth.Helpers;
 using YPS.Application.Exceptions;
+using YPS.Application.Helpers;
 using YPS.Application.Interfaces;
 using YPS.Domain.Entities;
 
@@ -29,14 +30,23 @@ namespace YPS.Application.Auth.Command.Login
         {
             var user = await _dbContext.Users
                 .SingleOrDefaultAsync(x => 
-                        x.Email.ToUpper() == request.Email.ToUpper() &&
-                        x.Password == request.Password, cancellationToken: cancellationToken)
+                        x.Email.ToUpper() == request.Email.ToUpper(), cancellationToken: cancellationToken)
                 .ConfigureAwait(false);
-            var role = await _dbContext.Roles.SingleOrDefaultAsync(x => x.Id == user.RoleId);
+
             if (user == null)
             {
                 throw new ValidationException();
             }
+
+            byte[] hashBytes = Convert.FromBase64String(user.Password);
+
+            PasswordHash hash = new PasswordHash(hashBytes);
+
+            if (!hash.Verify(request.Password))
+                throw new ValidationException();
+
+            var role = await _dbContext.Roles.SingleOrDefaultAsync(x => x.Id == user.RoleId);
+
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Role, role.Name),

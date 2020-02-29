@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using YPS.Application.Models;
 using YPS.Application.Pupils.Commands.CreatePupil;
 using YPS.Application.Pupils.Queries.GetPupilsByClass;
+using YPS.Application.Pupils.Queries.GetPupilsById;
 using YPS.Application.Pupils.Queries.GetPupilsBySchool;
 
 namespace YPS.WebUI.Controllers
@@ -21,6 +22,13 @@ namespace YPS.WebUI.Controllers
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             command.SchoolId = schoolId;
             return Ok(await Mediator.Send(command));
+        }
+        [Authorize(Roles = "pupil")]
+        [HttpGet("[action]")]
+        public async Task<ActionResult<PupilByIdVm>> GetPupilById()
+        {
+            long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetPupilByIdQuery { Id = id }));
         }
 
         [HttpGet("[action]/{schoolId}")]
