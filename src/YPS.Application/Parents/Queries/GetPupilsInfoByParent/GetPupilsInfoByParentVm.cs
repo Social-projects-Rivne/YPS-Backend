@@ -8,7 +8,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
 {
-    public class GetPupilsInfoByParentVm : IMapFrom<Parent>
+    public class GetPupilsInfoByParentVm : IMapFrom<ParentToPupil>
     {
         public long PupilId { get; set; }
         public string FirstName { get; set; }
@@ -25,7 +25,7 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
                .ForMember(
                    x => x.ClassName,
                    opts => opts.MapFrom(
-                       x => x.PupilOf.ClassOf.Number + "-" + x.PupilOf.ClassOf.Character
+                       x => x.PupilOf.ClassOf.Number + " - " + x.PupilOf.ClassOf.Character
                    )
                );
        }

@@ -34,7 +34,6 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
                     .Where(x => x.ParentOf.Id == request.PupilId)
                     .ProjectTo<GetPupilsInfoByParentVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
-
             }
         }
     }
