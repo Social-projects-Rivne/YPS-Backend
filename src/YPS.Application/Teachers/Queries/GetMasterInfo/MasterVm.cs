@@ -17,11 +17,13 @@ namespace YPS.Application.Teachers.Queries.GetMasterInfo
         public string Email { get; set; }
         public string ImageUrl { get; set; }
         public string DateOfBirth { get; set; }
+        public string SchoolName { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<User, MasterVm>()
-                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.DateOfBirth.ToString("yyyy-MM-dd")));
+                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.DateOfBirth.ToString("yyyy-MM-dd")))
+                .ForMember(x => x.SchoolName, opt => opt.MapFrom(x => x.School.ShortName));
         }
     }
 }
