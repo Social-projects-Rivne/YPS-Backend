@@ -37,7 +37,7 @@ namespace YPS.Application.UpcomingTests.Queries.GetUpcomingTestsByPupil
                         x.ClassId == pupil.ClassId &&
                         x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingTestVm>(_mapper.ConfigurationProvider)
-                    .ToListAsync(cancellationToken);
+                    .ToListAsync(cancellationToken); 
 
                 return upcomingTests;
             }

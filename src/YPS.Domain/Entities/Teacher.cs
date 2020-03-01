@@ -26,5 +26,7 @@ namespace YPS.Domain.Entities
         public ICollection<Class> Classes { get; set; }
         public ICollection<Material> Materials { get; set; }
         public ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
+
+        public ICollection<UpcomingTest> UpcomingTests { get; set; }
     }
 }
