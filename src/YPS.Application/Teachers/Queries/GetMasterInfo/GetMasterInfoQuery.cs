@@ -21,7 +21,6 @@ namespace YPS.Application.Teachers.Queries.GetMasterInfo
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
 
-
             public GetMasterInfoQueryHandler(IYPSDbContext context, IMapper mapper)
             {
                 _context = context;
