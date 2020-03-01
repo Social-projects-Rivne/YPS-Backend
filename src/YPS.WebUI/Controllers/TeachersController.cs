@@ -12,6 +12,7 @@ using YPS.Application.Models;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
 using System.Security.Claims;
 using YPS.Application.Teachers.Queries.GetTeacher;
+using YPS.Application.Teachers.Queries.GetMasterInfo;
 
 namespace YPS.WebUI.Controllers
 {
@@ -39,6 +40,14 @@ namespace YPS.WebUI.Controllers
         {
             long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             return Ok(await Mediator.Send(new GetTeacherProfileInfoQuery { Id = userId }));
+        }
+
+        [HttpGet("[action]")]
+        [Authorize(Roles = "master, head-master")]
+        public async Task<ActionResult<TeacherProfileInfoVM>> GetMaster()
+        {
+            long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetMasterInfoQuery { Id = id }));
         }
     }
 }
