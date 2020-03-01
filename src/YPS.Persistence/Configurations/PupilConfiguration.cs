@@ -19,7 +19,7 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Pupil)
                 .HasForeignKey<Pupil>(e => e.Id)
                 .OnDelete(DeleteBehavior.Restrict);
-
+            
             builder.HasMany(e => e.Marks)
                 .WithOne(e => e.Pupil);
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,12 +12,13 @@ using YPS.Application.SchoolRequests.ViewModel;
 
 namespace YPS.WebUI.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class SchoolRequestProccesingController : ApiController
     {
         [HttpPost]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        public async Task<ActionResult<SchoolViewModel>> Approve([FromBody] ApproveCommand command)
+        [ProducesResponseType(400)]       
+        public async Task<ActionResult<SchoolViewModel>> Approve([FromBody] ApproveSchoolRequestCommand command)
         {
             var response = await this.Mediator.Send(command);
             return Ok(response);
@@ -24,7 +26,7 @@ namespace YPS.WebUI.Controllers
         [HttpDelete]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<RemoveRequestViewModel>> Disapprove([FromQuery] DisapproveCommand command)
+        public async Task<ActionResult<RemoveRequestViewModel>> Disapprove([FromQuery] DisapproveSchoolRequestCommand command)
         {
             var response = await this.Mediator.Send(command);
             return Ok(response);
