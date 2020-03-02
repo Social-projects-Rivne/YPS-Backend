@@ -69,7 +69,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
 
                             _context.ParentToPupils.Add(parentToPupil);
                             await _context.SaveChangesAsync(cancellationToken);
-                        }                        
+                        }
                     }
                 }
 
