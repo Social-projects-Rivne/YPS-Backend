@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Classes.Queries.GetClassesBySchool;
 using YPS.Application.Classes.Queries.GetClassesBySchoolWithFullInfo;
 using YPS.Application.Classes.Commands.CreateClass;
+using YPS.Application.Models;
 
 namespace YPS.WebUI.Controllers
 {
@@ -23,10 +24,10 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<long>> Create([FromBody] CreateClassCommand command)
+        public async Task<ActionResult<CreatedResponse>> Create([FromBody] CreateClassCommand command)
         {
-            var classes = await Mediator.Send(command).ConfigureAwait(false);
-            return Ok(classes);
+            var response = await Mediator.Send(command);
+            return Ok(response);
         }
 
         [HttpGet("[action]")]

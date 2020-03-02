@@ -14,5 +14,6 @@ namespace YPS.Application.SchoolRequests.Commands.CreateSchoolRequest
         public string Email { get; set; }
         public string PhoneNumb { get; set; }
         public bool Confirmation { get; set; }
+
     }
 }

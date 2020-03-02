@@ -12,14 +12,14 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Pupils.Commands.CreatePupil
 {
-    public sealed class CreatePupilCommand : IRequest<CreateUserResponse>
+    public sealed class CreatePupilCommand : IRequest<CreatedResponse>
     {
         public UserPartial User { get; set; }
         public long ClassId { get; set; }
         public long SchoolId { get; set; }
 
 
-        public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, CreateUserResponse>
+        public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, CreatedResponse>
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
@@ -32,9 +32,9 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                 _randomGenerator = randomGenerator;
             }
 
-            public async Task<CreateUserResponse> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
+            public async Task<CreatedResponse> Handle(CreatePupilCommand request, CancellationToken cancellationToken)
             {
-                CreateUserResponse res = new CreateUserResponse();
+                CreatedResponse res = new CreatedResponse();
 
                 IDictionary<string, string> failures = await _userService.CheckFailuresAsync(request.User.Email, request.User.PhoneNumber);
 

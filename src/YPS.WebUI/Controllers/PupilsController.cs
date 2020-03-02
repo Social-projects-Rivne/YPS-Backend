@@ -17,7 +17,7 @@ namespace YPS.WebUI.Controllers
     public class PupilsController : ApiController
     {
         [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreatePupilCommand command)
+        public async Task<ActionResult<CreatedResponse>> Create([FromBody] CreatePupilCommand command)
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             command.SchoolId = schoolId;

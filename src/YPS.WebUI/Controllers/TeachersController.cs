@@ -21,7 +21,7 @@ namespace YPS.WebUI.Controllers
     {
         [Authorize(Roles = "head-master, master")]
         [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateTeacherCommand command)
+        public async Task<ActionResult<CreatedResponse>> Create([FromBody] CreateTeacherCommand command)
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             command.SchoolId = schoolId;
