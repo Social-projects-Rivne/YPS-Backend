@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest;
 using YPS.Application.SchoolRequests.Commands.DisapproveSchoolRequest;
-using YPS.Application.SchoolRequests.Queries.GetSchoolRequests;
+using YPS.Application.SchoolRequests.Queries.GetUnviewedSchoolRequests;
 
 namespace YPS.WebUI.Controllers
 {
@@ -35,7 +35,7 @@ namespace YPS.WebUI.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<ICollection<SchoolRequestViewModel>>> GetSchoolRequests([FromQuery]GetSchoolRequestsQuery command)
+        public async Task<ActionResult<ICollection<SchoolRequestVm>>> GetSchoolRequests([FromQuery]GetUnviewedSchoolRequestsQuery command)
         {
             var vm = await this.Mediator.Send(command);
             return Ok(vm);
