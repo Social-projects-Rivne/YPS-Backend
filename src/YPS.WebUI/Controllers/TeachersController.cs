@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YPS.Application.SchoolRequests.Command;
-using YPS.Application.SchoolRequests.ViewModel;
 using YPS.Application.Teachers.Commands.CreateTeacher;
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
@@ -13,6 +11,7 @@ using YPS.Application.Teachers.Queries.GetTeacherBySchoolShort;
 using YPS.Application.Teachers.Queries.GetTeachersBySchool;
 using System.Security.Claims;
 using YPS.Application.Teachers.Queries.GetTeacher;
+using YPS.Application.Teachers.Queries.GetMasterInfo;
 
 namespace YPS.WebUI.Controllers
 {
@@ -44,12 +43,20 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetTeacherProfileInfoQuery { Id = userId }));
         }
 
-        [Authorize(Roles = "head-master, master")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<GetTeacherBySchoolShortVm>>> GetTeachersBySchoolIdShort()
+        [Authorize(Roles = "master, head-master")]
+        public async Task<ActionResult<TeacherProfileInfoVM>> GetMaster()
         {
-            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
-            return Ok(await Mediator.Send(new GetTeacherBySchoolShortQuery { SchoolId = schoolId }));
+            long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetMasterInfoQuery { Id = id }));
+        }
+
+        [HttpGet("[action]")]
+        [Authorize(Roles = "head-assistant")]
+        public async Task<ActionResult<TeacherProfileInfoVM>> GetHeadAssistantById()
+        {
+            long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetTeacherProfileInfoQuery { Id = userId }));
         }
     }
 }

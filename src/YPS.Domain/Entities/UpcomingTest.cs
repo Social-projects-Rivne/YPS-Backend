@@ -10,6 +10,7 @@ namespace YPS.Domain.Entities
     public class UpcomingTest : EntityBase
     {
         public DateTime Date { get; set; }
+        public DateTime ScheduledDate { get; set; }
         public string Topic { get; set; }
         public string TestType { get; set; }
 
@@ -18,5 +19,8 @@ namespace YPS.Domain.Entities
 
         public long DisciplineId { get; set; }
         public Discipline Discipline { get; set; }
+
+        public long TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }

@@ -29,6 +29,9 @@ namespace YPS.Persistence.Configurations
             builder.HasMany(e => e.UpcomingEvents)
                 .WithOne(e => e.Teacher);
 
+            builder.HasMany(e => e.UpcomingTests)
+                .WithOne(e => e.Teacher);
+
             builder.HasData(
                 new Teacher { 
                     Id = 2, 

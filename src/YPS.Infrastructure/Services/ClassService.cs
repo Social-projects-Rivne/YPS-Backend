@@ -36,11 +36,8 @@ namespace YPS.Infrastructure.Services
 
         private bool CharacterValidation(string character) => character.Length == 1/* && Regex.IsMatch(character, "[A-Za-zÀ-ÿ]",RegexOptions.IgnoreCase)*/;
 
-        private async Task<bool> CheckUniqTeacher(long teacherId)
-        {
-            Class classItem = await _context.Classes.SingleOrDefaultAsync(x => x.ClassTeacherId == teacherId);
-            return classItem == null;
-        }
+        private async Task<bool> NotUniq(long teacherId) =>
+            await _context.Classes.AnyAsync(x => x.ClassTeacherId == teacherId);
 
         public async Task<IDictionary<string, string>> CheckFailures(long number, string character, long teacherId)
         {
@@ -48,7 +45,7 @@ namespace YPS.Infrastructure.Services
 
             bool numberValid = NumberValidation(number);
             bool characterValid = CharacterValidation(character);
-            bool checkUniq = await CheckUniqTeacher(teacherId);
+            bool notUniq = await NotUniq(teacherId);
 
             if (numberValid == false)
                 failures.Add("number", "number of the class is not valid");
@@ -56,7 +53,7 @@ namespace YPS.Infrastructure.Services
             if (characterValid == false)
                 failures.Add("character", "character is not valid");
 
-            if (checkUniq == false)
+            if (notUniq == true)
                 failures.Add("classTeacherId", "this teacher is already class-teacher");
 
             return failures;

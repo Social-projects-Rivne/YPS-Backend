@@ -28,6 +28,11 @@ namespace YPS.Persistence.Configurations
                 .WithMany(e => e.UpcomingTests)
                 .HasForeignKey(e => e.DisciplineId);
 
+            builder.HasOne(e => e.Teacher)
+                .WithMany(e => e.UpcomingTests)
+                .HasForeignKey(e => e.TeacherId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasData(
                 new UpcomingTest
                 {
@@ -36,16 +41,20 @@ namespace YPS.Persistence.Configurations
                     Topic = "Adding and subtracting numbers",
                     ClassId = 1,
                     DisciplineId = 1,
-                    Date = DateTime.MaxValue
+                    Date = DateTime.Now,
+                    ScheduledDate = DateTime.Now.AddDays(3),
+                    TeacherId = 1
                 },
                 new UpcomingTest
                 {
                     Id = 2,
                     TestType = "Test",
-                    Topic = "Using complex object in English dialogs",
+                    Topic = "Calculating Power of TurboPapichPortal2",
                     ClassId = 4,
-                    DisciplineId = 2,
-                    Date = DateTime.MaxValue
+                    DisciplineId = 7,
+                    Date = DateTime.MaxValue,
+                    ScheduledDate = DateTime.Now.AddDays(3),
+                    TeacherId = 1
                 });
         }
     }
