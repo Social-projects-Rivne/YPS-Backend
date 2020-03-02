@@ -8,21 +8,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 
-namespace YPS.Application.SchoolRequests.Queries.GetRequests
+namespace YPS.Application.SchoolRequests.Queries.GetSchoolRequests
 {
-    public class GetRequestsQuery : IRequest<ICollection<SchoolRequestViewModel>>
+    public class GetSchoolRequestsQuery : IRequest<ICollection<SchoolRequestViewModel>>
     {
-        public class GetRequestQueryHandler : IRequestHandler<GetRequestsQuery, ICollection<SchoolRequestViewModel>>
+        public class GetSchoolRequestQueryHandler : IRequestHandler<GetSchoolRequestsQuery, ICollection<SchoolRequestViewModel>>
         {
             private IYPSDbContext _dbContext;
             private IMapper _mapper;
-            public GetRequestQueryHandler(IYPSDbContext dbContext, IMapper mapper)
+            public GetSchoolRequestQueryHandler(IYPSDbContext dbContext, IMapper mapper)
             {
                 _dbContext = dbContext;
                 _mapper = mapper;
             }
 
-            public async Task<ICollection<SchoolRequestViewModel>> Handle(GetRequestsQuery request, CancellationToken cancellationToken)
+            public async Task<ICollection<SchoolRequestViewModel>> Handle(GetSchoolRequestsQuery request, CancellationToken cancellationToken)
             {
                 var requests = _dbContext.SchoolRequests.Where(x => x.IsApproved == null);
                 var requiredRequests = requests.Select(x => new SchoolRequestViewModel
