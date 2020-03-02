@@ -36,7 +36,7 @@ namespace YPS.Infrastructure.Services
             MailMessage msg = new MailMessage(from, to);
             msg.Subject = "You've been aded to YPS service";
             msg.IsBodyHtml = true;
-            msg.Body = "<h1>Congradulations, You've been registered in the YPS System. </h1>" +
+            msg.Body = "<h1>Congratulations, You've been registered in the YPS System. </h1>" +
                 "<p>Use this data for login</p>" +
                 "<p>Email: " + reciever + "<br>" +
                 "Password: " + password + "</p>";
