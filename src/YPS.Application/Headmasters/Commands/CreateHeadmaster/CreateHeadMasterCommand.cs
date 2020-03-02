@@ -7,7 +7,7 @@ using YPS.Application.Interfaces;
 using YPS.Application.Models;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Headmasters.Commands.CreateHeadmaster
+namespace YPS.Application.Headmasters.Commands.CreateHeadMaster
 {
     public sealed class CreateHeadMasterCommand : IRequest<CreatedResponse>
     {
