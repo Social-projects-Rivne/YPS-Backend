@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using MediatR;
-using YPS.Application.Auth.Helpers;
-using YPS.Application.Exceptions;
 using YPS.Application.Interfaces;
-using YPS.Domain.Entities;
 using YPS.Application.Models;
+using YPS.Domain.Entities;
 
-namespace YPS.Application.Auth.Command.CreateHeadMaster
+namespace YPS.Application.Headmasters.Commands.CreateHeadmaster
 {
     public sealed class CreateHeadMasterCommand : IRequest<CreatedResponse>
     {
@@ -23,7 +17,6 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
 
         public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreatedResponse>
         {
-
             private readonly IUserService _userService;
             private readonly IYPSDbContext _context;
 

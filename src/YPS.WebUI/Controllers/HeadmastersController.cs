@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using YPS.Application.Auth.Command.CreateHeadMaster;
+using YPS.Application.Headmasters.Commands.CreateHeadmaster;
 using YPS.Application.HeadMasters.Queries.CheckMasterRegisterLink;
 using YPS.Application.Models;
 namespace YPS.WebUI.Controllers
