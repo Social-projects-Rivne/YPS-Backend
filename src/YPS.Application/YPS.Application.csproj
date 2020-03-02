@@ -31,4 +31,8 @@
     <ProjectReference Include="..\YPS.Domain\YPS.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Disciplines\Commands\" />
+  </ItemGroup>
+
 </Project>
