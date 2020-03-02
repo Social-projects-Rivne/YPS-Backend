@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 
 namespace YPS.Infrastructure.Services
@@ -17,7 +18,7 @@ namespace YPS.Infrastructure.Services
             client.EnableSsl = true;
         }
 
-        public async void SendMessageAsync(string reciever,string subject,string text)
+        public async Task SendMessageAsync(string reciever,string subject,string text)
         {
             MailAddress from = new MailAddress("yps.schools@gmail.com");
             MailAddress to = new MailAddress(reciever);
@@ -28,7 +29,7 @@ namespace YPS.Infrastructure.Services
             await client.SendMailAsync(msg);
         }
 
-        public async void SendRegistrationMessage(string reciever,string password)
+        public async Task SendRegistrationMessage(string reciever,string password)
         {
             MailAddress from = new MailAddress("yps.schools@gmail.com");
             MailAddress to = new MailAddress(reciever);

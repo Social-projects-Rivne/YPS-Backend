@@ -33,7 +33,7 @@ namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
                 string guidLink = Guid.NewGuid().ToString();
                 string masterRegisterLink = "http://localhost:4200/register-headmaster/" + guidLink;
                 string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master " + masterRegisterLink;
-                _mailSender.SendMessageAsync(requests.FirstOrDefault(x => x.Id == request.Id).Email, "Successfuly registered", message);
+                await _mailSender.SendMessageAsync(requests.FirstOrDefault(x => x.Id == request.Id).Email, "Successfuly registered", message);
 
                 var school = new School
                 {

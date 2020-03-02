@@ -56,7 +56,7 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
                         res.CreatedId = createdUser.Id;
                         _context.Teachers.Add(teacher);
                         await _context.SaveChangesAsync(cancellationToken);
-                        _mailSender.SendRegistrationMessage(createdUser.Email, password);
+                        await _mailSender.SendRegistrationMessage(createdUser.Email, password);
                     }
                 }
 

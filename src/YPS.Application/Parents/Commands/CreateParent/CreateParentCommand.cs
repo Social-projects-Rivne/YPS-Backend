@@ -58,7 +58,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
                         await _context.SaveChangesAsync(cancellationToken);
 
                         Parent createdParent = await _context.Parents.FindAsync(parent.Id);
-                        _mailSender.SendRegistrationMessage(createdUser.Email, password);
+                        await _mailSender.SendRegistrationMessage(createdUser.Email, password);
                         if (createdParent != null)
                         {
                             ParentToPupil parentToPupil = new ParentToPupil
