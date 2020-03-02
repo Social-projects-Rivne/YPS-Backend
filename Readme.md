@@ -27,7 +27,7 @@
 #### There is the configuration file on this path
 ``` .\YPS-Backend\src\YPS.WebUI\appsettings.json ```
 
-```json	
+```yaml	
 {
   "Logging": {
     "LogLevel": {
