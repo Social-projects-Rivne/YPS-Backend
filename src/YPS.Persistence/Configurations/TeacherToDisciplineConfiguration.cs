@@ -24,7 +24,8 @@ namespace YPS.Persistence.Configurations
                     new TeacherToDiscipline { Id = 1, DisciplineId = 1, TeacherId = 1 },
                     new TeacherToDiscipline { Id = 2, DisciplineId = 2, TeacherId = 4 },
                     new TeacherToDiscipline { Id = 3, DisciplineId = 3, TeacherId = 2 },
-                    new TeacherToDiscipline { Id = 4, DisciplineId = 3, TeacherId = 3 }
+                    new TeacherToDiscipline { Id = 4, DisciplineId = 3, TeacherId = 3 },
+                    new TeacherToDiscipline { Id = 5, DisciplineId = 7, TeacherId = 1 }
                 );
         }
     }

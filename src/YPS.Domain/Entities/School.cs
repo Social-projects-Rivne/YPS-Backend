@@ -18,6 +18,7 @@ namespace YPS.Domain.Entities
 
         public string Name { get; set; }
         public string ShortName { get; set; }
+        public string RegistrationLink { get; set; }
 
         public ICollection<User> Users { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }

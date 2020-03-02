@@ -6,17 +6,29 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using YPS.Application.Auth.Command.CreateHeadMaster;
+using YPS.Application.HeadMasters.Queries.CheckMasterRegisterLink;
 using YPS.Application.Models;
-
 namespace YPS.WebUI.Controllers
 {
-    [Authorize]
     public class HeadmastersController : ApiController
     {
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
         {
             return Ok(await Mediator.Send(request));
+        }
+
+        [HttpGet("{link}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<bool>> CheckMasterRegisterLink(string link)
+        {
+            bool response = await Mediator.Send(new CheckHeadMasterRegisterLinkQuery { Link = link });
+
+            if (!response)
+                return BadRequest(response);
+
+            return Ok(response);
         }
     }
 }
