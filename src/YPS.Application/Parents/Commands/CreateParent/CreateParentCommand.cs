@@ -25,7 +25,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
             private readonly IRandomGeneratorService _randomGenerator;
             private readonly IMailSenderService _mailSender;
 
-            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator,IMailSenderService mailSender)
+            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator, IMailSenderService mailSender)
             {
                 _context = context;
                 _userService = userService;

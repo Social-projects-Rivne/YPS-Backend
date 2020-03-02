@@ -25,7 +25,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
             private readonly IRandomGeneratorService _randomGenerator;
             private readonly IMailSenderService _mailSender;
 
-            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator,IMailSenderService mailSender)
+            public CreatePupilCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator, IMailSenderService mailSender)
             {
                 _context = context;
                 _userService = userService;

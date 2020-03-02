@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,10 @@ namespace YPS.Application.SchoolRequests.Queries.GetUnviewedSchoolRequests
 
             public async Task<ICollection<SchoolRequestVm>> Handle(GetUnviewedSchoolRequestsQuery request, CancellationToken cancellationToken)
             {
-                var requests = _dbContext.SchoolRequests
+                return await _dbContext.SchoolRequests
                     .Where(x => x.IsApproved == null)
-                    .ProjectTo<SchoolRequestVm>(_mapper.ConfigurationProvider).ToList();
-                return requests;
+                    .ProjectTo<SchoolRequestVm>(_mapper.ConfigurationProvider)
+                    .ToListAsync();                
             }
         }
     }

@@ -35,9 +35,9 @@ namespace YPS.WebUI.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<ICollection<SchoolRequestVm>>> GetSchoolRequests([FromQuery]GetUnviewedSchoolRequestsQuery command)
+        public async Task<ActionResult<ICollection<SchoolRequestVm>>> GetSchoolRequests()
         {
-            var vm = await this.Mediator.Send(command);
+            var vm = await this.Mediator.Send(new GetUnviewedSchoolRequestsQuery());
             return Ok(vm);
         }
     }
