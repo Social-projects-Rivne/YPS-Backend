@@ -22,12 +22,14 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
             private readonly IRandomGeneratorService _randomGenerator;
+            private readonly IMailSenderService _mailSender;
 
-            public CreateTeacherCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator)
+            public CreateTeacherCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator, IMailSenderService mailSender)
             {
                 _context = context;
                 _userService = userService;
                 _randomGenerator = randomGenerator;
+                _mailSender = mailSender;
             }
 
             public async Task<CreateUserResponse> Handle(CreateTeacherCommand request, CancellationToken cancellationToken)
@@ -54,6 +56,7 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
                         res.CreatedId = createdUser.Id;
                         _context.Teachers.Add(teacher);
                         await _context.SaveChangesAsync(cancellationToken);
+                        await _mailSender.SendRegistrationMessage(createdUser.Email, password);
                     }
                 }
 

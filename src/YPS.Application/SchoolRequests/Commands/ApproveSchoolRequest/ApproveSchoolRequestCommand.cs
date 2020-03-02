@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
-using YPS.Application.SchoolRequests.ViewModel;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.SchoolRequests.Command
+namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
 {
     public class ApproveSchoolRequestCommand : IRequest<SchoolViewModel>
     {
@@ -34,7 +33,7 @@ namespace YPS.Application.SchoolRequests.Command
                 string guidLink = Guid.NewGuid().ToString();
                 string masterRegisterLink = "http://localhost:4200/register-headmaster/" + guidLink;
                 string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master " + masterRegisterLink;
-                _mailSender.SendMessageAsync(requests.FirstOrDefault(x => x.Id == request.Id).Email, "Successfuly registered", message);
+                await _mailSender.SendMessageAsync(requests.FirstOrDefault(x => x.Id == request.Id).Email, "Successfuly registered", message);
 
                 var school = new School
                 {

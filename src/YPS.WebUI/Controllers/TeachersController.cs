@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YPS.Application.SchoolRequests.Command;
-using YPS.Application.SchoolRequests.ViewModel;
 using YPS.Application.Teachers.Commands.CreateTeacher;
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
