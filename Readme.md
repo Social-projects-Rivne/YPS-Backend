@@ -14,8 +14,8 @@ update-database
 	
 > Run project 
 
-	- In VS 
-		- Ctrl + 
-	- In console
-		- ``` dotnet run ```
+- In VS 
+	- Ctrl + 
+- In console
+	- ``` dotnet run ```
 	
