@@ -8,20 +8,20 @@
 ## Setup
 - Add DB and updated 
 
-	```batch
+	````batch
 	add-migration "Your migration"
 	update-database 
-	```
+	````
 	
 
 
 - Run project in VS  
 	- Press Ctrl + F5
 - Run project in console
-	```batch
+	````batch
 	dotnet run
 	dotnet build
-	```
+	````
 	
 ## Configuration
 #### There is the configuration file on this path
