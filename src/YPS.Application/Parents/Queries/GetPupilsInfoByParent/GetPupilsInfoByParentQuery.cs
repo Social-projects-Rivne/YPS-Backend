@@ -30,7 +30,7 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
             public async Task<ICollection<GetPupilsInfoByParentVm>> Handle(GetPupilsInfoByParentQuery request, CancellationToken cancellationToken)
             {
                 return await _dbContext.ParentToPupils
-                    .Where(x => x.PupilOf.User.SchoolId == request.SchoolId)
+                    .Where(x => x.ParentOf.User.SchoolId == request.SchoolId)
                     .Where(x => x.ParentOf.Id == request.Id)
                     .ProjectTo<GetPupilsInfoByParentVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
