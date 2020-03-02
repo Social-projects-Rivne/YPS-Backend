@@ -11,28 +11,30 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Parents.Commands.CreateParent
 {
-    public sealed class CreateParentCommand : IRequest<CreateUserResponse>
+    public sealed class CreateParentCommand : IRequest<CreatedResponse>
     {
         public UserPartial User { get; set; }
         public string WorkInfo { get; set; }
         public long PupilId { get; set; }
         public long SchoolId { get; set; }
 
-        public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, CreateUserResponse>
+        public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, CreatedResponse>
         {
             private readonly IYPSDbContext _context;
             private readonly IUserService _userService;
             private readonly IRandomGeneratorService _randomGenerator;
+            private readonly IMailSenderService _mailSender;
 
-            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator)
+            public CreateParentCommandHandler(IYPSDbContext context, IUserService userService, IRandomGeneratorService randomGenerator, IMailSenderService mailSender)
             {
                 _context = context;
                 _userService = userService;
                 _randomGenerator = randomGenerator;
+                _mailSender = mailSender;
             }
-            public async Task<CreateUserResponse> Handle(CreateParentCommand request, CancellationToken cancellationToken)
+            public async Task<CreatedResponse> Handle(CreateParentCommand request, CancellationToken cancellationToken)
             {
-                CreateUserResponse res = new CreateUserResponse();
+                CreatedResponse res = new CreatedResponse();
 
                 IDictionary<string, string> failures = await _userService.CheckFailuresAsync(request.User.Email, request.User.PhoneNumber);
 
@@ -56,7 +58,7 @@ namespace YPS.Application.Parents.Commands.CreateParent
                         await _context.SaveChangesAsync(cancellationToken);
 
                         Parent createdParent = await _context.Parents.FindAsync(parent.Id);
-
+                        await _mailSender.SendRegistrationMessage(createdUser.Email, password);
                         if (createdParent != null)
                         {
                             ParentToPupil parentToPupil = new ParentToPupil

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using YPS.Application.Models;
 using YPS.Application.Pupils.Commands.CreatePupil;
 using YPS.Application.Pupils.Queries.GetPupilsByClass;
@@ -17,7 +18,7 @@ namespace YPS.WebUI.Controllers
     public class PupilsController : ApiController
     {
         [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreatePupilCommand command)
+        public async Task<ActionResult<CreatedResponse>> Create([FromBody] CreatePupilCommand command)
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             command.SchoolId = schoolId;
@@ -31,9 +32,11 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetPupilByIdQuery { Id = id }));
         }
 
-        [HttpGet("[action]/{schoolId}")]
-        public async Task<ActionResult<List<PupilBySchoolVm>>> GetBySchool(long schoolId)
+        [Authorize(Roles = "head-master, master")]
+        [HttpGet("[action]")]
+        public async Task<ActionResult<List<PupilBySchoolVm>>> GetBySchool()
         {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetPupilsBySchoolQuery { SchoolId = schoolId }));
         }
 

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using YPS.Application.Mapping;
+using YPS.Domain.Entities;
 
-namespace YPS.Application.SchoolRequests.ViewModel
+namespace YPS.Application.SchoolRequests.Queries.GetUnviewedSchoolRequests
 {
-    public class SchoolRequestViewModel
+    public class SchoolRequestVm : IMapFrom<SchoolRequest>
     {
         public long Id { get; set; }
         public string Name { get; set; }

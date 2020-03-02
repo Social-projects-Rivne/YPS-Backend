@@ -142,6 +142,7 @@ namespace YPS.WebUI
             services.AddApplication();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMailSenderService, MailSenderService>();
+            services.AddTransient<IClassService, ClassService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

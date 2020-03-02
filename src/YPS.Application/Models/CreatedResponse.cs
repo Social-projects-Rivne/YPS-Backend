@@ -4,7 +4,7 @@ using System.Text;
 
 namespace YPS.Application.Models
 {
-    public class CreateUserResponse
+    public class CreatedResponse
     {
         public long CreatedId { get; set; }
         public IDictionary<string, string> Failures { get; set; }
