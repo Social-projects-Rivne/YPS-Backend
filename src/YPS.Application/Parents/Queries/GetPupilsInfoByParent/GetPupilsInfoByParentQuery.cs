@@ -15,7 +15,7 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
 {
     public class GetPupilsInfoByParentQuery : IRequest<ICollection<GetPupilsInfoByParentVm>>
     {
-        public long PupilId { get; set; }
+        public long Id { get; set; }
         public long SchoolId { get; set; }
         public class GetPupilsInfoByParentQueryHandler : IRequestHandler<GetPupilsInfoByParentQuery, ICollection<GetPupilsInfoByParentVm>>
         {
@@ -31,7 +31,7 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
             {
                 return await _dbContext.ParentToPupils
                     .Where(x => x.PupilOf.User.SchoolId == request.SchoolId)
-                    .Where(x => x.ParentOf.Id == request.PupilId)
+                    .Where(x => x.ParentOf.Id == request.Id)
                     .ProjectTo<GetPupilsInfoByParentVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
             }
