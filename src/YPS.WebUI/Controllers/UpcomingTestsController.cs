@@ -14,7 +14,7 @@ namespace YPS.WebUI.Controllers
     {
         [Authorize(Roles = "pupil")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<UpcomingTestVm>>> GetUpcomingTestsByPupilAsync()
+        public async Task<ActionResult<List<UpcomingTestVm>>> GetByPupil()
         {
             long PupilId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
@@ -30,7 +30,7 @@ namespace YPS.WebUI.Controllers
 
         [Authorize(Roles = "teacher")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<UpcomingTestVm>>> GetUpcomingTestsByTeacherAsync()
+        public async Task<ActionResult<List<UpcomingTestVm>>> GetByTeacher()
         {
             long TeacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
