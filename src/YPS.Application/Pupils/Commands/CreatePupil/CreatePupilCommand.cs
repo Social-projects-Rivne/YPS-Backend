@@ -18,7 +18,6 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
         public long ClassId { get; set; }
         public long SchoolId { get; set; }
 
-
         public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, CreatedResponse>
         {
             private readonly IYPSDbContext _context;
@@ -45,7 +44,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                 if (res.Failures == null || !res.Failures.Any())
                 { 
                     string password = _randomGenerator.RandomPassword();
-                    User createdUser = await _userService.CreateUser(request.User, password, 1, 1);
+                    User createdUser = await _userService.CreateUser(request.User, password, 1, request.SchoolId);
 
                     if (createdUser != null)
                     {
