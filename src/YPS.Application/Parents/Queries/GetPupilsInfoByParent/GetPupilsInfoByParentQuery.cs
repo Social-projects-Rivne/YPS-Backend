@@ -10,7 +10,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 
-
 namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
 {
     public class GetPupilsInfoByParentQuery : IRequest<ICollection<GetPupilsInfoByParentVm>>

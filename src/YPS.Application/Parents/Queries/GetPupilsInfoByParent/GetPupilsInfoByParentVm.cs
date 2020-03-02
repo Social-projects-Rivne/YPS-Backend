@@ -33,7 +33,3 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
        }
     }
 }
-
-
- 
-
