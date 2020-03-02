@@ -19,7 +19,7 @@ namespace YPS.Application.Auth.Command.Login
     {
         public LoginCommandValidator()
         {
-            base.RuleFor(customer => customer.Email).NotNull().EmailAddress();  // If you want write your message add .WithMessage("")
+            base.RuleFor(customer => customer.Email).NotNull().EmailAddress();  
         }
     }
 }
