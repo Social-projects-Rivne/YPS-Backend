@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace YPS.Application.SchoolRequests.ViewModel
+namespace YPS.Application.SchoolRequests.Queries.GetRequests
 {
     public class SchoolRequestViewModel
     {

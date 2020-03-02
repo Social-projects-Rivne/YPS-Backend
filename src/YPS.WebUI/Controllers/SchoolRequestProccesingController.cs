@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using YPS.Application.SchoolRequests.Command;
-using YPS.Application.SchoolRequests.Queries;
-using YPS.Application.SchoolRequests.ViewModel;
+using YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest;
+using YPS.Application.SchoolRequests.Commands.DisapproveSchoolRequest;
+using YPS.Application.SchoolRequests.Queries.GetRequests;
 
 namespace YPS.WebUI.Controllers
 {

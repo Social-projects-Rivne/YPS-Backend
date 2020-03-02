@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
-using YPS.Application.SchoolRequests.ViewModel;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.SchoolRequests.Command
+namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
 {
     public class ApproveSchoolRequestCommand : IRequest<SchoolViewModel>
     {

@@ -7,9 +7,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
-using YPS.Application.SchoolRequests.ViewModel;
 
-namespace YPS.Application.SchoolRequests.Queries
+namespace YPS.Application.SchoolRequests.Queries.GetRequests
 {
     public class GetRequestsQuery : IRequest<ICollection<SchoolRequestViewModel>>
     {
