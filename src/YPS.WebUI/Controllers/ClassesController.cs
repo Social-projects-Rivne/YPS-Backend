@@ -11,7 +11,7 @@ using YPS.Application.Classes.Queries.GetClassesBySchoolWithFullInfo;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles = "head-master, master")]
+    [Authorize(Roles = "head-master, master, teacher")]
     public class ClassesController : ApiController
     {
         [HttpGet("[action]")]

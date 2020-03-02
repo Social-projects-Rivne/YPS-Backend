@@ -16,15 +16,19 @@ namespace YPS.WebUI.Controllers
         [HttpGet("[action]")]
         public async Task<ActionResult<List<UpcomingTestVm>>> GetByPupil()
         {
-            long PupilId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            long pupilId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            return Ok(await Mediator.Send(new GetUpcomingTestsByPupilQuery { PupilId = PupilId }));
+            return Ok(await Mediator.Send(new GetUpcomingTestsByPupilQuery { PupilId = pupilId }));
         }
 
         [Authorize(Roles = "teacher")]
         [HttpPost]
         public async Task<ActionResult<long>> Create([FromBody] CreateUpcomingTestCommand command)
         {
+            long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            command.TeacherId = teacherId;
+
             return Ok(await Mediator.Send(command));
         }
 
@@ -32,9 +36,9 @@ namespace YPS.WebUI.Controllers
         [HttpGet("[action]")]
         public async Task<ActionResult<List<UpcomingTestVm>>> GetByTeacher()
         {
-            long TeacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            return Ok(await Mediator.Send(new GetUpcomingTestsByTeacherQuery { TeacherId = TeacherId }));
+            return Ok(await Mediator.Send(new GetUpcomingTestsByTeacherQuery { TeacherId = teacherId }));
         }
     }
 }
