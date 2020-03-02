@@ -16,15 +16,14 @@ namespace YPS.Domain.Entities
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
             UpcomingEvents = new HashSet<UpcomingEvent>();
         }
-
         public long Id { get; set; }
         public string  Degree { get; set; }
         
         public User User { get; set; }
-
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public ICollection<Class> Classes { get; set; }
         public ICollection<Material> Materials { get; set; }
         public ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
+        public ICollection<UpcomingTest> UpcomingTests { get; set; }
     }
 }
