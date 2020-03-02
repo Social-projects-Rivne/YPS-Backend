@@ -13,8 +13,6 @@ namespace YPS.Application.UpcomingTests.Commands.CreateUpcomingTest
     public class CreateUpcomingTestCommand : IRequest<long>
     {
         public long TeacherId { get; set; }
-        public long Id { get; set; }
-        public DateTime Date { get; set; }
         public string Topic { get; set; }
         public string TestType { get; set; }
         public long ClassId { get; set; }
@@ -34,12 +32,13 @@ namespace YPS.Application.UpcomingTests.Commands.CreateUpcomingTest
             {
                 UpcomingTest test = new UpcomingTest() 
                 {
-                    Date = request.Date,
+                    Date = DateTime.Now,
                     ScheduledDate = request.ScheduledDate,
                     Topic = request.Topic,
                     TestType = request.TestType,
                     ClassId = request.ClassId,
-                    DisciplineId = request.DisciplineId
+                    DisciplineId = request.DisciplineId,
+                    TeacherId = request.TeacherId
                 };
 
                 _context.UpcomingTests.Add(test);
