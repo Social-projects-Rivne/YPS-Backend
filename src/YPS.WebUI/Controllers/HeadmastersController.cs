@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using YPS.Application.Auth.Command.CreateHeadMaster;
+using YPS.Application.Headmasters.Commands.CreateHeadMaster;
 using YPS.Application.HeadMasters.Queries.CheckMasterRegisterLink;
 using YPS.Application.Models;
 namespace YPS.WebUI.Controllers
@@ -13,7 +13,7 @@ namespace YPS.WebUI.Controllers
     public class HeadmastersController : ApiController
     {
         [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
+        public async Task<ActionResult<CreatedResponse>> CreateHeadMaster([FromBody] CreateHeadMasterCommand request)
         {
             return Ok(await Mediator.Send(request));
         }

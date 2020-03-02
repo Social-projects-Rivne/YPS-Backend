@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using MediatR;
-using YPS.Application.Auth.Helpers;
-using YPS.Application.Exceptions;
 using YPS.Application.Interfaces;
-using YPS.Domain.Entities;
 using YPS.Application.Models;
+using YPS.Domain.Entities;
 
-namespace YPS.Application.Auth.Command.CreateHeadMaster
+namespace YPS.Application.Headmasters.Commands.CreateHeadMaster
 {
-    public sealed class CreateHeadMasterCommand : IRequest<CreateUserResponse>
+    public sealed class CreateHeadMasterCommand : IRequest<CreatedResponse>
     {
         public UserPartial User { get; set; }
         public string Password { get; set; }
         public string Link { get; set; }
 
-        public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreateUserResponse>
+        public class CreateHeadMasterCommandHandler : IRequestHandler<CreateHeadMasterCommand, CreatedResponse>
         {
-
             private readonly IUserService _userService;
             private readonly IYPSDbContext _context;
 
@@ -33,9 +26,9 @@ namespace YPS.Application.Auth.Command.CreateHeadMaster
                 _userService = userService;
             }
 
-            public async Task<CreateUserResponse> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
+            public async Task<CreatedResponse> Handle(CreateHeadMasterCommand request, CancellationToken cancellationToken)
             {
-                CreateUserResponse res = new CreateUserResponse();
+                CreatedResponse res = new CreatedResponse();
 
                 IDictionary<string, string> failures = await _userService.CheckFailuresAsync(request.User.Email, request.User.PhoneNumber);
 

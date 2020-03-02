@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.Classes.Queries.GetClassesBySchool;
 using YPS.Application.Classes.Queries.GetClassesBySchoolWithFullInfo;
+using YPS.Application.Classes.Commands.CreateClass;
+using YPS.Application.Models;
 
 namespace YPS.WebUI.Controllers
 {
@@ -21,6 +23,13 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetClassesBySchoolQuery { SchoolId = schoolId }));
         }
 
+        [HttpPost]
+        public async Task<ActionResult<CreatedResponse>> Create([FromBody] CreateClassCommand command)
+        {
+            var response = await Mediator.Send(command);
+            return Ok(response);
+        }
+
         [HttpGet("[action]")]
         public async Task<ActionResult<List<ClassWithFullInfoVm>>> GetBySchoolWithFullInfo()
         {
@@ -28,5 +37,4 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetClassesBySchoolWithFullInfoQuery { SchoolId = schoolId }));
         }
     }
-
 }
