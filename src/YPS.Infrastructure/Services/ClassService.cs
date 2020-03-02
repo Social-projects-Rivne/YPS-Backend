@@ -34,7 +34,7 @@ namespace YPS.Infrastructure.Services
 
         private bool NumberValidation(long number) => number > 0 && number <= 12;
 
-        private bool CharacterValidation(string character) => character.Length == 1/* && Regex.IsMatch(character, "[A-Za-zÀ-ÿ]",RegexOptions.IgnoreCase)*/;
+        private bool CharacterValidation(string character) => character.Length == 1;
 
         private async Task<bool> NotUniq(long teacherId) =>
             await _context.Classes.AnyAsync(x => x.ClassTeacherId == teacherId);
