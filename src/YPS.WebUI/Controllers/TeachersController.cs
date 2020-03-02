@@ -49,5 +49,12 @@ namespace YPS.WebUI.Controllers
             long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             return Ok(await Mediator.Send(new GetMasterInfoQuery { Id = id }));
         }
+        [HttpGet("[action]")]
+        [Authorize(Roles = "head-assistant")]
+        public async Task<ActionResult<TeacherProfileInfoVM>> GetHeadAssistantById()
+        {
+            long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetTeacherProfileInfoQuery { Id = userId }));
+        }
     }
 }
