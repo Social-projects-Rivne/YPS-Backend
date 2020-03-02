@@ -37,7 +37,7 @@ namespace YPS.Application.Teachers.Queries.GetTeacher
                 .ForMember(
                     x => x.ClassName,
                     opts => opts.MapFrom(
-                        x => x.Classes.First().Number + "-" + x.Classes.First().Character)
+                        x => x.Classes.First().Number + " - " + x.Classes.First().Character)
                 )
                 .ForMember(
                     x => x.SchoolName,
