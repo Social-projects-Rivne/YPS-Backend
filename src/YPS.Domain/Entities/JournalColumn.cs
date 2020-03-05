@@ -17,7 +17,6 @@ namespace YPS.Domain.Entities
         public DateTime LessonDate { get; set; }
         public string Theme { get; set; }
 
-        public long HomeworkId { get; set; }
         public Homework Homework { get; set; }
 
         public long LessonId { get; set; }
