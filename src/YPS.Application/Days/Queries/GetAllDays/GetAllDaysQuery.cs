@@ -12,8 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace YPS.Application.Days.Queries.GetAllDays
 {
     public sealed class GetAllDaysQuery : IRequest<List<DayViewModel>>
-    {
-        
+    { 
         public class GetAllDaysQueryHandler : IRequestHandler<GetAllDaysQuery, List<DayViewModel>>
         {
             private readonly IYPSDbContext _context;
