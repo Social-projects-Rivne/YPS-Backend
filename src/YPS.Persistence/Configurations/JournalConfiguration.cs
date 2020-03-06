@@ -5,7 +5,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class JornalConfiguration : IEntityTypeConfiguration<Journal>
+    class JournalConfiguration : IEntityTypeConfiguration<Journal>
     {
         public void Configure(EntityTypeBuilder<Journal> builder)
         {
@@ -13,8 +13,7 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Journal);
 
             builder.HasOne(e => e.Class)
-                .WithMany(e => e.Journals)
-                .HasForeignKey(e => e.ClassId);
+                .WithOne(e => e.Jornal);
         }
     }
 }

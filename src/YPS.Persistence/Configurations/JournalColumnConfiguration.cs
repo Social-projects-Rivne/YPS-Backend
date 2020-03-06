@@ -6,7 +6,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Persistence.Configurations
 {
-    class JournalColumnsConfiguration : IEntityTypeConfiguration<JournalColumn>
+    class JournalColumnConfiguration : IEntityTypeConfiguration<JournalColumn>
     {
         public void Configure(EntityTypeBuilder<JournalColumn> builder)
         {
@@ -23,8 +23,8 @@ namespace YPS.Persistence.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Lesson)
-                .WithMany(e => e.JournalColumns)
-                .HasForeignKey(e => e.LessonId)
+                .WithOne(e => e.JournalColumn)
+                .HasForeignKey<JournalColumn>(e => e.LessonId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Homework)
