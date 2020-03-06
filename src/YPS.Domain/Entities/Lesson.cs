@@ -14,6 +14,8 @@ namespace YPS.Domain.Entities
             JournalColumns = new HashSet<JournalColumn>();
             Schedules = new HashSet<Schedule>();
         }
+        public long AuditoriumId { get; set; }
+        public Auditorium Auditorium { get; set; }
 
         public long TeacherToDisciplineId { get; set; }
         public TeacherToDiscipline TeacherToDiscipline { get; set; }
