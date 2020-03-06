@@ -13,7 +13,7 @@ using YPS.Application.Models;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles = "head-master, master")]
+    [Authorize(Roles = "head-master, master, teacher")]
     public class ClassesController : ApiController
     {
         [HttpGet("[action]")]

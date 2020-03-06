@@ -9,11 +9,6 @@ namespace YPS.Domain.Entities
 {
     public class Mark : EntityBase
     {
-        public Mark()
-        {
-            Homeworks = new HashSet<Homework>();
-        }
-
         public string Value { get; set; }
 
         public long JournalColumnId { get; set; }
@@ -25,6 +20,7 @@ namespace YPS.Domain.Entities
         public long PupilId { get; set; }
         public Pupil Pupil { get; set; }
 
-        public ICollection<Homework> Homeworks { get; set; }
+        public long? HomeworkId { get; set; }    
+        public Homework Homework { get; set; }
     }
 }

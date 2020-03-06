@@ -14,11 +14,11 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
 {
-    public class GetUpcomingEventsByPupilQuery : IRequest<List<UpcomingEventVm>>
+    public class GetUpcomingEventsByPupilQuery : IRequest<List<UpcomingEventByPupilVm>>
     {
         public long PupilId { get; set; }
         public long SchoolId { get; set; }
-        public class GetUpcomingEventsByPupilQueryHandler : IRequestHandler<GetUpcomingEventsByPupilQuery, List<UpcomingEventVm>>
+        public class GetUpcomingEventsByPupilQueryHandler : IRequestHandler<GetUpcomingEventsByPupilQuery, List<UpcomingEventByPupilVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
@@ -29,17 +29,17 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
                 _mapper = mapper;
             }
 
-            public async Task<List<UpcomingEventVm>> Handle(GetUpcomingEventsByPupilQuery request, CancellationToken cancellationToken)
+            public async Task<List<UpcomingEventByPupilVm>> Handle(GetUpcomingEventsByPupilQuery request, CancellationToken cancellationToken)
             {
                 Pupil pupil = await _context.Pupils
                    .FirstOrDefaultAsync(x => x.Id == request.PupilId);
 
-                List<UpcomingEventVm> upcomingEvets = await _context.UpcomingEvents
+                List<UpcomingEventByPupilVm> upcomingEvets = await _context.UpcomingEvents
                     .Where(x => 
                         x.SchoolId == request.SchoolId && 
                         x.ClassId == pupil.ClassToPupils.First().ClassId && 
                         x.ScheduledDate >= DateTime.Now)
-                    .ProjectTo<UpcomingEventVm>(_mapper.ConfigurationProvider)
+                    .ProjectTo<UpcomingEventByPupilVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
                 return upcomingEvets;

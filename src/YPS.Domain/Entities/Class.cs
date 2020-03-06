@@ -11,7 +11,7 @@ namespace YPS.Domain.Entities
     {
         public Class()
         {
-            Journals = new HashSet<Journal>();
+            Pupils = new HashSet<Pupil>();
             UpcomingEvents = new HashSet<UpcomingEvent>();
             UpcomingTests = new HashSet<UpcomingTest>();
             ClassToPupils = new HashSet<ClassToPupil>();
@@ -26,7 +26,9 @@ namespace YPS.Domain.Entities
         public DateTime YearFrom { get; set; }
         public DateTime YearTo { get; set; }
 
-        public ICollection<Journal> Journals { get; set; }
+        public Journal Journal { get; set; }
+
+        public ICollection<Pupil> Pupils { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public ICollection<UpcomingTest> UpcomingTests { get; set; }
         public ICollection<ClassToPupil> ClassToPupils { get; set; }

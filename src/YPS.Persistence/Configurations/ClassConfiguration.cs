@@ -28,6 +28,11 @@ namespace YPS.Persistence.Configurations
 
             builder.HasMany(e => e.ClassToPupils)
                 .WithOne(e => e.Class);
+
+            builder.HasOne(x => x.Journal)
+                .WithOne(x => x.Class)
+                .HasForeignKey<Journal>(x => x.ClassId);
+
             builder.
                 HasData(
                     new Class

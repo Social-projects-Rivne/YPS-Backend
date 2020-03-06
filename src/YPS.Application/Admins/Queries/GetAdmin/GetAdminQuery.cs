@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper.QueryableExtensions;
 using YPS.Application.Interfaces;
 
 namespace YPS.Application.Admins.Queries.GetAdmin
@@ -26,19 +27,11 @@ namespace YPS.Application.Admins.Queries.GetAdmin
 
             public async Task<AdminViewModel> Handle(GetAdminQuery request, CancellationToken cancellationToken)
             {
-               var admin = await _dbContext.Users.FirstOrDefaultAsync(
-                    x => x.Id == request.Id);
-                return new AdminViewModel
-                {
-                    Id = admin.Id,
-                    FirstName = admin.FirstName,
-                    Surname = admin.Surname,
-                    MiddleName = admin.MiddleName,
-                    Email = admin.Email,
-                    PhoneNumber = admin.PhoneNumber,
-                    ImageUrl = admin.ImageUrl,
-                    DateOfBirth = admin.DateOfBirth
-                };
+                AdminViewModel admin = await _dbContext.Users
+                    .ProjectTo<AdminViewModel>(_mapper.ConfigurationProvider)
+                    .FirstOrDefaultAsync(x => x.Id == request.Id);
+
+                return admin;
             }
         }
     }

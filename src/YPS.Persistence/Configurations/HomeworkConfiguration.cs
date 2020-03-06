@@ -13,12 +13,13 @@ namespace YPS.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.HasOne(e => e.Mark)
-                .WithMany(e => e.Homeworks)
-                .HasForeignKey(e => e.MarkId);
-
-            builder.HasMany(e => e.JournalColumns)
+            builder.HasMany(e => e.Marks)
                 .WithOne(e => e.Homework);
+
+            builder.HasOne(e => e.JournalColumn)
+                .WithOne(e => e.Homework)
+                .HasForeignKey<JournalColumn>(e => e.HomeworkId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
