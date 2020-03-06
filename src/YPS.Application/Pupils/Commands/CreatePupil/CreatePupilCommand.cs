@@ -3,6 +3,7 @@ using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,13 +52,26 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                         Pupil pupil = new Pupil
                         {
                             Id = createdUser.Id,
-                            ClassId = request.ClassId
                         };
 
+                        
                         res.CreatedId = createdUser.Id;
                         _context.Pupils.Add(pupil);
                         await _context.SaveChangesAsync(cancellationToken);
+
+                        Pupil createdPupil = await _context.Pupils.FindAsync(pupil.Id);
                         await _mailSender.SendRegistrationMessage(createdUser.Email,password);
+
+                        if (createdPupil != null)
+                        {
+                            ClassToPupil classToPupil = new ClassToPupil
+                            {
+                                ClassId = request.ClassId,
+                                PupilId = createdPupil.Id
+                            };
+                            _context.ClassesToPupils.Add(classToPupil);
+                            await _context.SaveChangesAsync(cancellationToken);
+                        }
                     }
                 }
 

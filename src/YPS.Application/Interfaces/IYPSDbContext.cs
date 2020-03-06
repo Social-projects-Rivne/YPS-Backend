@@ -34,6 +34,7 @@ namespace YPS.Application.Interfaces
         DbSet<SchoolRequest> SchoolRequests { get; set; }
         DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-        
+        DbSet<ClassToPupil> ClassesToPupils { get; set; }
+
     }
 }
