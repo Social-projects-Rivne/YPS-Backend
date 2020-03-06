@@ -52,14 +52,16 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetMasterInfoQuery { Id = id }));
         }
 
-        [HttpPost("[action]")]
-        [Authorize(Roles = "master")]
-        public async Task<ActionResult<ICollection<TeachersByDisciplineVm>>> GetTeacherByDiscipline(GetTeachersByDisciplineQuery query)
+        [HttpGet("[action]/{disciplineId}")]
+        [Authorize(Roles = "master, head-master, head-assistant")]
+        public async Task<ActionResult<ICollection<TeachersByDisciplineVm>>> GetTeacherByDiscipline(long disciplineId)
         {
-            //long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await Mediator.Send(new GetTeachersByDisciplineQuery { 
-                SchoolId = query.SchoolId
-                , DisciplineId = query.DisciplineId }));
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetTeachersByDisciplineQuery
+            {              
+                SchoolId = schoolId,
+                DisciplineId = disciplineId
+            }));
         }
 
         [HttpGet("[action]")]
