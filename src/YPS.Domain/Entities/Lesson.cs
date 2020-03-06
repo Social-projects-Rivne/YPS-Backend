@@ -12,6 +12,9 @@ namespace YPS.Domain.Entities
         public ushort LessonNumber { get; set; }
 
         public JournalColumn JournalColumn { get; set; }
+        
+        public long AuditoriumId { get; set; }
+        public Auditorium Auditorium { get; set; }
 
         public long DayId { get; set; }
         public Day Day { get; set; }

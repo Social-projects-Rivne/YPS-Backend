@@ -15,6 +15,10 @@ namespace YPS.Persistence.Configurations
             builder.HasOne(e => e.TeacherToDiscipline)
                 .WithMany(e => e.Lessons)
                 .HasForeignKey(e => e.TeacherToDisciplineId);
+
+            builder.HasOne(e => e.Auditorium)
+                .WithMany(e => e.Lessons)
+                .HasForeignKey(e => e.AuditoriumId);
         }
     }
 }

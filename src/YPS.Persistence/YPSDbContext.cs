@@ -38,6 +38,7 @@ namespace YPS.Persistence
         public DbSet<Role> Roles { get; set; }
         public DbSet<SchoolRequest> SchoolRequests { get; set; }
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+        public DbSet<Auditorium> Auditoriums { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
