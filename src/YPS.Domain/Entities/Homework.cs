@@ -11,14 +11,12 @@ namespace YPS.Domain.Entities
     {
         public Homework()
         {
-            JournalColumns = new HashSet<JournalColumn>();
+            Marks = new HashSet<Mark>();
         }
-
         public string Title { get; set; }
+        public JournalColumn JournalColumn { get; set; }
 
-        public long MarkId { get; set; }
-        public Mark Mark { get; set; }
-
-        public ICollection<JournalColumn> JournalColumns { get; set; }
+        public ICollection<Mark> Marks { get; set; }
     }
 }
+    

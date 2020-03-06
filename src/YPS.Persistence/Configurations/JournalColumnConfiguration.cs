@@ -18,7 +18,9 @@ namespace YPS.Persistence.Configurations
                 .IsRequired();
 
             builder.HasMany(e => e.Marks)
-                .WithOne(e => e.JournalColumn);
+                .WithOne(e => e.JournalColumn)
+                .HasForeignKey(e => e.JournalColumnId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Lesson)
                 .WithOne(e => e.JournalColumn)
@@ -26,8 +28,7 @@ namespace YPS.Persistence.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Homework)
-                .WithMany(e => e.JournalColumns)
-                .HasForeignKey(e => e.HomeworkId)
+                .WithOne(e => e.JournalColumn)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Journal)
