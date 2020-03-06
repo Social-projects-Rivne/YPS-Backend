@@ -9,18 +9,17 @@ namespace YPS.Domain.Entities
 {
     public class Lesson : EntityBase
     {
-        public Lesson()
-        {
-            JournalColumns = new HashSet<JournalColumn>();
-            Schedules = new HashSet<Schedule>();
-        }
+        public ushort LessonNumber { get; set; }
+
+        public JournalColumn JournalColumn { get; set; }
+        
         public long AuditoriumId { get; set; }
         public Auditorium Auditorium { get; set; }
 
+        public long DayId { get; set; }
+        public Day Day { get; set; }
+
         public long TeacherToDisciplineId { get; set; }
         public TeacherToDiscipline TeacherToDiscipline { get; set; }
-
-        public ICollection<JournalColumn> JournalColumns { get; set; }
-        public ICollection<Schedule> Schedules { get; set; }
     }
 }
