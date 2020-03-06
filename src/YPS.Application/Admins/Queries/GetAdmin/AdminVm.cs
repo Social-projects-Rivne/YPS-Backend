@@ -7,7 +7,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Admins.Queries.GetAdmin
 {
-    public class AdminViewModel : IMapFrom<User>
+    public class AdminVm : IMapFrom<User>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -19,7 +19,7 @@ namespace YPS.Application.Admins.Queries.GetAdmin
         public string DateOfBirth { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<User, AdminViewModel>()
+            profile.CreateMap<User, AdminVm>()
                 .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.DateOfBirth.ToString("yyyy-MM-dd")));
         }
     }
