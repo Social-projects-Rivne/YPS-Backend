@@ -10,6 +10,8 @@ namespace YPS.Domain.Entities
     public class Lesson : EntityBase
     {
         public ushort LessonNumber { get; set; }
+        public DateTime LessonDate { get; set; }
+        public string LessonTimeGap { get; set; }
 
         public JournalColumn JournalColumn { get; set; }
         

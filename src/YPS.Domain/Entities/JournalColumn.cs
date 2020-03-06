@@ -14,8 +14,7 @@ namespace YPS.Domain.Entities
             Marks = new HashSet<Mark>();
         }
 
-        public DateTime LessonDate { get; set; }
-        public string Theme { get; set; }
+        public string Topic { get; set; }
             
         public long? HomeworkId { get; set; }
         public Homework Homework { get; set; }
