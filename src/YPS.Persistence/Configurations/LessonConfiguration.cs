@@ -22,8 +22,6 @@ namespace YPS.Persistence.Configurations
 
             builder.HasMany(x => x.Schedules)
                 .WithOne(x => x.Lesson);
-
-
         }
     }
 }
