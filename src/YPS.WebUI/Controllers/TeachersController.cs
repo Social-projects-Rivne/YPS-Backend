@@ -12,6 +12,7 @@ using YPS.Application.Teachers.Queries.GetTeachersBySchool;
 using System.Security.Claims;
 using YPS.Application.Teachers.Queries.GetTeacher;
 using YPS.Application.Teachers.Queries.GetMasterInfo;
+using YPS.Application.Teachers.Queries.GetTeachersByDiscipline;
 
 namespace YPS.WebUI.Controllers
 {
@@ -49,6 +50,16 @@ namespace YPS.WebUI.Controllers
         {
             long id = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             return Ok(await Mediator.Send(new GetMasterInfoQuery { Id = id }));
+        }
+
+        [HttpPost("[action]")]
+        [Authorize(Roles = "master")]
+        public async Task<ActionResult<ICollection<TeachersByDisciplineVm>>> GetTeacherByDiscipline(GetTeachersByDisciplineQuery query)
+        {
+            //long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return Ok(await Mediator.Send(new GetTeachersByDisciplineQuery { 
+                SchoolId = query.SchoolId
+                , DisciplineId = query.DisciplineId }));
         }
 
         [HttpGet("[action]")]
