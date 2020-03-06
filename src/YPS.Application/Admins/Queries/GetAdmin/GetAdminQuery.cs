@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,19 +27,11 @@ namespace YPS.Application.Admins.Queries.GetAdmin
 
             public async Task<AdminViewModel> Handle(GetAdminQuery request, CancellationToken cancellationToken)
             {
-               var admin = await _dbContext.Users.FirstOrDefaultAsync(
-                    x => x.Id == request.Id);
-                return new AdminViewModel
-                {
-                    Id = admin.Id,
-                    FirstName = admin.FirstName,
-                    Surname = admin.Surname,
-                    MiddleName = admin.MiddleName,
-                    Email = admin.Email,
-                    PhoneNumber = admin.PhoneNumber,
-                    ImageUrl = admin.ImageUrl,
-                    DateOfBirth = admin.DateOfBirth
-                };
+                AdminViewModel admin = await _dbContext.Users
+                       .ProjectTo<AdminViewModel>(_mapper.ConfigurationProvider)
+                       .FirstOrDefaultAsync(x => x.Id == request.Id);
+
+                return admin;
             }
         }
     }
