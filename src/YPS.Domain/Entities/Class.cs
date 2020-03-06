@@ -23,6 +23,7 @@ namespace YPS.Domain.Entities
         public Teacher TeacherOf { get; set; }
 
         public Journal Jornal { get; set; }
+
         public ICollection<Pupil> Pupils { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public ICollection<UpcomingTest> UpcomingTests { get; set; }
