@@ -11,10 +11,10 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.Admins.Queries.GetAdmin
 {
-    public class GetAdminQuery: IRequest<AdminViewModel>
+    public class GetAdminQuery : IRequest<AdminVm>
     {
         public long Id;
-        public class GetAdminQueryHandler : IRequestHandler<GetAdminQuery, AdminViewModel>
+        public class GetAdminQueryHandler : IRequestHandler<GetAdminQuery, AdminVm>
         {
             private readonly IYPSDbContext _dbContext;
             private readonly IMapper _mapper;
@@ -25,10 +25,10 @@ namespace YPS.Application.Admins.Queries.GetAdmin
                 _mapper = mapper;
             }
 
-            public async Task<AdminViewModel> Handle(GetAdminQuery request, CancellationToken cancellationToken)
+            public async Task<AdminVm> Handle(GetAdminQuery request, CancellationToken cancellationToken)
             {
-                AdminViewModel admin = await _dbContext.Users
-                       .ProjectTo<AdminViewModel>(_mapper.ConfigurationProvider)
+                AdminVm admin = await _dbContext.Users
+                       .ProjectTo<AdminVm>(_mapper.ConfigurationProvider)
                        .FirstOrDefaultAsync(x => x.Id == request.Id);
 
                 return admin;
