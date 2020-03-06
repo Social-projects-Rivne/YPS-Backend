@@ -5,9 +5,9 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsBySchool
+namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
 {
-    public class UpcomingEventVm : IMapFrom<UpcomingEvent>
+    public class UpcomingEventByPupilVm : IMapFrom<UpcomingEvent>
     {
         public long Id { get; set; }    
         public string SchoolName { get; set; }
@@ -19,7 +19,7 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsBySchool
         public string Degree { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<UpcomingEvent, UpcomingEventVm>()
+            profile.CreateMap<UpcomingEvent, UpcomingEventByPupilVm>()
                 .ForMember(u => u.TimeOfCreating, opt => opt.MapFrom(s => s.TimeOfCreation.ToString("dd.MM.yyyy")))
                 .ForMember(u => u.ScheduledDate, opt => opt.MapFrom(s => s.ScheduledDate.ToString("dd.MM.yyyy")))
                 .ForMember(u => u.TeacherFullName, opt => opt.MapFrom(s => s.Teacher.User.FirstName + " " + s.Teacher.User.Surname))
