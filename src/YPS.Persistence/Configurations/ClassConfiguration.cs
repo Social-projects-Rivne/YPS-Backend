@@ -20,6 +20,10 @@ namespace YPS.Persistence.Configurations
                 .WithMany(x => x.Classes)
                 .HasForeignKey(x => x.ClassTeacherId);
 
+            builder.HasOne(x => x.Jornal)
+                .WithOne(x => x.Class)
+                .HasForeignKey<Journal>(x => x.ClassId);
+
             builder.
                 HasData(
                     new Class { 

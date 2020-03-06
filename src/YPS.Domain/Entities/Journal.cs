@@ -13,10 +13,8 @@ namespace YPS.Domain.Entities
         {
             JournalColumns = new HashSet<JournalColumn>();
         }
-
         public long ClassId { get; set; }
         public Class Class { get; set; }
-
         public ICollection<JournalColumn> JournalColumns { get; set; }
     }
 }

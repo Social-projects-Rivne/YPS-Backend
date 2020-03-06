@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -32,7 +33,8 @@ namespace YPS.Application.UpcomingTests.Queries.GetUpcomingTestsByTeacher
                 Teacher teacher = await _context.Teachers.FirstOrDefaultAsync(x => x.Id == request.TeacherId);
 
                 List<UpcomingTestVm> upcomingTests = await _context.UpcomingTests
-                    .Where(x => x.TeacherId == request.TeacherId)
+                    .Where(x => x.TeacherId == request.TeacherId &&
+                        x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingTestVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
