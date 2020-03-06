@@ -29,8 +29,7 @@ namespace YPS.Application.Teachers.Queries.GetTeachersByDiscipline
             public async Task<ICollection<TeachersByDisciplineVm>> Handle(GetTeachersByDisciplineQuery request, CancellationToken cancellationToken)
             {
                 var result = await _context.TeacherToDisciplines
-                    .Where(x => x.Teacher.User.SchoolId == request.SchoolId)
-                    .Where(x => x.Discipline.Id == request.DisciplineId)
+                    .Where(x => x.Teacher.User.SchoolId == request.SchoolId && x.Discipline.Id == request.DisciplineId)
                     .Select(x => x.Teacher)
                     .ProjectTo<TeachersByDisciplineVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();

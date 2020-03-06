@@ -56,7 +56,7 @@ namespace YPS.WebUI.Controllers
         [Authorize(Roles = "master, head-master, head-assistant")]
         public async Task<ActionResult<ICollection<TeachersByDisciplineVm>>> GetTeacherByDiscipline(long disciplineId)
         {
-            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetTeachersByDisciplineQuery
             {              
                 SchoolId = schoolId,
