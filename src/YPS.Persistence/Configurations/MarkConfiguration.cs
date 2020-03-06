@@ -15,7 +15,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.JournalColumn)
                 .WithMany(e => e.Marks)
-                .HasForeignKey(e => e.JournalColumnId);
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Pupil)
                 .WithMany(e => e.Marks)
@@ -26,8 +26,8 @@ namespace YPS.Persistence.Configurations
                 .WithMany(e => e.Marks)
                 .HasForeignKey(e => e.MarkTypeId);
 
-            builder.HasMany(e => e.Homeworks)
-                .WithOne(e => e.Mark);
+            builder.HasOne(e => e.Homework)
+                .WithMany(e => e.Marks);
         }
     }
 }

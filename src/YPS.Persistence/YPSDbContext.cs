@@ -30,7 +30,6 @@ namespace YPS.Persistence
         public DbSet<Parent> Parents { get; set; }
         public DbSet<ParentToPupil> ParentToPupils { get; set; }
         public DbSet<Pupil> Pupils { get; set; }
-        public DbSet<Schedule> Schedules { get; set; }
         public DbSet<School> Schools { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<TeacherToDiscipline> TeacherToDisciplines { get; set; }
@@ -39,6 +38,7 @@ namespace YPS.Persistence
         public DbSet<Role> Roles { get; set; }
         public DbSet<SchoolRequest> SchoolRequests { get; set; }
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+        public DbSet<Auditorium> Auditoriums { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
