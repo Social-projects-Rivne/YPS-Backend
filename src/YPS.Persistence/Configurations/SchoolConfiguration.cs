@@ -20,6 +20,9 @@ namespace YPS.Persistence.Configurations
             builder.HasMany(e => e.UpcomingEvents)
                 .WithOne(e => e.School);
 
+            builder.HasMany(e => e.Auditoriums)
+                .WithOne(e => e.School);
+
             builder.HasData(
                 new School { 
                     Id = 1, 
