@@ -16,7 +16,7 @@ namespace YPS.WebUI.Controllers
     public class UpcomingEventsController : ApiController
     {
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<UpcomingEventVm>>> GetUpcomingEventsBySchool()
+        public async Task<ActionResult<List<UpcomingEventByPupilVm>>> GetUpcomingEventsBySchool()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetUpcomingEventsBySchoolQuery { SchoolId = schoolId }));
@@ -24,7 +24,7 @@ namespace YPS.WebUI.Controllers
 
         [Authorize(Roles ="pupil")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<UpcomingEventVm>>> GetUpcomingEventsByPupil()
+        public async Task<ActionResult<List<UpcomingEventByPupilVm>>> GetUpcomingEventsByPupil()
         {   
             long pupilId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
