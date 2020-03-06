@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200305203542_changedproblems2.cs" />
-    <Compile Remove="Migrations\20200305203542_changedproblems2.Designer.cs" />
-    <Compile Remove="Migrations\20200305204309_fixedproblems2.cs" />
-    <Compile Remove="Migrations\20200305204309_fixedproblems2.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>

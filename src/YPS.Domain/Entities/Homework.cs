@@ -14,8 +14,6 @@ namespace YPS.Domain.Entities
             Marks = new HashSet<Mark>();
         }
         public string Title { get; set; }
-
-        public long JournalColumnId { get; set; }
         public JournalColumn JournalColumn { get; set; }
 
         public ICollection<Mark> Marks { get; set; }

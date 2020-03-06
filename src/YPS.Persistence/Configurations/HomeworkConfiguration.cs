@@ -17,7 +17,9 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Homework);
 
             builder.HasOne(e => e.JournalColumn)
-                .WithOne(e => e.Homework);
+                .WithOne(e => e.Homework)
+                .HasForeignKey<JournalColumn>(e => e.HomeworkId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
