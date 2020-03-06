@@ -13,7 +13,7 @@ namespace YPS.Persistence.Configurations
                 .HasMaxLength(10)
                 .IsRequired();
 
-            builder.HasMany(x => x.Schedules)
+            builder.HasMany(x => x.Lessons)
                 .WithOne(x => x.Day)
                 .HasForeignKey(x => x.DayId);
 
