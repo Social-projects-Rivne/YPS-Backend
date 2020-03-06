@@ -12,7 +12,7 @@ namespace YPS.WebUI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DisciplineController : ApiController
+    public class DisciplinesController : ApiController
     {
         [Authorize(Roles = "teacher")]
         [HttpGet("[action]")]

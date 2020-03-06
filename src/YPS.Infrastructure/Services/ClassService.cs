@@ -22,7 +22,7 @@ namespace YPS.Infrastructure.Services
             Class newClass = new Class
             {
                 Number = number,
-                Character = character,
+                Character = character.ToUpper(),
                 ClassTeacherId = teacherId
             };
 

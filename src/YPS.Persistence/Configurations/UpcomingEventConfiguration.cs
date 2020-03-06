@@ -45,6 +45,28 @@ namespace YPS.Persistence.Configurations
                 },
                 new UpcomingEvent
                 {
+                    Id = 6,
+                    ClassId = 1,
+                    SchoolId = 1,
+                    Title = "Visit to cinema 1-A",
+                    Content = "Our class is going to visit our city's cinema for watching historical film.",
+                    TeacherId = 1,
+                    TimeOfCreation = DateTime.Now,
+                    ScheduledDate = DateTime.Now.AddDays(3)
+                },
+                new UpcomingEvent
+                {
+                    Id = 5,
+                    ClassId = 1,
+                    SchoolId = 1,
+                    Title = "Collecting money on new tv for a 1-A",
+                    Content = "We will buy a new TV.",
+                    TeacherId = 1,
+                    TimeOfCreation = DateTime.Now,
+                    ScheduledDate = DateTime.Now.AddDays(3)
+                },
+                new UpcomingEvent
+                {
                     Id = 2,
                     ClassId = null,
                     SchoolId = 1,
