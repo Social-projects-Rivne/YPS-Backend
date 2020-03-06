@@ -11,11 +11,11 @@ namespace YPS.Domain.Entities
     {
         public Day()
         {
-            Schedules = new HashSet<Schedule>();
+            Lessons = new HashSet<Lesson>();
         }
 
         public string Name { get; set; }
 
-        public ICollection<Schedule> Schedules { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
     }
 }
