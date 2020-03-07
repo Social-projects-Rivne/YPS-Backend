@@ -20,8 +20,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.Class)
                 .WithMany(e => e.ClassToPupils)
-                .HasForeignKey
-                (e => e.ClassId)
+                .HasForeignKey(e => e.ClassId)
                 .IsRequired();
 
             builder.HasData(

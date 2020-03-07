@@ -39,8 +39,8 @@ namespace YPS.Persistence
         public DbSet<SchoolRequest> SchoolRequests { get; set; }
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
         public DbSet<Auditorium> Auditoriums { get; set; }
-
         public DbSet<ClassToPupil> ClassesToPupils { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(YPSDbContext).Assembly);

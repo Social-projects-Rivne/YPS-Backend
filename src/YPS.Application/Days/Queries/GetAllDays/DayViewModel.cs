@@ -11,6 +11,5 @@ namespace YPS.Application.Days.Queries.GetAllDays
     {
         public long Id { get; set; }
         public string Name { get; set; }
-
     }
 }

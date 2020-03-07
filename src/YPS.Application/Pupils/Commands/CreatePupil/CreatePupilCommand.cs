@@ -54,7 +54,6 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                             Id = createdUser.Id,
                         };
 
-                        
                         res.CreatedId = createdUser.Id;
                         _context.Pupils.Add(pupil);
                         await _context.SaveChangesAsync(cancellationToken);
