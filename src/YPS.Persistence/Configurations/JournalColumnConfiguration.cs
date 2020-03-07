@@ -10,12 +10,9 @@ namespace YPS.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<JournalColumn> builder)
         {
-            builder.Property(e => e.Theme)
+            builder.Property(e => e.Topic)
                 .IsRequired()
                 .HasMaxLength(255);
-
-            builder.Property(e => e.LessonDate)
-                .IsRequired();
 
             builder.HasMany(e => e.Marks)
                 .WithOne(e => e.JournalColumn)
