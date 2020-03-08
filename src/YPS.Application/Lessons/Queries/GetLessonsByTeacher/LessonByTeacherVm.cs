@@ -17,7 +17,7 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Lesson, LessonByTeacherVm>()
-                .ForMember(e => e.LessonDate, opt => opt.MapFrom(e => e.LessonDate.Date))
+                .ForMember(e => e.LessonDate, opt => opt.MapFrom(e => e.LessonDate.ToString("dd-MM")))
                 .ForMember(e => e.Auditorium, opt => opt.MapFrom(e => e.Auditorium.Number))
                 .ForMember(e => e.Day, opt => opt.MapFrom(e => e.Day.Name));
         }
