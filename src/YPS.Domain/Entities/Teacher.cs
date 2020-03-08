@@ -15,6 +15,7 @@ namespace YPS.Domain.Entities
             Classes = new HashSet<Class>();
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
             UpcomingEvents = new HashSet<UpcomingEvent>();
+            UpcomingTests = new HashSet<UpcomingTest>();
         }
         public long Id { get; set; }
         public string  Degree { get; set; }

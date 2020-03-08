@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
@@ -34,7 +35,7 @@ namespace YPS.Application.Pupils.Queries.GetPupilsById
                 .ForMember(
                     x => x.ClassName,
                     opts => opts.MapFrom(
-                        x => x.ClassOf.Number + " - " + x.ClassOf.Character)
+                        x => x.ClassToPupils.First().Class.Number + " - " + x.ClassToPupils.First().Class.Character)
                 )
                 .ForMember(
                     x => x.SchoolName,
