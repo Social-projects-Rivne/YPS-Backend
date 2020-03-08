@@ -12,15 +12,15 @@ namespace YPS.Domain.Entities
         {
             ParentToPupils = new HashSet<ParentToPupil>();
             Marks = new HashSet<Mark>();
+            ClassToPupils = new HashSet<ClassToPupil>();
         }
 
         public long Id { get; set; }
         public User User { get; set; }
 
-        public long ClassId { get; set; }
-        public Class ClassOf { get; set; }
         
         public ICollection<ParentToPupil> ParentToPupils { get; set; }
         public ICollection<Mark> Marks { get; set; }
+        public ICollection<ClassToPupil> ClassToPupils { get; set; }
     }
 }

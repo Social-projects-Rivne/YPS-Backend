@@ -34,7 +34,7 @@ namespace YPS.Application.UpcomingTests.Queries.GetUpcomingTestsByPupil
 
                 List<UpcomingTestVm> upcomingTests = await _context.UpcomingTests
                     .Where(x =>
-                        x.ClassId == pupil.ClassId &&
+                        x.ClassId == pupil.ClassToPupils.First().ClassId &&
                         x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingTestVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken); 

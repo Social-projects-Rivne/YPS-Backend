@@ -20,36 +20,46 @@ namespace YPS.Persistence.Configurations
                 .WithMany(x => x.Classes)
                 .HasForeignKey(x => x.ClassTeacherId);
 
-            builder.HasOne(x => x.Jornal)
+            builder.Property(e => e.YearFrom)
+                .HasDefaultValue(new DateTime(DateTime.Now.Year, 9, 1));
+
+            builder.Property(e => e.YearTo)
+                .HasDefaultValue(new DateTime(DateTime.Now.Year + 1, 6, 1));
+
+            builder.HasMany(e => e.ClassToPupils)
+                .WithOne(e => e.Class);
+
+            builder.HasOne(x => x.Journal)
                 .WithOne(x => x.Class)
                 .HasForeignKey<Journal>(x => x.ClassId);
 
-            builder.HasMany(e => e.Lessons)
-                .WithOne(e => e.Class);
-
             builder.HasData(
-                new Class { 
-                    Id = 1, 
-                    Number = 1, 
+                new Class
+                {
+                    Id = 1,
+                    Number = 1,
                     Character = "a",
-                    ClassTeacherId = 2 
+                    ClassTeacherId = 2,
                 },
-                new Class {
+                new Class
+                {
                     Id = 2,
-                    Number = 3, 
-                    Character = "c", 
-                    ClassTeacherId = 1 
+                    Number = 3,
+                    Character = "c",
+                    ClassTeacherId = 1
                 },
-                new Class { 
+                new Class
+                {
                     Id = 3,
                     Number = 11,
-                    Character = "b", 
+                    Character = "b",
                     ClassTeacherId = 3
                 },
-                new Class { 
+                new Class
+                {
                     Id = 4,
-                    Number = 9, 
-                    Character = "q", 
+                    Number = 9,
+                    Character = "q",
                     ClassTeacherId = 4
                 }
             );
