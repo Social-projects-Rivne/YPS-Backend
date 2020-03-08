@@ -14,9 +14,9 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
 {
     public sealed class GetLessonsByTeacherQuery : IRequest<List<LessonByTeacherVm>>
     {
-        public long TeacherId { get; set; } 
+        public long TeacherId { get; set; }
 
-        public class Handler: IRequestHandler<GetLessonsByTeacherQuery, List<LessonByTeacherVm>>
+        public class Handler : IRequestHandler<GetLessonsByTeacherQuery, List<LessonByTeacherVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
@@ -30,11 +30,11 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
             public async Task<List<LessonByTeacherVm>> Handle(GetLessonsByTeacherQuery request, CancellationToken cancellationToken)
             {
                 List<LessonByTeacherVm> result = await _context.Lessons
-                    .Where(t=>t.TeacherToDiscipline.TeacherId == request.TeacherId)
+                    .Where(t => t.TeacherToDiscipline.TeacherId == request.TeacherId).OrderBy(e => e.LessonDate)
                     .ProjectTo<LessonByTeacherVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
-                    return result;
+                return result;
             }
         }
     }
