@@ -18,6 +18,9 @@ namespace YPS.Domain.Entities
         public long AuditoriumId { get; set; }
         public Auditorium Auditorium { get; set; }
 
+        public long DisciplineId { get; set; }
+        public Discipline Discipline { get; set; }
+
         public long ClassId { get; set; }
         public Class Class { get; set; }
 

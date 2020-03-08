@@ -23,6 +23,11 @@ namespace YPS.Persistence.Configurations
                 .HasForeignKey(e => e.ClassId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.HasOne(e => e.Discipline)
+                .WithMany(e => e.Lessons)
+                .HasForeignKey(e => e.DisciplineId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasOne(e => e.JournalColumn)
                 .WithOne(e => e.Lesson);
 
