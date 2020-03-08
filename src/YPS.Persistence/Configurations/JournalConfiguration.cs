@@ -13,7 +13,7 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.Journal);
 
             builder.HasOne(e => e.Class)
-                .WithOne(e => e.Jornal);
+                .WithOne(e => e.Journal);
         }
     }
 }

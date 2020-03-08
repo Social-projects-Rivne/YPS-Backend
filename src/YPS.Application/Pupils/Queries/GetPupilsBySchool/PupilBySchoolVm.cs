@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AutoMapper;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
@@ -25,7 +26,7 @@ namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
                 .ForMember(x=>x.Email, opt=>opt.MapFrom(x=>x.User.Email))
                 .ForMember(x=>x.DateOfBirth, opt=>opt.MapFrom(x=>x.User.DateOfBirth))
                 .ForMember(x=>x.Id,opt=>opt.MapFrom(x=>x.User.Id))
-                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassOf.Number+"-" + x.ClassOf.Character));
+                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassToPupils.First().Class.Number+"-" + x.ClassToPupils.First().Class.Character));
         }
     }
 }

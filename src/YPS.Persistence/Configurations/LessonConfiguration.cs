@@ -9,6 +9,9 @@ namespace YPS.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Lesson> builder)
         {
+            builder.Property(e => e.LessonDate)
+               .IsRequired();
+
             builder.HasOne(e => e.JournalColumn)
                 .WithOne(e => e.Lesson);
 
