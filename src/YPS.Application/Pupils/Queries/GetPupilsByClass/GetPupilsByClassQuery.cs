@@ -26,10 +26,10 @@ namespace YPS.Application.Pupils.Queries.GetPupilsByClass
                 _context = context;
                 _mapper = mapper;
             }
-            public async Task<List<PupilByClassVm>> Handle(GetPupilsByClassQuery request, CancellationToken cancellationToken)
+            public async Task<List<PupilByClassVm>> Handle(GetPupilsByClassQuery request, CancellationToken cancellationToken) //work well
             {
                 List<PupilByClassVm> result = await _context.Pupils
-                    .Where(p => p.ClassToPupils.First().ClassId == request.ClassId)
+                    .Where(p => p.ClassToPupils.First(x => x.ClassId == request.ClassId).ClassId == request.ClassId)
                     .ProjectTo<PupilByClassVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
