@@ -18,8 +18,8 @@ namespace YPS.Domain.Entities
         public long AuditoriumId { get; set; }
         public Auditorium Auditorium { get; set; }
 
-        public long DayId { get; set; }
-        public Day Day { get; set; }
+        public long ClassId { get; set; }
+        public Class Class { get; set; }
 
         public long TeacherToDisciplineId { get; set; }
         public TeacherToDiscipline TeacherToDiscipline { get; set; }

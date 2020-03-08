@@ -14,8 +14,9 @@ namespace YPS.Domain.Entities
             Pupils = new HashSet<Pupil>();
             UpcomingEvents = new HashSet<UpcomingEvent>();
             UpcomingTests = new HashSet<UpcomingTest>();
+            Lessons = new HashSet<Lesson>();
         }
-        
+
         public long Number { get; set; }
         public string Character { get; set; }
 
@@ -25,6 +26,7 @@ namespace YPS.Domain.Entities
         public Journal Jornal { get; set; }
 
         public ICollection<Pupil> Pupils { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public ICollection<UpcomingTest> UpcomingTests { get; set; }
     }

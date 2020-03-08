@@ -12,6 +12,17 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.LessonDate)
                .IsRequired();
 
+            builder.Property(e => e.LessonNumber)
+               .IsRequired();
+
+            builder.Property(e => e.LessonTimeGap)
+               .IsRequired();
+
+            builder.HasOne(e => e.Class)
+                .WithMany(e => e.Lessons)
+                .HasForeignKey(e => e.ClassId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasOne(e => e.JournalColumn)
                 .WithOne(e => e.Lesson);
 
