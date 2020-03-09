@@ -11,6 +11,7 @@ namespace YPS.Domain.Entities
     {
         public Teacher()
         {
+            Lessons = new HashSet<Lesson>();
             Materials = new HashSet<Material>();
             Classes = new HashSet<Class>();
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
@@ -21,6 +22,8 @@ namespace YPS.Domain.Entities
         public string  Degree { get; set; }
         
         public User User { get; set; }
+
+        public ICollection<Lesson> Lessons { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public ICollection<Class> Classes { get; set; }
         public ICollection<Material> Materials { get; set; }

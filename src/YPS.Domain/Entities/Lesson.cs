@@ -21,10 +21,10 @@ namespace YPS.Domain.Entities
         public long DisciplineId { get; set; }
         public Discipline Discipline { get; set; }
 
+        public long TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
+
         public long ClassId { get; set; }
         public Class Class { get; set; }
-
-        public long TeacherToDisciplineId { get; set; }
-        public TeacherToDiscipline TeacherToDiscipline { get; set; }
     }
 }
