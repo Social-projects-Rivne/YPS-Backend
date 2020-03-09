@@ -12,7 +12,6 @@ namespace YPS.Application.Interfaces
     {
         DbSet<User> Users { get; set; }
         DbSet<Class> Classes { get; set; }
-        DbSet<Day> Days { get; set; }
         DbSet<Discipline> Disciplines { get; set; }
         DbSet<Homework> Homeworks { get; set; }
         DbSet<Journal> Journals { get; set; }
