@@ -30,7 +30,7 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
             public async Task<List<LessonByTeacherVm>> Handle(GetLessonsByTeacherQuery request, CancellationToken cancellationToken)
             {
                 List<LessonByTeacherVm> result = await _context.Lessons
-                    .Where(t => t.TeacherToDiscipline.TeacherId == request.TeacherId).OrderBy(e => e.LessonDate)
+                    .Where(t => t.TeacherId == request.TeacherId && t.LessonDate.Month == DateTime.Now.Month).OrderBy(e => e.LessonDate)
                     .ProjectTo<LessonByTeacherVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
