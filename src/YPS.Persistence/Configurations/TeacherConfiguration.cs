@@ -12,16 +12,19 @@ namespace YPS.Persistence.Configurations
             builder.Property(e => e.Degree)
                 .HasMaxLength(256);
 
+            builder.HasOne(e => e.User)
+                .WithOne(e => e.Teacher)
+                .HasForeignKey<Teacher>(e => e.Id)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasMany(e => e.Classes)
                 .WithOne(e => e.TeacherOf);
 
             builder.HasMany(e => e.Materials)
                 .WithOne(e => e.Teacher);
 
-            builder.HasOne(e => e.User)
-                .WithOne(e => e.Teacher)
-                .HasForeignKey<Teacher>(e => e.Id)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(e => e.Lessons)
+                .WithOne(e => e.Teacher);
 
             builder.HasMany(e => e.TeacherToDisciplines)
                 .WithOne(e => e.Teacher);
