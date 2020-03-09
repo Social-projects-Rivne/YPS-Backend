@@ -16,8 +16,6 @@ namespace YPS.WebUI.Controllers
     {
         [HttpPost("[action]")]
         [Authorize(Roles = "admin")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         public async Task<ActionResult<SchoolViewModel>> Approve([FromBody] ApproveSchoolRequestCommand command)
         {
             var response = await this.Mediator.Send(command);
@@ -26,8 +24,6 @@ namespace YPS.WebUI.Controllers
 
         [HttpDelete]
         [Authorize(Roles = "admin")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         public async Task<ActionResult<RemoveRequestViewModel>> Disapprove([FromQuery] DisapproveSchoolRequestCommand command)
         {
             var response = await this.Mediator.Send(command);
@@ -36,8 +32,6 @@ namespace YPS.WebUI.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         public async Task<ActionResult<ICollection<SchoolRequestVm>>> GetSchoolRequests()
         {
             var vm = await this.Mediator.Send(new GetUnviewedSchoolRequestsQuery());
