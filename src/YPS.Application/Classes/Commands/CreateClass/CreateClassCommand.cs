@@ -33,7 +33,7 @@ namespace YPS.Application.Classes.Commands.CreateClass
             {
                 CreatedResponse res = new CreatedResponse();
 
-                IDictionary<string, string> failures = await _classService.CheckFailures(request.Number, request.Character, request.ClassTeacherId);
+                IDictionary<string, string> failures = _classService.CheckFailures(request.Number, request.Character);
 
                 res.Failures = failures;
 
