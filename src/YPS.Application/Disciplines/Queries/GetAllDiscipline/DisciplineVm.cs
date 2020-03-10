@@ -6,7 +6,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
 {
-    public class GetAllDisciplinesVm : IMapFrom<Discipline>
+    public class DisciplineVm : IMapFrom<Discipline>
     {
         public long Id { get; set; }
         public string Name { get; set; }
