@@ -74,7 +74,7 @@ namespace YPS.WebUI.Controllers
 
         [Authorize(Roles = "head-master, master, head-assistant")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetClassTeachersBySchoolShort()
+        public async Task<ActionResult<List<TeacherBySchoolVm>>> GetTeachersBySchoolShort()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetTeacherBySchoolShortQuery { SchoolId = schoolId }));
