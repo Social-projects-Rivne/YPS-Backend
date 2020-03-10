@@ -14,12 +14,12 @@ namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
 {
     public class GetAllDisciplinesQuery : IRequest<List<GetAllDisciplinesVm>>
     {
-        public class GetAllDisciplineQueryHandler : IRequestHandler<GetAllDisciplinesQuery, List<GetAllDisciplinesVm>>
+        public class GetAllDisciplinesQueryHandler : IRequestHandler<GetAllDisciplinesQuery, List<GetAllDisciplinesVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
 
-            public GetAllDisciplineQueryHandler(IYPSDbContext context, IMapper mapper)
+            public GetAllDisciplinesQueryHandler(IYPSDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
