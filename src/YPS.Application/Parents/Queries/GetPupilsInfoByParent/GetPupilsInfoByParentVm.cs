@@ -27,7 +27,7 @@ namespace YPS.Application.Parents.Queries.GetPupilsInfoByParent
                .ForMember(
                    x => x.ClassName,
                    opts => opts.MapFrom(
-                       x => x.PupilOf.ClassOf.Number + " - " + x.PupilOf.ClassOf.Character
+                       x => x.PupilOf.ClassToPupils.First().Class.Number + " - " + x.PupilOf.ClassToPupils.FirstOrDefault().Class.Character //solo
                    )
                );
        }

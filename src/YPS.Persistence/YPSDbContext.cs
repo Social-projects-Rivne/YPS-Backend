@@ -12,13 +12,10 @@ namespace YPS.Persistence
 {
     public class YPSDbContext : DbContext, IYPSDbContext
     {
-        public YPSDbContext(DbContextOptions<YPSDbContext> options) : base(options)
-        {
+        public YPSDbContext(DbContextOptions<YPSDbContext> options) : base(options) { }
 
-        }
         public DbSet<User> Users { get; set; }
         public DbSet<Class> Classes { get; set; }
-        public DbSet<Day> Days { get; set; }
         public DbSet<Discipline> Disciplines { get; set; }
         public DbSet<Homework> Homeworks { get; set; }
         public DbSet<Journal> Journals { get; set; }
@@ -39,6 +36,7 @@ namespace YPS.Persistence
         public DbSet<SchoolRequest> SchoolRequests { get; set; }
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
         public DbSet<Auditorium> Auditoriums { get; set; }
+        public DbSet<ClassToPupil> ClassesToPupils { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

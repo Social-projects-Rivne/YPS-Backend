@@ -19,7 +19,7 @@ namespace YPS.Application.Classes.Queries.GetClassesBySchoolWithFullInfo
         {
             profile.CreateMap<Class, ClassWithFullInfoVm>()
                 .ForMember(c => c.TeacherFullName, opt => opt.MapFrom(c => $"{c.TeacherOf.User.FirstName} {c.TeacherOf.User.Surname} {c.TeacherOf.User.MiddleName}"))
-                .ForMember(c => c.ChildrenCount, opt => opt.MapFrom(c => c.Pupils.Count));
+                .ForMember(c => c.ChildrenCount, opt => opt.MapFrom(c => c.ClassToPupils.Count));
         }
     }
 }

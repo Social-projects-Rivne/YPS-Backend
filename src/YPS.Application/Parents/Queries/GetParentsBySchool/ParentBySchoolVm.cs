@@ -28,7 +28,7 @@ namespace YPS.Application.Parents.GetParentsBySchool
                 .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
                 .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
                 .ForMember(x => x.Children, opt => opt.MapFrom(x => x.ParentToPupils.Select(y => y.PupilOf.User.FirstName + " " + y.PupilOf.User.Surname + " " + y.PupilOf.User.MiddleName
-                          + " Class:" + y.PupilOf.ClassOf.Number.ToString() + "-" + y.PupilOf.ClassOf.Character + "\n")));
+                          + " Class:" + y.PupilOf.ClassToPupils.First().Class.Number.ToString() + " - " + y.PupilOf.ClassToPupils.First().Class.Character + "\n")));
                 
         }
     }

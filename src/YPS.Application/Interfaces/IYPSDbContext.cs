@@ -12,7 +12,6 @@ namespace YPS.Application.Interfaces
     {
         DbSet<User> Users { get; set; }
         DbSet<Class> Classes { get; set; }
-        DbSet<Day> Days { get; set; }
         DbSet<Discipline> Disciplines { get; set; }
         DbSet<Homework> Homeworks { get; set; }
         DbSet<Journal> Journals { get; set; }
@@ -33,6 +32,8 @@ namespace YPS.Application.Interfaces
         DbSet<SchoolRequest> SchoolRequests { get; set; }
         DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
         DbSet<Auditorium> Auditoriums { get; set; }
+        DbSet<ClassToPupil> ClassesToPupils { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
