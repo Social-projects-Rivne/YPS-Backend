@@ -27,28 +27,28 @@ namespace YPS.Persistence.Configurations
                 new Auditorium 
                 {
                     Id = 1,
-                    SchoolId = 1,
+                    SchoolId = 2,
                     Number = 101,
                     Name = "Historical"
                 },
                 new Auditorium 
                 {
                     Id = 2,
-                    SchoolId = 1,
+                    SchoolId = 2,
                     Number = 102,
                     Name = "Geographical"
                 },
                 new Auditorium
                 {
                     Id = 3,
-                    SchoolId = 1,
+                    SchoolId = 2,
                     Number = 103,
                     Name = "Foreign"
                 },
                 new Auditorium
                 {
                     Id = 4,
-                    SchoolId = 1,
+                    SchoolId = 2,
                     Number = 104,
                     Name = "Literary"
                 },
@@ -58,7 +58,15 @@ namespace YPS.Persistence.Configurations
                     SchoolId = 2,
                     Number = 323,
                     Name = "Astronomical"
-                });
+                },
+                new Auditorium
+                {
+                Id = 6,
+                    SchoolId = 2,
+                    Number = 323,
+                    Name = "Astronomical"
+                }
+            );
         }
     }
 }
