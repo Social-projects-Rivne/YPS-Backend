@@ -7,7 +7,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using YPS.Application.Disciplines.Queries.GetDisciplinesByTeacher;
+using YPS.Application.Disciplines.Queries.GetAllDiscipline;
 using YPS.Application.Interfaces;
 
 namespace YPS.Application.Disciplines.Queries.GetAllDiscipline

@@ -17,7 +17,7 @@ namespace YPS.WebUI.Controllers
     {
         [Authorize(Roles = "teacher")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<DisciplineVm>>> GetDisciplinesByTeacherAsync()
+        public async Task<ActionResult<List<DisciplineShortVm>>> GetDisciplinesByTeacherAsync()
         {
             long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
