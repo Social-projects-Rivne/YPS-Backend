@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using YPS.Application.Disciplines.Queries.GetAllDiscipline;
 using YPS.Application.Disciplines.Queries.GetDisciplinesByTeacher;
 
 namespace YPS.WebUI.Controllers
@@ -21,6 +22,13 @@ namespace YPS.WebUI.Controllers
             long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             return Ok(await Mediator.Send(new GetDisciplinesByTeacherQuery { TeacherId = teacherId }));
+        }
+
+        [Authorize(Roles = "head-assistant")]
+        [HttpGet("[action]")]
+        public async Task<ActionResult<List<GetAllDisciplinesVm>>> GetAllDisciplinesAsync()
+        {
+            return Ok(await Mediator.Send(new GetAllDisciplinesQuery()));
         }
     }
 }
