@@ -57,7 +57,12 @@ namespace YPS.Persistence.Configurations
                 new Teacher { Id = 27 }, //master
                 new Teacher { Id = 28 },
                 new Teacher { Id = 29 }, //head-master
-                new Teacher { Id = 30 }
+                new Teacher { Id = 30 },
+                new Teacher
+                {
+                    Id = 42,
+                    Degree = "Best teacher of the Year"
+                }
             );
         }
     }
