@@ -26,7 +26,7 @@ namespace YPS.WebUI.Controllers
 
         [Authorize(Roles = "head-assistant")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<GetAllDisciplinesVm>>> GetAllDisciplinesAsync()
+        public async Task<ActionResult<List<DisciplineShortVm>>> GetAllDisciplinesAsync()
         {
             return Ok(await Mediator.Send(new GetAllDisciplinesQuery()));
         }
