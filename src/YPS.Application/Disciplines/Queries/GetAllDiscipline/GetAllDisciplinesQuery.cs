@@ -12,9 +12,9 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
 {
-    public class GetAllDisciplineQuery : IRequest<List<GetAllDisciplineVm>>
+    public class GetAllDisciplinesQuery : IRequest<List<GetAllDisciplinesVm>>
     {
-        public class GetAllDisciplineQueryHandler : IRequestHandler<GetAllDisciplineQuery, List<GetAllDisciplineVm>>
+        public class GetAllDisciplineQueryHandler : IRequestHandler<GetAllDisciplinesQuery, List<GetAllDisciplinesVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
@@ -25,9 +25,9 @@ namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
                 _mapper = mapper;
             }
 
-            public async Task<List<GetAllDisciplineVm>> Handle(GetAllDisciplineQuery request, CancellationToken cancellationToken)
+            public async Task<List<GetAllDisciplinesVm>> Handle(GetAllDisciplinesQuery request, CancellationToken cancellationToken)
             {
-                List<GetAllDisciplineVm> disciplines = await _context.Disciplines.ProjectTo<GetAllDisciplineVm>(_mapper.ConfigurationProvider).ToListAsync();
+                List<GetAllDisciplinesVm> disciplines = await _context.Disciplines.ProjectTo<GetAllDisciplinesVm>(_mapper.ConfigurationProvider).ToListAsync();
 
                 return disciplines;
             }
