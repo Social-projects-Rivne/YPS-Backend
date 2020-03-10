@@ -5,7 +5,6 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-
 namespace YPS.Application.Auditoriums.Queries.GetAvailableAuditoriums
 {
     public class AvailableAuditoriumVm : IMapFrom<Auditorium>
