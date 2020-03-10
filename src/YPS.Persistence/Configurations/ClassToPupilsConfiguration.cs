@@ -73,6 +73,56 @@ namespace YPS.Persistence.Configurations
                 {
                     ClassId = 4,
                     PupilId = 24
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 32
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 33
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 34
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 35
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 36
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 37
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 38
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 39
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 40
+                },
+                new ClassToPupil
+                {
+                    ClassId = 5,
+                    PupilId = 41
                 });
         }
     }

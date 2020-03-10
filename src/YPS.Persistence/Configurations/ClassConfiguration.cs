@@ -61,6 +61,13 @@ namespace YPS.Persistence.Configurations
                     Number = 9,
                     Character = "q",
                     ClassTeacherId = 4
+                },
+                new Class
+                {
+                    Id = 5,
+                    Number = 9,
+                    Character = "b",
+                    ClassTeacherId = 42
                 }
             );
         }
