@@ -450,6 +450,188 @@ namespace YPS.Persistence.Configurations
                     DateOfBirth = new DateTime(2000, 4, 8),
                     RoleId = 7,
                     SchoolId = null
+                },
+                new User
+                {
+                    Id = 32,
+                    FirstName = "Dania",
+                    Surname = "Sapelnik",
+                    MiddleName = "Oleksandrovich",
+                    PhoneNumber = "0986969659",
+                    Email = "pupil11@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil11").ToArray()),
+                    DateOfBirth = new DateTime(2004, 9, 25),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 33,
+                    FirstName = "Timur",
+                    Surname = "Habrel",
+                    MiddleName = "Yuriyovich",
+                    PhoneNumber = "0966907769",
+                    Email = "pupil12@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil12").ToArray()),
+                    DateOfBirth = new DateTime(2004, 7, 7),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 34,
+                    FirstName = "Vitaliy",
+                    Surname = "Ostapchuk",
+                    MiddleName = "Olegovich",
+                    PhoneNumber = "0555689477",
+                    Email = "pupil13@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil13").ToArray()),
+                    DateOfBirth = new DateTime(2004, 8, 28),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 35,
+                    FirstName = "Karina",
+                    Surname = "Pruvarskia",
+                    MiddleName = "Petriivna",
+                    PhoneNumber = "0986969659",
+                    Email = "pupil14@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil14").ToArray()),
+                    DateOfBirth = new DateTime(2004, 1, 20),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 36,
+                    FirstName = "Chrustina",
+                    Surname = "Boyarchuk",
+                    MiddleName = "Petriivna",
+                    PhoneNumber = "096957877",
+                    Email = "pupil15@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil15").ToArray()),
+                    DateOfBirth = new DateTime(2004, 5, 10),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 37,
+                    FirstName = "Vitaliy",
+                    Surname = "Bruchuk",
+                    MiddleName = "Andriyovich",
+                    PhoneNumber = "098569694",
+                    Email = "pupil16@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil16").ToArray()),
+                    DateOfBirth = new DateTime(2004, 11, 10),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 38,
+                    FirstName = "Misha",
+                    Surname = "Hubin",
+                    MiddleName = "Nazarovich",
+                    PhoneNumber = "096878318",
+                    Email = "pupil17@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil17").ToArray()),
+                    DateOfBirth = new DateTime(2004, 4, 8),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 39,
+                    FirstName = "Maksum",
+                    Surname = "Pavliuk",
+                    MiddleName = "Pavlovich",
+                    PhoneNumber = "0506874123",
+                    Email = "pupil18@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil18").ToArray()),
+                    DateOfBirth = new DateTime(2004, 5, 12),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 40,
+                    FirstName = "Pavlo",
+                    Surname = "Zamryga",
+                    MiddleName = "Yuriyovich",
+                    PhoneNumber = "096878318",
+                    Email = "pupil19@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil19").ToArray()),
+                    DateOfBirth = new DateTime(2004, 9, 6),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 41,
+                    FirstName = "Anton",
+                    Surname = "Kozack",
+                    MiddleName = "Andriyovich",
+                    PhoneNumber = "050878563",
+                    Email = "pupil20@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("pupil20").ToArray()),
+                    DateOfBirth = new DateTime(2004, 5, 6),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 42,
+                    FirstName = "Taras",
+                    Surname = "Pilypchuk",
+                    MiddleName = "Kostyantinovich",
+                    PhoneNumber = "0501669605",
+                    Email = "teacher5@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher5").ToArray()),
+                    DateOfBirth = new DateTime(1979, 5, 6),
+                    RoleId = 2,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 43,
+                    FirstName = "Oleksandr",
+                    Surname = "Burchenya",
+                    MiddleName = "Vasilovich",
+                    PhoneNumber = "0555689477",
+                    Email = "teacher6@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher6").ToArray()),
+                    DateOfBirth = new DateTime(2004, 8, 28),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 44,
+                    FirstName = "Olena",
+                    Surname = "Zayva",
+                    MiddleName = "Anatoliivna",
+                    PhoneNumber = "0986969659",
+                    Email = "teacher7@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher7").ToArray()),
+                    DateOfBirth = new DateTime(2004, 1, 20),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 45,
+                    FirstName = "Svitlana",
+                    Surname = "Korjevska",
+                    MiddleName = "Andriivna",
+                    PhoneNumber = "096957877",
+                    Email = "teacher8@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher8").ToArray()),
+                    DateOfBirth = new DateTime(2004, 5, 10),
+                    RoleId = 1,
+                    SchoolId = 2
                 }
             );
         }

@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Net.Sockets;
-using System.Text;
-using YPS.Domain.Entities.Base;
-
-namespace YPS.Domain.Entities
+﻿namespace YPS.Domain.Entities
 {
-    public class TeacherToDiscipline : EntityBase
+    public class TeacherToDiscipline
     {
         public long DisciplineId { get; set; }
         public Discipline Discipline { get; set; }
