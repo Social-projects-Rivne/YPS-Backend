@@ -32,7 +32,17 @@ namespace YPS.Persistence.Configurations
                 new Pupil { Id = 21 },
                 new Pupil { Id = 22 },
                 new Pupil { Id = 23 },
-                new Pupil { Id = 24 }
+                new Pupil { Id = 24 },
+                new Pupil { Id = 32 },
+                new Pupil { Id = 33 },
+                new Pupil { Id = 34 },
+                new Pupil { Id = 35 },
+                new Pupil { Id = 36 },
+                new Pupil { Id = 37 },
+                new Pupil { Id = 38 },
+                new Pupil { Id = 39 },
+                new Pupil { Id = 40 },
+                new Pupil { Id = 41 }
             );
         }
     }
