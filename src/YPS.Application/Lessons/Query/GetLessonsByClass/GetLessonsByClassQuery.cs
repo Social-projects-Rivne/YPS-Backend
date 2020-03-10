@@ -30,16 +30,27 @@ namespace YPS.Application.Lessons.Query.GetLessonsByClass
             {
                 var lessons = _context.Lessons
                     .Where(x => x.ClassId == request.ClassId && x.LessonDate.Month == DateTime.Now.Month)
-                    .OrderBy(x => x.LessonDate);
+                    .OrderBy(x=>x.LessonDate);
                 ICollection<GetLessonsByClassVm> vm = new List<GetLessonsByClassVm>();
                 foreach (var lesson in lessons)
                 {
-                    vm.Add(new GetLessonsByClassVm
+                    if (vm.FirstOrDefault(x => x.Date == lesson.LessonDate.ToString("MMMM dd")) == null)
                     {
-                        Date = lesson.LessonDate.ToString("MMMM dd"),
-                        DayName = lesson.LessonDate.DayOfWeek.ToString(),
-                        Items = await lessons.Where(x=>x.LessonDate.Day==lesson.LessonDate.Day).ProjectTo<LessonByClassDto>(_mapper.ConfigurationProvider).ToListAsync()
-                    });
+                        vm.Add(new GetLessonsByClassVm
+                        {
+                            Date = lesson.LessonDate.ToString("MMMM dd"),
+                            DayName = lesson.LessonDate.DayOfWeek.ToString(),
+                            Items = await lessons
+                        .Where(x => x.LessonDate.Day == lesson.LessonDate.Day)
+                        .ProjectTo<LessonByClassDto>(_mapper.ConfigurationProvider)
+                        .ToListAsync()
+                        });
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    
                 }
                 return vm;
             }
