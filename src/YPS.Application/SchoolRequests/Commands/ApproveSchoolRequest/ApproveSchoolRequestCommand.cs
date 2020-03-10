@@ -42,11 +42,9 @@ namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
                     RegistrationLink = guidLink
                 };
                 _dbContext.Schools.Add(school);
-                await _dbContext.SaveChangesAsync(cancellationToken);
-
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
                 await _dbContext.SaveChangesAsync(cancellationToken);
-
+                
                 return new SchoolViewModel { Id = request.Id };
             }
         }
