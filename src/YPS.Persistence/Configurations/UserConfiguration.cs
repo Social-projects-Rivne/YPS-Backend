@@ -593,6 +593,50 @@ namespace YPS.Persistence.Configurations
                     DateOfBirth = new DateTime(1979, 5, 6),
                     RoleId = 2,
                     SchoolId = 2
+                },
+
+                ////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////
+
+                new User
+                {
+                    Id = 43,
+                    FirstName = "Oleksandr",
+                    Surname = "Burchenya",
+                    MiddleName = "Vasilovich",
+                    PhoneNumber = "0555689477",
+                    Email = "teacher6@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher6").ToArray()),
+                    DateOfBirth = new DateTime(2004, 8, 28),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 44,
+                    FirstName = "Olena",
+                    Surname = "Zayva",
+                    MiddleName = "Anatoliivna",
+                    PhoneNumber = "0986969659",
+                    Email = "teacher7@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher7").ToArray()),
+                    DateOfBirth = new DateTime(2004, 1, 20),
+                    RoleId = 1,
+                    SchoolId = 2
+                },
+                new User
+                {
+                    Id = 45,
+                    FirstName = "Svitlana",
+                    Surname = "Korjevska",
+                    MiddleName = "Andriivna",
+                    PhoneNumber = "096957877",
+                    Email = "teacher8@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("teacher8").ToArray()),
+                    DateOfBirth = new DateTime(2004, 5, 10),
+                    RoleId = 1,
+                    SchoolId = 2
                 }
             );
         }
