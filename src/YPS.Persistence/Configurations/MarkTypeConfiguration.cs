@@ -19,6 +19,26 @@ namespace YPS.Persistence.Configurations
 
             builder.HasMany(e => e.Marks)
                 .WithOne(e => e.MarkType);
+
+            builder.HasData(
+                new MarkType()
+                {
+                    Id = 1,
+                    Type = "Class work",
+                    Description = "You can get this mark by working hardly at lesson"
+                },
+                new MarkType()
+                {
+                    Id = 2,
+                    Type = "Home work",
+                    Description = "You can get this mark by doing your homework"
+                },
+                new MarkType()
+                {
+                    Id = 3,
+                    Type = "Test",
+                    Description = "You can get this mark by finishing your tets"
+                });
         }
     }
 }
