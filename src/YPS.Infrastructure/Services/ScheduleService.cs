@@ -30,6 +30,8 @@ namespace YPS.Infrastructure.Services
                 firstDayOfWeek = firstDayOfWeek.AddDays(1);
             }
 
+            vm = vm.Where(x => x.Items.Count != 0).ToList();
+
             return vm;
         }
     }

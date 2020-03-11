@@ -37,12 +37,13 @@ namespace YPS.Application.Schedule.Queries.GetScheduleForPupil
             {
                 DateTime firstDay = _dateTimeSevice.GetFirstDayOfWeek();
 
-                Pupil pupil = await _context.Pupils.SingleOrDefaultAsync(x => x.Id == request.Id);
-
-                Class pupilsClass = await _context.Classes.FirstAsync(x => x.YearFrom.Year == DateTime.Now.Year || x.YearTo.Year == DateTime.Now.Year);
+                Class classOfPupil = await _context.ClassesToPupils
+                    .Where(x => x.PupilId == request.Id)
+                    .Select(x => x.Class)
+                    .FirstOrDefaultAsync(x => x.YearFrom == DateTime.Now.Year || x.YearTo == DateTime.Now.Year);
 
                 List<ScheduleItemDto> lessons = await _context.Lessons
-                    .Where(x => x.Class.Id == pupilsClass.Id && x.LessonDate >= firstDay && x.LessonDate <= firstDay.AddDays(7))
+                    .Where(x => x.Class.Id == classOfPupil.Id && x.LessonDate >= firstDay && x.LessonDate <= firstDay.AddDays(7))
                     .ProjectTo<ScheduleItemDto>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
