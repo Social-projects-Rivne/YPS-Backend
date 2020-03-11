@@ -36,25 +36,19 @@ namespace YPS.Infrastructure.Services
 
         private bool CharacterValidation(string character) => character.Length == 1;
 
-        private async Task<bool> NotUniq(long teacherId) =>
-            await _context.Classes.AnyAsync(x => x.ClassTeacherId == teacherId);
 
-        public async Task<IDictionary<string, string>> CheckFailures(long number, string character, long teacherId)
+        public IDictionary<string, string> CheckFailures(long number, string character)
         {
             IDictionary<string, string> failures = new Dictionary<string, string>();
 
             bool numberValid = NumberValidation(number);
             bool characterValid = CharacterValidation(character);
-            bool notUniq = await NotUniq(teacherId);
 
             if (numberValid == false)
                 failures.Add("number", "number of the class is not valid");
 
             if (characterValid == false)
                 failures.Add("character", "character is not valid");
-
-            if (notUniq == true)
-                failures.Add("classTeacherId", "this teacher is already class-teacher");
 
             return failures;
         }
