@@ -5,7 +5,7 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Schedule.Queries.GetScheduleForTeacher
+namespace YPS.Application.Schedule.Models
 {
     public class ScheduleItemDto : IMapFrom<Lesson>
     {

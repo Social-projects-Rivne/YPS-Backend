@@ -143,9 +143,11 @@ namespace YPS.WebUI
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMailSenderService, MailSenderService>();
             services.AddTransient<IClassService, ClassService>();
+            services.AddTransient<IDateTimeSevice, DateTimeService>();
+            services.AddTransient<IScheduleService, ScheduleService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c =>
