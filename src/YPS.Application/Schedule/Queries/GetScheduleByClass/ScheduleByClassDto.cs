@@ -5,9 +5,9 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Lessons.Query.GetLessonsByClass
+namespace YPS.Application.Schedule.Query.GetScheduleByClass
 {
-    public class LessonByClassDto : IMapFrom<Lesson>
+    public class ScheduleByClassDto : IMapFrom<Lesson>
     {
         public string LessonNumber { get; set; }
         public string Discipline { get; set; }
@@ -17,7 +17,7 @@ namespace YPS.Application.Lessons.Query.GetLessonsByClass
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Lesson, LessonByClassDto>()
+            profile.CreateMap<Lesson, ScheduleByClassDto>()
                 .ForMember(x => x.LessonNumber, opt => opt.MapFrom(x => x.LessonNumber))
                 .ForMember(x => x.Discipline, opt => opt.MapFrom(x => x.Discipline.Name))
                 .ForMember(x => x.AuditoriumName, opt => opt.MapFrom(x => x.Auditorium.Name))

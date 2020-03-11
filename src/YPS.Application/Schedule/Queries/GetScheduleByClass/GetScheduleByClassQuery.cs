@@ -11,46 +11,45 @@ using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Lessons.Query.GetLessonsByClass
+namespace YPS.Application.Schedule.Query.GetScheduleByClass
 {
-    public class GetLessonsByClassQuery : IRequest<ICollection<GetLessonsByClassVm>>
+    public class GetScheduleByClassQuery : IRequest<ICollection<GetScheduleByClassVm>>
     {
         public long ClassId { get; set; }
 
-        public class GetLessonsByClassQueryHandler : IRequestHandler<GetLessonsByClassQuery, ICollection<GetLessonsByClassVm>>
+        public class GetScheduleByClassQueryHandler : IRequestHandler<GetScheduleByClassQuery, ICollection<GetScheduleByClassVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
-            public GetLessonsByClassQueryHandler(IYPSDbContext context, IMapper mapper)
+            public GetScheduleByClassQueryHandler(IYPSDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
             }
-            public async Task<ICollection<GetLessonsByClassVm>> Handle(GetLessonsByClassQuery request, CancellationToken cancellationToken)
+            public async Task<ICollection<GetScheduleByClassVm>> Handle(GetScheduleByClassQuery request, CancellationToken cancellationToken)
             {
                 var lessons = _context.Lessons
                     .Where(x => x.ClassId == request.ClassId && x.LessonDate.Month == DateTime.Now.Month)
                     .OrderBy(x=>x.LessonDate);
-                ICollection<GetLessonsByClassVm> vm = new List<GetLessonsByClassVm>();
+                ICollection<GetScheduleByClassVm> vm = new List<GetScheduleByClassVm>();
                 foreach (var lesson in lessons)
                 {
                     if (vm.FirstOrDefault(x => x.Date == lesson.LessonDate.ToString("MMMM dd")) == null)
                     {
-                        vm.Add(new GetLessonsByClassVm
+                        vm.Add(new GetScheduleByClassVm
                         {
                             Date = lesson.LessonDate.ToString("MMMM dd"),
                             DayName = lesson.LessonDate.DayOfWeek.ToString(),
                             Items = await lessons
                         .Where(x => x.LessonDate.Day == lesson.LessonDate.Day)
-                        .ProjectTo<LessonByClassDto>(_mapper.ConfigurationProvider)
+                        .ProjectTo<ScheduleByClassDto>(_mapper.ConfigurationProvider)
                         .ToListAsync()
                         });
                     }
                     else
                     {
                         continue;
-                    }
-                    
+                    }                    
                 }
                 return vm;
             }

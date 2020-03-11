@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="Disciplines\Commands\" />
+    <Folder Include="Lessons\Query\" />
   </ItemGroup>
 
 </Project>

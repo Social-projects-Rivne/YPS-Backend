@@ -5,12 +5,12 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Lessons.Query.GetLessonsByClass
+namespace YPS.Application.Schedule.Query.GetScheduleByClass
 {
-    public class GetLessonsByClassVm
+    public class GetScheduleByClassVm
     {
         public string DayName { get; set; }
         public string Date { get; set; }
-        public ICollection<LessonByClassDto> Items { get; set; }
+        public ICollection<ScheduleByClassDto> Items { get; set; }
     }
 }
