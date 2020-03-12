@@ -21,7 +21,6 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
         public string ClassName { get; set; }
         public long TeacherId { get; set; }
 
-
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Lesson, LessonByTeacherDto>()
