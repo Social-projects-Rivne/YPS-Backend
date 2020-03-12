@@ -13,7 +13,7 @@ namespace YPS.WebUI.Controllers
     public class LessonsController : ApiController
     {
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<LessonByTeacherVm>>> GetTeachersBySchoolId()
+        public async Task<ActionResult<List<LessonByTeacherDto>>> GetLessonsByTeacherId()
         {
             long userId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             return Ok(await Mediator.Send(new GetLessonsByTeacherQuery { TeacherId = userId }));
