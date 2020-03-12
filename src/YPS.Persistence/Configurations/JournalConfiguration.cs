@@ -14,6 +14,13 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.Class)
                 .WithOne(e => e.Journal);
+
+            builder.HasData(
+                new Journal() 
+                { 
+                    Id = 1, 
+                    ClassId = 5 
+                });
         }
     }
 }

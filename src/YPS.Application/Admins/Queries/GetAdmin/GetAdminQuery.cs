@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper.QueryableExtensions;
 using YPS.Application.Interfaces;
 
 namespace YPS.Application.Admins.Queries.GetAdmin
