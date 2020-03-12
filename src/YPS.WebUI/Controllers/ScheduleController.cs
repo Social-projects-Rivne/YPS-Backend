@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using YPS.Application.Schedule.Models;
 using YPS.Application.Schedule.Queries.GetScheduleForPupil;
 using YPS.Application.Schedule.Queries.GetScheduleForTeacher;
 using YPS.Application.Schedule.Query.GetScheduleByClass;
@@ -32,7 +33,7 @@ namespace YPS.WebUI.Controllers
 
         [Authorize]
         [HttpGet("[action]/{classId}")]
-        public async Task<ActionResult<ICollection<GetScheduleByClassVm>>> GetLessonsByClass(long classId)
+        public async Task<ActionResult<ICollection<ScheduleVm>>> GetScheduleByClass(long classId)
         {
             var vm = await Mediator.Send(new GetScheduleByClassQuery
             {

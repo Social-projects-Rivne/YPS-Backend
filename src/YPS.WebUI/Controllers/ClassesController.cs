@@ -10,6 +10,7 @@ using YPS.Application.Classes.Queries.GetClassesBySchool;
 using YPS.Application.Classes.Queries.GetClassesBySchoolWithFullInfo;
 using YPS.Application.Classes.Commands.CreateClass;
 using YPS.Application.Models;
+using YPS.Application.Classes.Queries.GetClassByNumber;
 
 namespace YPS.WebUI.Controllers
 {
@@ -35,6 +36,17 @@ namespace YPS.WebUI.Controllers
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
             return Ok(await Mediator.Send(new GetClassesBySchoolWithFullInfoQuery { SchoolId = schoolId }));
+        }
+
+        [HttpGet("[action]/{number}")]
+        [Authorize]
+        public async Task<ActionResult<ICollection<GetClassByNumberVm>>> GetClassesByNumber(int number)
+        {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetClassByNumberQuery {
+                Number = number,
+                SchoolId = schoolId
+            }));
         }
     }
 }
