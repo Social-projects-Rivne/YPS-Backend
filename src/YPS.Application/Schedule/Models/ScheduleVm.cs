@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace YPS.Application.Schedule.Queries.GetScheduleForTeacher
+namespace YPS.Application.Schedule.Models
 {
     public class ScheduleVm
     {
