@@ -9,7 +9,7 @@ using YPS.Application.Lessons.Queries.GetLessonsByTeacher;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles ="teacher")]
+    [Authorize(Roles = "teacher")]
     public class LessonsController : ApiController
     {
         [HttpGet("[action]")]
