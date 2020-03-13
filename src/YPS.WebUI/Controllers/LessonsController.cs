@@ -9,9 +9,10 @@ using YPS.Application.Lessons.Queries.GetLessonsByTeacher;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles = "teacher")]
+    [Authorize]
     public class LessonsController : ApiController
     {
+        [Authorize(Roles = "teacher")]
         [HttpGet("[action]")]
         public async Task<ActionResult<List<LessonByTeacherDto>>> GetLessonsByTeacherId()
         {
