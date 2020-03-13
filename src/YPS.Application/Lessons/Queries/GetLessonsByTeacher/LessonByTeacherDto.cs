@@ -26,7 +26,7 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
             profile.CreateMap<Lesson, LessonByTeacherDto>()
                 .ForMember(e => e.LessonDate, opt => opt.MapFrom(e => e.LessonDate.ToString("dd.MM.yyyy")))
                 .ForMember(e => e.Auditorium, opt => opt.MapFrom(e => e.Auditorium.Name))
-                .ForMember(e => e.AuditoriumNumber, opt=>opt.MapFrom(e =>e.Auditorium.Number))
+                .ForMember(e => e.AuditoriumNumber, opt => opt.MapFrom(e => e.Auditorium.Number))
                 .ForMember(e => e.Discipline, opt => opt.MapFrom(e => e.Discipline.Name))
                 .ForMember(e => e.ClassName, opt => opt.MapFrom(e => e.Class.Number + " - " + e.Class.Character));
         }
