@@ -17,7 +17,7 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
     {
         public long TeacherId { get; set; }
 
-        public class Handler : IRequestHandler<GetLessonsByTeacherQuery, List<LessonByTeacherVm>>
+        public class GetLessonsByTeacherQueryHandler : IRequestHandler<GetLessonsByTeacherQuery, List<LessonByTeacherVm>>
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
