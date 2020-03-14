@@ -23,6 +23,9 @@ namespace YPS.Persistence.Configurations
             builder.HasMany(e => e.Auditoriums)
                 .WithOne(e => e.School);
 
+            builder.HasMany(e => e.Disciplines)
+                .WithOne(e => e.School);
+
             builder.HasData(
                 new School { 
                     Id = 1, 
@@ -32,8 +35,9 @@ namespace YPS.Persistence.Configurations
                 new School { 
                     Id = 2, 
                     Name = "High school 'Smile' of New-York", 
-                    ShortName = "HS 'Smile'" }
-                );
+                    ShortName = "HS 'Smile'"
+                }
+            );
         }
     }
 }
