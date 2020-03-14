@@ -15,6 +15,7 @@ namespace YPS.Domain.Entities
             Users = new HashSet<User>();
             UpcomingEvents = new HashSet<UpcomingEvent>();
             Auditoriums = new HashSet<Auditorium>();
+            Disciplines = new HashSet<Discipline>();
         }
 
         public string Name { get; set; }
@@ -24,5 +25,6 @@ namespace YPS.Domain.Entities
         public ICollection<User> Users { get; set; }
         public ICollection<UpcomingEvent> UpcomingEvents { get; set; }
         public ICollection<Auditorium> Auditoriums { get; set; }
+        public ICollection<Discipline> Disciplines { get; set; }
     }
 }

@@ -61,9 +61,9 @@ namespace YPS.Persistence.Configurations
                 },
                 new Auditorium
                 {
-                Id = 6,
+                    Id = 6,
                     SchoolId = 2,
-                    Number = 323,
+                    Number = 324,
                     Name = "Astronomical"
                 }
             );
