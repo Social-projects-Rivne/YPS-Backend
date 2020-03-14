@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
 
             public async Task<List<DisciplineShortVm>> Handle(GetAllDisciplinesQuery request, CancellationToken cancellationToken)
             {
-                List<DisciplineShortVm> disciplines = await _context.Disciplines.ProjectTo<DisciplineShortVm>(_mapper.ConfigurationProvider).ToListAsync();
+                List<DisciplineShortVm> disciplines = await _context.Disciplines.ProjectTo<DisciplineShortVm>(_mapper.ConfigurationProvider).OrderBy(e=>e.Name).ToListAsync();
 
                 return disciplines;
             }
