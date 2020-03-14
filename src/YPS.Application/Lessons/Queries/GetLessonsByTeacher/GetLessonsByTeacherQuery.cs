@@ -22,7 +22,7 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
 
-            public Handler(IYPSDbContext context, IMapper mapper)
+            public GetLessonsByTeacherQueryHandler(IYPSDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
