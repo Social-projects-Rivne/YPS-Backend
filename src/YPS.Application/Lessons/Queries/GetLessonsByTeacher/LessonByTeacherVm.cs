@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace YPS.Application.Schedule.Queries.GetScheduleForTeacher
+namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
 {
-    public class ScheduleVm
+    public class LessonByTeacherVm
     {
         public string DayName { get; set; }
         public string Date { get; set; }
-        public List<ScheduleItemDto> Items { get; set; }
+
+        public List<LessonByTeacherDto> Lessons { get; set; }
     }
 }
