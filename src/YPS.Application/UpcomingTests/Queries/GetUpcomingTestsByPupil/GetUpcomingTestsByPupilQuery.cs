@@ -30,12 +30,13 @@ namespace YPS.Application.UpcomingTests.Queries.GetUpcomingTestsByPupil
 
             public async Task<List<UpcomingTestVm>> Handle(GetUpcomingTestsByPupilQuery request, CancellationToken cancellationToken)
             {
-                Pupil pupil = await _context.Pupils.FirstOrDefaultAsync(x => x.Id == request.PupilId);
+                Class classOfPupil = await _context.ClassesToPupils
+                    .Where(x => x.PupilId == request.PupilId)
+                    .Select(x => x.Class)
+                    .FirstOrDefaultAsync(x => x.YearFrom == DateTime.Now.Year || x.YearTo == DateTime.Now.Year);
 
                 List<UpcomingTestVm> upcomingTests = await _context.UpcomingTests
-                    .Where(x =>
-                        x.ClassId == pupil.ClassToPupils.First().ClassId &&
-                        x.ScheduledDate >= DateTime.Now)
+                    .Where(x => x.ClassId == classOfPupil.Id && x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingTestVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken); 
 
