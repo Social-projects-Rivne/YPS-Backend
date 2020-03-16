@@ -28,7 +28,7 @@ namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
 
             public async Task<List<DisciplineShortVm>> Handle(GetAllDisciplinesQuery request, CancellationToken cancellationToken)
             {
-                List<DisciplineShortVm> disciplines = await _context.Disciplines.ProjectTo<DisciplineShortVm>(_mapper.ConfigurationProvider).OrderBy(e=>e.Name).ToListAsync();
+                List<DisciplineShortVm> disciplines = await _context.Disciplines.ProjectTo<DisciplineShortVm>(_mapper.ConfigurationProvider).OrderBy(e => e.Name).ToListAsync();
 
                 return disciplines;
             }
