@@ -27,14 +27,16 @@ namespace YPS.Persistence.Configurations
                 .WithOne(e => e.School);
 
             builder.HasData(
-                new School { 
-                    Id = 1, 
-                    Name = "Kindergarten and elementary school №1", 
-                    ShortName = "Kind&E №1" 
+                new School
+                {
+                    Id = 1,
+                    Name = "Kindergarten and elementary school №1",
+                    ShortName = "Kind&E №1"
                 },
-                new School { 
-                    Id = 2, 
-                    Name = "High school 'Smile' of New-York", 
+                new School
+                {
+                    Id = 2,
+                    Name = "High school 'Smile' of New-York",
                     ShortName = "HS 'Smile'"
                 }
             );

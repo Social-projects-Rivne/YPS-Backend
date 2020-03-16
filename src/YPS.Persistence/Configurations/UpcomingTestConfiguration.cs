@@ -38,7 +38,7 @@ namespace YPS.Persistence.Configurations
                 {
                     Id = 1,
                     TestType = "Test",
-                    Topic = "Adding and subtracting numbers",
+                    Topic = "Ukrainian, what is synonym",
                     ClassId = 1,
                     DisciplineId = 1,
                     Date = DateTime.Now,
@@ -50,11 +50,33 @@ namespace YPS.Persistence.Configurations
                     Id = 2,
                     TestType = "Test",
                     Topic = "Calculating Power of TurboPapichPortal2",
-                    ClassId = 4,
-                    DisciplineId = 7,
+                    ClassId = 2,
+                    DisciplineId = 9,
                     Date = DateTime.MaxValue,
-                    ScheduledDate = DateTime.Now.AddDays(3),
-                    TeacherId = 1
+                    ScheduledDate = DateTime.Now.AddDays(4),
+                    TeacherId = 3
+                },
+                new UpcomingTest
+                {
+                    Id = 3,
+                    TestType = "Quiz",
+                    Topic = "Work hard! Soccer",
+                    ClassId = 3,
+                    DisciplineId = 15,
+                    Date = DateTime.MaxValue,
+                    ScheduledDate = DateTime.Now.AddDays(2),
+                    TeacherId = 42
+                },
+                new UpcomingTest
+                {
+                    Id = 4,
+                    TestType = "Lab",
+                    Topic = "Discover black matery",
+                    ClassId = 4,
+                    DisciplineId = 18,
+                    Date = DateTime.MaxValue,
+                    ScheduledDate = DateTime.Now.AddDays(5),
+                    TeacherId = 45
                 });
         }
     }
