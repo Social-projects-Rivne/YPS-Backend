@@ -35,7 +35,7 @@ namespace YPS.Application.Pupils.Queries.GetPupilsById
                 .ForMember(
                     x => x.ClassName,
                     opts => opts.MapFrom(
-                        x => x.ClassToPupils.Last().Class.Number + " - " + x.ClassToPupils.Last().Class.Character)
+                        x => x.ClassToPupils.First().Class.Number + " - " + x.ClassToPupils.First().Class.Character)
                 )
                 .ForMember(
                     x => x.SchoolName,
