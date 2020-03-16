@@ -12,4 +12,10 @@
     <ProjectReference Include="..\YPS.Application\YPS.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="EmailTemplates\Regitration.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
