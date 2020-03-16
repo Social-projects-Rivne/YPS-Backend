@@ -11,6 +11,7 @@ using YPS.Application.Models;
 
 namespace YPS.WebUI.Controllers
 {
+    [Authorize]
     public class AuditoriumsController : ApiController
     {
         [Authorize(Roles = "head-assistant")]
