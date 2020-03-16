@@ -29,7 +29,6 @@ namespace YPS.Infrastructure.Services
             client = new SmtpClient(_config.GetValue<string>(SMTPHostKey), _config.GetValue<int>(SMTPPortKey));
             client.Credentials = new NetworkCredential(_config.GetValue<string>(MailSenderKey), _config.GetValue<string>(MailPasswordKey));
             client.EnableSsl = true;
-           
         }
 
         public async Task SendMessageAsync(string reciever,string subject,string text)
@@ -55,14 +54,12 @@ namespace YPS.Infrastructure.Services
 
                 var location = Assembly.GetEntryAssembly().Location;
                 var root = Path.GetDirectoryName(location);
-                var registration = File.ReadAllText(Path.Combine(root, _config.GetValue<string>(MailTemplateFolderKey), "Regitration.html"));
+                var registration = File.ReadAllText(Path.Combine(root, _config.GetValue<string>(MailTemplateFolderKey), "Registration.html"));
 
                 registration = registration.Replace("{{reciever}}", reciever)
                     .Replace("{{password}}", password);
 
-
                 msg.Body = registration;
-
 
                 await client.SendMailAsync(msg);
             }
