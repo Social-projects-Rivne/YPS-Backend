@@ -31,18 +31,17 @@ namespace YPS.Application.UpcomingEvents.Queries.GetUpcomingEventsByPupil
 
             public async Task<List<UpcomingEventByPupilVm>> Handle(GetUpcomingEventsByPupilQuery request, CancellationToken cancellationToken)
             {
-                Pupil pupil = await _context.Pupils
-                   .FirstOrDefaultAsync(x => x.Id == request.PupilId);
+                Class classOfPupil = await _context.ClassesToPupils
+                    .Where(x => x.PupilId == request.PupilId)
+                    .Select(x => x.Class)
+                    .FirstOrDefaultAsync(x => x.YearFrom == DateTime.Now.Year || x.YearTo == DateTime.Now.Year);
 
-                List<UpcomingEventByPupilVm> upcomingEvets = await _context.UpcomingEvents
-                    .Where(x => 
-                        x.SchoolId == request.SchoolId && 
-                        x.ClassId == pupil.ClassToPupils.First().ClassId && 
-                        x.ScheduledDate >= DateTime.Now)
+                List<UpcomingEventByPupilVm> upcomingEvents = await _context.UpcomingEvents
+                    .Where(x => x.ClassId == classOfPupil.Id && x.ScheduledDate >= DateTime.Now)
                     .ProjectTo<UpcomingEventByPupilVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
-                return upcomingEvets;
+                return upcomingEvents;
             }
         }
     }
