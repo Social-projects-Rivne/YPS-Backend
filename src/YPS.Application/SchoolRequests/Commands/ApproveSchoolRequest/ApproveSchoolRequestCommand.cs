@@ -44,7 +44,7 @@ namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
                 _dbContext.Schools.Add(school);
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
                 await _dbContext.SaveChangesAsync(cancellationToken);
-                
+
                 return new SchoolViewModel { Id = request.Id };
             }
         }
