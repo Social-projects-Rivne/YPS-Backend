@@ -44,7 +44,10 @@ namespace YPS.Persistence.Configurations
                 new Discipline { Id = 15, SchoolId = 2, Name = "Work training" },
                 new Discipline { Id = 16, SchoolId = 2, Name = "Computer Science" },
                 new Discipline { Id = 17, SchoolId = 2, Name = "Health Basics" },
-                new Discipline { Id = 18, SchoolId = 2, Name = "Physical Education" }
+                new Discipline { Id = 18, SchoolId = 2, Name = "Physical Education" },
+                new Discipline { Id = 19, SchoolId = 1, Name = "Reading" },
+                new Discipline { Id = 20, SchoolId = 1, Name = "Writing" },
+                new Discipline { Id = 21, SchoolId = 1, Name = "Math" }
             );
         }
     }

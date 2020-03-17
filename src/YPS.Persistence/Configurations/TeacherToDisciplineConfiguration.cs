@@ -20,11 +20,11 @@ namespace YPS.Persistence.Configurations
                 .HasForeignKey(e => e.TeacherId);
 
             builder.HasData(
-                new TeacherToDiscipline { DisciplineId = 1, TeacherId = 1 },
+                new TeacherToDiscipline { DisciplineId = 1, TeacherId = 45 },
                 new TeacherToDiscipline { DisciplineId = 2, TeacherId = 4 },
-                new TeacherToDiscipline { DisciplineId = 3, TeacherId = 2 },
+                new TeacherToDiscipline { DisciplineId = 3, TeacherId = 42 },
                 new TeacherToDiscipline { DisciplineId = 3, TeacherId = 3 },
-                new TeacherToDiscipline { DisciplineId = 7, TeacherId = 1 },
+                new TeacherToDiscipline { DisciplineId = 7, TeacherId = 4 },
                 new TeacherToDiscipline { DisciplineId = 1, TeacherId = 42 },
                 new TeacherToDiscipline { DisciplineId = 2, TeacherId = 43 },
                 new TeacherToDiscipline { DisciplineId = 3, TeacherId = 44 },
@@ -42,7 +42,10 @@ namespace YPS.Persistence.Configurations
                 new TeacherToDiscipline { DisciplineId = 15, TeacherId = 44 },
                 new TeacherToDiscipline { DisciplineId = 16, TeacherId = 45 },
                 new TeacherToDiscipline { DisciplineId = 17, TeacherId = 42 },
-                new TeacherToDiscipline { DisciplineId = 18, TeacherId = 43 }
+                new TeacherToDiscipline { DisciplineId = 18, TeacherId = 43 },
+                new TeacherToDiscipline { DisciplineId = 19, TeacherId = 1 },
+                new TeacherToDiscipline { DisciplineId = 20, TeacherId = 1 },
+                new TeacherToDiscipline { DisciplineId = 21, TeacherId = 2 }
             );
         }
     }
