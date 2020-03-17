@@ -10,6 +10,7 @@ using YPS.Application.Pupils.Commands.CreatePupil;
 using YPS.Application.Pupils.Queries.GetPupilsByClass;
 using YPS.Application.Pupils.Queries.GetPupilsById;
 using YPS.Application.Pupils.Queries.GetPupilsBySchool;
+using YPS.Application.Pupils.Queries.GetPupilsBySchoolShort;
 
 namespace YPS.WebUI.Controllers
 {
@@ -43,6 +44,13 @@ namespace YPS.WebUI.Controllers
         public async Task<ActionResult<List<PupilByClassVm>>> GetByClass(long classId)
         {
             return Ok(await Mediator.Send(new GetPupilsByClassQuery { ClassId = classId }));
+        }
+        [Authorize(Roles = "head-master, master, head-assistant")]
+        [HttpGet("[action]")]
+        public async Task<ActionResult<List<GetPupilsBySchoolShortVm>>> GetPupilsBySchoolShort(long numbOfClass)
+        {
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetPupilsBySchoolShortQuery { SchoolId = schoolId , NumbOfClass = numbOfClass }));
         }
     }
 }
