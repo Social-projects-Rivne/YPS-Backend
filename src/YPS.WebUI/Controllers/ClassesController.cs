@@ -25,7 +25,7 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CreatedResponse>> Create([FromBody] CreateClassCommand command)
+        public async Task<ActionResult<long>> Create([FromBody] CreateClassCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);

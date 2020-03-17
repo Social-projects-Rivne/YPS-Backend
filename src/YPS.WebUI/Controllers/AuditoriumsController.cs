@@ -14,6 +14,7 @@ namespace YPS.WebUI.Controllers
     [Authorize]
     public class AuditoriumsController : ApiController
     {
+        [Authorize(Roles = "head-assistant")]
         [HttpGet("{lessonDate}/{lessonNumber}")]
         public async Task<ActionResult<List<AvailableAuditoriumVm>>> GetAvailableAuditoriums(DateTime lessonDate, ushort lessonNumber)
         {

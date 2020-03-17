@@ -14,7 +14,7 @@ namespace YPS.Domain.Entities
         public string LessonTimeGap { get; set; }
 
         public JournalColumn JournalColumn { get; set; }
-        
+
         public long AuditoriumId { get; set; }
         public Auditorium Auditorium { get; set; }
 
