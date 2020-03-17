@@ -15,7 +15,7 @@ namespace YPS.Application.Classes.Queries.GetClassByNumber
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Class, GetClassByNumberVm>()
-                .ForMember(c => c.Name, opt => opt.MapFrom(c => c.Number + "-" + c.Character));
+                .ForMember(c => c.Name, opt => opt.MapFrom(c => c.Number + " - " + c.Character));
         }
     }
 }
