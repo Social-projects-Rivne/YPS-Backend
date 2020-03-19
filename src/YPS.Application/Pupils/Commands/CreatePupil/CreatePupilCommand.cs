@@ -16,7 +16,6 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
     public sealed class CreatePupilCommand : IRequest<CreatedResponse>
     {
         public UserPartial User { get; set; }
-        public long ClassId { get; set; }
         public long SchoolId { get; set; }
 
         public class CreatePupilCommandHandler : IRequestHandler<CreatePupilCommand, CreatedResponse>
@@ -58,19 +57,8 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                         _context.Pupils.Add(pupil);
                         await _context.SaveChangesAsync(cancellationToken);
 
-                        Pupil createdPupil = await _context.Pupils.FindAsync(pupil.Id);
                         await _mailSender.SendRegistrationMessage(createdUser.Email,password);
 
-                        if (createdPupil != null)
-                        {
-                            ClassToPupil classToPupil = new ClassToPupil
-                            {
-                                ClassId = request.ClassId,
-                                PupilId = createdPupil.Id
-                            };
-                            _context.ClassesToPupils.Add(classToPupil);
-                            await _context.SaveChangesAsync(cancellationToken);
-                        }
                     }
                 }
 
