@@ -15,18 +15,19 @@ namespace YPS.Application.Pupils.Queries.GetPupilsBySchool
         public string ClassName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Pupil, PupilBySchoolVm>()
-                .ForMember(x=>x.FirstName , opt=>opt.MapFrom(x=>x.User.FirstName))
-                .ForMember(x=>x.Surname, opt=>opt.MapFrom(x=>x.User.Surname))
-                .ForMember(x=>x.MiddleName, opt=>opt.MapFrom(x=>x.User.MiddleName))
-                .ForMember(x=>x.PhoneNumber, opt=>opt.MapFrom(x=>x.User.PhoneNumber))
-                .ForMember(x=>x.Email, opt=>opt.MapFrom(x=>x.User.Email))
-                .ForMember(x=>x.DateOfBirth, opt=>opt.MapFrom(x=>x.User.DateOfBirth))
-                .ForMember(x=>x.Id,opt=>opt.MapFrom(x=>x.User.Id))
-                .ForMember(x=>x.ClassName, opt=>opt.MapFrom(x=>x.ClassToPupils.First().Class.Number+"-" + x.ClassToPupils.First().Class.Character));
+                .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.User.FirstName))
+                .ForMember(x => x.Surname, opt => opt.MapFrom(x => x.User.Surname))
+                .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))
+                .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
+                .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
+                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth.ToString("MM.dd.yyyy")))
+                .ForMember(x => x.Id, opt => opt.MapFrom(x => x.User.Id))
+                .ForMember(x => x.ClassName, opt => opt.MapFrom(x => x.ClassToPupils.First().Class.Number + "-" + x.ClassToPupils.First().Class.Character));
         }
     }
 }
