@@ -34,12 +34,12 @@ namespace YPS.Application.Parents.Queries.GetParentsBySchool
                                 {
                                     FullName = $"{y.User.Surname} {y.User.FirstName}  {y.User.MiddleName}",
                                     Class = y.ClassToPupils
-                                        .Select(z => z.Class)
-                                        .First(z => z.YearFrom == DateTime.Now.Year || z.YearTo == DateTime.Now.Year).Number
+                                            .Select(z => z.Class)
+                                            .First(z => z.YearFrom == DateTime.Now.Year || z.YearTo == DateTime.Now.Year).Number
                                         + " - "
                                         + y.ClassToPupils
-                                        .Select(z => z.Class)
-                                        .First(z => z.YearFrom == DateTime.Now.Year || z.YearTo == DateTime.Now.Year).Character
+                                            .Select(z => z.Class)
+                                            .First(z => z.YearFrom == DateTime.Now.Year || z.YearTo == DateTime.Now.Year).Character
                                 }
                             )
                         )
