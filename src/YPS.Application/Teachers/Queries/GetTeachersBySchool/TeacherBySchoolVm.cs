@@ -6,7 +6,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Teachers.Queries.GetTeachersBySchool
 {
-    public class TeacherBySchoolVm : IMapFrom<Teacher>
+    public class TeacherBySchoolVm : IMapFrom<User>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -15,22 +15,22 @@ namespace YPS.Application.Teachers.Queries.GetTeachersBySchool
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Degree { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string ClassName { get; set; }
    
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Teacher, TeacherBySchoolVm>()
-                .ForMember(x => x.FirstName, opt => opt.MapFrom(x => x.User.FirstName))
-                .ForMember(x => x.Surname, opt => opt.MapFrom(x => x.User.Surname))
-                .ForMember(x => x.MiddleName, opt => opt.MapFrom(x => x.User.MiddleName))
-                .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.User.PhoneNumber))
-                .ForMember(x => x.Email, opt => opt.MapFrom(x => x.User.Email))
-                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.User.DateOfBirth))
+            profile.CreateMap<User, TeacherBySchoolVm>()
+                .ForMember(x => x.Degree, opt => opt.MapFrom(x => x.Teacher.Degree))
+                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.DateOfBirth.ToString("MM.dd.yyyy")))
                 .ForMember(
                     x => x.ClassName, 
                     opts => opts.MapFrom(
-                        x => x.Classes.First().Number + "-" + x.Classes.First().Character
+                        x => x.Teacher.Classes
+                                .First(z => z.YearFrom == DateTime.Now.Year || z.YearTo == DateTime.Now.Year).Number
+                            + " - "
+                            + x.Teacher.Classes
+                                .First(z => z.YearFrom == DateTime.Now.Year || z.YearTo == DateTime.Now.Year).Character
                     )
                 );
         }
