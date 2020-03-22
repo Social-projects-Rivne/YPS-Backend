@@ -27,7 +27,8 @@ namespace YPS.Application.Teachers.Queries.GetTeachersBySchool
 
             public async Task<List<TeacherBySchoolVm>> Handle(GetTeachersBySchoolQuery request, CancellationToken cancellationToken) =>
                 await _dbContext.Teachers
-                    .Where(x => x.User.SchoolId == request.SchoolId)
+                    .Select(x => x.User)
+                    .Where(x => x.SchoolId == request.SchoolId)
                     .ProjectTo<TeacherBySchoolVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
         }
