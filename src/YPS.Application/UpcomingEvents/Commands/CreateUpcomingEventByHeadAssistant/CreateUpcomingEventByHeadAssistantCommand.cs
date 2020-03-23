@@ -16,6 +16,7 @@ namespace YPS.Application.UpcomingEvents.Commands.CreateUpcomingEventByHeadAssis
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime ScheduledDate { get; set; }
+        public long? ClassId { get; set; }
         public long TeacherId { get; set; }
         public long SchoolId { get; set; }
 
@@ -35,12 +36,13 @@ namespace YPS.Application.UpcomingEvents.Commands.CreateUpcomingEventByHeadAssis
                     Content = request.Content,
                     ScheduledDate = request.ScheduledDate,
                     TimeOfCreation = DateTime.Now,
+                    ClassId = request.ClassId,
                     TeacherId = request.TeacherId,
                     SchoolId = request.SchoolId
                 };
-                    _context.UpcomingEvents.Add(upcomingEvent);
-                    await _context.SaveChangesAsync(cancellationToken);
-                    return upcomingEvent.Id;       
+                _context.UpcomingEvents.Add(upcomingEvent);
+                await _context.SaveChangesAsync(cancellationToken);
+                return upcomingEvent.Id;       
             }
         }
     }
