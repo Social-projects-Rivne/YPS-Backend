@@ -45,7 +45,8 @@ namespace YPS.WebUI.Controllers
         public async Task<ActionResult<ICollection<GetClassByNumberVm>>> GetClassesByNumber(int number)
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
-            return Ok(await Mediator.Send(new GetClassByNumberQuery {
+            return Ok(await Mediator.Send(new GetClassByNumberQuery
+            {
                 Number = number,
                 SchoolId = schoolId
             }));
