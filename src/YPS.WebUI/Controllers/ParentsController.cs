@@ -9,7 +9,6 @@ using YPS.Application.Parents.Queries.GetPupilsInfoByParent;
 using YPS.Application.Parents.Queries.GetPupilAsParent;
 using YPS.Application.Parents.Queries.GetParentProfileInfo;
 using YPS.Application.Parents.Queries.GetParentsBySchool;
-using YPS.Application.Parents.GetParentsBySchool;
 
 namespace YPS.WebUI.Controllers
 {
