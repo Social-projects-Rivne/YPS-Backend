@@ -9,14 +9,14 @@ namespace YPS.Application.Lessons.Commands.CreateJournalColumn
     {
         public CreateJournalColumnCommandValidator()
         {
-            RuleFor(v => v.classId )
+            RuleFor(v => v.ClassId )
                 .NotEmpty();
 
-            RuleFor(v => v.topic)
+            RuleFor(v => v.Topic)
                 .MaximumLength(254)
                 .NotEmpty();
 
-            RuleFor(v => v.lessonId)
+            RuleFor(v => v.LessonId)
                 .NotEmpty();
         }
     }

@@ -9,11 +9,11 @@ using YPS.Application.Lessons.Commands.CreateJournalColumn;
 
 namespace YPS.WebUI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class JournalColumnController : ApiController
     {
         [HttpPost]
-        public async Task<ActionResult<string>> Create([FromBody]CreateJournalColumnCommand command)
+        public async Task<ActionResult<long>> Create([FromBody]CreateJournalColumnCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);
