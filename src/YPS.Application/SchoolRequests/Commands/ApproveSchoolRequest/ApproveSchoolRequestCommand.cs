@@ -32,17 +32,17 @@ namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
 
                 string guidLink = Guid.NewGuid().ToString();
                 string masterRegisterLink = "http://localhost:4200/register-headmaster/" + guidLink;
-                string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master " + masterRegisterLink;               
-                var SchoolRequest = requests.FirstOrDefault(x => x.Id == request.Id);
-                await _mailSender.SendMessageAsync(SchoolRequest.Email, "Successfuly registered", message);
+                string message = "<h1>Congratulations your school was succesfully registered</h1> <p>Please follow the link to register your head master " + masterRegisterLink;
+                var schoolRequest = requests.FirstOrDefault(x => x.Id == request.Id);
+                await _mailSender.SendMessageAsync(schoolRequest.Email, "Successfuly registered", message);
                 var school = new School
                 {
-                    Name = SchoolRequest.Name,
-                    ShortName = SchoolRequest.ShortName,
+                    Name = schoolRequest.Name,
+                    ShortName = schoolRequest.ShortName,
                     RegistrationLink = guidLink,
-                    Email = SchoolRequest.Email,
-                    Address = SchoolRequest.Address,
-                    Locality = SchoolRequest.Locality
+                    Email = schoolRequest.Email,
+                    Address = schoolRequest.Address,
+                    Locality = schoolRequest.Locality
                 };
                 _dbContext.Schools.Add(school);
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;
