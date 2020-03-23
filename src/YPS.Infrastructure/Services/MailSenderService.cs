@@ -63,7 +63,7 @@ namespace YPS.Infrastructure.Services
 
                 await client.SendMailAsync(msg);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 throw;
             }
