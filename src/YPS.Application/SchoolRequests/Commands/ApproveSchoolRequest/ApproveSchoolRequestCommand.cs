@@ -39,7 +39,10 @@ namespace YPS.Application.SchoolRequests.Commands.ApproveSchoolRequest
                 {
                     Name = requests.FirstOrDefault(x => x.Id == request.Id).Name,
                     ShortName = requests.FirstOrDefault(x => x.Id == request.Id).ShortName,
-                    RegistrationLink = guidLink
+                    RegistrationLink = guidLink,
+                    Email = requests.FirstOrDefault(x => x.Id == request.Id).Email,
+                    Address = requests.FirstOrDefault(x => x.Id == request.Id).Address,
+                    Locality = requests.FirstOrDefault(x => x.Id == request.Id).Locality
                 };
                 _dbContext.Schools.Add(school);
                 _dbContext.SchoolRequests.FirstOrDefault(x => x.Id == request.Id).IsApproved = true;

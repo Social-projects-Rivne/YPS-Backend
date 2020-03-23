@@ -42,7 +42,6 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpGet("[action]/{number}")]
-        [Authorize]
         public async Task<ActionResult<ICollection<GetClassByNumberVm>>> GetClassesByNumber(int number)
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
