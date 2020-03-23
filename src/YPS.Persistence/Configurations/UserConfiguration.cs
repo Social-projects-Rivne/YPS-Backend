@@ -345,7 +345,7 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil9_").ToArray()),
                     DateOfBirth = new DateTime(2010, 8, 28),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 2
                 },
                 new User
                 {
@@ -358,7 +358,7 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil10").ToArray()),
                     DateOfBirth = new DateTime(2010, 1, 20),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 2
                 },
                 new User
                 {

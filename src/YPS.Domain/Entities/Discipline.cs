@@ -18,6 +18,9 @@ namespace YPS.Domain.Entities
 
         public string Name { get; set; }
 
+        public long SchoolId { get; set; }
+        public School School { get; set; }
+
         public ICollection<UpcomingTest> UpcomingTests { get; set; }
         public ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
         public ICollection<Lesson> Lessons { get; set; }

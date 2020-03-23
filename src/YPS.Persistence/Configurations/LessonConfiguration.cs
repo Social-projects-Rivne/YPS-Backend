@@ -42,15 +42,15 @@ namespace YPS.Persistence.Configurations
 
             builder.HasData(
                 //Monday                
-                new Lesson() 
-                { 
+                new Lesson()
+                {
                     Id = 1,
                     LessonNumber = 1,
                     LessonDate = new DateTime(2020, 3, 9),
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -61,7 +61,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -72,7 +72,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -118,7 +118,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -129,7 +129,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -140,7 +140,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -151,7 +151,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -162,7 +162,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -173,7 +173,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -254,7 +254,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -265,7 +265,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -276,7 +276,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -322,7 +322,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -333,7 +333,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -344,7 +344,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -355,7 +355,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -366,7 +366,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -377,7 +377,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -390,7 +390,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -401,7 +401,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -412,7 +412,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -458,7 +458,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -469,7 +469,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -480,7 +480,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -491,7 +491,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -502,7 +502,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -513,7 +513,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -594,7 +594,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -605,7 +605,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -616,7 +616,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -662,7 +662,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -673,7 +673,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -684,7 +684,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -695,7 +695,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -706,7 +706,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -717,7 +717,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -730,7 +730,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -741,7 +741,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -752,7 +752,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 3,
                     ClassId = 5
                 },
                 new Lesson()
@@ -798,7 +798,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -809,7 +809,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -820,7 +820,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -831,7 +831,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -842,7 +842,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -853,7 +853,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -934,7 +934,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -945,7 +945,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -956,7 +956,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1002,7 +1002,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1013,7 +1013,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1024,7 +1024,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1035,7 +1035,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1046,7 +1046,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1057,7 +1057,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -1070,7 +1070,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1081,7 +1081,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1092,7 +1092,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 3,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1138,7 +1138,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1149,7 +1149,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1160,7 +1160,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1171,7 +1171,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1182,7 +1182,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1193,7 +1193,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -1274,7 +1274,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1285,7 +1285,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1296,7 +1296,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1342,7 +1342,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1353,7 +1353,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1364,7 +1364,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1375,7 +1375,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1386,7 +1386,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1397,7 +1397,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -1410,7 +1410,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1421,7 +1421,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1432,7 +1432,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 3,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1478,7 +1478,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1489,7 +1489,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1500,7 +1500,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1511,7 +1511,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1522,7 +1522,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1533,7 +1533,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -1614,7 +1614,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1625,7 +1625,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1636,7 +1636,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 3,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1682,7 +1682,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1693,7 +1693,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1704,7 +1704,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1715,7 +1715,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1726,7 +1726,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1737,7 +1737,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -1750,7 +1750,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1761,7 +1761,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1772,7 +1772,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 3,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1818,7 +1818,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1829,7 +1829,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1840,7 +1840,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1851,7 +1851,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1862,7 +1862,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1873,7 +1873,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
 
@@ -1954,7 +1954,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 1,
-                    TeacherId = 42,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1965,7 +1965,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 2,
-                    TeacherId = 43,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -1976,7 +1976,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 3,
-                    TeacherId = 44,
+                    TeacherId = 3,
                     ClassId = 5
                 },
                 new Lesson()
@@ -2022,7 +2022,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:00-8:45",
                     AuditoriumId = 1,
                     DisciplineId = 7,
-                    TeacherId = 42,
+                    TeacherId = 4,
                     ClassId = 5
                 },
                 new Lesson()
@@ -2033,7 +2033,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "8:50-9:35",
                     AuditoriumId = 2,
                     DisciplineId = 8,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 },
                 new Lesson()
@@ -2044,7 +2044,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "9:45-10:30",
                     AuditoriumId = 3,
                     DisciplineId = 9,
-                    TeacherId = 44,
+                    TeacherId = 42,
                     ClassId = 5
                 },
                 new Lesson()
@@ -2055,7 +2055,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "10:45-11:30",
                     AuditoriumId = 4,
                     DisciplineId = 10,
-                    TeacherId = 45,
+                    TeacherId = 43,
                     ClassId = 5
                 },
                 new Lesson()
@@ -2066,7 +2066,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "11:40-12:25",
                     AuditoriumId = 5,
                     DisciplineId = 11,
-                    TeacherId = 42,
+                    TeacherId = 44,
                     ClassId = 5
                 },
                 new Lesson()
@@ -2077,7 +2077,7 @@ namespace YPS.Persistence.Configurations
                     LessonTimeGap = "12:35-13:20",
                     AuditoriumId = 6,
                     DisciplineId = 12,
-                    TeacherId = 43,
+                    TeacherId = 45,
                     ClassId = 5
                 }
             );

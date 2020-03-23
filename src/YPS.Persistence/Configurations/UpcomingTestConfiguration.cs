@@ -40,7 +40,7 @@ namespace YPS.Persistence.Configurations
                     TestType = "Test",
                     Topic = "Adding and subtracting numbers",
                     ClassId = 1,
-                    DisciplineId = 1,
+                    DisciplineId = 20,
                     Date = DateTime.Now,
                     ScheduledDate = DateTime.Now.AddDays(3),
                     TeacherId = 1
@@ -54,7 +54,18 @@ namespace YPS.Persistence.Configurations
                     DisciplineId = 7,
                     Date = DateTime.MaxValue,
                     ScheduledDate = DateTime.Now.AddDays(3),
-                    TeacherId = 1
+                    TeacherId = 4
+                },
+                new UpcomingTest
+                {
+                    Id = 3,
+                    TestType = "Test",
+                    Topic = "Course work",
+                    ClassId = 5,
+                    DisciplineId = 18,
+                    Date = DateTime.MaxValue,
+                    ScheduledDate = DateTime.Now.AddDays(3),
+                    TeacherId = 43
                 });
         }
     }

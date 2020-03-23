@@ -21,10 +21,10 @@ namespace YPS.Persistence.Configurations
                 .HasForeignKey(x => x.ClassTeacherId);
 
             builder.Property(e => e.YearFrom)
-                .HasDefaultValue(new DateTime(DateTime.Now.Year, 9, 1));
+                .HasDefaultValue(DateTime.Now.Year);
 
             builder.Property(e => e.YearTo)
-                .HasDefaultValue(new DateTime(DateTime.Now.Year + 1, 6, 1));
+                .HasDefaultValue(DateTime.Now.Year + 1);
 
             builder.HasMany(e => e.ClassToPupils)
                 .WithOne(e => e.Class);

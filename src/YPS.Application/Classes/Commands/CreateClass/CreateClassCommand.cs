@@ -13,38 +13,55 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.Classes.Commands.CreateClass
 {
-    public class CreateClassCommand : IRequest<CreatedResponse>
+    public class CreateClassCommand : IRequest<long>
     {
-        public long Number { get; set; }
         public string Character { get; set; }
+        public long Number { get; set; }
         public long ClassTeacherId { get; set; }
+        public List<long> SelectedPupils { get; set; }
 
-        public sealed class CreateClassCommandHandler : IRequestHandler<CreateClassCommand, CreatedResponse>
+        public sealed class CreateClassCommandHandler : IRequestHandler<CreateClassCommand,long>
         {
             private readonly IYPSDbContext _context;
-            private readonly IClassService _classService;
-            public CreateClassCommandHandler(IYPSDbContext context, IClassService classService)
+            public CreateClassCommandHandler(IYPSDbContext context)
             {
                 _context = context;
-                _classService = classService;
             }
 
-            public async Task<CreatedResponse> Handle(CreateClassCommand request, CancellationToken cancellationToken)
+            public async Task<long> Handle(CreateClassCommand request, CancellationToken cancellationToken)
             {
-                CreatedResponse res = new CreatedResponse();
 
-                IDictionary<string, string> failures = await _classService.CheckFailures(request.Number, request.Character, request.ClassTeacherId);
-
-                res.Failures = failures;
-
-                if (res.Failures == null || !res.Failures.Any())
+                Class newClass = new Class
                 {
-                    var newClass = await _classService.CreateClass(request.Number, request.Character, request.ClassTeacherId);
+                    Number = request.Number,
+                    Character = request.Character.ToUpper(),
+                    ClassTeacherId = request.ClassTeacherId,
+                };
 
-                    res.CreatedId = newClass.Id;
+                _context.Classes.Add(newClass);
+                await _context.SaveChangesAsync();
+                Class createdClass = await _context.Classes.FindAsync(newClass.Id);
+                if (createdClass != null)
+                {
+                    foreach (var pupil in request.SelectedPupils)
+                    {
+                        ClassToPupil classToPupil = new ClassToPupil
+                        {
+                            ClassId = createdClass.Id,
+                            PupilId = pupil
+                        };
+                        _context.ClassesToPupils.Add(classToPupil);
+                    }
+                    await _context.SaveChangesAsync();
                 }
+                Journal newJournal = new Journal
+                {
+                    ClassId = newClass.Id
+                };
+                _context.Journals.Add(newJournal);
+                await _context.SaveChangesAsync().ConfigureAwait(false);
+                return newClass.Id;
 
-                return res;
             }
         }
     }

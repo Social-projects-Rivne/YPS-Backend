@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
+using YPS.Application.Schedule.Models;
 
 namespace YPS.Application.Schedule.Queries.GetScheduleForTeacher
 {
@@ -21,48 +22,27 @@ namespace YPS.Application.Schedule.Queries.GetScheduleForTeacher
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
+            private readonly IDateTimeSevice _dateTimeSevice;
+            private readonly IScheduleService _scheduleService;
 
-            public GetScheduleForTeacherQueryHandler(IYPSDbContext context, IMapper mapper)
+            public GetScheduleForTeacherQueryHandler(IYPSDbContext context, IMapper mapper, IDateTimeSevice dateTimeSevice, IScheduleService scheduleService)
             {
                 _context = context;
                 _mapper = mapper;
+                _dateTimeSevice = dateTimeSevice;
+                _scheduleService = scheduleService;
             }
 
             public async Task<List<ScheduleVm>> Handle(GetScheduleForTeacherQuery request, CancellationToken cancellationToken)
             {
-                DateTime dt = DateTime.Now;
-                CultureInfo culture = Thread.CurrentThread.CurrentCulture;
-                int difference = dt.DayOfWeek - culture.DateTimeFormat.FirstDayOfWeek;
+                DateTime firstDay = _dateTimeSevice.GetFirstDayOfWeek();
 
-                if (difference < 0)
-                    difference += 7;
-
-                DateTime firstDay = dt.AddDays(-difference).Date;
-
-                List<ScheduleVm> vm = new List<ScheduleVm>();
-
-                var lessons = await _context.Lessons
-                    .Where(x => x.TeacherId == request.Id)
+                List<ScheduleItemDto> lessons = await _context.Lessons
+                    .Where(x => x.TeacherId == request.Id && x.LessonDate >= firstDay && x.LessonDate <= firstDay.AddDays(7))
                     .ProjectTo<ScheduleItemDto>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
-                for (int i = 0; i < 7; i++)
-                {
-                    vm.Add(
-                        new ScheduleVm
-                        {
-                            DayName = firstDay.DayOfWeek.ToString(),
-                            Date = firstDay.ToString("MMMM dd", CultureInfo.InvariantCulture),
-                            Items = new List<ScheduleItemDto>()
-                        }
-                    );
-
-                    vm.ElementAt(i).Items.AddRange(lessons.Where(x => x.LessonDate == firstDay.ToString("dd.MM.yyyy")));
-
-                    firstDay = firstDay.AddDays(1);
-                }
-
-                return vm;
+                return _scheduleService.MapSchedule(firstDay, lessons);
             }
         }
     }

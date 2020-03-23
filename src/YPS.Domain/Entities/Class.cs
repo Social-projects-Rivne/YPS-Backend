@@ -23,8 +23,8 @@ namespace YPS.Domain.Entities
         public long ClassTeacherId { get; set; }
         public Teacher TeacherOf { get; set; }
 
-        public DateTime YearFrom { get; set; }
-        public DateTime YearTo { get; set; }
+        public int YearFrom { get; set; }
+        public int YearTo { get; set; }
 
         public Journal Journal { get; set; }
 
