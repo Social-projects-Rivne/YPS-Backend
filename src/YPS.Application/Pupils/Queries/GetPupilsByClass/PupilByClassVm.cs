@@ -18,7 +18,7 @@ namespace YPS.Application.Pupils.Queries.GetPupilsByClass
                 .ForMember(
                     p => p.FullName, 
                     opt => opt.MapFrom(
-                        p => p.User.FirstName + " " + p.User.Surname + " " + p.User.MiddleName
+                        p => p.User.Surname + " " + p.User.FirstName + " " + p.User.MiddleName
                     )
                 );
         }
