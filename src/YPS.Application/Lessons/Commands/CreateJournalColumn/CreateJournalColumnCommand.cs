@@ -36,7 +36,7 @@ namespace YPS.Application.Lessons.Commands.CreateJournalColumn
                     JournalId = journal.Id,
                 };
 
-                _context.JournalColumns.Add(journalColumn);
+                _context.JournalColumns.Attach(journalColumn);
                 await _context.SaveChangesAsync(cancellationToken);
                 JournalColumn createdJC = await _context.JournalColumns.FindAsync(journalColumn.Id);
 
@@ -53,11 +53,11 @@ namespace YPS.Application.Lessons.Commands.CreateJournalColumn
                                 PupilId = mark.PupilId,
                                 Value = mark.Value
                             };
-                            _context.Marks.Add(newMark);
+                            await _context.Marks.AddAsync(newMark);
                         }
-                        await _context.SaveChangesAsync(cancellationToken);
                     }
                 }
+                await _context.SaveChangesAsync(cancellationToken);
 
                 return createdJC.Id;
             }

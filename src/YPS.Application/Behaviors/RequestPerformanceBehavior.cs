@@ -25,7 +25,7 @@ namespace YPS.Application.Behaviors
             _timer.Start(); // keeps track of how long the request is running
             var response = await next();
             _timer.Stop();
-            if (_timer.ElapsedMilliseconds > 500)
+            if (_timer.ElapsedMilliseconds > 3500)
             {
                 var name = typeof(TRequest).Name;
                 // TODO: Add User Details
