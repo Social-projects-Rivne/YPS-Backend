@@ -12,6 +12,7 @@ namespace YPS.WebUI.Controllers
     [Authorize]
     public class JournalColumnController : ApiController
     {
+        [Authorize(Roles = "teacher, head-assistant")]
         [HttpPost]
         public async Task<ActionResult<long>> Create([FromBody]CreateJournalColumnCommand command)
         {
