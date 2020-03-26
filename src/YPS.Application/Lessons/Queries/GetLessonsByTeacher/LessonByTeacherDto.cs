@@ -32,7 +32,6 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
                  .ForMember(e => e.Discipline, opt => opt.MapFrom(e => e.Discipline.Name))
                  .ForMember(e => e.ClassName, opt => opt.MapFrom(e => e.Class.Number + " - " + e.Class.Character))
                  .ForMember(e => e.IsFinished, opt => opt.MapFrom(e => e.JournalColumn == null ? false : true));
-
         }
     }
 }

@@ -54,7 +54,6 @@ namespace YPS.Application.Lessons.Queries.GetLessonsByTeacher
                             Lessons = new List<LessonByTeacherDto>()
                         }
                     );
-                    
                     vm.ElementAt(i).Lessons.AddRange(lessons.Where(x => x.LessonDate == firstDay.ToString("dd.MM.yyyy")));
 
                     firstDay = firstDay.AddDays(1);
