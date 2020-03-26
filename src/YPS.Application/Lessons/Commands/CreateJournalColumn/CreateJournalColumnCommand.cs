@@ -38,28 +38,31 @@ namespace YPS.Application.Lessons.Commands.CreateJournalColumn
 
                 _context.JournalColumns.Attach(journalColumn);
                 await _context.SaveChangesAsync(cancellationToken);
-                JournalColumn createdJC = await _context.JournalColumns.FindAsync(journalColumn.Id);
 
-                foreach (List<MarkDto> subList in request.LessonMarks)
+                var createdJournalColumn = await _context.JournalColumns.SingleOrDefaultAsync(j => j.Id == journalColumn.Id);
+
+                var journalColumnList = request.LessonMarks;
+               
+                foreach (List<MarkDto> pupilMarks in journalColumnList)
                 {
-                    foreach (MarkDto mark in subList)
+                    foreach (MarkDto mark in pupilMarks)
                     {
-                        if (mark.Value != null && mark.Type != 0 && mark.PupilId != 0 )
+                        if (mark.Value != null && mark.Type != 0 && mark.PupilId != 0)
                         {
-                            Mark newMark = new Mark
-                            {
-                                JournalColumnId = createdJC.Id,
+                            Mark newMark = new Mark {
+                                JournalColumnId = createdJournalColumn.Id,
                                 MarkTypeId = mark.Type,
                                 PupilId = mark.PupilId,
                                 Value = mark.Value
                             };
-                            await _context.Marks.AddAsync(newMark);
+                            _context.Marks.Add(newMark); 
                         }
                     }
                 }
+
                 await _context.SaveChangesAsync(cancellationToken);
 
-                return createdJC.Id;
+                return createdJournalColumn.Id;
             }
         }
     }
