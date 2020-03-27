@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
+using YPS.Domain.Entities;
 
 namespace YPS.Application.Schools.Queries.GetSchoolById
 {

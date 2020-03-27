@@ -13,6 +13,7 @@ namespace YPS.WebUI.Controllers
     public class SchoolsController : ApiController
     {
         [Authorize]
+        [HttpGet]
         public async Task<ActionResult<SchoolVm>> GetById()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
