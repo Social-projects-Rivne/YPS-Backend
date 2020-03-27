@@ -11,6 +11,7 @@ namespace YPS.Application.Parents.Queries.GetParentsBySchool
     public class ParentBySchoolVm : IMapFrom<User>
     {
         public long Id { get; set; }
+        public string ImageUrl { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
