@@ -17,7 +17,6 @@ namespace YPS.Application.UnitTests
 
             context.Database.EnsureCreated();
 
-
             return context;
         }
 
