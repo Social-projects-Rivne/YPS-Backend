@@ -20,6 +20,9 @@ namespace YPS.Domain.Entities
 
         public string Name { get; set; }
         public string ShortName { get; set; }
+        public string Locality { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
         public string RegistrationLink { get; set; }
 
         public ICollection<User> Users { get; set; }

@@ -14,10 +14,11 @@ using YPS.Application.Classes.Queries.GetClassByNumber;
 
 namespace YPS.WebUI.Controllers
 {
-    [Authorize(Roles = "head-master, master, teacher, head-assistant")]
+    [Authorize]
     public class ClassesController : ApiController
     {
         [HttpGet("[action]")]
+        [Authorize(Roles = "head-master, master, teacher, head-assistant")]
         public async Task<ActionResult<List<ClassBySchoolVm>>> GetBySchool()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
@@ -25,6 +26,7 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "head-master, master, teacher, head-assistant")]
         public async Task<ActionResult<long>> Create([FromBody] CreateClassCommand command)
         {
             var response = await Mediator.Send(command);
@@ -32,6 +34,7 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpGet("[action]")]
+        [Authorize(Roles = "head-master, master, teacher, head-assistant")]
         public async Task<ActionResult<List<ClassWithFullInfoVm>>> GetBySchoolWithFullInfo()
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
@@ -39,11 +42,11 @@ namespace YPS.WebUI.Controllers
         }
 
         [HttpGet("[action]/{number}")]
-        [Authorize]
         public async Task<ActionResult<ICollection<GetClassByNumberVm>>> GetClassesByNumber(int number)
         {
             long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
-            return Ok(await Mediator.Send(new GetClassByNumberQuery {
+            return Ok(await Mediator.Send(new GetClassByNumberQuery
+            {
                 Number = number,
                 SchoolId = schoolId
             }));
