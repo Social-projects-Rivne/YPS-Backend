@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Lessons.Commands.CreateJournalColumn
+namespace YPS.Application.JournalColumns.Commands.CreateJournalColumn
 {
     public sealed class CreateJournalColumnCommand : IRequest<long>
     {
         public string Topic { get; set; }
         public long LessonId { get; set; }
         public long ClassId { get; set; }
-        public List<List<MarkDto>> LessonMarks { get; set; }
+        public List<MarkDto> LessonMarks { get; set; }
 
         public sealed class CreateJournalColumnCommandHandler : IRequestHandler<CreateJournalColumnCommand, long>
         {
@@ -41,22 +41,18 @@ namespace YPS.Application.Lessons.Commands.CreateJournalColumn
 
                 var createdJournalColumn = await _context.JournalColumns.SingleOrDefaultAsync(j => j.Id == journalColumn.Id);
 
-                var journalColumnList = request.LessonMarks;
-               
-                foreach (List<MarkDto> pupilMarks in journalColumnList)
+                foreach (MarkDto mark in request.LessonMarks)
                 {
-                    foreach (MarkDto mark in pupilMarks)
+                    if (mark.Value != null && mark.TypeId != 0 && mark.PupilId != 0)
                     {
-                        if (mark.Value != null && mark.Type != 0 && mark.PupilId != 0)
+                        Mark newMark = new Mark
                         {
-                            Mark newMark = new Mark {
-                                JournalColumnId = createdJournalColumn.Id,
-                                MarkTypeId = mark.Type,
-                                PupilId = mark.PupilId,
-                                Value = mark.Value
-                            };
-                            _context.Marks.Add(newMark); 
-                        }
+                            JournalColumnId = createdJournalColumn.Id,
+                            MarkTypeId = mark.TypeId,
+                            PupilId = mark.PupilId,
+                            Value = mark.Value
+                        };
+                        _context.Marks.Add(newMark);
                     }
                 }
 
