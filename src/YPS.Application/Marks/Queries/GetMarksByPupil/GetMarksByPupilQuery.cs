@@ -38,11 +38,11 @@ namespace YPS.Application.Marks.Queries.GetMarksByPupil
                 IQueryable<Mark> marks = _context.Marks
                    .Include(x => x.MarkType)
                    .Where(x => x.JournalColumnId == x.JournalColumnId && x.PupilId == request.PupilId);
-
+                   
                 var journalColumns = _context.JournalColumns
                     .Include(x => x.Marks)
                     .Include(x => x.Lesson.Discipline)
-                    .Where(t => t.JournalId == t.JournalId && t.Lesson.LessonNumber == t.Lesson.LessonNumber && t.Lesson.DisciplineId == request.DisciplineId);
+                    .Where(t => t.JournalId == t.JournalId && t.Lesson.DisciplineId == request.DisciplineId);
 
                 foreach (var journalColumn in journalColumns)
                 {
