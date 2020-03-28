@@ -11,7 +11,7 @@ namespace YPS.Persistence.Configurations
         {
             builder.Property(e => e.Value)
                 .IsRequired()
-                .HasMaxLength(3);
+                .HasMaxLength(10);
 
             builder.HasOne(e => e.JournalColumn)
                 .WithMany(e => e.Marks)
