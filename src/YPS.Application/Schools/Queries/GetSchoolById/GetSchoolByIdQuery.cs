@@ -16,6 +16,7 @@ namespace YPS.Application.Schools.Queries.GetSchoolById
     public sealed class GetSchoolByIdQuery : IRequest<SchoolVm>
     {
         public long SchoolId { get; set; }
+
         public sealed class GetSchoolByIdQueryHandler : IRequestHandler<GetSchoolByIdQuery, SchoolVm>
         {
             private readonly IYPSDbContext _context;
