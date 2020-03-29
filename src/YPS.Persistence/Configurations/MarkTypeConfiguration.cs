@@ -30,7 +30,7 @@ namespace YPS.Persistence.Configurations
                 new MarkType()
                 {
                     Id = 2,
-                    Type = "Home work",
+                    Type = "Homework",
                     Description = "You can get this mark by doing your homework"
                 },
                 new MarkType()
