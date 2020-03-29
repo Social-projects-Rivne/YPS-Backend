@@ -23,9 +23,9 @@ namespace YPS.Application.Schedule.Query.GetScheduleByClass
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
             private readonly IScheduleService _scheduleService;
-            private readonly IDateTimeSevice _dateTimeSevice;
+            private readonly IDateTimeService _dateTimeSevice;
 
-            public GetScheduleByClassQueryHandler(IYPSDbContext context, IMapper mapper, IScheduleService scheduleService, IDateTimeSevice dateTimeSevice)
+            public GetScheduleByClassQueryHandler(IYPSDbContext context, IMapper mapper, IScheduleService scheduleService, IDateTimeService dateTimeSevice)
             {
                 _context = context;
                 _mapper = mapper;
