@@ -31,7 +31,7 @@ namespace YPS.Application.Journals.Queries
             public async Task<JournalViewModel> Handle(GetJournalByDisciplineQuery request, CancellationToken cancellationToken)
             {
                 List<JournalColumnHeadViewModel> headers = await _context.Lessons
-                    .Where(x => x.LessonDate.Year == DateTime.Now.Year && x.DisciplineId == request.DisciplineId && x.ClassId == request.ClassId)
+                    .Where(x => x.LessonDate.Year == DateTime.Now.Year && x.DisciplineId == request.DisciplineId && x.ClassId == request.ClassId && x.JournalColumn != null)
                     .ProjectTo<JournalColumnHeadViewModel>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
