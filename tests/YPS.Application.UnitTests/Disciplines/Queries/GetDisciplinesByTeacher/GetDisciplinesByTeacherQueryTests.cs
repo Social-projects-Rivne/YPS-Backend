@@ -16,12 +16,12 @@ using static YPS.Application.Disciplines.Queries.GetDisciplinesByTeacher.GetDisc
 namespace YPS.Application.UnitTests.Disciplines.Queries.GetDisciplinesByTeacher
 {
     [Collection("QueryTests")]
-    public class GetDisciplinesByTeacherTests
+    public class GetDisciplinesByTeacherQueryTests
     {
         public readonly YPSDbContext _context;
         public readonly IMapper _mapper;
 
-        public GetDisciplinesByTeacherTests(QueryTestFixture fixture)
+        public GetDisciplinesByTeacherQueryTests(QueryTestFixture fixture)
         {
             _context = fixture.Context;
             _mapper = fixture.Mapper;
@@ -30,7 +30,7 @@ namespace YPS.Application.UnitTests.Disciplines.Queries.GetDisciplinesByTeacher
         [Fact]
         public async Task Handle_ReturnsCocrectVmAndListCount() 
         {
-            var query = new GetDisciplinesByTeacherQuery { TeacherId = 5 };
+            var query = new GetDisciplinesByTeacherQuery { TeacherId = 42 };
 
             var handle = new GetDisciplinesByTeacherQueryHandler(_context, _mapper);
 
@@ -38,7 +38,7 @@ namespace YPS.Application.UnitTests.Disciplines.Queries.GetDisciplinesByTeacher
 
             result.ShouldBeOfType<List<DisciplineVm>>();
 
-            result.Count.ShouldBe(1);
+            result.Count.ShouldBe(6);
         } 
     }
 }

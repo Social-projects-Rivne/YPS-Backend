@@ -30,8 +30,6 @@ namespace YPS.Application.Disciplines.Queries.GetDisciplinesByTeacher
 
             public async Task<List<DisciplineVm>> Handle(GetDisciplinesByTeacherQuery request, CancellationToken cancellationToken)
             {
-                Teacher teacher = await _context.Teachers.FirstOrDefaultAsync(x => x.Id == request.TeacherId);
-
                 List<DisciplineVm> disciplinesList = await _context.TeacherToDisciplines
                     .Where(x => x.TeacherId == request.TeacherId)
                     .ProjectTo<DisciplineVm>(_mapper.ConfigurationProvider)
