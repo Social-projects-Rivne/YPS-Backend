@@ -16,8 +16,8 @@ namespace YPS.Application.UnitTests.Disciplines.Queries.GetDisciplinesByTeacher
 {
     public class GetDisciplinesByTeacherTests
     {
-        public YPSDbContext _context { get; }
-        public IMapper _mapper { get; }
+        public readonly YPSDbContext _context;
+        public readonly IMapper _mapper;
 
         public GetDisciplinesByTeacherTests(QueryTestFixture fixture)
         {
