@@ -32,7 +32,6 @@ namespace YPS.Application.Marks.Queries.GetMarksByPupil
 
             public async Task<List<JournalColumnByPupilVm>> Handle(GetMarksByPupilQuery request, CancellationToken cancellationToken)
             {
-
                 List<JournalColumnByPupilVm> vm = new List<JournalColumnByPupilVm>();
 
                 IQueryable<Mark> marks = _context.Marks

@@ -4,8 +4,9 @@ using System.Text;
 
 namespace YPS.Application.Journals.Queries
 {
-    class JournalViewModel
+    public class JournalViewModel
     {
-        List<PupilShortName> Pupils { get; set; }
+        public List<JournalColumnHeadViewModel> JournalColumnHeads { get; set; }
+        public List<PupilWithMarksViewModel> Pupils { get; set; }
     }
 }
