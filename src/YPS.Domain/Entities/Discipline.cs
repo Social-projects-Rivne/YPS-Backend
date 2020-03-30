@@ -14,6 +14,7 @@ namespace YPS.Domain.Entities
             UpcomingTests = new HashSet<UpcomingTest>();
             TeacherToDisciplines = new HashSet<TeacherToDiscipline>();
             Lessons = new HashSet<Lesson>();
+            ClassToDisciplines = new HashSet<ClassToDiscipline>();
         }
 
         public string Name { get; set; }
@@ -24,5 +25,6 @@ namespace YPS.Domain.Entities
         public ICollection<UpcomingTest> UpcomingTests { get; set; }
         public ICollection<TeacherToDiscipline> TeacherToDisciplines { get; set; }
         public ICollection<Lesson> Lessons { get; set; }
+        public ICollection<ClassToDiscipline> ClassToDisciplines { get; set; }
     }
 }

@@ -21,6 +21,9 @@ namespace YPS.Persistence.Configurations
             builder.HasMany(e => e.Lessons)
                 .WithOne(e => e.Discipline);
 
+            builder.HasMany(e => e.ClassToDisciplines)
+                .WithOne(e => e.Discipline);
+
             builder.HasOne(e => e.School)
                 .WithMany(e => e.Disciplines)
                 .HasForeignKey(e => e.SchoolId)
