@@ -12,12 +12,10 @@ namespace YPS.WebUI.Controllers
     [Authorize]
     public class JournalsController : ApiController
     {
-        [HttpGet("{disciplineId}")]
-        public async Task<ActionResult<JournalViewModel>> GetForPupilByDiscipline(long disciplineId)
+        [HttpGet("{classId}/{disciplineId}")]
+        public async Task<ActionResult<JournalViewModel>> GetForPupilByDiscipline(long classId, long disciplineId)
         {
-            long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-            return Ok(await Mediator.Send(new GetJournalByDisciplineQuery { TeacherId = teacherId, DisciplineId = disciplineId }));
+            return Ok(await Mediator.Send(new GetJournalByDisciplineQuery {ClassId = classId, DisciplineId = disciplineId }));
         }
     }
 }

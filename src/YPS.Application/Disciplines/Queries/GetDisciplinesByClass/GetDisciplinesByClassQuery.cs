@@ -45,7 +45,8 @@ namespace YPS.Application.Disciplines.Queries.GetDisciplinesByClass
                     return new GetDisciplineByClassResponse 
                     {
                         Disciplines = disciplinesList,
-                        IsClassTeacher = true
+                        IsClassTeacher = true,
+                        ClassId = class_.Id
                     };
                 }
                 else
@@ -53,7 +54,8 @@ namespace YPS.Application.Disciplines.Queries.GetDisciplinesByClass
                     return new GetDisciplineByClassResponse
                     {
                         Disciplines = null,
-                        IsClassTeacher = false
+                        IsClassTeacher = false,
+                        ClassId = 0
                     };
                 }
             }

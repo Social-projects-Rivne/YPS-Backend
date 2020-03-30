@@ -8,5 +8,6 @@ namespace YPS.Application.Disciplines.Queries.GetDisciplinesByClass
     {
         public List<DisciplineByClassVm> Disciplines { get; set; }
         public bool IsClassTeacher { get; set; }
+        public long ClassId { get; set; }
     }
 }
