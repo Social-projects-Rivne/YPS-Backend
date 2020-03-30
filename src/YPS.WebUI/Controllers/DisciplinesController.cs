@@ -22,7 +22,7 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetDisciplinesByTeacherQuery { TeacherId = teacherId }));
         }
 
-        [Authorize(Roles = "head-assistant")]
+        [Authorize(Roles = "head-assistant, pupil")]
         [HttpGet("[action]")]
         public async Task<ActionResult<List<DisciplineShortVm>>> GetAllDisciplinesAsync()
         {

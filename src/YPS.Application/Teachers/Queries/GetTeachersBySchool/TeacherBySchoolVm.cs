@@ -9,6 +9,7 @@ namespace YPS.Application.Teachers.Queries.GetTeachersBySchool
     public class TeacherBySchoolVm : IMapFrom<User>
     {
         public long Id { get; set; }
+        public string ImageUrl { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
