@@ -30,6 +30,7 @@ namespace YPS.Application.Pupils.Queries.GetPupilsByClass
             {
                 List<PupilByClassVm> result = await _context.Pupils
                     .Where(p => p.ClassToPupils.First(x => x.ClassId == request.ClassId) != null)
+                    .OrderBy(p => p.User.Surname)
                     .ProjectTo<PupilByClassVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
