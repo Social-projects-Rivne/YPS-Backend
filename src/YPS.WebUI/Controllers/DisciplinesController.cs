@@ -17,7 +17,7 @@ namespace YPS.WebUI.Controllers
     {
         [Authorize(Roles = "teacher")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<DisciplineShortVm>>> GetDisciplinesByTeacherAsync()
+        public async Task<ActionResult<List<DisciplineBySchoolVm>>> GetDisciplinesByTeacherAsync()
         {
             long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
@@ -26,9 +26,10 @@ namespace YPS.WebUI.Controllers
 
         [Authorize(Roles = "head-assistant")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<DisciplineShortVm>>> GetAllDisciplinesAsync()
+        public async Task<ActionResult<List<DisciplineBySchoolVm>>> GetAllDisciplinesBySchoolAsync()
         {
-            return Ok(await Mediator.Send(new GetAllDisciplinesQuery()));
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetAllDisciplinesBySchoolQuery { SchoolId = schoolId }));
         }
     }
 }
