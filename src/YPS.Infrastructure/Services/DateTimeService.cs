@@ -8,7 +8,7 @@ using YPS.Application.Interfaces;
 
 namespace YPS.Infrastructure.Services
 {
-    public class DateTimeService : IDateTimeSevice
+    public class DateTimeService : IDateTimeService
     {
         public DateTime GetFirstDayOfWeek()
         {
