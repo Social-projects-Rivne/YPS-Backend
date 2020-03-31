@@ -31,6 +31,8 @@ namespace YPS.Application.UnitTests.UpcomingEvents.Commands.CreateUpcomingEventB
 
             var entity = Context.UpcomingEvents.Find(result);
 
+            result.ShouldNotBe(0);
+
             entity.ShouldNotBeNull();
             entity.Title.ShouldBe(command.Title);
             entity.Content.ShouldBe(command.Content);

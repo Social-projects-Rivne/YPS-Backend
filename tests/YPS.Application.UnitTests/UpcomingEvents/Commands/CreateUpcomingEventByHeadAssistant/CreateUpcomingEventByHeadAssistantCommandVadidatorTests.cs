@@ -31,6 +31,7 @@ namespace YPS.Application.UnitTests.UpcomingEvents.Commands.CreateUpcomingEventB
 
             result.IsValid.ShouldBeTrue();
         }
+
         [Fact]
         public void IsValid_ShouldBeFalse_WhenUpcomingEventByHeadAssistantIsNotExist()
         {
