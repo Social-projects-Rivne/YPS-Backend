@@ -21,5 +21,12 @@ namespace YPS.WebUI.Controllers
             long pupilid = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             return Ok(await Mediator.Send(new GetMarksByPupilQuery { PupilId = pupilid, DisciplineId = disciplineId }));
         }
+
+        [Authorize(Roles = "parent")]
+        [HttpGet("{disciplineId}/{pupilId}")]
+        public async Task<ActionResult<List<MarkByPupilDto>>> GetPupilMarksFromParentByDiscipline(long pupilId, long disciplineId)
+        {
+            return Ok(await Mediator.Send(new GetMarksByPupilQuery { PupilId = pupilId, DisciplineId = disciplineId }));
+        }
     }
 }

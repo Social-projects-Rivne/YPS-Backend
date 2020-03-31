@@ -24,7 +24,7 @@ namespace YPS.WebUI.Controllers
             return Ok(await Mediator.Send(new GetDisciplinesByTeacherQuery { TeacherId = teacherId }));
         }
 
-        [Authorize(Roles = "head-assistant, pupil")]
+        [Authorize(Roles = "head-assistant, pupil, parent")]
         [HttpGet("[action]")]
         public async Task<ActionResult<List<DisciplineBySchoolVm>>> GetAllDisciplinesBySchoolAsync()
         {

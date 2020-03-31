@@ -9,7 +9,7 @@ namespace YPS.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<ParentToPupil> builder)
         {
-            builder.HasKey(x => new {x.ParentId, x.PupilId });
+            builder.HasKey(x => new { x.ParentId, x.PupilId });
 
             builder.HasOne(e => e.ParentOf)
                 .WithMany(e => e.ParentToPupils)
@@ -31,7 +31,10 @@ namespace YPS.Persistence.Configurations
                 new ParentToPupil { ParentId = 11, PupilId = 21 },
                 new ParentToPupil { ParentId = 12, PupilId = 22 },
                 new ParentToPupil { ParentId = 5, PupilId = 23 },
-                new ParentToPupil { ParentId = 5, PupilId = 24 });
+                new ParentToPupil { ParentId = 5, PupilId = 24 },
+                new ParentToPupil { ParentId = 46, PupilId = 35 },
+                new ParentToPupil { ParentId = 46, PupilId = 38 },
+                new ParentToPupil { ParentId = 46, PupilId = 41 });
         }
     }
 }

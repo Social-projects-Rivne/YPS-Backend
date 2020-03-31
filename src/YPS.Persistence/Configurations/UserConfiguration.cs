@@ -632,6 +632,19 @@ namespace YPS.Persistence.Configurations
                     DateOfBirth = new DateTime(2004, 5, 10),
                     RoleId = 1,
                     SchoolId = 2
+                },
+                new User
+                {
+                    Id = 46,
+                    FirstName = "Arsen",
+                    Surname = "Testov",
+                    MiddleName = "Arsenovich",
+                    PhoneNumber = "098765780",
+                    Email = "parent100@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("parent100").ToArray()),
+                    DateOfBirth = new DateTime(1990,1,1),
+                    RoleId = 3,
+                    SchoolId = 2
                 }
             );
         }
