@@ -8,10 +8,9 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using YPS.Application.Disciplines.Queries.GetAllDiscipline;
 using YPS.Application.Interfaces;
 
-namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
+namespace YPS.Application.Disciplines.Queries.GetAllDisciplinesBySchool
 {
     public class GetAllDisciplinesBySchoolQuery : IRequest<List<DisciplineBySchoolVm>>
     {

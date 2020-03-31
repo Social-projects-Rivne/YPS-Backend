@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using YPS.Application.Disciplines.Queries.GetAllDiscipline;
+using YPS.Application.Disciplines.Queries.GetAllDisciplinesBySchool;
 using YPS.Application.Disciplines.Queries.GetDisciplinesByClass;
 using YPS.Application.Disciplines.Queries.GetDisciplinesByTeacher;
 
