@@ -22,10 +22,10 @@ namespace YPS.Application.Schedule.Queries.GetScheduleForPupil
         {
             private readonly IYPSDbContext _context;
             private readonly IMapper _mapper;
-            private readonly IDateTimeSevice _dateTimeSevice;
+            private readonly IDateTimeService _dateTimeSevice;
             private readonly IScheduleService _scheduleService;
 
-            public GetScheduleForPupilQueryHandler(IYPSDbContext context, IMapper mapper, IDateTimeSevice dateTimeSevice, IScheduleService scheduleService)
+            public GetScheduleForPupilQueryHandler(IYPSDbContext context, IMapper mapper, IDateTimeService dateTimeSevice, IScheduleService scheduleService)
             {
                 _context = context;
                 _mapper = mapper;

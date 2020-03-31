@@ -7,7 +7,7 @@ using YPS.Domain.Entities;
 
 namespace YPS.Application.UnitTests.Mapping
 {
-    public class MappingTests : IClassFixture<MappingTestsFixture>
+    public sealed class MappingTests : IClassFixture<MappingTestsFixture>
     {
         private readonly IConfigurationProvider _configuration;
         private readonly IMapper _mapper;

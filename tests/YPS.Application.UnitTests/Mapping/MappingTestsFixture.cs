@@ -3,8 +3,11 @@ using YPS.Application.Mapping;
 
 namespace YPS.Application.UnitTests.Mapping
 {
-    public class MappingTestsFixture
+    public sealed class MappingTestsFixture
     {
+        public IConfigurationProvider ConfigurationProvider { get; }
+        public IMapper Mapper { get; }
+
         public MappingTestsFixture()
         {
             ConfigurationProvider = new MapperConfiguration(cfg =>
@@ -14,9 +17,5 @@ namespace YPS.Application.UnitTests.Mapping
 
             Mapper = ConfigurationProvider.CreateMapper();
         }
-
-        public IConfigurationProvider ConfigurationProvider { get; }
-
-        public IMapper Mapper { get; }
     }
 }
