@@ -37,6 +37,7 @@ namespace YPS.Persistence
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
         public DbSet<Auditorium> Auditoriums { get; set; }
         public DbSet<ClassToPupil> ClassesToPupils { get; set; }
+        public DbSet<ClassToDiscipline> ClassesToDisciplines { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
