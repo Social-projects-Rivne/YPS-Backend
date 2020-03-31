@@ -23,18 +23,16 @@ namespace YPS.Application.UnitTests.Classes.Queries.GetClassesBySchool
             _mapper = fixture.Mapper;
         }
 
-        [Theory]
-        [InlineData(1)]
-        [InlineData(2)]
-        public async Task Handle_ReturnsCorrectVm(long schoolId)
+        [Fact]
+        public async Task Handle_ReturnsCorrectVmAndListCount()
         {
-            GetClassesBySchoolQuery query = new GetClassesBySchoolQuery { SchoolId = schoolId };
+            GetClassesBySchoolQuery query = new GetClassesBySchoolQuery { SchoolId = 2 };
             GetClassesBySchoolQuery.GetClassesBySchoolQueryHandler handler = new GetClassesBySchoolQuery.GetClassesBySchoolQueryHandler(_context, _mapper);
 
-            ICollection<ClassBySchoolVm> result = await handler.Handle(query, CancellationToken.None);
+            List<ClassBySchoolVm> result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<ICollection<ClassBySchoolVm>>();
-            result.ShouldNotBeNull();
+            result.ShouldBeOfType<List<ClassBySchoolVm>>();
+            result.Count.ShouldBe(3);
         }
     }
 }
