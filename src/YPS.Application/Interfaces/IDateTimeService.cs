@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace YPS.Application.Interfaces
 {
-    public interface IDateTimeSevice
+    public interface IDateTimeService
     {
         DateTime GetFirstDayOfWeek();
     }

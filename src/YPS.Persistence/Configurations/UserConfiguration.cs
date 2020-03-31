@@ -59,7 +59,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher1").ToArray()),
                     DateOfBirth = new DateTime(1980, 5, 2),
                     RoleId = 2,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -72,7 +73,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher2").ToArray()),
                     DateOfBirth = new DateTime(1971, 1, 22),
                     RoleId = 2,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -85,7 +87,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher3").ToArray()),
                     DateOfBirth = new DateTime(1990, 11, 11),
                     RoleId = 2,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -98,7 +101,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher4").ToArray()),
                     DateOfBirth = new DateTime(1980, 5, 2),
                     RoleId = 2,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -111,7 +115,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("parent1").ToArray()),
                     DateOfBirth = new DateTime(1965, 11, 11),
                     RoleId = 3,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -124,7 +129,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("parent2").ToArray()),
                     DateOfBirth = new DateTime(1971, 4, 16),
                     RoleId = 3,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                  new User
                  {
@@ -137,7 +143,8 @@ namespace YPS.Persistence.Configurations
                      Password = Convert.ToBase64String(new PasswordHash("parent3").ToArray()),
                      DateOfBirth = new DateTime(1985, 4, 4),
                      RoleId = 3,
-                     SchoolId = 1
+                     SchoolId = 1,
+                     ImageUrl = "../../../assets/images/default-user-image.jpg"
                  },
                  new User
                  {
@@ -150,7 +157,8 @@ namespace YPS.Persistence.Configurations
                      Password = Convert.ToBase64String(new PasswordHash("parent4").ToArray()),
                      DateOfBirth = new DateTime(1988, 9, 28),
                      RoleId = 3,
-                     SchoolId = 1
+                     SchoolId = 1,
+                     ImageUrl = "../../../assets/images/default-user-image.jpg"
                  },
                  new User
                  {
@@ -163,7 +171,8 @@ namespace YPS.Persistence.Configurations
                      Password = Convert.ToBase64String(new PasswordHash("parent5").ToArray()),
                      DateOfBirth = new DateTime(1984, 1, 27),
                      RoleId = 3,
-                     SchoolId = 1
+                     SchoolId = 1,
+                     ImageUrl = "../../../assets/images/default-user-image.jpg"
                  },
                  new User
                  {
@@ -176,7 +185,8 @@ namespace YPS.Persistence.Configurations
                      Password = Convert.ToBase64String(new PasswordHash("parent6").ToArray()),
                      DateOfBirth = new DateTime(1990, 5, 9),
                      RoleId = 3,
-                     SchoolId = 2
+                     SchoolId = 2,
+                     ImageUrl = "../../../assets/images/default-user-image.jpg"
                  },
                  new User
                  {
@@ -189,7 +199,8 @@ namespace YPS.Persistence.Configurations
                      Password = Convert.ToBase64String(new PasswordHash("parent7").ToArray()),
                      DateOfBirth = new DateTime(1994, 8, 22),
                      RoleId = 3,
-                     SchoolId = 2
+                     SchoolId = 2,
+                     ImageUrl = "../../../assets/images/default-user-image.jpg"
                  },
                 new User
                 {
@@ -202,7 +213,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("parent8").ToArray()),
                     DateOfBirth = new DateTime(1985, 4, 5),
                     RoleId = 3,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -215,7 +227,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("parent9").ToArray()),
                     DateOfBirth = new DateTime(1989, 10, 7),
                     RoleId = 3,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -228,7 +241,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("parent10").ToArray()),
                     DateOfBirth = new DateTime(1985, 9, 18),
                     RoleId = 3,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -241,7 +255,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil1_").ToArray()),
                     DateOfBirth = new DateTime(2014, 9, 18),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -254,7 +269,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil2_").ToArray()),
                     DateOfBirth = new DateTime(2014, 1, 1),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -267,7 +283,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil3_").ToArray()),
                     DateOfBirth = new DateTime(2014, 9, 18),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -280,7 +297,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil4_").ToArray()),
                     DateOfBirth = new DateTime(2013, 11, 20),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -293,7 +311,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil5_").ToArray()),
                     DateOfBirth = new DateTime(2014, 8, 23),
                     RoleId = 1,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -306,7 +325,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil6_").ToArray()),
                     DateOfBirth = new DateTime(2010, 9, 18),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -319,7 +339,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil7_").ToArray()),
                     DateOfBirth = new DateTime(2010, 9, 25),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -332,7 +353,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil8_").ToArray()),
                     DateOfBirth = new DateTime(2010, 7, 7),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -345,7 +367,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil9_").ToArray()),
                     DateOfBirth = new DateTime(2010, 8, 28),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -358,7 +381,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil10").ToArray()),
                     DateOfBirth = new DateTime(2010, 1, 20),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -371,7 +395,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("headassistant1").ToArray()),
                     DateOfBirth = new DateTime(1980, 5, 10),
                     RoleId = 4,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -384,7 +409,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("headassistant2").ToArray()),
                     DateOfBirth = new DateTime(1989, 11, 10),
                     RoleId = 4,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -397,7 +423,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("master1").ToArray()),
                     DateOfBirth = new DateTime(2000, 4, 8),
                     RoleId = 5,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -410,7 +437,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("master2").ToArray()),
                     DateOfBirth = new DateTime(2001, 5, 12),
                     RoleId = 5,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -423,7 +451,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("headmaster1").ToArray()),
                     DateOfBirth = new DateTime(1995, 9, 6),
                     RoleId = 6,
-                    SchoolId = 1
+                    SchoolId = 1,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -436,7 +465,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("headmaster2").ToArray()),
                     DateOfBirth = new DateTime(1981, 5, 6),
                     RoleId = 6,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -449,7 +479,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("admin1_").ToArray()),
                     DateOfBirth = new DateTime(2000, 4, 8),
                     RoleId = 7,
-                    SchoolId = null
+                    SchoolId = null,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -462,7 +493,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil11").ToArray()),
                     DateOfBirth = new DateTime(2004, 9, 25),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -475,7 +507,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil12").ToArray()),
                     DateOfBirth = new DateTime(2004, 7, 7),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -488,7 +521,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil13").ToArray()),
                     DateOfBirth = new DateTime(2004, 8, 28),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -501,7 +535,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil14").ToArray()),
                     DateOfBirth = new DateTime(2004, 1, 20),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -514,7 +549,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil15").ToArray()),
                     DateOfBirth = new DateTime(2004, 5, 10),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -527,7 +563,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil16").ToArray()),
                     DateOfBirth = new DateTime(2004, 11, 10),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -540,7 +577,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil17").ToArray()),
                     DateOfBirth = new DateTime(2004, 4, 8),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -553,7 +591,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil18").ToArray()),
                     DateOfBirth = new DateTime(2004, 5, 12),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -566,7 +605,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil19").ToArray()),
                     DateOfBirth = new DateTime(2004, 9, 6),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -579,7 +619,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("pupil20").ToArray()),
                     DateOfBirth = new DateTime(2004, 5, 6),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -592,7 +633,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher5").ToArray()),
                     DateOfBirth = new DateTime(1979, 5, 6),
                     RoleId = 2,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -605,7 +647,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher6").ToArray()),
                     DateOfBirth = new DateTime(2004, 8, 28),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -618,7 +661,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher7").ToArray()),
                     DateOfBirth = new DateTime(2004, 1, 20),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -631,7 +675,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("teacher8").ToArray()),
                     DateOfBirth = new DateTime(2004, 5, 10),
                     RoleId = 1,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 },
                 new User
                 {
@@ -644,7 +689,8 @@ namespace YPS.Persistence.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("parent100").ToArray()),
                     DateOfBirth = new DateTime(1990,1,1),
                     RoleId = 3,
-                    SchoolId = 2
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 }
             );
         }

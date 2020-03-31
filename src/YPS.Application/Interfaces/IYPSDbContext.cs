@@ -33,7 +33,7 @@ namespace YPS.Application.Interfaces
         DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
         DbSet<Auditorium> Auditoriums { get; set; }
         DbSet<ClassToPupil> ClassesToPupils { get; set; }
-
+        DbSet<ClassToDiscipline> ClassesToDisciplines { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
