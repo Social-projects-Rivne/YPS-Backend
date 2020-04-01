@@ -25,7 +25,6 @@ namespace YPS.Application.Classes.Commands.CreateClass
             private readonly IYPSDbContext _context;
             public CreateClassCommandHandler(IYPSDbContext context)
             {
-               
                 _context = context;
             }
 
