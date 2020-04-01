@@ -34,6 +34,8 @@
 
   <ItemGroup>
     <Folder Include="Disciplines\Commands\" />
+    <Folder Include="Journals\" />
+    <Folder Include="Marks\Queries\GetMarksByJournalColumn\" />
   </ItemGroup>
 
 </Project>
