@@ -5,7 +5,7 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.JournalColumns.Queries.GetJournalColumnsByDisciplineQuery
+namespace YPS.Application.JournalColumns.Queries.GetJournalColumnsByDiscipline
 {
     public class JournalColumnVm : IMapFrom<JournalColumn>
     {

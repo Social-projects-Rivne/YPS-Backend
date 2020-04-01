@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.JournalColumns.Commands.CreateJournalColumn;
-using YPS.Application.JournalColumns.Queries.GetJournalColumnsByDisciplineQuery;
+using YPS.Application.JournalColumns.Queries.GetJournalColumnsByDiscipline;
 
 namespace YPS.WebUI.Controllers
 {

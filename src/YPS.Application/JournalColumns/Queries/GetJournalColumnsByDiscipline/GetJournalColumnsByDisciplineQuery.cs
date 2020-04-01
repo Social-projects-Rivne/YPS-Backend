@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using YPS.Application.Interfaces;
 
-namespace YPS.Application.JournalColumns.Queries.GetJournalColumnsByDisciplineQuery
+namespace YPS.Application.JournalColumns.Queries.GetJournalColumnsByDiscipline
 {
     public class GetJournalColumnsByDisciplineQuery : IRequest<List<JournalColumnVm>>
     {
