@@ -27,6 +27,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.FileProviders;
 
 namespace YPS.WebUI
 {
@@ -154,6 +155,7 @@ namespace YPS.WebUI
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseCors("CorsPolicy");
+           
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

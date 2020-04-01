@@ -17,6 +17,8 @@ namespace YPS.Application.Teachers.Commands.CreateTeacher
         public string Degree { get; set; }
         public long SchoolId { get; set; }
 
+        public DateTime DateOfBirthday { get; set; }
+
         public sealed class CreateTeacherCommandHandler : IRequestHandler<CreateTeacherCommand, CreatedResponse>
         {
             private readonly IYPSDbContext _context;

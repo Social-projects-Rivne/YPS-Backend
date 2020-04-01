@@ -59,7 +59,7 @@ namespace YPS.Infrastructure.Services
                 Email = userPartial.Email,
                 Password = hashedPassword,
                 ImageUrl = "url",
-                DateOfBirth = DateTime.Now,
+                DateOfBirth = userPartial.DateOfBirthday,
                 RoleId = roleId,
                 SchoolId = schoolId
             };
@@ -71,3 +71,4 @@ namespace YPS.Infrastructure.Services
         }
     }
 }
+   

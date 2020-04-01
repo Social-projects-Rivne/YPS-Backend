@@ -18,6 +18,8 @@ namespace YPS.Application.Parents.Commands.CreateParent
         public long PupilId { get; set; }
         public long SchoolId { get; set; }
 
+        public DateTime DateOfBirthday { get; set; }
+
         public sealed class CreateParentCommandHandler : IRequestHandler<CreateParentCommand, CreatedResponse>
         {
             private readonly IYPSDbContext _context;
