@@ -677,6 +677,20 @@ namespace YPS.Persistence.Configurations
                     RoleId = 1,
                     SchoolId = 2,
                     ImageUrl = "../../../assets/images/default-user-image.jpg"
+                },
+                new User
+                {
+                    Id = 46,
+                    FirstName = "Arsen",
+                    Surname = "Testov",
+                    MiddleName = "Arsenovich",
+                    PhoneNumber = "098765780",
+                    Email = "parent100@gmail.com",
+                    Password = Convert.ToBase64String(new PasswordHash("parent100").ToArray()),
+                    DateOfBirth = new DateTime(1990,1,1),
+                    RoleId = 3,
+                    SchoolId = 2,
+                    ImageUrl = "../../../assets/images/default-user-image.jpg"
                 }
             );
         }

@@ -4,9 +4,9 @@ using System.Text;
 using YPS.Application.Mapping;
 using YPS.Domain.Entities;
 
-namespace YPS.Application.Disciplines.Queries.GetAllDiscipline
+namespace YPS.Application.Disciplines.Queries.GetAllDisciplinesBySchool
 {
-    public class DisciplineShortVm : IMapFrom<Discipline>
+    public class DisciplineBySchoolVm : IMapFrom<Discipline>
     {
         public long Id { get; set; }
         public string Name { get; set; }
