@@ -30,7 +30,8 @@ namespace YPS.Persistence.Configurations
                 new Parent { Id = 11, WorkInfo = "WorkInfo parent7" },
                 new Parent { Id = 12, WorkInfo = "WorkInfo parent8" },
                 new Parent { Id = 13, WorkInfo = "WorkInfo parent9" },
-                new Parent { Id = 14, WorkInfo = "WorkInfo parent10" }
+                new Parent { Id = 14, WorkInfo = "WorkInfo parent10" },
+                new Parent { Id = 46, WorkInfo = "Software developer"}
             );
         }
     }

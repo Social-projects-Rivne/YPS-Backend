@@ -11,7 +11,7 @@ namespace YPS.Application.Lessons.Commands.CreateLesson
     public sealed class CreateLessonCommand : IRequest<long>
     {
         public ushort LessonNumber { get; set; }
-        public string LessonDate { get; set; }
+        public DateTime LessonDate { get; set; }
         public string LessonTimeGap { get; set; }
         public long AuditoriumId { get; set; }
         public long DisciplineId { get; set; }
@@ -30,14 +30,12 @@ namespace YPS.Application.Lessons.Commands.CreateLesson
 
             public async Task<long> Handle(CreateLessonCommand request, CancellationToken cancellationToken)
             {
-                DateTime localDate = DateTime.Parse(request.LessonDate);
-
                 Lesson newLesson = new Lesson
                 {
                     ClassId = request.ClassId,
                     DisciplineId = request.DisciplineId,
                     TeacherId = request.TeacherId,
-                    LessonDate = localDate,
+                    LessonDate = request.LessonDate,
                     LessonNumber = request.LessonNumber,
                     LessonTimeGap = request.LessonTimeGap,
                     AuditoriumId = request.AuditoriumId
@@ -55,7 +53,7 @@ namespace YPS.Application.Lessons.Commands.CreateLesson
                                 ClassId = request.ClassId,
                                 DisciplineId = request.DisciplineId,
                                 TeacherId = request.TeacherId,
-                                LessonDate = localDate.AddDays(7 * i),
+                                LessonDate = request.LessonDate.AddDays(7 * i),
                                 LessonNumber = request.LessonNumber,
                                 LessonTimeGap = request.LessonTimeGap,
                                 AuditoriumId = request.AuditoriumId

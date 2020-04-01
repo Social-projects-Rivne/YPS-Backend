@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using YPS.Application.Disciplines.Queries.GetAllDiscipline;
+using YPS.Application.Disciplines.Queries.GetAllDisciplinesBySchool;
+using YPS.Application.Disciplines.Queries.GetDisciplinesByClass;
 using YPS.Application.Disciplines.Queries.GetDisciplinesByTeacher;
 
 namespace YPS.WebUI.Controllers
@@ -17,18 +15,28 @@ namespace YPS.WebUI.Controllers
     {
         [Authorize(Roles = "teacher")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<DisciplineShortVm>>> GetDisciplinesByTeacherAsync()
+        public async Task<ActionResult<List<DisciplineBySchoolVm>>> GetDisciplinesByTeacherAsync()
         {
             long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             return Ok(await Mediator.Send(new GetDisciplinesByTeacherQuery { TeacherId = teacherId }));
         }
 
-        [Authorize(Roles = "head-assistant")]
+        [Authorize(Roles = "head-assistant, pupil, parent")]
         [HttpGet("[action]")]
-        public async Task<ActionResult<List<DisciplineShortVm>>> GetAllDisciplinesAsync()
+        public async Task<ActionResult<List<DisciplineBySchoolVm>>> GetAllDisciplinesBySchoolAsync()
         {
-            return Ok(await Mediator.Send(new GetAllDisciplinesQuery()));
+            long schoolId = long.Parse(User.FindFirstValue(ClaimTypes.GivenName));
+            return Ok(await Mediator.Send(new GetAllDisciplinesBySchoolQuery { SchoolId = schoolId }));
+        }
+
+        [Authorize(Roles = "teacher")]
+        [HttpGet("[action]")]
+        public async Task<ActionResult<GetDisciplineByClassResponse>> GetByClass()
+        {
+            long teacherId = long.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            return Ok(await Mediator.Send(new GetDisciplinesByClassQuery { TeacherId = teacherId }));
         }
     }
 }

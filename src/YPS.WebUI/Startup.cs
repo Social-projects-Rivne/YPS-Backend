@@ -143,7 +143,7 @@ namespace YPS.WebUI
             services.AddApplication();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMailSenderService, MailSenderService>();
-            services.AddTransient<IDateTimeSevice, DateTimeService>();
+            services.AddTransient<IDateTimeService, DateTimeService>();
             services.AddTransient<IScheduleService, ScheduleService>();
         }
 

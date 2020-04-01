@@ -58,7 +58,7 @@ namespace YPS.Application.Pupils.Commands.CreatePupil
                         _context.Pupils.Add(pupil);
                         await _context.SaveChangesAsync(cancellationToken);
 
-                        await _mailSender.SendRegistrationMessage(createdUser.Email,password);
+                        await _mailSender.SendRegistrationMessage(createdUser.Email, password);
 
                     }
                 }
