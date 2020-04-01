@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using YPS.Application.Disciplines.Queries.GetAllDiscipline;
 using YPS.Application.Interfaces;
 
 namespace YPS.Application.Disciplines.Queries.GetDisciplinesByClass
