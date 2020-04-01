@@ -58,7 +58,6 @@ namespace YPS.Infrastructure.Services
                 PhoneNumber = userPartial.PhoneNumber,
                 Email = userPartial.Email,
                 Password = hashedPassword,
-                ImageUrl = "url",
                 DateOfBirth = userPartial.DateOfBirthday,
                 RoleId = roleId,
                 SchoolId = schoolId
