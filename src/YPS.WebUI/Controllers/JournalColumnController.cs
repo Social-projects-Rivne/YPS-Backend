@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YPS.Application.JournalColumns.Commands.CreateJournalColumn;
+using YPS.Application.JournalColumns.Queries.GetJournalColumnsByDisciplineQuery;
 
 namespace YPS.WebUI.Controllers
 {
@@ -18,6 +19,12 @@ namespace YPS.WebUI.Controllers
         {
             var result = await Mediator.Send(command);
             return Ok(result);
+        }
+
+        [HttpGet("{classId}/{disciplineId}")]
+        public async Task<ActionResult<List<JournalColumnVm>>> GetByDiscipline(long classId, long disciplineId)
+        {
+            return Ok(await Mediator.Send(new GetJournalColumnsByDisciplineQuery { ClassId = classId, DisciplineId = disciplineId }));
         }
     }
 }
