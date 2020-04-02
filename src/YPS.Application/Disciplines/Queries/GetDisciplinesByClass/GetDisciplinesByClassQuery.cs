@@ -39,6 +39,7 @@ namespace YPS.Application.Disciplines.Queries.GetDisciplinesByClass
                     List<DisciplineByClassVm> disciplinesList = await _context.ClassesToDisciplines
                         .Where(x => x.ClassId == class_.Id)
                         .ProjectTo<DisciplineByClassVm>(_mapper.ConfigurationProvider)
+                        .OrderBy(x => x.Name)
                         .ToListAsync();
 
                     return new GetDisciplineByClassResponse 

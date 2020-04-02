@@ -31,7 +31,7 @@ namespace YPS.Persistence.Configurations
 
             builder.HasData(
                 new Discipline { Id = 1, SchoolId = 2, Name = "Ukrainian" },
-                new Discipline { Id = 2, SchoolId = 2, Name = "Ukrainian literature" },
+                new Discipline { Id = 2, SchoolId = 2, Name = "Ukrainian Literature" },
                 new Discipline { Id = 3, SchoolId = 2, Name = "English" },
                 new Discipline { Id = 4, SchoolId = 2, Name = "World Literature" },
                 new Discipline { Id = 5, SchoolId = 2, Name = "History of Ukraine" },
