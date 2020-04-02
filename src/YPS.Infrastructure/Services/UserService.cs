@@ -58,7 +58,7 @@ namespace YPS.Infrastructure.Services
                 PhoneNumber = userPartial.PhoneNumber,
                 Email = userPartial.Email,
                 Password = hashedPassword,
-                DateOfBirth = DateTime.Now,
+                DateOfBirth = userPartial.DateOfBirthday,
                 RoleId = roleId,
                 SchoolId = schoolId
             };
@@ -70,3 +70,4 @@ namespace YPS.Infrastructure.Services
         }
     }
 }
+   
