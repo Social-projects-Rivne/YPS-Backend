@@ -28,6 +28,45 @@ namespace YPS.Persistence.Configurations
 
             builder.HasOne(e => e.Homework)
                 .WithMany(e => e.Marks);
+
+            builder.HasData(
+                new Mark()
+                {
+                    Id = 1,
+                    Value = "5",
+                    JournalColumnId = 1,
+                    MarkTypeId = 1,
+                    PupilId = 32,
+                    HomeworkId = null
+                },
+                new Mark()
+                {
+                    Id = 2,
+                    Value = "5",
+                    JournalColumnId = 1,
+                    MarkTypeId = 2,
+                    PupilId = 32,
+                    HomeworkId = null
+                },
+                new Mark()
+                {
+                    Id = 3,
+                    Value = "5",
+                    JournalColumnId = 1,
+                    MarkTypeId = 3,
+                    PupilId = 32,
+                    HomeworkId = null
+                },
+                new Mark()
+                {
+                    Id = 4,
+                    Value = "2",
+                    JournalColumnId = 2,
+                    MarkTypeId = 1,
+                    PupilId = 32,
+                    HomeworkId = null
+                }
+            );
         }
     }
 }
