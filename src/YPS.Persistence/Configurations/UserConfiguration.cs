@@ -360,7 +360,7 @@ namespace YPS.Persistence.Configurations
                 {
                     Id = 23,
                     FirstName = "Bill",
-                    Surname = "Ogon",
+                    Surname = "Yakovlev",
                     MiddleName = "Olegovich",
                     PhoneNumber = "0555689477",
                     Email = "pupil9@gmail.com",
@@ -374,7 +374,7 @@ namespace YPS.Persistence.Configurations
                 {
                     Id = 24,
                     FirstName = "Yura",
-                    Surname = "Sumko",
+                    Surname = "Yakovlev",
                     MiddleName = "Olegovich",
                     PhoneNumber = "0986969659",
                     Email = "pupil10@gmail.com",
