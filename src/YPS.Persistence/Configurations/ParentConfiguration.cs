@@ -21,7 +21,7 @@ namespace YPS.Persistence.Configurations
                 .HasForeignKey<Parent>(e => e.Id);
 
             builder.HasData(
-                new Parent { Id = 5, WorkInfo = "WorkInfo parent1" },
+                new Parent { Id = 5, WorkInfo = "Software Developer in SoftServe" },
                 new Parent { Id = 6, WorkInfo = "WorkInfo parent2" },
                 new Parent { Id = 7, WorkInfo = "WorkInfo parent3" },
                 new Parent { Id = 8, WorkInfo = "WorkInfo parent4" },
