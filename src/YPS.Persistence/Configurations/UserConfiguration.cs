@@ -528,8 +528,8 @@ namespace YPS.Persistence.Configurations
                 {
                     Id = 35,
                     FirstName = "Karina",
-                    Surname = "Pruvarskia",
-                    MiddleName = "Petriivna",
+                    Surname = "Yakovleva",
+                    MiddleName = "Andrievna",
                     PhoneNumber = "0986969659",
                     Email = "pupil14@gmail.com",
                     Password = Convert.ToBase64String(new PasswordHash("pupil14").ToArray()),
@@ -569,9 +569,9 @@ namespace YPS.Persistence.Configurations
                 new User
                 {
                     Id = 38,
-                    FirstName = "Misha",
-                    Surname = "Hubin",
-                    MiddleName = "Nazarovich",
+                    FirstName = "Mihailo",
+                    Surname = "Yakovlev",
+                    MiddleName = "Andriyovich",
                     PhoneNumber = "096878318",
                     Email = "pupil17@gmail.com",
                     Password = Convert.ToBase64String(new PasswordHash("pupil17").ToArray()),
@@ -612,7 +612,7 @@ namespace YPS.Persistence.Configurations
                 {
                     Id = 41,
                     FirstName = "Anton",
-                    Surname = "Kozack",
+                    Surname = "Yakovlev",
                     MiddleName = "Andriyovich",
                     PhoneNumber = "050878563",
                     Email = "pupil20@gmail.com",
@@ -681,9 +681,9 @@ namespace YPS.Persistence.Configurations
                 new User
                 {
                     Id = 46,
-                    FirstName = "Arsen",
-                    Surname = "Testov",
-                    MiddleName = "Arsenovich",
+                    FirstName = "Andriy",
+                    Surname = "Yakovlev",
+                    MiddleName = "Tarasovich",
                     PhoneNumber = "098765780",
                     Email = "parent100@gmail.com",
                     Password = Convert.ToBase64String(new PasswordHash("parent100").ToArray()),
