@@ -66,6 +66,28 @@ namespace YPS.Persistence.Configurations
                     Date = DateTime.MaxValue,
                     ScheduledDate = DateTime.Now.AddDays(3),
                     TeacherId = 43
+                },
+                new UpcomingTest
+                {
+                    Id = 4,
+                    TestType = "Test",
+                    Topic = "Calculating Power of TurboPapichPortal2",
+                    ClassId = 5,
+                    DisciplineId = 3,
+                    Date = DateTime.Now,
+                    ScheduledDate = DateTime.Now.AddDays(3),
+                    TeacherId = 42
+                },
+                new UpcomingTest
+                {
+                    Id = 5,
+                    TestType = "General test",
+                    Topic = "Course work",
+                    ClassId = 5,
+                    DisciplineId = 13,
+                    Date = DateTime.Now,
+                    ScheduledDate = DateTime.Now.AddDays(3),
+                    TeacherId = 42
                 });
         }
     }
