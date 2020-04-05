@@ -52,7 +52,7 @@ namespace YPS.Persistence.Configurations
                     Topic = "Calculating Power of TurboPapichPortal2",
                     ClassId = 4,
                     DisciplineId = 7,
-                    Date = DateTime.MaxValue,
+                    Date = DateTime.Now,
                     ScheduledDate = DateTime.Now.AddDays(3),
                     TeacherId = 4
                 },
@@ -63,7 +63,7 @@ namespace YPS.Persistence.Configurations
                     Topic = "Course work",
                     ClassId = 5,
                     DisciplineId = 18,
-                    Date = DateTime.MaxValue,
+                    Date = DateTime.Now,
                     ScheduledDate = DateTime.Now.AddDays(3),
                     TeacherId = 43
                 },
@@ -71,7 +71,7 @@ namespace YPS.Persistence.Configurations
                 {
                     Id = 4,
                     TestType = "Test",
-                    Topic = "Calculating Power of TurboPapichPortal2",
+                    Topic = "Basics of subject",
                     ClassId = 5,
                     DisciplineId = 3,
                     Date = DateTime.Now,

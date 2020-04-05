@@ -42,7 +42,7 @@ namespace YPS.Persistence.Configurations
                     Name = "High school 'Smile' of New-York",
                     ShortName = "HS 'Smile'",
                     Address = "Rockaway Boulevard",
-                    Locality = "New yourk",
+                    Locality = "New york",
                     Email = "smileschool@gmail.com"
                 }
             );
